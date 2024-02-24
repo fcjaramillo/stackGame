@@ -23,9 +23,9 @@ List<RecipeModel> recipes = <RecipeModel>[
   RecipeModel(
     id: 2,
     cards: <CardModel>[
-      cards[0],
-      cards[2],
-      cards[4],
+      cards[1],
+      cards[3],
+      cards[5],
     ],
     time: 3,
   ),

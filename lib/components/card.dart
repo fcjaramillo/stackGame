@@ -19,7 +19,7 @@ class CardComponent extends SpriteComponent
   }
 
   void moveCard(Vector2 position) {
-    position = position;
+    this.position = position;
   }
 
   @override
@@ -70,8 +70,17 @@ class CardComponent extends SpriteComponent
       if (move) {
         _debouncer.run(() {
           if (!move) {
-            position =
-                Vector2(other.position.x, other.position.y + size.y * 0.15);
+            int stackIndex = cardInStack(other);
+            if (stackIndex == -1) {
+              position =
+                  Vector2(other.position.x, other.position.y + size.y * 0.15);
+              game.stacks.add(StackComponent(
+                cards: [other, this],
+                game: game,
+              ));
+            } else {
+              game.stacks[stackIndex].addCard(this);
+            }
           }
         });
       }
@@ -99,4 +108,7 @@ class CardComponent extends SpriteComponent
       }
     }
   }
+
+  int cardInStack(CardComponent card) =>
+      game.stacks.indexWhere((e) => e.cards.contains(card));
 }
