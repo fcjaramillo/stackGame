@@ -68,25 +68,27 @@ class _GameAppState extends State<GameApp> {
                           handicap: game.handicap,
                         ),
                         Expanded(
-                          child: GameWidget(
-                            game: game,
-                            overlayBuilderMap: {
-                              PlayState.welcome.name: (context, game) =>
-                                  const OverlayScreen(
-                                    title: 'TAP TO PLAY',
-                                    subtitle: 'Use arrow keys or swipe',
-                                  ),
-                              PlayState.gameOver.name: (context, game) =>
-                                  const OverlayScreen(
-                                    title: 'G A M E   O V E R',
-                                    subtitle: 'Tap to Play Again',
-                                  ),
-                              PlayState.won.name: (context, game) =>
-                                  const OverlayScreen(
-                                    title: 'Y O U   W O N ! ! !',
-                                    subtitle: 'Tap to Play Again',
-                                  ),
-                            },
+                          child: ClipRRect(
+                            child: GameWidget(
+                              game: game,
+                              overlayBuilderMap: {
+                                PlayState.welcome.name: (context, game) =>
+                                    const OverlayScreen(
+                                      title: 'TAP TO PLAY',
+                                      subtitle: 'Use arrow keys or swipe',
+                                    ),
+                                PlayState.gameOver.name: (context, game) =>
+                                    const OverlayScreen(
+                                      title: 'G A M E   O V E R',
+                                      subtitle: 'Tap to Play Again',
+                                    ),
+                                PlayState.won.name: (context, game) =>
+                                    const OverlayScreen(
+                                      title: 'Y O U   W O N ! ! !',
+                                      subtitle: 'Tap to Play Again',
+                                    ),
+                              },
+                            ),
                           ),
                         ),
                       ],

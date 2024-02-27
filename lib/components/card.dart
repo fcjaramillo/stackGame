@@ -1,11 +1,40 @@
 part of 'components.dart';
 
 class CardComponent extends SpriteComponent
-    with CollisionCallbacks, DragCallbacks, HasGameReference<StackGame> {
+    with CollisionCallbacks, DragCallbacks, HasGameReference<StackGame>
+    implements TickerProvider {
   final CardModel card;
   bool move = false;
   double time = 0.0;
   final _debouncer = Debouncer(milliseconds: 10);
+  late AnimationController _animationController;
+  late Animation<double> _flipAnimation;
+
+  flippingCard() {
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+
+    _flipAnimation =
+        Tween<double>(begin: 0, end: 1).animate(_animationController);
+  }
+
+  void startFlip() {
+    _animationController.forward(from: 0);
+  }
+
+  @override
+  void render(Canvas canvas) {
+    //double rotateY = _flipAnimation.value * 3.14159;
+    //final float = canvas.getTransform();
+
+    //canvas.scale(_flipAnimation.value, _flipAnimation.value);
+    //position = position + position.normalized() * _flipAnimation.value;
+
+    sprite?.render(canvas, size: size);
+    super.render(canvas);
+  }
 
   CardComponent({required this.card, required super.position})
       : super(
@@ -38,6 +67,8 @@ class CardComponent extends SpriteComponent
 
   @override
   FutureOr<void> onLoad() async {
+    flippingCard();
+    startFlip();
     sprite = await Sprite.load('cards/${card.id}.png');
     return super.onLoad();
   }
@@ -215,4 +246,7 @@ class CardComponent extends SpriteComponent
 
   int cardInStack(CardComponent card) =>
       game.stacks.indexWhere((e) => e.cards.contains(card));
+
+  @override
+  Ticker createTicker(TickerCallback onTick) => Ticker(onTick);
 }
