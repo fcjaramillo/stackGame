@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flame/components.dart';
+import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/foundation.dart';
 import 'package:stack/const.dart';
@@ -10,7 +11,7 @@ import 'data/data.dart';
 
 enum PlayState { welcome, playing, gameOver, won }
 
-class StackGame extends FlameGame with HasCollisionDetection {
+class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
   final ValueNotifier<int> score = ValueNotifier(0);
   final ValueNotifier<int> coin = ValueNotifier(10);
   final ValueNotifier<int> health = ValueNotifier(0);
@@ -43,7 +44,7 @@ class StackGame extends FlameGame with HasCollisionDetection {
 
     world.add(SellComponent(position: Vector2(10, 10)));
 
-    world.add(
+    add(
       GameTime(
         size: Vector2(barTimerWidth, 25),
         position: Vector2(width - barTimerWidth - 20, 10),
@@ -73,5 +74,14 @@ class StackGame extends FlameGame with HasCollisionDetection {
     }
 
     return super.onLoad();
+  }
+
+  @override
+  void onScroll(PointerScrollInfo info) {
+    const zoomPerScrollUnit = 0.2;
+    camera.viewfinder.zoom +=
+        info.scrollDelta.global.y.sign * zoomPerScrollUnit;
+    camera.viewfinder.zoom = camera.viewfinder.zoom.clamp(0.5, 1.5);
+    super.onScroll(info);
   }
 }
