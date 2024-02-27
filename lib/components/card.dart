@@ -15,11 +15,25 @@ class CardComponent extends SpriteComponent
           ),
           children: [RectangleHitbox()],
         ) {
-    debugMode = true;
+    debugMode = false;
   }
 
   void moveCard(Vector2 position) {
     this.position = position;
+  }
+
+  void changePriority(int p) {
+    priority = p;
+  }
+
+  void finishDay() {
+    game.health.value = card.newHealth(game.health.value);
+    game.food.value = card.newFood(game.food.value);
+    game.oxygen.value = card.newOxygen(game.oxygen.value);
+    game.carbonFootprint.value =
+        card.newCarbonFootprint(game.carbonFootprint.value);
+    game.energy.value = card.newEnergy(game.energy.value);
+    game.handicap.value = card.newHandicap(game.handicap.value);
   }
 
   @override
@@ -31,15 +45,45 @@ class CardComponent extends SpriteComponent
   @override
   void onDragStart(DragStartEvent event) {
     super.onDragStart(event);
+
+    for (StackComponent s in game.stacks) {
+      if (s.cards.length == 1) {
+        game.stacks.remove(s);
+      }
+    }
     move = true;
-    priority = 10;
+    int stackIndex = cardInStack(this);
+    if (stackIndex == -1) {
+      priority = 10;
+    } else {
+      List<CardComponent> cards = game.stacks[stackIndex].separateStack(this);
+      for (StackComponent s in game.stacks) {
+        if (s.cards.length <= 1) {
+          game.stacks.remove(s);
+        }
+      }
+      for (CardComponent c in cards) {
+        c.changePriority(10);
+      }
+      if (cards.length > 1) {
+        game.stacks.add(StackComponent(cards: cards, game: game));
+      }
+    }
   }
 
   @override
   void onDragEnd(DragEndEvent event) {
     super.onDragEnd(event);
     move = false;
-    priority = 0;
+    int stackIndex = cardInStack(this);
+    if (stackIndex == -1) {
+      priority = 0;
+    } else {
+      priority = 0;
+      for (CardComponent c in game.stacks[stackIndex].cards) {
+        c.changePriority(0);
+      }
+    }
   }
 
   @override
@@ -60,6 +104,16 @@ class CardComponent extends SpriteComponent
       position = Vector2(position.x,
           (game.height / game.camera.viewfinder.zoom) - size.y - 10);
     }
+    if (move) {
+      int stackIndex = cardInStack(this);
+      if (stackIndex != -1) {
+        for (CardComponent c in game.stacks[stackIndex].cards) {
+          if (c != this) {
+            c.onDragUpdate(event);
+          }
+        }
+      }
+    }
   }
 
   @override
@@ -70,16 +124,55 @@ class CardComponent extends SpriteComponent
       if (move) {
         _debouncer.run(() {
           if (!move) {
-            int stackIndex = cardInStack(other);
-            if (stackIndex == -1) {
-              position =
-                  Vector2(other.position.x, other.position.y + size.y * 0.15);
+            int stackIndexThis = cardInStack(this);
+            int stackIndexOther = cardInStack(other);
+            if (stackIndexOther == -1 && stackIndexThis == -1) {
+              position = Vector2(
+                other.position.x,
+                other.position.y + (size.y * 0.15),
+              );
+              game.stacks.add(
+                StackComponent(
+                  cards: [other, this],
+                  game: game,
+                ),
+              );
+            } else if (stackIndexOther == -1 && stackIndexThis != -1) {
+              for (int i = 0;
+                  i < game.stacks[stackIndexThis].cards.length;
+                  i++) {
+                game.stacks[stackIndexThis].cards[i].position = Vector2(
+                  other.position.x,
+                  other.position.y + ((size.y * 0.15) * (i + 1)),
+                );
+              }
               game.stacks.add(StackComponent(
-                cards: [other, this],
+                cards: [other, ...game.stacks[stackIndexThis].cards],
                 game: game,
               ));
-            } else {
-              game.stacks[stackIndex].addCard(this);
+              game.stacks.last.findRecipe();
+              game.stacks.remove(game.stacks[stackIndexThis]);
+            } else if (stackIndexOther != -1 && stackIndexThis == -1) {
+              game.stacks[stackIndexOther].addCard(this);
+            } else if (stackIndexOther != -1 &&
+                stackIndexThis != -1 &&
+                stackIndexThis != stackIndexOther) {
+              Vector2 lastPosition =
+                  game.stacks[stackIndexOther].cards.last.position;
+              for (int i = 0;
+                  i < game.stacks[stackIndexThis].cards.length;
+                  i++) {
+                game.stacks[stackIndexThis].cards[i].position = Vector2(
+                  lastPosition.x,
+                  lastPosition.y + ((size.y * 0.15) * (i + 1)),
+                );
+              }
+              for (CardComponent cardThis
+                  in game.stacks[stackIndexThis].cards) {
+                game.stacks[stackIndexOther].cards.add(cardThis);
+              }
+              game.stacks.last.findRecipe();
+              game.stacks.remove(game.stacks[stackIndexThis]);
             }
           }
         });
@@ -94,15 +187,26 @@ class CardComponent extends SpriteComponent
               List<CardModel> newCards = pack.generateCards();
               newCards.map((CardModel card) => {});
               for (CardModel card in newCards) {
-                game.world.add(CardComponent(
-                  card: card,
-                  position: Vector2(
-                    position.x + (50 * card.id),
-                    position.y + (50 * card.id),
+                game.world.add(
+                  CardComponent(
+                    card: card,
+                    position: Vector2(
+                      position.x + (50 * card.id),
+                      position.y + (50 * card.id),
+                    ),
                   ),
-                ));
+                );
               }
             }
+          }
+        });
+      }
+    } else if (other is SellComponent) {
+      if (move) {
+        _debouncer.run(() {
+          if (!move) {
+            game.coin.value += card.prize;
+            game.world.remove(this);
           }
         });
       }

@@ -4,6 +4,8 @@ class StackComponent {
   final List<CardComponent> cards;
   final FlameGame game;
 
+  StackTime? linearComponent;
+
   StackComponent({
     required this.cards,
     required this.game,
@@ -12,25 +14,36 @@ class StackComponent {
   void addCard(CardComponent card) {
     card.moveCard(Vector2(
       cards.last.position.x,
-      cards.last.position.y * 1.15,
+      cards.last.position.y + (cardHeight * 0.15),
     ));
     cards.add(card);
-    double time = findRecipe();
-    if (time != -1) {
-      game.world.add(
-        LinearTime(
-          size: Vector2(cardWidth, barTimerHeight),
-          position: Vector2(
-            cards.first.position.x,
-            cards.first.position.y - barTimerHeight - 10,
-          ),
-          totalTime: time,
+    searchRecipe();
+  }
+
+  void searchRecipe() {
+    RecipeModel? recipe = findRecipe();
+    if (linearComponent != null) {
+      game.world.remove(linearComponent!);
+    }
+    if (recipe != null && recipe.time != -1) {
+      linearComponent = StackTime(
+        size: Vector2(cardWidth - 10, barTimerHeight),
+        position: Vector2(
+          cards.first.position.x,
+          cards.first.position.y - barTimerHeight - 10,
         ),
+        totalTime: recipe.time,
+        stack: this,
+        createCard: recipe.create ?? [],
+        removeCard: recipe.remove ?? [],
       );
+      game.world.add(linearComponent!);
+    } else {
+      linearComponent = null;
     }
   }
 
-  double findRecipe() {
+  RecipeModel? findRecipe() {
     for (int i = 0; i < recipes.length; i++) {
       List<int> stackA = recipes[i].cards.map((CardModel c) => c.id).toList()
         ..sort();
@@ -38,9 +51,21 @@ class StackComponent {
         ..sort();
 
       if (listEquals(stackA, stackB)) {
-        return recipes[i].time;
+        return recipes[i];
       }
     }
-    return -1;
+    return null;
+  }
+
+  List<CardComponent> separateStack(CardComponent card) {
+    int index = cards.indexOf(card);
+    List firstList = cards.sublist(index);
+    cards.removeRange(index, cards.length);
+    searchRecipe();
+    return firstList as List<CardComponent>;
+  }
+
+  void removeCard(CardComponent card) {
+    cards.remove(card);
   }
 }

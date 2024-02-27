@@ -5,13 +5,13 @@ class SellComponent extends RectangleComponent
   SellComponent({
     required super.position,
   }) : super(
-          paint: Paint()..color = Color.fromARGB(255, 24, 21, 211),
+          paint: Paint()..color = const Color.fromARGB(255, 24, 21, 211),
           children: [RectangleHitbox()],
         );
 
   @override
   FutureOr<void> onLoad() async {
     super.onLoad();
-    size = Vector2(150, 170);
+    size = Vector2(cardWidth, cardHeight);
   }
 }

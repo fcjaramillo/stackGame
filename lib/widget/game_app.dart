@@ -33,38 +33,41 @@ class _GameAppState extends State<GameApp> {
         ),
       ),
       home: Scaffold(
-        body: Container(
+        body: DecoratedBox(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
                 Color(0xffa9d6e5),
-                Color(0xfff2e8cf),
+                Color(0xffa9d6e5),
               ],
             ),
           ),
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(16),
-              child: Center(
-                child: Column(
-                  children: [
-                    ScoreCard(
-                      score: game.score,
-                      coin: game.coin,
-                      health: game.health,
-                      food: game.food,
-                      oxygen: game.oxygen,
-                      carbonFootprint: game.carbonFootprint,
-                      energy: game.energy,
-                      handicap: game.handicap,
-                    ),
-                    Expanded(
-                      child: FittedBox(
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.9,
-                          height: MediaQuery.of(context).size.height * 0.8,
+              child: Row(
+                children: [
+                  const Expanded(
+                    flex: 1,
+                    child: SizedBox(),
+                  ),
+                  Expanded(
+                    flex: 5,
+                    child: Column(
+                      children: [
+                        ScoreCard(
+                          score: game.score,
+                          coin: game.coin,
+                          health: game.health,
+                          food: game.food,
+                          oxygen: game.oxygen,
+                          carbonFootprint: game.carbonFootprint,
+                          energy: game.energy,
+                          handicap: game.handicap,
+                        ),
+                        Expanded(
                           child: GameWidget(
                             game: game,
                             overlayBuilderMap: {
@@ -86,10 +89,10 @@ class _GameAppState extends State<GameApp> {
                             },
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

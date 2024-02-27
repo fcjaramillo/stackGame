@@ -41,25 +41,32 @@ class StackGame extends FlameGame with HasCollisionDetection {
 
     world.onGameResize(Vector2(width, height));
 
+    world.add(SellComponent(position: Vector2(10, 10)));
+
     world.add(
-      PackComponent(
-        pack: packs[0],
-        position: Vector2(10, 10),
+      GameTime(
+        size: Vector2(barTimerWidth, 25),
+        position: Vector2(width - barTimerWidth - 20, 10),
+        totalTime: timeDay,
       ),
     );
 
-    world.add(LinearTime(
-      size: Vector2(barTimerWidth, 25),
-      position: Vector2(width - barTimerWidth - 20, 10),
-      totalTime: timeDay,
-    ));
+    for (int i = 0; i < packs.length; i++) {
+      world.add(
+        PackComponent(
+          pack: packs[i],
+          position: Vector2(cardWidth * 2 * (i + 1) + 30, 10),
+        ),
+      );
+    }
 
     for (int i = 1; i <= 3; i++) {
       for (int j = 1; j <= 3; j++) {
         world.add(
           CardComponent(
             card: cards[(i * j * 2) - 1],
-            position: Vector2(i * 100 + 200, j * 100),
+            position:
+                Vector2((cardWidth + 10) * i, ((cardHeight + 10) * j) + 15),
           ),
         );
       }

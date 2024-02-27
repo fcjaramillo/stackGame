@@ -28,5 +28,12 @@ List<RecipeModel> recipes = <RecipeModel>[
       cards[5],
     ],
     time: 3,
+    remove: <CardModel>[
+      cards[3],
+      cards[5],
+    ],
+    create: <CardModel>[
+      cards[0],
+    ],
   ),
 ];
