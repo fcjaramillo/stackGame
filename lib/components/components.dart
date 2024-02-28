@@ -1,6 +1,7 @@
 library com.stack.components;
 
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
@@ -9,7 +10,6 @@ import 'package:flame/extensions.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:stack/const.dart';
 
 import '../data/data.dart';
@@ -23,3 +23,4 @@ part 'play_area.dart';
 part 'linear_time.dart';
 part 'sell.dart';
 part 'stack.dart';
+part 'vegetation.dart';

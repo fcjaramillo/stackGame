@@ -1,43 +1,24 @@
 part of 'components.dart';
 
 class CardComponent extends SpriteComponent
-    with CollisionCallbacks, DragCallbacks, HasGameReference<StackGame>
-    implements TickerProvider {
+    with CollisionCallbacks, DragCallbacks, HasGameReference<StackGame> {
   final CardModel card;
   bool move = false;
   double time = 0.0;
   final _debouncer = Debouncer(milliseconds: 10);
-  late AnimationController _animationController;
-  late Animation<double> _flipAnimation;
+  double animationTime = 0;
+  bool activeAnimation;
+  Vector2 animationDelta;
+  late double deltaX;
+  late double deltaY;
 
-  flippingCard() {
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-
-    _flipAnimation =
-        Tween<double>(begin: 0, end: 1).animate(_animationController);
-  }
-
-  void startFlip() {
-    _animationController.forward(from: 0);
-  }
-
-  @override
-  void render(Canvas canvas) {
-    //double rotateY = _flipAnimation.value * 3.14159;
-    //final float = canvas.getTransform();
-
-    //canvas.scale(_flipAnimation.value, _flipAnimation.value);
-    //position = position + position.normalized() * _flipAnimation.value;
-
-    sprite?.render(canvas, size: size);
-    super.render(canvas);
-  }
-
-  CardComponent({required this.card, required super.position})
-      : super(
+  CardComponent({
+    required this.card,
+    required super.position,
+    this.activeAnimation = false,
+    Vector2? animationDelta,
+  })  : animationDelta = animationDelta ?? Vector2(45, 100),
+        super(
           size: Vector2(
             cardWidth,
             cardHeight,
@@ -45,6 +26,8 @@ class CardComponent extends SpriteComponent
           children: [RectangleHitbox()],
         ) {
     debugMode = false;
+    deltaX = this.animationDelta.x / 45;
+    deltaY = this.animationDelta.y / 15;
   }
 
   void moveCard(Vector2 position) {
@@ -67,10 +50,22 @@ class CardComponent extends SpriteComponent
 
   @override
   FutureOr<void> onLoad() async {
-    flippingCard();
-    startFlip();
     sprite = await Sprite.load('cards/${card.id}.png');
     return super.onLoad();
+  }
+
+  @override
+  void update(double dt) {
+    if (activeAnimation && animationTime < newCardAnimationDuration) {
+      animationTime += dt;
+      position += Vector2(
+        0.68 * deltaX,
+        1.7 *
+            bounceAnimation(animationTime / newCardAnimationDuration) *
+            deltaY,
+      );
+    }
+    super.update(dt);
   }
 
   @override
@@ -216,15 +211,14 @@ class CardComponent extends SpriteComponent
             if (game.coin.value >= pack.cost) {
               game.coin.value -= pack.cost;
               List<CardModel> newCards = pack.generateCards();
-              newCards.map((CardModel card) => {});
-              for (CardModel card in newCards) {
+              for (int i = 0; i < newCards.length; i++) {
+                final card = newCards[i];
                 game.world.add(
                   CardComponent(
                     card: card,
-                    position: Vector2(
-                      position.x + (50 * card.id),
-                      position.y + (50 * card.id),
-                    ),
+                    position: other.position + other.size / 2,
+                    activeAnimation: true,
+                    animationDelta: getAnimationDelta(i),
                   ),
                 );
               }
@@ -247,6 +241,36 @@ class CardComponent extends SpriteComponent
   int cardInStack(CardComponent card) =>
       game.stacks.indexWhere((e) => e.cards.contains(card));
 
-  @override
-  Ticker createTicker(TickerCallback onTick) => Ticker(onTick);
+  Vector2 getAnimationDelta(int i) {
+    double deltaX = 50;
+    double deltaY = 30;
+    if (i == 0 || i == 1) {
+      deltaY = 90;
+    }
+    if (i == 1) {
+      deltaX = -70;
+    } else if (i == 2) {
+      deltaX = 140;
+    } else if (i == 3) {
+      deltaX = -240;
+    }
+
+    return Vector2(
+      deltaX,
+      deltaY,
+    );
+  }
+}
+
+double bounceAnimation(double x) {
+  if (x < 0.15) {
+    return -12 * (0.15 - x);
+  } else if (x < 0.3) {
+    return 20 * (x - 0.15);
+  } else if (x < 0.65) {
+    return 15 * (x - 0.475);
+  } else if (x < 1) {
+    return 10 * (x - 0.825);
+  }
+  return 0;
 }
