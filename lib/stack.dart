@@ -22,6 +22,12 @@ class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
   final ValueNotifier<double> handicap = ValueNotifier(0);
 
   List<StackComponent> stacks = [];
+  PlayAreaComponent playArea = PlayAreaComponent();
+  GameTime gameTime = GameTime(
+    size: Vector2.zero(),
+    position: Vector2.zero(),
+    totalTime: 0,
+  );
 
   StackGame();
 
@@ -29,28 +35,41 @@ class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
   double get height => size.y;
 
   @override
+  void onGameResize(Vector2 size) {
+    Future.delayed(
+      const Duration(microseconds: 0),
+      () {
+        gameTime.position = Vector2(width - barTimerWidth - 20, 10);
+        playArea.size = size;
+      },
+    );
+    super.onGameResize(size);
+  }
+
+  @override
   FutureOr<void> onLoad() async {
     add(CameraComponent.withFixedResolution(
       width: width,
       height: height,
     ));
+
+    playArea = PlayAreaComponent();
+    gameTime = GameTime(
+      size: Vector2(barTimerWidth, 25),
+      position: Vector2(width - barTimerWidth - 20, 10),
+      totalTime: timeDay,
+    );
+
+    add(playArea);
+    add(gameTime);
+
     await images.loadAllImages();
 
     camera.viewfinder.anchor = Anchor.topLeft;
 
-    add(PlayAreaComponent());
-
     world.onGameResize(Vector2(width, height));
 
     world.add(SellComponent(position: Vector2(10, 10)));
-
-    add(
-      GameTime(
-        size: Vector2(barTimerWidth, 25),
-        position: Vector2(width - barTimerWidth - 20, 10),
-        totalTime: timeDay,
-      ),
-    );
 
     for (int i = 0; i < packs.length; i++) {
       world.add(

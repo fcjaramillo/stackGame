@@ -4,19 +4,66 @@ class PlayAreaComponent extends RectangleComponent
     with HasGameReference<StackGame>, DragCallbacks {
   PlayAreaComponent()
       : super(
-          paint: Paint()..color = Color.fromARGB(255, 48, 190, 55),
           children: [RectangleHitbox()],
         );
 
   @override
   FutureOr<void> onLoad() async {
     super.onLoad();
+    final random = Random();
     size = Vector2(game.width, game.height);
+    _loadBackground(random);
   }
 
   @override
   void onDragUpdate(DragUpdateEvent event) {
     game.camera.viewfinder.position -= event.localDelta;
+    game.camera.viewfinder.position = Vector2(
+      game.camera.viewfinder.position.x.clamp(minCameraX, maxCameraX),
+      game.camera.viewfinder.position.y.clamp(minCameraY, maxCameraY),
+    );
     super.onDragUpdate(event);
+  }
+
+  void _loadBackground(Random random) {
+    Future.delayed(
+      const Duration(microseconds: 500),
+      () {
+        for (int x = -1; x < 24; x++) {
+          for (int y = -1; y < 16; y++) {
+            Vector2 currentPosition = position +
+                Vector2(
+                      x.toDouble(),
+                      y.toDouble(),
+                    ) *
+                    vegetationSide;
+
+            game.world.add(
+              VegetationComponent.grass(
+                position: currentPosition,
+              ),
+            );
+            final value = random.nextInt(100);
+            if (value < 2) {
+              game.world.add(
+                VegetationComponent(
+                  type: random.nextInt(2),
+                  scaleFactor: random.nextDouble() * 0.2 + 0.35,
+                  position: currentPosition,
+                ),
+              );
+            } else if (value < 8) {
+              game.world.add(
+                VegetationComponent(
+                  type: random.nextInt(6) + 2,
+                  scaleFactor: random.nextDouble() * 0.9 + 0.5,
+                  position: currentPosition,
+                ),
+              );
+            }
+          }
+        }
+      },
+    );
   }
 }
