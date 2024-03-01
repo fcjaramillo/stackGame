@@ -19,8 +19,8 @@ class PlayAreaComponent extends RectangleComponent
   void onDragUpdate(DragUpdateEvent event) {
     game.camera.viewfinder.position -= event.localDelta;
     game.camera.viewfinder.position = Vector2(
-      game.camera.viewfinder.position.x.clamp(minCameraX, maxCameraX),
-      game.camera.viewfinder.position.y.clamp(minCameraY, maxCameraY),
+      game.camera.viewfinder.position.x.clamp(kMinCameraX, kMaxCameraX),
+      game.camera.viewfinder.position.y.clamp(kMinCameraY, kMaxCameraY),
     );
     super.onDragUpdate(event);
   }
@@ -29,14 +29,14 @@ class PlayAreaComponent extends RectangleComponent
     Future.delayed(
       const Duration(microseconds: 500),
       () {
-        for (int x = -1; x < 24; x++) {
-          for (int y = -1; y < 16; y++) {
+        for (int x = -1; x < 3; x++) {
+          for (int y = -1; y < 4; y++) {
             Vector2 currentPosition = position +
                 Vector2(
                       x.toDouble(),
                       y.toDouble(),
                     ) *
-                    vegetationSide;
+                    kVegetationSide;
 
             game.world.add(
               VegetationComponent.grass(

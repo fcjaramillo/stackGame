@@ -16,6 +16,9 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
   FutureOr<void> onLoad() async {
     super.onLoad();
     size = Vector2(size.x + 10, size.y + 10);
+    if (this is GameTime) {
+      priority = 100;
+    }
   }
 
   @override
@@ -31,7 +34,7 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
           card.finishDay();
         });
       } else if (this is StackTime) {
-        finishDay(stackTime: this as StackTime);
+        finishTime(stackTime: this as StackTime);
       }
     }
   }
@@ -46,7 +49,7 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
     canvas.drawRect(rect, paint);
   }
 
-  void finishDay({
+  void finishTime({
     required StackTime stackTime,
   }) {
     for (int i = 0; i < stackTime.removeCard.length; i++) {
@@ -63,6 +66,7 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
             (position.x + 100) * (i + 1),
             (position.y + 100) * (i + 1),
           ),
+          activeAnimation: true,
         ),
       );
     }

@@ -9,7 +9,7 @@ class VegetationComponent extends SpriteComponent {
     required this.scaleFactor,
     super.position,
   }) : super(
-          size: Vector2.all(vegetationSide * scaleFactor),
+          size: Vector2.all(kVegetationSide * scaleFactor),
           priority: -1,
         );
 
@@ -17,7 +17,7 @@ class VegetationComponent extends SpriteComponent {
     super.position,
   })  : type = 8,
         scaleFactor = 1.2 {
-    size = Vector2.all(vegetationSide * scaleFactor);
+    size = Vector2.all(kVegetationSide * scaleFactor);
     priority = -2;
   }
 

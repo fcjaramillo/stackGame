@@ -12,6 +12,6 @@ class SellComponent extends RectangleComponent
   @override
   FutureOr<void> onLoad() async {
     super.onLoad();
-    size = Vector2(cardWidth, cardHeight);
+    size = Vector2(kCardWidth, kCardHeight);
   }
 }

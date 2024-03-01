@@ -14,7 +14,7 @@ class StackComponent {
   void addCard(CardComponent card) {
     card.moveCard(Vector2(
       cards.last.position.x,
-      cards.last.position.y + (cardHeight * 0.15),
+      cards.last.position.y + (kCardHeight * 0.15),
     ));
     cards.add(card);
     searchRecipe();
@@ -27,10 +27,10 @@ class StackComponent {
     }
     if (recipe != null && recipe.time != -1) {
       linearComponent = StackTime(
-        size: Vector2(cardWidth - 10, barTimerHeight),
+        size: Vector2(kCardWidth - 10, kBarTimerHeight),
         position: Vector2(
           cards.first.position.x,
-          cards.first.position.y - barTimerHeight - 10,
+          cards.first.position.y - kBarTimerHeight - 10,
         ),
         totalTime: recipe.time,
         stack: this,

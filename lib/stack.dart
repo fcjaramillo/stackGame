@@ -5,6 +5,7 @@ import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/foundation.dart';
 import 'package:stack/const.dart';
+import 'package:stack/models/models.dart';
 
 import 'components/components.dart';
 import 'data/data.dart';
@@ -13,13 +14,18 @@ enum PlayState { welcome, playing, gameOver, won }
 
 class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
   final ValueNotifier<int> score = ValueNotifier(0);
+  final ValueNotifier<int> card = ValueNotifier(0);
+  final ValueNotifier<int> cardMax = ValueNotifier(kCardsInitial);
   final ValueNotifier<int> coin = ValueNotifier(10);
-  final ValueNotifier<int> health = ValueNotifier(0);
+  final ValueNotifier<int> health = ValueNotifier(kHealtInitial);
   final ValueNotifier<int> food = ValueNotifier(0);
-  final ValueNotifier<double> oxygen = ValueNotifier(0);
-  final ValueNotifier<double> carbonFootprint = ValueNotifier(0);
+  final ValueNotifier<int> foodMax = ValueNotifier(0);
+  final ValueNotifier<double> oxygen = ValueNotifier(kOxygenInitial);
+  final ValueNotifier<double> carbonFootprint =
+      ValueNotifier(kCarbonFootprintInitial);
   final ValueNotifier<int> energy = ValueNotifier(0);
   final ValueNotifier<double> handicap = ValueNotifier(0);
+  final ValueNotifier<GameCardModel?> cardSelected = ValueNotifier(null);
 
   List<StackComponent> stacks = [];
   PlayAreaComponent playArea = PlayAreaComponent();
@@ -39,7 +45,7 @@ class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
     Future.delayed(
       const Duration(microseconds: 0),
       () {
-        gameTime.position = Vector2(width - barTimerWidth - 20, 10);
+        gameTime.position = Vector2(width - kBarTimerWidth - 20, 10);
         playArea.size = size;
       },
     );
@@ -55,9 +61,9 @@ class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
 
     playArea = PlayAreaComponent();
     gameTime = GameTime(
-      size: Vector2(barTimerWidth, 25),
-      position: Vector2(width - barTimerWidth - 20, 10),
-      totalTime: timeDay,
+      size: Vector2(kBarTimerWidth, 25),
+      position: Vector2(width - kBarTimerWidth - 20, 10),
+      totalTime: kTimeDay,
     );
 
     add(playArea);
@@ -75,7 +81,7 @@ class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
       world.add(
         PackComponent(
           pack: packs[i],
-          position: Vector2(cardWidth * 2 * (i + 1) + 30, 10),
+          position: Vector2(kCardWidth * 2 * (i + 1) + 30, 10),
         ),
       );
     }
@@ -84,9 +90,9 @@ class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
       for (int j = 1; j <= 3; j++) {
         world.add(
           CardComponent(
-            card: cards[(i * j * 2) - 1],
+            card: cards[(i * j) - 1],
             position:
-                Vector2((cardWidth + 10) * i, ((cardHeight + 10) * j) + 15),
+                Vector2((kCardWidth + 10) * i, ((kCardHeight + 10) * j) + 15),
           ),
         );
       }

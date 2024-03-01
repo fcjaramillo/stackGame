@@ -9,8 +9,8 @@ class PackComponent extends SpriteComponent
     required super.position,
   }) : super(
           size: Vector2(
-            cardWidth,
-            cardHeight,
+            kCardWidth,
+            kCardHeight,
           ),
           children: [RectangleHitbox()],
         ) {

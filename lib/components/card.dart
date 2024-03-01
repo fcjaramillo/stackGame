@@ -1,7 +1,11 @@
 part of 'components.dart';
 
 class CardComponent extends SpriteComponent
-    with CollisionCallbacks, DragCallbacks, HasGameReference<StackGame> {
+    with
+        CollisionCallbacks,
+        DragCallbacks,
+        TapCallbacks,
+        HasGameReference<StackGame> {
   final CardModel card;
   bool move = false;
   double time = 0.0;
@@ -20,8 +24,8 @@ class CardComponent extends SpriteComponent
   })  : animationDelta = animationDelta ?? Vector2(45, 100),
         super(
           size: Vector2(
-            cardWidth,
-            cardHeight,
+            kCardWidth,
+            kCardHeight,
           ),
           children: [RectangleHitbox()],
         ) {
@@ -56,16 +60,22 @@ class CardComponent extends SpriteComponent
 
   @override
   void update(double dt) {
-    if (activeAnimation && animationTime < newCardAnimationDuration) {
+    if (activeAnimation && animationTime < kNewCardAnimationDuration) {
       animationTime += dt;
       position += Vector2(
         0.68 * deltaX,
         1.7 *
-            bounceAnimation(animationTime / newCardAnimationDuration) *
+            bounceAnimation(animationTime / kNewCardAnimationDuration) *
             deltaY,
       );
     }
     super.update(dt);
+  }
+
+  @override
+  void onTapDown(TapDownEvent event) {
+    game.cardSelected.value = GameCardModel.byType(card);
+    super.onTapDown(event);
   }
 
   @override
