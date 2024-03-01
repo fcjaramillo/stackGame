@@ -68,4 +68,13 @@ class StackComponent {
   void removeCard(CardComponent card) {
     cards.remove(card);
   }
+
+  void reorder() {
+    for (int i = 1; i < cards.length; i++) {
+      cards[i].moveCard(Vector2(
+        cards[i].position.x,
+        cards[i].position.y + (kCardHeight * 0.15),
+      ));
+    }
+  }
 }
