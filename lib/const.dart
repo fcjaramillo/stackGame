@@ -14,9 +14,12 @@ const double kMaxCameraX = 190;
 const double kMaxCameraY = 440;
 const double kVegetationSide = 115;
 const double kNewCardAnimationDuration = 1.5;
+const double kGrassSide = 790;
 
 const double kMaxValue = 100;
 const double kOxygenInitial = 20;
 const double kCarbonFootprintInitial = 50;
 const int kCardsInitial = 100;
 const int kHealtInitial = 100;
+
+const int kNeededFood = 3;

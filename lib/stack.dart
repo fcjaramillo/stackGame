@@ -66,10 +66,10 @@ class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
       totalTime: kTimeDay,
     );
 
+    await images.loadAllImages();
+
     add(playArea);
     add(gameTime);
-
-    await images.loadAllImages();
 
     camera.viewfinder.anchor = Anchor.topLeft;
 

@@ -17,7 +17,7 @@ class VegetationComponent extends SpriteComponent {
     super.position,
   })  : type = 8,
         scaleFactor = 1.2 {
-    size = Vector2.all(kVegetationSide * scaleFactor);
+    size = Vector2.all(kGrassSide * scaleFactor);
     priority = -2;
   }
 
