@@ -8,21 +8,27 @@ class ScoreCard extends StatelessWidget {
     super.key,
     required this.score,
     required this.coin,
+    required this.cards,
+    required this.cardsMax,
     required this.health,
     required this.food,
     required this.oxygen,
     required this.carbonFootprint,
     required this.energy,
+    required this.energyMax,
     required this.handicap,
   });
 
   final ValueNotifier<int> score;
   final ValueNotifier<int> coin;
+  final ValueNotifier<int> cards;
+  final ValueNotifier<int> cardsMax;
   final ValueNotifier<int> health;
   final ValueNotifier<int> food;
   final ValueNotifier<double> oxygen;
   final ValueNotifier<double> carbonFootprint;
   final ValueNotifier<int> energy;
+  final ValueNotifier<int> energyMax;
   final ValueNotifier<double> handicap;
 
   @override
@@ -60,12 +66,13 @@ class ScoreCard extends StatelessWidget {
             icon: const FaIcon(FontAwesomeIcons.appleWhole),
             title: 'Food',
             value: food,
-            maxValue: 50,
+            otherValue: 3,
           ),
-          TitleListenable<int>(
+          TitleValueListenable<int>(
             icon: const FaIcon(FontAwesomeIcons.diamond),
             title: 'Cards',
-            value: coin,
+            value: cards,
+            otherValue: cardsMax,
           ),
           TitleListenable<double>(
             icon: const FaIcon(FontAwesomeIcons.wind),
@@ -77,11 +84,11 @@ class ScoreCard extends StatelessWidget {
             title: 'Carbon Footprint',
             value: carbonFootprint,
           ),
-          TitleListenable<int>(
+          TitleValueListenable<int>(
             icon: const FaIcon(FontAwesomeIcons.bolt),
             title: 'Energy',
             value: energy,
-            maxValue: 20,
+            otherValue: energyMax,
           ),
           const SizedBox(
             width: 12,
@@ -97,14 +104,16 @@ class TitleListenable<T> extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.value,
-    this.maxValue,
+    this.otherValue,
+    this.condition,
     super.key,
   });
 
   final Widget icon;
   final String title;
   final ValueNotifier<T> value;
-  final T? maxValue;
+  final T? otherValue;
+  final Padding? condition;
 
   @override
   Widget build(BuildContext context) {
@@ -114,18 +123,73 @@ class TitleListenable<T> extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.all(12),
           child: Tooltip(
-            message: '$title max ${maxValue ?? kMaxValue}',
+            message: '$title max ${otherValue ?? kMaxValue}',
             child: Row(
               children: [
                 icon,
                 const SizedBox(width: 4),
                 Text(
-                  maxValue != null ? '$value/$maxValue' : '$value',
-                  style: Theme.of(context).textTheme.titleSmall!,
+                  otherValue != null ? '$value/$otherValue' : '$value',
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        color: ((value as num?) ?? 0) <=
+                                ((otherValue as num?) ?? 0)
+                            ? Colors.red
+                            : null,
+                      ),
                 ),
               ],
             ),
           ),
+        );
+      },
+    );
+  }
+}
+
+class TitleValueListenable<T> extends StatelessWidget {
+  const TitleValueListenable({
+    required this.icon,
+    required this.title,
+    required this.value,
+    required this.otherValue,
+    super.key,
+  });
+
+  final Widget icon;
+  final String title;
+  final ValueNotifier<T> value;
+  final ValueNotifier<T> otherValue;
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<T>(
+      valueListenable: value,
+      builder: (context, value, child) {
+        return ValueListenableBuilder<T>(
+          valueListenable: otherValue,
+          builder: (context, otherValue, child) {
+            return Padding(
+              padding: const EdgeInsets.all(12),
+              child: Tooltip(
+                message: '$title max ${otherValue ?? kMaxValue}',
+                child: Row(
+                  children: [
+                    icon,
+                    const SizedBox(width: 4),
+                    Text(
+                      otherValue != null ? '$value/$otherValue' : '$value',
+                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                            color: ((value as num?) ?? 0) >
+                                    ((otherValue as num?) ?? 0)
+                                ? Colors.red
+                                : null,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
         );
       },
     );

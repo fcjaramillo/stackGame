@@ -1,17 +1,19 @@
 part of 'components.dart';
 
-class SellComponent extends RectangleComponent
-    with HasGameReference<StackGame> {
+class SellComponent extends SpriteComponent with HasGameReference<StackGame> {
   SellComponent({
     required super.position,
   }) : super(
-          paint: Paint()..color = const Color.fromARGB(255, 24, 21, 211),
+          size: Vector2(
+            kCardWidth,
+            kCardHeight,
+          ),
           children: [RectangleHitbox()],
         );
 
   @override
   FutureOr<void> onLoad() async {
+    sprite = await Sprite.load('sell.png');
     super.onLoad();
-    size = Vector2(kCardWidth, kCardHeight);
   }
 }

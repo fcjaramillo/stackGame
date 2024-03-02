@@ -13,16 +13,14 @@ class PackComponent extends SpriteComponent
             kCardHeight,
           ),
           children: [RectangleHitbox()],
-        ) {
-    debugMode = true;
-  }
+        );
 
   double totalTime = 10.0; // Duración total de la barra en segundos
   double currentTime = 0.0;
 
   @override
   FutureOr<void> onLoad() async {
-    sprite = await Sprite.load('packs/pack.png');
+    sprite = await Sprite.load('packs/${pack.id}.png');
     return super.onLoad();
   }
 }

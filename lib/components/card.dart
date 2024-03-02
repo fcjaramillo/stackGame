@@ -48,18 +48,27 @@ class CardComponent extends SpriteComponent
     }
 
     game.health.value = card.newHealth(game.health.value);
-    game.food.value = card.newFood(game.food.value);
     game.oxygen.value = card.newOxygen(game.oxygen.value);
     game.carbonFootprint.value =
-        card.newCarbonFootprint(game.carbonFootprint.value);
-    game.energy.value = card.newEnergy(game.energy.value);
+        card.newCarbonFootprint(game.carbonFootprint.value / 100);
     game.handicap.value = card.newHandicap(game.handicap.value);
   }
 
   @override
   FutureOr<void> onLoad() async {
     sprite = await Sprite.load('cards/${card.id}.png');
+    game.card.value -= card.quantity < 0 ? card.quantity : 0;
+    game.cardMax.value += card.quantity > 0 ? card.quantity : 0;
+    game.energyMax.value += (card.energy ?? 0) > 0 ? card.energy ?? 0 : 0;
     return super.onLoad();
+  }
+
+  @override
+  void onRemove() {
+    game.card.value += card.quantity < 0 ? card.quantity : 0;
+    game.cardMax.value -= card.quantity > 0 ? card.quantity : 0;
+    game.energyMax.value -= (card.energy ?? 0) > 0 ? card.energy ?? 0 : 0;
+    super.onRemove();
   }
 
   @override

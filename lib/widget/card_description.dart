@@ -92,6 +92,11 @@ class CardDescription extends StatelessWidget {
                       height: 8,
                     ),
                     CardProperties(
+                      icon: const FaIcon(FontAwesomeIcons.diamond),
+                      title: 'Quantity',
+                      number: gameCard.card.quantity,
+                    ),
+                    CardProperties(
                       icon: const FaIcon(FontAwesomeIcons.appleWhole),
                       title: 'Food',
                       number: gameCard.card.food,

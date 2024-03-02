@@ -21,11 +21,11 @@ class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
   final ValueNotifier<int> coin = ValueNotifier(10);
   final ValueNotifier<int> health = ValueNotifier(kHealtInitial);
   final ValueNotifier<int> food = ValueNotifier(0);
-  final ValueNotifier<int> foodMax = ValueNotifier(0);
   final ValueNotifier<double> oxygen = ValueNotifier(kOxygenInitial);
   final ValueNotifier<double> carbonFootprint =
       ValueNotifier(kCarbonFootprintInitial);
   final ValueNotifier<int> energy = ValueNotifier(0);
+  final ValueNotifier<int> energyMax = ValueNotifier(0);
   final ValueNotifier<double> handicap = ValueNotifier(0);
   final ValueNotifier<double> timeDayNotifier = ValueNotifier(0);
   final ValueNotifier<GameCardModel?> cardSelected = ValueNotifier(null);
@@ -98,7 +98,7 @@ class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
       world.add(
         PackComponent(
           pack: packs[i],
-          position: Vector2(kCardWidth * 2 * (i + 1) + 30, 10),
+          position: Vector2(kCardWidth * (i + 1) + ((i + 1) * 40), 10),
         ),
       );
     }
