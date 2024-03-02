@@ -10,6 +10,7 @@ import 'package:stack/widget/score_card.dart';
 import '../const.dart';
 import '../data/data.dart';
 import 'tab.dart';
+import 'time_day.dart';
 
 class GameApp extends StatefulWidget {
   const GameApp({super.key});
@@ -67,7 +68,7 @@ class _GameAppState extends State<GameApp> {
                             valueListenable: game.cardSelected,
                             builder: (context, value, child) => CardDescription(
                               gameCard: game.cardSelected.value ??
-                                  GameCardModel.dev(card: kDev),
+                                  GameCardModel.human(card: kHuman),
                             ),
                           ),
                         ),
@@ -121,15 +122,30 @@ class _GameAppState extends State<GameApp> {
                         ),
                         Align(
                           alignment: Alignment.topCenter,
-                          child: ScoreCard(
-                            score: game.score,
-                            coin: game.coin,
-                            health: game.health,
-                            food: game.food,
-                            oxygen: game.oxygen,
-                            carbonFootprint: game.carbonFootprint,
-                            energy: game.energy,
-                            handicap: game.handicap,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 10),
+                            child: TimeDay(
+                              currentTime: game.timeDayNotifier,
+                              onTapFast: game.changeFast,
+                              onTapPause: game.changePause,
+                              onTapSound: game.changeSound,
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: ScoreCard(
+                              score: game.score,
+                              coin: game.coin,
+                              health: game.health,
+                              food: game.food,
+                              oxygen: game.oxygen,
+                              carbonFootprint: game.carbonFootprint,
+                              energy: game.energy,
+                              handicap: game.handicap,
+                            ),
                           ),
                         ),
                       ],

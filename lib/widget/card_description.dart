@@ -108,7 +108,7 @@ class CardDescription extends StatelessWidget {
                     ),
                     CardProperties(
                       icon: const FaIcon(FontAwesomeIcons.radiation),
-                      title: 'Carbon Foot print',
+                      title: 'Carbon FP',
                       number: gameCard.card.carbonFootprint,
                     ),
                     CardProperties(
@@ -143,7 +143,7 @@ class CardProperties extends StatelessWidget {
   Widget build(BuildContext context) {
     Color color =
         (number ?? 0) > 0 ? Colors.green.shade500 : Colors.red.shade500;
-    String newTitle = (number ?? 0) > 0 ? '+ $number' : '- $number';
+    String newTitle = (number ?? 0) > 0 ? '+$number' : '$number';
 
     return Visibility(
       visible: number != null,
@@ -159,6 +159,7 @@ class CardProperties extends StatelessWidget {
               ),
               Text(
                 newTitle,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(color: color),
               ),
             ],

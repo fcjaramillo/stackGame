@@ -9,4 +9,5 @@ enum TypeCard {
   animal,
   plant,
   idea,
+  pack,
 }

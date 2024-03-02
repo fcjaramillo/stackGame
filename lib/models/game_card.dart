@@ -79,6 +79,8 @@ class GameCardModel {
         return GameCardModel.plants(card: card);
       case TypeCard.idea:
         return GameCardModel.idea(card: card);
+      case TypeCard.pack:
+        return GameCardModel.idea(card: card);
     }
   }
 }

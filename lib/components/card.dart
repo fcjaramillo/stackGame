@@ -43,6 +43,10 @@ class CardComponent extends SpriteComponent
   }
 
   void finishDay() {
+    if (isPerson) {
+      eatFood();
+    }
+
     game.health.value = card.newHealth(game.health.value);
     game.food.value = card.newFood(game.food.value);
     game.oxygen.value = card.newOxygen(game.oxygen.value);
@@ -171,7 +175,7 @@ class CardComponent extends SpriteComponent
                 StackComponent(
                   cards: [other, this],
                   game: game,
-                ),
+                )..searchRecipe(),
               );
             } else if (stackIndexOther == -1 && stackIndexThis != -1) {
               for (int i = 0;

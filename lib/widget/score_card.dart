@@ -63,7 +63,7 @@ class ScoreCard extends StatelessWidget {
             maxValue: 50,
           ),
           TitleListenable<int>(
-            icon: const FaIcon(FontAwesomeIcons.coins),
+            icon: const FaIcon(FontAwesomeIcons.diamond),
             title: 'Cards',
             value: coin,
           ),

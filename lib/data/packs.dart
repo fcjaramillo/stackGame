@@ -4,44 +4,59 @@ List<PackModel> packs = [
   PackModel(
     id: 0,
     name: 'Initial Pack',
-    description: 'abac',
+    description: '''Provide basic materials.
+    Probabilities:
+    - Plastic 30%
+    - Rock 15%
+    - Apple 15%
+    - Banana 10%
+    - Dirt 10%
+    - Coal 10%
+    - Wood 2%
+    - Water 5%
+    - Copper 2%
+    - Iron 1%''',
     cost: 3,
     numberCards: 3,
-    cards: [
+    cards: <CardProbabilityModel>[
       CardProbabilityModel(
-        card: cards[17],
-        percentage: 20,
+        card: kWood,
+        percentage: 30,
       ),
       CardProbabilityModel(
-        card: cards[1],
+        card: kRock,
+        percentage: 15,
+      ),
+      CardProbabilityModel(
+        card: kIron,
+        percentage: 1,
+      ),
+      CardProbabilityModel(
+        card: kCoal,
         percentage: 10,
       ),
       CardProbabilityModel(
-        card: cards[2],
+        card: kWood,
+        percentage: 2,
+      ),
+      CardProbabilityModel(
+        card: kCopper,
+        percentage: 2,
+      ),
+      CardProbabilityModel(
+        card: kDirt,
         percentage: 10,
       ),
       CardProbabilityModel(
-        card: cards[3],
-        percentage: 10,
+        card: kWater,
+        percentage: 5,
       ),
       CardProbabilityModel(
-        card: cards[4],
-        percentage: 10,
+        card: kApple,
+        percentage: 15,
       ),
       CardProbabilityModel(
-        card: cards[5],
-        percentage: 10,
-      ),
-      CardProbabilityModel(
-        card: cards[6],
-        percentage: 10,
-      ),
-      CardProbabilityModel(
-        card: cards[7],
-        percentage: 10,
-      ),
-      CardProbabilityModel(
-        card: cards[8],
+        card: kBanana,
         percentage: 10,
       ),
     ],

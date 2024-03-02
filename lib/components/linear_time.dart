@@ -24,17 +24,26 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
   @override
   void update(double dt) {
     super.update(dt);
-    currentTime += dt;
-    if (currentTime >= totalTime) {
-      currentTime = 0;
+    if (!(game.isPause)) {
+      if (!(game.isFast)) {
+        currentTime += dt;
+      } else {
+        currentTime += (dt * 2);
+      }
+      if (currentTime >= totalTime) {
+        currentTime = 0;
+        if (this is GameTime) {
+          game.world.children.query<CardComponent>().forEach((
+            CardComponent card,
+          ) {
+            card.finishDay();
+          });
+        } else if (this is StackTime) {
+          finishTime(stackTime: this as StackTime);
+        }
+      }
       if (this is GameTime) {
-        game.world.children.query<CardComponent>().forEach((
-          CardComponent card,
-        ) {
-          card.finishDay();
-        });
-      } else if (this is StackTime) {
-        finishTime(stackTime: this as StackTime);
+        game.timeDayNotifier.value = currentTime;
       }
     }
   }

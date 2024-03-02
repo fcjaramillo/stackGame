@@ -1,6 +1,6 @@
 part of 'data.dart';
 
-const List<CardModel> cards = <CardModel>[
+/*const List<CardModel> cards = <CardModel>[
   kHuman,
   kRock,
   kIron,
@@ -64,4 +64,4 @@ const List<CardModel> cards = <CardModel>[
   kBananaTree,
   kPoop,
   kPlanks,
-];
+];*/

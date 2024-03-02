@@ -7,6 +7,7 @@ const CardModel kHuman = CardModel(
   description: '''What are you watching? -_-''',
   prize: 0,
   quantity: 1,
+  oxygen: -3,
 );
 const CardModel kRock = CardModel(
   type: TypeCard.material,
@@ -94,12 +95,11 @@ const CardModel kWater = CardModel(
 const CardModel kIronIngots = CardModel(
   type: TypeCard.material,
   id: 10,
-  name: 'Iron ingots',
+  name: 'Iron Ingots',
   description:
       '''Refined and robust iron ingots ready to be forged into the strongest tools. With these ingots, even Iron Man would be jealous!''',
   prize: 3,
   quantity: 2,
-  //2 iron, furnace
 );
 const CardModel kSilicon = CardModel(
   type: TypeCard.material,
@@ -109,7 +109,6 @@ const CardModel kSilicon = CardModel(
       '''The essential building block for modern technology, silicon is the cornerstone of electronics. Who knew that beach sand could be so useful? Thank you, silicon!''',
   prize: 5,
   quantity: 1,
-  // 5 coal, furnace
 );
 const CardModel kCopperLine = CardModel(
   type: TypeCard.material,
@@ -119,9 +118,8 @@ const CardModel kCopperLine = CardModel(
       '''They need to be refined to conduct energy. These cables have a new fashion. Now they look more naked than ever''',
   prize: 2,
   quantity: 1,
-  // 2 copper, furnace, Crafting table
 );
-const CardModel kInsulators = CardModel(
+const CardModel kInsulator = CardModel(
   type: TypeCard.material,
   id: 13,
   name: 'Insulators',
@@ -129,7 +127,6 @@ const CardModel kInsulators = CardModel(
       '''They protect against short circuits and electric shocks, keeping the current in place. Who would have thought that a little plastic could prevent so much electrical drama?''',
   prize: 1,
   quantity: 1,
-  // 2 plastic, furnace, Crafting table
 );
 const CardModel kSolarCells = CardModel(
   type: TypeCard.material,
@@ -139,7 +136,6 @@ const CardModel kSolarCells = CardModel(
       '''These solar cells transform sunlight into electricity, providing clean, sustainable energy and making the sun work overtime. Good job, sunshine.''',
   prize: 20,
   quantity: 5,
-  // 4 silicon, electronic table
 );
 const CardModel kStructure = CardModel(
   type: TypeCard.material,
@@ -149,7 +145,6 @@ const CardModel kStructure = CardModel(
       '''It provides stability and support for various constructions, from houses to machinery. So strong that even Chuck Norris would be proud.''',
   prize: 4,
   quantity: 2,
-  // 2 wood, 2 iron, Crafting table
 );
 const CardModel kCables = CardModel(
   type: TypeCard.material,
@@ -159,7 +154,6 @@ const CardModel kCables = CardModel(
       '''Cables ready to connect and transmit power efficiently. These functional cables are as reliable as the "dog ate my homework" excuse.''',
   prize: 3,
   quantity: 1,
-  //  1 copper line, 1 insulators, electronic table
 );
 const CardModel kFastFood = CardModel(
   type: TypeCard.food,
@@ -261,7 +255,6 @@ const CardModel kStew = CardModel(
   food: 3,
   handicap: -200,
   health: 10,
-  // 1 meat, 1 potato, 1 carrot, 1 water, furnace
 );
 const CardModel kFriedMeat = CardModel(
   type: TypeCard.food,
@@ -273,7 +266,6 @@ const CardModel kFriedMeat = CardModel(
   quantity: 1,
   food: 3,
   health: 1,
-  // 1 meat, furnace
 );
 const CardModel kFlour = CardModel(
   type: TypeCard.food,
@@ -283,7 +275,6 @@ const CardModel kFlour = CardModel(
       '''Flour, the base of many baked delicacies and dishes from around the world. The magic powder that turns any recipe into something delicious. Just add water and faith.''',
   prize: 1,
   quantity: 1,
-  // 1 wheat, mill
 );
 const CardModel kBread = CardModel(
   type: TypeCard.food,
@@ -294,7 +285,6 @@ const CardModel kBread = CardModel(
   prize: 2,
   quantity: 1,
   food: 2,
-  // 1 flour, 1 water, furnace
 );
 const CardModel kCake = CardModel(
   type: TypeCard.food,
@@ -307,7 +297,6 @@ const CardModel kCake = CardModel(
   health: 5,
   handicap: -300,
   food: 5,
-  // 3 flour, 3 egg, 3 milk, furnace
 );
 const CardModel kHealthySalad = CardModel(
   type: TypeCard.food,
@@ -321,7 +310,6 @@ const CardModel kHealthySalad = CardModel(
   health: 5,
   handicap: -100,
   carbonFootprint: 100,
-  // 1 carrot, 1 potato, 1 apple, 1 banana, Crafting table
 );
 const CardModel kFruitShake = CardModel(
   type: TypeCard.food,
@@ -333,12 +321,11 @@ const CardModel kFruitShake = CardModel(
   quantity: 1,
   food: 3,
   health: 5,
-  // 1 apple, 1 banana, 1 milk, Crafting table
 );
-const CardModel kPotatoOmelet = CardModel(
+const CardModel kOmelet = CardModel(
   type: TypeCard.food,
   id: 33,
-  name: 'Potato Omelet',
+  name: 'Omelet',
   description:
       '''A delicious combination of potatoes and eggs, perfect for any meal with a flavor that will make even the most serious chef smile.''',
   prize: 10,
@@ -346,7 +333,6 @@ const CardModel kPotatoOmelet = CardModel(
   health: 5,
   handicap: -300,
   food: 5,
-  // 2 potato, 3 eggs, 1 flour, 1 milk, furnace
 );
 const CardModel kApplePie = CardModel(
   type: TypeCard.food,
@@ -359,7 +345,6 @@ const CardModel kApplePie = CardModel(
   food: 5,
   handicap: -200,
   health: 5,
-  //2 apples, 2 flour, 2 eggs, 1 milk, furnace
 );
 const CardModel kFarmFeast = CardModel(
   type: TypeCard.food,
@@ -373,8 +358,6 @@ const CardModel kFarmFeast = CardModel(
   carbonFootprint: -100,
   health: 20,
   food: 20,
-  // 1 Stew, 1 healthy salad, 1 potato omelet, 1 apple pie, 1 fruit shakes
-  // 1 cake, furnace
 );
 const CardModel kBaul = CardModel(
   type: TypeCard.structure,
@@ -385,7 +368,6 @@ const CardModel kBaul = CardModel(
   prize: 10,
   quantity: 2,
   // Provide 5 more card slot
-  // 2 structures, 2 Planks, Crafting table
 );
 const CardModel kWarehouse = CardModel(
   type: TypeCard.structure,
@@ -397,9 +379,8 @@ const CardModel kWarehouse = CardModel(
   quantity: 5,
   energy: -2,
   // Provide 15 more card slot
-  // 4 structures, 4 Planks, Crafting table
 );
-const CardModel kOven = CardModel(
+const CardModel kFurnace = CardModel(
   type: TypeCard.structure,
   id: 38,
   name: 'Furnace',
@@ -407,7 +388,6 @@ const CardModel kOven = CardModel(
       '''The scene of the most epic feats, where materials become masterpieces (or disasters). Whether cooking succulent delicacies or melting metals and creating new materials.''',
   prize: 10,
   quantity: 5,
-  // 2 estructure, 2 rock, Crafting table
 );
 const CardModel kCraftingTable = CardModel(
   type: TypeCard.structure,
@@ -417,7 +397,6 @@ const CardModel kCraftingTable = CardModel(
       '''The epicenter of creation in your village. Here, ideas become reality. From simple shelves to complex structures, it all starts here.''',
   prize: 4,
   quantity: 2,
-  // 4 wood
 );
 const CardModel kSawmill = CardModel(
   type: TypeCard.structure,
@@ -428,18 +407,16 @@ const CardModel kSawmill = CardModel(
   prize: 15,
   quantity: 15,
   energy: -2,
-  // 2 structure, 4 tree, 3 iron, crafting table
 );
-const CardModel kElectronicsTable = CardModel(
+const CardModel kElectricTable = CardModel(
   type: TypeCard.structure,
   id: 41,
-  name: 'Electronics table',
+  name: 'Electric table',
   description:
       '''A specialized table equipped with tools and equipment for the creation of electronic devices. Try not to lose patience when the wires decide to get tangled up like a snake party.''',
   prize: 15,
   quantity: 5,
   energy: -1,
-  // 2 structure, 3 cables, 2 insulators, crafting table
 );
 const CardModel kSolarPanel = CardModel(
   type: TypeCard.structure,
@@ -450,7 +427,6 @@ const CardModel kSolarPanel = CardModel(
   prize: 60,
   quantity: 20,
   // Provide 30 additional energy
-  // 2 Solar Cells, 4 Structure, 4 Cables, 2 Insulators, 1 Electronics Table
 );
 const CardModel kFarm = CardModel(
   type: TypeCard.structure,
@@ -461,7 +437,6 @@ const CardModel kFarm = CardModel(
   prize: 30,
   quantity: 20,
   energy: -10,
-  // 4 Structure, 4 Dirt, 4 Water, 4 Wood, 4 Fertilizer, 1 Crafting Table
 );
 const CardModel kOrchard = CardModel(
   type: TypeCard.structure,
@@ -471,7 +446,6 @@ const CardModel kOrchard = CardModel(
       '''Although the fruits are delicious, this fruit plot is less efficient than the Farm. But who can resist a freshly picked apple.''',
   prize: 10,
   quantity: 5,
-  // 4 Dirt, 2 water, 2 Wood, 2 Fertilizer, 1 Crafting Table
 );
 const CardModel kMill = CardModel(
   type: TypeCard.structure,
@@ -482,7 +456,6 @@ const CardModel kMill = CardModel(
   prize: 5,
   quantity: 5,
   energy: -2,
-  // 1 Structure, 2 Rock, 2 wood, 1 Iron Ingot, 1 Crafting Table
 );
 const CardModel kGreenhouse = CardModel(
   type: TypeCard.structure,
@@ -493,7 +466,6 @@ const CardModel kGreenhouse = CardModel(
   prize: 10,
   quantity: 5,
   energy: -2,
-  // 6 Glass, 4 structure, 2 Tree, 1 Crafting Table
 );
 const CardModel kWindTurbine = CardModel(
   type: TypeCard.structure,
@@ -504,38 +476,34 @@ const CardModel kWindTurbine = CardModel(
   prize: 15,
   quantity: 5,
   // Provide 5 additional energy
-  // 4 Tables, 2 Structure, 2 cables, 1 Crafting Table
 );
-const CardModel kRecyclingCenter = CardModel(
+const CardModel kRecycler = CardModel(
   type: TypeCard.structure,
   id: 48,
-  name: 'Recycling center',
+  name: 'Recycler',
   description:
       '''An advanced Recycling Center that allows you to disassemble and reuse the cards you no longer need, giving you back the materials for future projects. An 'undo' button for unwanted constructions.''',
   prize: 15,
   quantity: 15,
   energy: -10,
-  // 8 Planks, 4 Structure, 1 Crafting Table
 );
-const CardModel kCompostingMachine = CardModel(
+const CardModel kComposter = CardModel(
   type: TypeCard.structure,
   id: 49,
-  name: 'Composting machine',
+  name: 'Composter',
   description:
       '''Where waste goes to rethink your life choices. A tool to convert organic waste into compost, an essential practice for sustainable agriculture.''',
   prize: 10,
   quantity: 10,
-  // 2 Structure, 4 Plastic, 2 Planks, 1 Poop, 1 Crafting Table, 1 Human
 );
 const CardModel kCampfire = CardModel(
   type: TypeCard.structure,
   id: 50,
   name: 'Campfire',
   description:
-      '''A heat source and a means of cooking food in the traditional village way, although it may be less efficient than a modern oven. How about a round of burnt marshmallows?''',
+      '''A heat source and a means of cooking food in the traditional village way, although it may be less efficient than a modern furnace. How about a round of burnt marshmallows?''',
   prize: 8,
   quantity: 2,
-  // 4 Wood, 4 Rock, 1 Human
 );
 const CardModel kDog = CardModel(
   type: TypeCard.animal,
@@ -611,7 +579,7 @@ const CardModel kCoalPlant = CardModel(
   id: 58,
   name: 'Coal Plant',
   description:
-      '''An environmentally unfriendly but effective energy source. Beware of coal, it can taint your lungs and your conscience.''',
+      '''Coal-Fired Power Plant: An environmentally unfriendly but effective energy source. Beware of coal, it can taint your lungs and your conscience.''',
   prize: 1,
   quantity: 1,
   energy: 10,
@@ -654,6 +622,547 @@ const CardModel kPlanks = CardModel(
   name: 'Planks',
   description:
       '''An essential element in construction, boards are versatile and essential for erecting strong and durable structures.''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kFoodPack = CardModel(
+  type: TypeCard.pack,
+  id: 63,
+  name: 'Food Pack',
+  //subtitle: 'Food Card',
+  description: '''Provide 3 food cards''',
+  prize: 0,
+  quantity: 0,
+);
+const CardModel kMaterialPack = CardModel(
+  type: TypeCard.pack,
+  id: 64,
+  name: 'Material Pack',
+  //subtitle: 'Material Card',
+  description: '''Provide 3 material cards''',
+  prize: 0,
+  quantity: 0,
+);
+const CardModel kCompositePack = CardModel(
+  type: TypeCard.pack,
+  id: 65,
+  name: 'Composite Kit',
+  //subtitle: 'Compound Material Card',
+  description: '''Provide 3 material compound cards''',
+  prize: 0,
+  quantity: 0,
+);
+const CardModel kStructurePack = CardModel(
+  type: TypeCard.pack,
+  id: 66,
+  name: 'Structure Pack',
+  //subtitle: 'Structure Card',
+  description: '''Provide 3 structure cards''',
+  prize: 0,
+  quantity: 0,
+);
+const CardModel kIdeaPack = CardModel(
+  type: TypeCard.pack,
+  id: 67,
+  name: 'Idea Pack',
+  //subtitle: 'Idea Card',
+  description: '''Provide 3 idea cards''',
+  prize: 0,
+  quantity: 0,
+);
+const CardModel kNaturePack = CardModel(
+  type: TypeCard.pack,
+  id: 68,
+  name: 'Nature Pack',
+  //subtitle: 'Nature Card',
+  description: '''Provide 3 nature cards''',
+  prize: 0,
+  quantity: 0,
+);
+const CardModel kIronIngotsIdea = CardModel(
+  id: 69,
+  name: 'Idea: Iron Ingots',
+  description: '''The crafting is: 
+    2 x Iron
+    1 x Coal
+    1 x Furnace''',
+  type: TypeCard.idea,
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kSiliconIdea = CardModel(
+  type: TypeCard.idea,
+  id: 70,
+  name: 'Idea: Silicon',
+  description: '''The crafting is: 
+    6 x Coal
+    1 x Furnace''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kCopperLineIdea = CardModel(
+  type: TypeCard.idea,
+  id: 71,
+  name: 'Idea: Copper Line',
+  description: '''The crafting is: 
+        2 x Cooper
+        1 x Coal
+        1 x Furnace
+        1 x Crafting Table
+        1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kInsulatorIdea = CardModel(
+  type: TypeCard.idea,
+  id: 72,
+  name: 'Idea: Insulator',
+  description: '''The crafting is: 
+        2 x Plastic
+        1 x Coal
+        1 x Furnace
+        1 x Crafting Table
+        1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kSolarCellsIdea = CardModel(
+  type: TypeCard.idea,
+  id: 73,
+  name: 'Idea: Solar cells',
+  description: '''The crafting is: 
+    4 x Silicon
+    1 x Electronic Table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kStructureIdea = CardModel(
+  type: TypeCard.idea,
+  id: 74,
+  name: 'Idea: Structure',
+  description: '''The crafting is: 
+    2 x wood
+    2 x Iron
+    1 x Crafting Table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kCablesIdea = CardModel(
+  type: TypeCard.idea,
+  id: 75,
+  name: 'Idea: Cables',
+  description: '''The crafting is: 
+        1 x Cooper line
+        1 x Insulators
+        1 x Crafting Table
+        1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kStewIdea = CardModel(
+  type: TypeCard.idea,
+  id: 76,
+  name: 'Idea: Stew',
+  description: '''The crafting is: 
+        1 x Meat
+        1 x Potato
+        1 x Carrot
+        1 x Water
+        1 x (Funarce + Coal)/Campfire''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kFriedMeatIdea = CardModel(
+  type: TypeCard.idea,
+  id: 77,
+  name: 'Idea: Fried Meat',
+  description: '''The crafting is: 
+    1 x Meat
+    1 x (Funarce + Coal)/Campfire''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kFlourIdea = CardModel(
+  type: TypeCard.idea,
+  id: 78,
+  name: 'Idea: Flour',
+  description: '''The crafting is: 
+    1 x Wheat
+    1 x Mill
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kBreadIdea = CardModel(
+  type: TypeCard.idea,
+  id: 79,
+  name: 'Idea: Bread',
+  description: '''The crafting is: 
+    1 x Flour
+    1 x Water
+    1 x (Funarce + Coal)/Campfire''',
+  prize: 2,
+  quantity: 1,
+);
+const CardModel kCakeIdea = CardModel(
+  type: TypeCard.idea,
+  id: 80,
+  name: 'Idea: Cake',
+  description: '''The crafting is: 
+    3 x Flour 
+    3 x Egg 
+    3 x Milk
+    1 x (Funarce + Coal)/Campfire''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kHealthySaladIdea = CardModel(
+  type: TypeCard.idea,
+  id: 81,
+  name: 'Idea: Healthy Salad',
+  description: '''The crafting is: 
+    1 x Carrot
+    1 x Potato
+    1 x Apple
+    1 x Banana
+    1 x Crafting Table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kFruitShakeIdea = CardModel(
+  type: TypeCard.idea,
+  id: 82,
+  name: 'Idea: Fruit Shake',
+  description: '''The crafting is: 
+    1 x Apple
+    1 x Banana
+    1 x Milk
+    1 x Crafting Table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kPotatoOmeletIdea = CardModel(
+  type: TypeCard.idea,
+  id: 83,
+  name: 'Idea: Potato Omelet',
+  description: '''The crafting is: 
+    2 x Potato
+    3 x Egg
+    1 x Flour
+    1 x Milk
+    1 x (Funarce + Coal)/Campfire''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kApplePieIdea = CardModel(
+  type: TypeCard.idea,
+  id: 84,
+  name: 'Idea: Apple Pie',
+  description: '''The crafting is: 
+    2 x Apple
+    2 x Flour
+    2 x Egg
+    1 x Milk
+    1 x (Funarce + Coal)/Campfire''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kFarmFeastIdea = CardModel(
+  type: TypeCard.idea,
+  id: 85,
+  name: 'Idea: Farm Feast',
+  description: '''The crafting is: 
+    1 x Stew
+    1 x Healthy Salad
+    1 x Potato Omelet
+    1 x Apple Pie
+    1 x Fruit Shake
+    1 x Cake
+    1 x (Funarce + Coal)/Campfire''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kBaulIdea = CardModel(
+  type: TypeCard.idea,
+  id: 86,
+  name: 'Idea: Baul',
+  description: '''Provide 5 more card slot.
+    The crafting is:   
+    2 x Structures
+    2 x Planks, 
+    1 x Crafting Table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kWarehouseIdea = CardModel(
+  type: TypeCard.idea,
+  id: 87,
+  name: 'Idea: Warehouse',
+  description: '''Provide 15 more card slot.
+    The crafting is: 
+    4 x Structures
+    4 x Planks
+    1 x Crafting Table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kFurnaceIdea = CardModel(
+  type: TypeCard.idea,
+  id: 88,
+  name: 'Idea: Furnace',
+  description: '''The crafting is: 
+    4 x Rock
+    2 x Structure
+    1 x Crafting Table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kCraftingTableIdea = CardModel(
+  type: TypeCard.idea,
+  id: 89,
+  name: 'Idea: Crafting Table',
+  description: '''The crafting is: 
+    4 x Wood
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kSawmillIdea = CardModel(
+  type: TypeCard.idea,
+  id: 90,
+  name: 'Idea: Sawmill',
+  description: '''The crafting is: 
+    4 x Tree
+    3 x Iron
+    2 x Structure
+    1 x Crafting Table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kElectronicTableIdea = CardModel(
+  type: TypeCard.idea,
+  id: 91,
+  name: 'Idea: Electronic table',
+  description: '''The crafting is: 
+    3 x Cable
+    2 x Structure
+    2 x Insulator
+    2 x Crafting table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kSolarPanelIdea = CardModel(
+  type: TypeCard.idea,
+  id: 92,
+  name: 'Idea: Solar panel',
+  description: '''The crafting is: 
+    4 x Structure
+    4 x Cables
+    2 x Solar Cell
+    2 x Insulator
+    1 x Electronic Table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kFarmIdea = CardModel(
+  type: TypeCard.idea,
+  id: 93,
+  name: 'Idea: Farm',
+  description: '''The crafting is: 
+    4 x Structure
+    4 x Dirt
+    4 x Water
+    4 x Planks
+    4 x Fertilizer
+    1 x Crafting Table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kOrchardIdea = CardModel(
+  type: TypeCard.idea,
+  id: 94,
+  name: 'Idea: Orchard',
+  description: '''The crafting is: 
+    4 x Dirt
+    2 x Water
+    2 x Wood
+    2 x Fertilizer
+    1 x Crafting Table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kMillIdea = CardModel(
+  type: TypeCard.idea,
+  id: 95,
+  name: 'Idea: Mill',
+  description: '''The crafting is: 
+    2 x Rock
+    2 x Wood
+    1 x Structure
+    1 x Iron Ingot
+    1 x Crafting Table 
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kGreenhouseIdea = CardModel(
+  type: TypeCard.idea,
+  id: 96,
+  name: 'Idea: Greenhouse',
+  description: '''The crafting is: 
+    6 x Glass
+    4 x Structure
+    2 x Tree
+    1 x Crafting Table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kWindTurbineIdea = CardModel(
+  type: TypeCard.idea,
+  id: 97,
+  name: 'Idea: Wind turbine',
+  description: '''Provide 5 additional energy.
+    The crafting is:
+    4 x Planks
+    2 x Structure
+    2 x Cables
+    1 x Crafting Table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kRecyclerIdea = CardModel(
+  type: TypeCard.idea,
+  id: 98,
+  name: 'Idea: Recycler',
+  description: '''The crafting is:
+    8 x Planks
+    4 x Structure
+    1 x Crafting Table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kComposterIdea = CardModel(
+  type: TypeCard.idea,
+  id: 99,
+  name: 'Idea: Composter',
+  description: '''The crafting is:
+    2 x Structure
+    2 x Planks
+    4 x Plastic
+    1 x Poop
+    1 x Crafting Table
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kCampfireIdea = CardModel(
+  type: TypeCard.idea,
+  id: 100,
+  name: 'Idea: Campfire',
+  description: '''The crafting is:
+    4 x Wood
+    4 x Rock
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kAppleTreeIdea = CardModel(
+  type: TypeCard.idea,
+  id: 101,
+  name: 'Idea: Apple Tree',
+  description: '''The crafting is:
+    1 x Tree Seed
+    1 x Apple
+    1 x Water
+    1 x Farm
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kBananaTreeIdea = CardModel(
+  type: TypeCard.idea,
+  id: 102,
+  name: 'Idea: Banana Tree',
+  description: '''The crafting is:
+    1 x Tree Seed
+    1 x Banana
+    1 x Water
+    1 x Farm
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kMilkIdea = CardModel(
+  type: TypeCard.idea,
+  id: 103,
+  name: 'Idea: Milk',
+  description: '''The crafting is:
+    1 x Cow
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kFertilizerIdea = CardModel(
+  type: TypeCard.idea,
+  id: 104,
+  name: 'Idea: Fertilizer',
+  description: '''The crafting is:
+    1 x Poop
+    1 x Composter
+    1 x Water
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kWoodIdea = CardModel(
+  type: TypeCard.idea,
+  id: 105,
+  name: 'Idea: Wood',
+  description: '''The crafting is:
+    1 x Tree
+    1 x Human''',
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kFertilizer = CardModel(
+  id: 106,
+  name: 'Fertilizer',
+  description:
+      '''An enriched compound that boosts the growth of your crops. This fertilizer ensures that your plants are always happy and healthy.''',
+  type: TypeCard.material,
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kTreeSeed = CardModel(
+  id: 107,
+  name: 'Tree Seed',
+  description:
+      '''A small treasure of nature that carries with it the promise of a green and lush future. Plant this seed with love and care, and you will see how a majestic tree will grow and provide shade and oxygen.''',
+  type: TypeCard.material,
+  prize: 1,
+  quantity: 1,
+);
+const CardModel kWell = CardModel(
+  id: 108,
+  name: 'Well',
+  description:
+      '''A reliable source of drinking water for your community. This well guarantees a constant supply of vital liquid to keep everyone hydrated.''',
+  type: TypeCard.structure,
   prize: 1,
   quantity: 1,
 );
