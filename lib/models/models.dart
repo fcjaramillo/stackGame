@@ -10,4 +10,5 @@ part 'card_probability.dart';
 part 'card.dart';
 part 'game_card.dart';
 part 'pack.dart';
+part 'achivement.dart';
 part 'recipe.dart';
