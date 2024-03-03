@@ -5,7 +5,12 @@ import 'package:stack/data/data.dart';
 import 'package:stack/models/models.dart';
 
 class TabIndicator extends StatefulWidget {
-  const TabIndicator({super.key});
+  const TabIndicator({
+    required this.onTapCard,
+    super.key,
+  });
+
+  final Function(CardModel) onTapCard;
 
   @override
   State<TabIndicator> createState() => _TabIndicatorState();
@@ -91,10 +96,12 @@ class _TabIndicatorState extends State<TabIndicator> {
                 child: SingleChildScrollView(
                   child: IndexedStack(
                     index: index,
-                    children: const [
-                      QuestSection(),
-                      RecipeSection(),
-                      AchivementSecion(),
+                    children: [
+                      const QuestSection(),
+                      RecipeSection(
+                        onTapCard: widget.onTapCard,
+                      ),
+                      const AchivementSecion(),
                     ],
                   ),
                 ),
@@ -153,8 +160,11 @@ class QuestSection extends StatelessWidget {
 
 class RecipeSection extends StatelessWidget {
   const RecipeSection({
+    required this.onTapCard,
     super.key,
   });
+
+  final Function(CardModel) onTapCard;
 
   @override
   Widget build(BuildContext context) {
@@ -164,6 +174,7 @@ class RecipeSection extends StatelessWidget {
         for (int i = 0; i < recipes.length; i++) ...<Widget>[
           RecipesTile(
             recipe: recipes[i],
+            onTapCard: onTapCard,
           ),
           const SizedBox(height: 7),
         ]
@@ -175,24 +186,38 @@ class RecipeSection extends StatelessWidget {
 class RecipesTile extends StatelessWidget {
   const RecipesTile({
     required this.recipe,
+    required this.onTapCard,
     super.key,
   });
 
+  final Function(CardModel) onTapCard;
   final RecipeModel recipe;
 
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
       title: Text(
-        recipe.id.toString(),
+        recipe.create?[0].name ?? '',
       ),
-      trailing: const FaIcon(
+      leading: const FaIcon(
         FontAwesomeIcons.book,
       ),
       expandedCrossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         for (int i = 0; i < recipe.materials.length; i++)
-          Text(recipe.materials[i]),
+          ListTile(
+            leading: const FaIcon(
+              FontAwesomeIcons.diamond,
+            ),
+            title: Text(recipe.materials[i].title),
+            onTap: () => onTapCard(recipe.materials[i].card),
+          ),
+        ListTile(
+          leading: const FaIcon(
+            FontAwesomeIcons.clock,
+          ),
+          title: Text('Time: ${recipe.time} sec'),
+        ),
       ],
     );
   }

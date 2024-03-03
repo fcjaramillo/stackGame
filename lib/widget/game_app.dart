@@ -9,6 +9,7 @@ import 'package:stack/widget/score_card.dart';
 
 import '../const.dart';
 import '../data/data.dart';
+import '../enums/enums.dart';
 import 'tab.dart';
 import 'time_day.dart';
 
@@ -21,6 +22,7 @@ class GameApp extends StatefulWidget {
 
 class _GameAppState extends State<GameApp> {
   late final StackGame game;
+  PlayState pState = PlayState.welcome;
 
   @override
   void initState() {
@@ -55,9 +57,14 @@ class _GameAppState extends State<GameApp> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Expanded(
+                        Expanded(
                           flex: 3,
-                          child: TabIndicator(),
+                          child: TabIndicator(
+                            onTapCard: (CardModel card) {
+                              game.cardSelected.value =
+                                  GameCardModel.byType(card);
+                            },
+                          ),
                         ),
                         const SizedBox(
                           height: 16,
@@ -102,18 +109,30 @@ class _GameAppState extends State<GameApp> {
                                 overlayBuilderMap: {
                                   PlayState.welcome.name: (context, game) =>
                                       const OverlayScreen(
-                                        title: 'TAP TO PLAY',
-                                        subtitle: 'Use arrow keys or swipe',
+                                        title: 'GREENSTACK',
+                                        subtitle:
+                                            'Do you want to change your habits? To do so, move, group, create and sell cards.',
+                                        action: 'Press enter',
                                       ),
+                                  PlayState.onboarding.name: (context, game) {
+                                    return const OverlayScreen(
+                                      title: 'GREENSTACK',
+                                      subtitle:
+                                          'Follow the missions and look for the recipes in the packs.\n \n CONTROLS: Space = Pause, key m = Sound ON/OFF, key f = Fast ON/OFF',
+                                      action: 'Press enter',
+                                    );
+                                  },
                                   PlayState.gameOver.name: (context, game) =>
                                       const OverlayScreen(
                                         title: 'G A M E   O V E R',
                                         subtitle: 'Tap to Play Again',
+                                        action: 'Press enter',
                                       ),
                                   PlayState.won.name: (context, game) =>
                                       const OverlayScreen(
                                         title: 'Y O U   W O N ! ! !',
                                         subtitle: 'Tap to Play Again',
+                                        action: 'Press enter',
                                       ),
                                 },
                               ),

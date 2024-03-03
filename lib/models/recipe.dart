@@ -7,8 +7,8 @@ class RecipeModel {
   final List<CardModel>? remove;
   final List<CardModel>? create;
 
-  List<String> get materials {
-    List<String> result = [];
+  List<CardCountModel> get materials {
+    List<CardCountModel> result = [];
 
     if (cards.isEmpty) {
       return result;
@@ -19,12 +19,22 @@ class RecipeModel {
       if (cards[i].id == cards[i - 1].id) {
         count++;
       } else {
-        result.add('$count ${cards[i - 1].name}');
+        result.add(
+          CardCountModel(
+            card: cards[i - 1],
+            title: '${cards[i - 1].name} x $count',
+          ),
+        );
         count = 1;
       }
     }
 
-    result.add('$count ${cards.last.name}');
+    result.add(
+      CardCountModel(
+        card: cards.last,
+        title: '${cards.last.name} x $count',
+      ),
+    );
 
     return result;
   }
@@ -35,5 +45,15 @@ class RecipeModel {
     required this.time,
     this.remove,
     this.create,
+  });
+}
+
+class CardCountModel {
+  final CardModel card;
+  final String title;
+
+  const CardCountModel({
+    required this.card,
+    required this.title,
   });
 }

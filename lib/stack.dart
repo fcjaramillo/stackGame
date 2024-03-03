@@ -5,16 +5,18 @@ import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flame_audio/flame_audio.dart';
-import 'package:flutter/foundation.dart';
-import 'package:stack/const.dart';
-import 'package:stack/models/models.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'components/components.dart';
+import 'const.dart';
 import 'data/data.dart';
+import 'enums/enums.dart';
+import 'models/models.dart';
+import 'utils/utils.dart';
 
-enum PlayState { welcome, playing, gameOver, won }
-
-class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
+class StackGame extends FlameGame
+    with HasCollisionDetection, ScrollDetector, KeyboardEvents {
   final ValueNotifier<int> score = ValueNotifier(0);
   final ValueNotifier<int> card = ValueNotifier(0);
   final ValueNotifier<int> cardMax = ValueNotifier(kNumberCardsInitial);
@@ -29,6 +31,7 @@ class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
   final ValueNotifier<double> handicap = ValueNotifier(0);
   final ValueNotifier<double> timeDayNotifier = ValueNotifier(0);
   final ValueNotifier<GameCardModel?> cardSelected = ValueNotifier(null);
+  final _debouncer = Debouncer(milliseconds: 100);
 
   List<StackComponent> stacks = [];
   PlayAreaComponent playArea = PlayAreaComponent();
@@ -40,6 +43,27 @@ class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
   bool isPause = false;
   bool isFast = false;
   bool isSound = true;
+
+  PlayState _playState = PlayState.welcome;
+  PlayState get playState => _playState;
+  set playState(PlayState playState) {
+    _playState = playState;
+    switch (playState) {
+      case PlayState.welcome:
+      case PlayState.gameOver:
+      case PlayState.won:
+        overlays.add(playState.name);
+      case PlayState.pause:
+      case PlayState.onboarding:
+        overlays.add(playState.name);
+        overlays.remove(PlayState.welcome.name);
+      case PlayState.playing:
+        overlays.remove(PlayState.welcome.name);
+        overlays.remove(PlayState.onboarding.name);
+        overlays.remove(PlayState.gameOver.name);
+        overlays.remove(PlayState.won.name);
+    }
+  }
 
   StackGame();
 
@@ -76,14 +100,8 @@ class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
     await FlameAudio.audioCache.loadAll(kSoundList);
 
     playArea = PlayAreaComponent();
-    gameTime = GameTime(
-      size: Vector2(kBarTimerWidth, 25),
-      position: Vector2(width - kBarTimerWidth - 20, 10),
-      totalTime: kTimeDayComplete,
-    );
 
     add(playArea);
-    add(gameTime);
 
     FlameAudio.bgm.initialize();
     playSound();
@@ -91,6 +109,26 @@ class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
     camera.viewfinder.anchor = Anchor.topLeft;
 
     world.onGameResize(Vector2(width, height));
+
+    playState = PlayState.welcome;
+
+    return super.onLoad();
+  }
+
+  void startGame() {
+    if (playState == PlayState.playing) return;
+
+    world.removeAll(world.children.query<CardComponent>());
+    world.removeAll(world.children.query<LinearTime>());
+    playState = PlayState.playing;
+
+    gameTime = GameTime(
+      size: Vector2(kBarTimerWidth, 25),
+      position: Vector2(width - kBarTimerWidth - 20, 10),
+      totalTime: kTimeDayComplete,
+    );
+
+    add(gameTime);
 
     world.add(SellComponent(position: Vector2(10, 10)));
 
@@ -116,8 +154,35 @@ class StackGame extends FlameGame with HasCollisionDetection, ScrollDetector {
             )),
       );
     }
+  }
 
-    return super.onLoad();
+  @override
+  KeyEventResult onKeyEvent(
+      RawKeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
+    super.onKeyEvent(event, keysPressed);
+    switch (event.logicalKey) {
+      case LogicalKeyboardKey.space:
+        _debouncer.run(() {
+          changePause();
+        });
+      case LogicalKeyboardKey.keyM:
+        _debouncer.run(() {
+          changeSound();
+        });
+      case LogicalKeyboardKey.keyF:
+        _debouncer.run(() {
+          changeFast();
+        });
+      case LogicalKeyboardKey.enter:
+        _debouncer.run(() {
+          if (playState == PlayState.onboarding) {
+            startGame();
+          } else if (playState == PlayState.welcome) {
+            playState = PlayState.onboarding;
+          }
+        });
+    }
+    return KeyEventResult.handled;
   }
 
   @override

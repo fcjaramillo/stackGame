@@ -6,10 +6,12 @@ class OverlayScreen extends StatelessWidget {
     super.key,
     required this.title,
     required this.subtitle,
+    required this.action,
   });
 
   final String title;
   final String subtitle;
+  final String action;
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +21,23 @@ class OverlayScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            title,
+            title.toUpperCase(),
             style: Theme.of(context).textTheme.headlineLarge,
           ).animate().slideY(duration: 750.ms, begin: -3, end: 0),
           const SizedBox(height: 16),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: Center(
+              child: Text(
+                subtitle,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headlineMedium,
+              ).animate().slideX(duration: 750.ms, begin: 10, end: 0),
+            ),
+          ),
+          const SizedBox(height: 16),
           Text(
-            subtitle,
+            action,
             style: Theme.of(context).textTheme.headlineSmall,
           )
               .animate(onPlay: (controller) => controller.repeat())
