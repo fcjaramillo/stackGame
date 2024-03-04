@@ -58,13 +58,17 @@ class CardComponent extends SpriteComponent
 
   Future<void> finishDay() async {
     if (isPerson) {
-      await eatFood();
+      bool? haveFood = await eatFood();
+
+      if (!(haveFood ?? false)) {
+        game.playState = PlayState.gameOver;
+      }
     }
 
     game.health.value = card.newHealth(game.health.value);
     game.oxygen.value = card.newOxygen(game.oxygen.value);
     game.carbonFootprint.value =
-        card.newCarbonFootprint(game.carbonFootprint.value / 100);
+        card.newCarbonFootprint(game.carbonFootprint.value);
     game.handicap.value = card.newHandicap(game.handicap.value);
   }
 
@@ -73,6 +77,7 @@ class CardComponent extends SpriteComponent
     sprite = await Sprite.load('cards/${card.id}.png');
     game.card.value -= card.quantity < 0 ? card.quantity : 0;
     game.cardMax.value += card.quantity > 0 ? card.quantity : 0;
+    game.food.value += (card.food ?? 0) > 0 ? card.food ?? 0 : 0;
     game.energyMax.value += (card.energy ?? 0) > 0 ? card.energy ?? 0 : 0;
     return super.onLoad();
   }
@@ -81,6 +86,7 @@ class CardComponent extends SpriteComponent
   void onRemove() {
     game.card.value += card.quantity < 0 ? card.quantity : 0;
     game.cardMax.value -= card.quantity > 0 ? card.quantity : 0;
+    game.food.value -= (card.food ?? 0) > 0 ? card.food ?? 0 : 0;
     game.energyMax.value -= (card.energy ?? 0) > 0 ? card.energy ?? 0 : 0;
     super.onRemove();
   }
@@ -109,9 +115,9 @@ class CardComponent extends SpriteComponent
             _shakeAnimationClockwise = true;
           }
           if (_shakeAnimationClockwise) {
-            angle += dt * 2.5;
+            angle += dt * 1.2;
           } else {
-            angle -= dt * 2.5;
+            angle -= dt * 1.2;
           }
           break;
       }
@@ -269,10 +275,17 @@ class CardComponent extends SpriteComponent
               game.coin.value -= pack.cost;
               List<CardModel> newCards = pack.generateCards();
               for (int i = 0; i < newCards.length; i++) {
-                final card = newCards[i];
+                if (newCards[i].type == TypeCard.idea) {
+                  int indexRecipe = game.recipesNotifier.value.indexWhere((r) =>
+                      newCards[i].name.contains(r.create?[0].name ?? 'human'));
+                  List<RecipeModel> recipesNew = game.recipesNotifier.value;
+                  recipesNew[indexRecipe] =
+                      game.recipesNotifier.value[indexRecipe].copyWith(true);
+                  game.recipesNotifier.value = recipesNew;
+                }
                 game.world.add(
                   CardComponent(
-                    card: card,
+                    card: newCards[i],
                     position: other.position + other.size / 2,
                     activeAnimation: true,
                     animationDelta: getAnimationDelta(i),

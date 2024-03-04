@@ -32,6 +32,9 @@ class StackGame extends FlameGame
   final ValueNotifier<double> timeDayNotifier = ValueNotifier(0);
   final ValueNotifier<GameCardModel?> cardSelected = ValueNotifier(null);
   final ValueNotifier<bool> canInteract = ValueNotifier(true);
+  final ValueNotifier<List<RecipeModel>> recipesNotifier =
+      ValueNotifier(recipes);
+
   final _debouncer = Debouncer(milliseconds: 100);
 
   List<StackComponent> stacks = [];
@@ -124,6 +127,7 @@ class StackGame extends FlameGame
 
     world.removeAll(world.children.query<CardComponent>());
     world.removeAll(world.children.query<LinearTime>());
+    removeAll(children.query<LinearTime>());
     playState = PlayState.playing;
 
     gameTime = GameTime(
@@ -134,13 +138,13 @@ class StackGame extends FlameGame
 
     add(gameTime);
 
-    world.add(SellComponent(position: Vector2(10, 10)));
+    world.add(SellComponent(position: Vector2(10, 40)));
 
     for (int i = 0; i < packs.length; i++) {
       world.add(
         PackComponent(
           pack: packs[i],
-          position: Vector2(kCardWidth * (i + 1) + ((i + 1) * 40), 10),
+          position: Vector2(kCardWidth * (i + 1) + ((i + 1) * 40), 40),
         ),
       );
     }
@@ -183,6 +187,8 @@ class StackGame extends FlameGame
             startGame();
           } else if (playState == PlayState.welcome) {
             playState = PlayState.onboarding;
+          } else if (playState == PlayState.gameOver) {
+            startGame();
           }
         });
     }

@@ -130,12 +130,14 @@ class TitleListenable<T> extends StatelessWidget {
                 icon,
                 const SizedBox(width: 4),
                 Text(
-                  otherValue != null ? '$value/$otherValue' : '$value',
+                  otherValue != null
+                      ? '$value/$otherValue'
+                      : '${value is double ? value.toStringAsFixed(0) : value}',
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: ((value as num?) ?? 0) <=
-                                ((otherValue as num?) ?? 0)
-                            ? Colors.red
-                            : null,
+                        color:
+                            ((value as num?) ?? 0) < ((otherValue as num?) ?? 0)
+                                ? Colors.red
+                                : null,
                       ),
                 ),
               ],
@@ -178,7 +180,9 @@ class TitleValueListenable<T> extends StatelessWidget {
                     icon,
                     const SizedBox(width: 4),
                     Text(
-                      otherValue != null ? '$value/$otherValue' : '$value',
+                      otherValue != null
+                          ? '$value/$otherValue'
+                          : '${value is double ? value.toStringAsFixed(2) : value}',
                       style: Theme.of(context).textTheme.titleSmall!.copyWith(
                             color: ((value as num?) ?? 0) >
                                     ((otherValue as num?) ?? 0)

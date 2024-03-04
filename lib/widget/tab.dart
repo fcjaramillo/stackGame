@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stack/const.dart';
@@ -7,10 +8,12 @@ import 'package:stack/models/models.dart';
 class TabIndicator extends StatefulWidget {
   const TabIndicator({
     required this.onTapCard,
+    required this.recipesNotifier,
     super.key,
   });
 
   final Function(CardModel) onTapCard;
+  final ValueListenable<List<RecipeModel>> recipesNotifier;
 
   @override
   State<TabIndicator> createState() => _TabIndicatorState();
@@ -103,6 +106,7 @@ class _TabIndicatorState extends State<TabIndicator> {
                     ),
                     RecipeSection(
                       onTapCard: widget.onTapCard,
+                      recipesNotifier: widget.recipesNotifier,
                     ),
                     const AchivementSecion(),
                   ],
@@ -178,20 +182,25 @@ class QuestTile extends StatelessWidget {
 class RecipeSection extends StatelessWidget {
   const RecipeSection({
     required this.onTapCard,
+    required this.recipesNotifier,
     super.key,
   });
 
   final Function(CardModel) onTapCard;
+  final ValueListenable<List<RecipeModel>> recipesNotifier;
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      itemBuilder: (contex, index) => RecipesTile(
-        recipe: recipes[index],
-        onTapCard: onTapCard,
+    return ValueListenableBuilder<List<RecipeModel>>(
+      valueListenable: recipesNotifier,
+      builder: (context, value, child) => ListView.separated(
+        itemBuilder: (contex, index) => RecipesTile(
+          recipe: value[index],
+          onTapCard: onTapCard,
+        ),
+        separatorBuilder: (context, index) => const SizedBox(height: 7),
+        itemCount: value.length,
       ),
-      separatorBuilder: (context, index) => const SizedBox(height: 7),
-      itemCount: recipes.length,
     );
   }
 }
@@ -208,30 +217,53 @@ class RecipesTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ExpansionTile(
-      title: Text(
-        recipe.create?[0].name ?? '',
+    return Visibility(
+      visible: recipe.isVisible,
+      replacement: ListTile(
+        leading: const FaIcon(
+          FontAwesomeIcons.book,
+        ),
+        title: ConstrainedBox(
+          constraints: const BoxConstraints(
+            minWidth: 20,
+            maxWidth: 100,
+          ),
+          child: const SizedBox(
+            width: double.infinity,
+            height: 15,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: Colors.blueGrey,
+              ),
+            ),
+          ),
+        ),
       ),
-      leading: const FaIcon(
-        FontAwesomeIcons.book,
-      ),
-      expandedCrossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        for (int i = 0; i < recipe.materials.length; i++)
+      child: ExpansionTile(
+        title: Text(
+          recipe.create?[0].name ?? '',
+        ),
+        leading: const FaIcon(
+          FontAwesomeIcons.book,
+        ),
+        expandedCrossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          for (int i = 0; i < recipe.materials.length; i++)
+            ListTile(
+              leading: const FaIcon(
+                FontAwesomeIcons.diamond,
+              ),
+              title: Text(recipe.materials[i].title),
+              onTap: () => onTapCard(recipe.materials[i].card),
+            ),
           ListTile(
             leading: const FaIcon(
-              FontAwesomeIcons.diamond,
+              FontAwesomeIcons.clock,
             ),
-            title: Text(recipe.materials[i].title),
-            onTap: () => onTapCard(recipe.materials[i].card),
+            title: Text('Time: ${recipe.time} sec'),
           ),
-        ListTile(
-          leading: const FaIcon(
-            FontAwesomeIcons.clock,
-          ),
-          title: Text('Time: ${recipe.time} sec'),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -6,6 +6,8 @@ class RecipeModel {
   final double time;
   final List<CardModel>? remove;
   final List<CardModel>? create;
+  final CardModel? idea;
+  final bool isVisible;
 
   List<CardCountModel> get materials {
     List<CardCountModel> result = [];
@@ -45,7 +47,21 @@ class RecipeModel {
     required this.time,
     this.remove,
     this.create,
+    this.idea,
+    this.isVisible = false,
   });
+
+  RecipeModel copyWith(
+    bool? isVisible,
+  ) =>
+      RecipeModel(
+        id: id,
+        cards: cards,
+        time: time,
+        remove: remove,
+        create: create,
+        isVisible: isVisible ?? this.isVisible,
+      );
 }
 
 class CardCountModel {

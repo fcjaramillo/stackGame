@@ -24,7 +24,7 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
   @override
   Future<void> update(double dt) async {
     super.update(dt);
-    if (!(game.isPause)) {
+    if (!(game.isPause) && game.playState != PlayState.gameOver) {
       if (!(game.isFast)) {
         currentTime += dt;
       } else {
@@ -100,13 +100,14 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
       game.world.remove(stackTime.stack.cards[indexCard]);
       stackTime.stack.removeCard(stackTime.stack.cards[indexCard]);
     }
+
     for (int i = 0; i < stackTime.createCard.length; i++) {
       game.world.add(
         CardComponent(
           card: stackTime.createCard[i],
           position: Vector2(
-            (position.x + 100) * (i + 1),
-            (position.y + 100) * (i + 1),
+            kCardWidth * (i + 1) + position.x,
+            kCardHeight * (i + 1) + position.y,
           ),
           activeAnimation: true,
         ),

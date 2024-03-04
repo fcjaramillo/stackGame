@@ -33,7 +33,7 @@ class CardModel {
   int newFood(int food) => food + (this.food ?? 0);
   double newOxygen(double oxygen) => oxygen + (this.oxygen ?? 0);
   double newCarbonFootprint(double carbonFootprint) =>
-      carbonFootprint + (this.carbonFootprint ?? 0);
+      carbonFootprint + (this.carbonFootprint ?? 0) / 100;
   int newEnergy(int energy) => energy + (this.energy ?? 0);
   double newHandicap(double handicap) => handicap + (this.handicap ?? 0);
 }

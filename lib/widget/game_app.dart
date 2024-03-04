@@ -64,6 +64,7 @@ class _GameAppState extends State<GameApp> {
                               game.cardSelected.value =
                                   GameCardModel.byType(card);
                             },
+                            recipesNotifier: game.recipesNotifier,
                           ),
                         ),
                         const SizedBox(

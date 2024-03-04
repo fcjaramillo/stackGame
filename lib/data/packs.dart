@@ -102,6 +102,10 @@ List<PackModel> packs = [
         percentage: 10,
       ),
       CardProbabilityModel(
+        card: kDev,
+        percentage: 10,
+      ),
+      CardProbabilityModel(
         card: kMilk,
         percentage: 10,
       ),
@@ -117,11 +121,19 @@ List<PackModel> packs = [
         card: kFlour,
         percentage: 10,
       ),
-      CardProbabilityModel(
-        //This is for the recipes
-        card: kDev,
-        percentage: 10,
-      ),
+    ],
+    ideas: [
+      kStewIdea,
+      kFriedMeatIdea,
+      kFlourIdea,
+      kBreadIdea,
+      kCakeIdea,
+      kHealthySaladIdea,
+      kFruitShakeIdea,
+      kPotatoOmeletIdea,
+      kApplePieIdea,
+      kFarmFeastIdea,
+      kMilkIdea,
     ],
   ),
   PackModel(
@@ -143,7 +155,7 @@ List<PackModel> packs = [
     numberCards: 3,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
-        card: kIron,
+        card: kWood,
         percentage: 14,
       ),
       CardProbabilityModel(
@@ -179,6 +191,15 @@ List<PackModel> packs = [
         card: kDev,
         percentage: 10,
       ),
+    ],
+    ideas: [
+      kIronIngotsIdea,
+      kSiliconIdea,
+      kCopperLineIdea,
+      kInsulatorIdea,
+      kSolarCellsIdea,
+      kStructureIdea,
+      kCablesIdea,
     ],
   ),
   PackModel(
@@ -217,6 +238,21 @@ List<PackModel> packs = [
         card: kDev,
         percentage: 15,
       ),
+    ],
+    ideas: [
+      kBaulIdea,
+      kWarehouseIdea,
+      kFurnaceIdea,
+      kCraftingTableIdea,
+      kSawmillIdea,
+      kElectronicTableIdea,
+      kSolarPanelIdea,
+      kFarmIdea,
+      kOrchardIdea,
+      kMillIdea,
+      kGreenhouseIdea,
+      kWindTurbineIdea,
+      kRecyclerIdea,
     ],
   ),
   PackModel(
@@ -269,6 +305,14 @@ List<PackModel> packs = [
         card: kDev,
         percentage: 10,
       ),
+    ],
+    ideas: [
+      kComposterIdea,
+      kCampfireIdea,
+      kAppleTreeIdea,
+      kBananaTreeIdea,
+      kFertilizerIdea,
+      kWoodIdea,
     ],
   ),
   PackModel(

@@ -11,6 +11,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:stack/const.dart';
+import 'package:stack/enums/enums.dart';
 import 'package:stack/extensions/extensions.dart';
 import '../data/data.dart';
 import '../enums/enums.dart';

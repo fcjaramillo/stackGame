@@ -7,6 +7,7 @@ class PackModel {
   final List<CardProbabilityModel> cards;
   final int numberCards;
   final int cost;
+  final List<CardModel> ideas;
 
   PackModel({
     required this.id,
@@ -15,6 +16,7 @@ class PackModel {
     required this.cards,
     required this.cost,
     required this.numberCards,
+    this.ideas = const [],
   });
 
   List<CardModel> generateCards() {
@@ -26,6 +28,11 @@ class PackModel {
       for (int j = 0; j < cards.length; j++) {
         percentage += cards[j].percentage.toInt();
         if (random <= percentage) {
+          if (cards[j].card.id == 1000) {
+            int indexIdea = random % ideas.length;
+            newCards.add(ideas[indexIdea]);
+            break;
+          }
           newCards.add(cards[j].card);
           break;
         }

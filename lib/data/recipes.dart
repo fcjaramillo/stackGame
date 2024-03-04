@@ -11,6 +11,7 @@ List<RecipeModel> recipes = <RecipeModel>[
       kTree,
       kHuman,
     ],
+    idea: kWoodIdea,
     remove: <CardModel>[
       kTree,
     ],
@@ -27,6 +28,7 @@ List<RecipeModel> recipes = <RecipeModel>[
       kCoal,
       kFurnace,
     ],
+    idea: kIronIngotsIdea,
     remove: <CardModel>[
       kIron,
       kIron,
@@ -48,6 +50,7 @@ List<RecipeModel> recipes = <RecipeModel>[
       kCoal,
       kFurnace,
     ],
+    idea: kSiliconIdea,
     remove: <CardModel>[
       kCoal,
       kCoal,
