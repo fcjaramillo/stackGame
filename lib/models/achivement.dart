@@ -1,15 +1,10 @@
 part of 'models.dart';
 
-class AchivementModel {
-  final int id;
-  final String name;
-  final String description;
-  final bool isComplete;
-
+class AchivementModel extends Objetive {
   const AchivementModel({
-    required this.id,
-    required this.name,
-    required this.description,
-    required this.isComplete,
+    required super.id,
+    required super.name,
+    required super.description,
+    required super.isComplete,
   });
 }

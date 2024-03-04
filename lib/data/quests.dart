@@ -1,22 +1,22 @@
 part of 'data.dart';
 
-const List<AchivementModel> kAchivementsList = [
-  AchivementModel(
+const List<QuestModel> kRoadMap = <QuestModel>[
+  QuestModel(
     id: 0,
-    name: 'In the beginning',
-    description: "Hey! you're playing now",
+    name: 'Work',
+    description: 'Go to work and get some coins',
+    isComplete: true,
+  ),
+  QuestModel(
+    id: 0,
+    name: 'Buy',
+    description: 'Get some new card',
     isComplete: false,
   ),
-  AchivementModel(
-    id: 1,
-    name: 'Fur-iends',
-    description: "Now you're not alone in the world!",
-    isComplete: true,
-  ),
-  AchivementModel(
+  QuestModel(
     id: 0,
-    name: 'DevsCoverer',
-    description: "Yay! I'm in my own game",
-    isComplete: true,
+    name: 'Sell',
+    description: 'Sell some cards',
+    isComplete: false,
   ),
 ];

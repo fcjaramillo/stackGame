@@ -1,5 +1,11 @@
 part of 'components.dart';
 
+enum AnimationType {
+  initialBounce,
+  shake,
+  none,
+}
+
 class CardComponent extends SpriteComponent
     with
         CollisionCallbacks,
@@ -13,6 +19,8 @@ class CardComponent extends SpriteComponent
   double animationTime = 0;
   bool activeAnimation;
   Vector2 animationDelta;
+  AnimationType _animationType = AnimationType.initialBounce;
+  bool _shakeAnimationClockwise = true;
   late double deltaX;
   late double deltaY;
 
@@ -29,6 +37,8 @@ class CardComponent extends SpriteComponent
           ),
           children: [RectangleHitbox()],
         ) {
+    anchor = Anchor.center;
+    position += size;
     debugMode = false;
     deltaX = this.animationDelta.x / 45;
     deltaY = this.animationDelta.y / 15;
@@ -42,9 +52,13 @@ class CardComponent extends SpriteComponent
     priority = p;
   }
 
-  void finishDay() {
+  void changeAnimation(AnimationType animationType) {
+    _animationType = animationType;
+  }
+
+  Future<void> finishDay() async {
     if (isPerson) {
-      eatFood();
+      await eatFood();
     }
 
     game.health.value = card.newHealth(game.health.value);
@@ -73,14 +87,34 @@ class CardComponent extends SpriteComponent
 
   @override
   void update(double dt) {
-    if (activeAnimation && animationTime < kNewCardAnimationDuration) {
-      animationTime += dt;
-      position += Vector2(
-        0.68 * deltaX,
-        1.7 *
-            bounceAnimation(animationTime / kNewCardAnimationDuration) *
-            deltaY,
-      );
+    if (activeAnimation) {
+      switch (_animationType) {
+        case AnimationType.none:
+          break;
+        case AnimationType.initialBounce:
+          if (animationTime < kNewCardAnimationDuration) {
+            animationTime += dt;
+            position += Vector2(
+              0.68 * deltaX,
+              1.7 *
+                  bounceAnimation(animationTime / kNewCardAnimationDuration) *
+                  deltaY,
+            );
+          }
+          break;
+        case AnimationType.shake:
+          if (angle > 0.04) {
+            _shakeAnimationClockwise = false;
+          } else if (angle < -0.04) {
+            _shakeAnimationClockwise = true;
+          }
+          if (_shakeAnimationClockwise) {
+            angle += dt * 2.5;
+          } else {
+            angle -= dt * 2.5;
+          }
+          break;
+      }
     }
     super.update(dt);
   }
@@ -227,7 +261,7 @@ class CardComponent extends SpriteComponent
         });
       }
     } else if (other is PackComponent) {
-      if (move) {
+      if (move && isPerson && game.canInteract.value) {
         _debouncer.run(() {
           if (!move) {
             PackModel pack = other.pack;
@@ -263,26 +297,26 @@ class CardComponent extends SpriteComponent
 
   int cardInStack(CardComponent card) =>
       game.stacks.indexWhere((e) => e.cards.contains(card));
+}
 
-  Vector2 getAnimationDelta(int i) {
-    double deltaX = 50;
-    double deltaY = 30;
-    if (i == 0 || i == 1) {
-      deltaY = 90;
-    }
-    if (i == 1) {
-      deltaX = -70;
-    } else if (i == 2) {
-      deltaX = 140;
-    } else if (i == 3) {
-      deltaX = -240;
-    }
-
-    return Vector2(
-      deltaX,
-      deltaY,
-    );
+Vector2 getAnimationDelta(int i) {
+  double deltaX = 50;
+  double deltaY = 30;
+  if (i == 0 || i == 1) {
+    deltaY = 90;
   }
+  if (i == 1) {
+    deltaX = -70;
+  } else if (i == 2) {
+    deltaX = 140;
+  } else if (i == 3) {
+    deltaX = -240;
+  }
+
+  return Vector2(
+    deltaX,
+    deltaY,
+  );
 }
 
 double bounceAnimation(double x) {

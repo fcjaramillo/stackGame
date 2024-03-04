@@ -32,13 +32,6 @@ extension FoodExtension on CardComponent {
         await Future.delayed(const Duration(milliseconds: 16));
         if (size.length > 1) {
           size *= 0.85;
-          position = newPosition +
-              (Vector2(
-                        kCardWidth,
-                        kCardHeight,
-                      ) -
-                      size) /
-                  2;
           return true;
         }
         _removeFood();

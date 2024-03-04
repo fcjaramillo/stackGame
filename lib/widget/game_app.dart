@@ -134,6 +134,11 @@ class _GameAppState extends State<GameApp> {
                                         subtitle: 'Tap to Play Again',
                                         action: 'Press enter',
                                       ),
+                                  PlayState.selling.name: (context, game) =>
+                                      const Center(
+                                        child:
+                                            Text('You must sell some cards!'),
+                                      ),
                                 },
                               ),
                             ),
@@ -144,6 +149,7 @@ class _GameAppState extends State<GameApp> {
                           child: Padding(
                             padding: const EdgeInsets.only(top: 10),
                             child: TimeDay(
+                              canInteract: game.canInteract,
                               currentTime: game.timeDayNotifier,
                               onTapFast: game.changeFast,
                               onTapPause: game.changePause,

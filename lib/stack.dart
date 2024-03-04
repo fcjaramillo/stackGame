@@ -31,6 +31,7 @@ class StackGame extends FlameGame
   final ValueNotifier<double> handicap = ValueNotifier(0);
   final ValueNotifier<double> timeDayNotifier = ValueNotifier(0);
   final ValueNotifier<GameCardModel?> cardSelected = ValueNotifier(null);
+  final ValueNotifier<bool> canInteract = ValueNotifier(true);
   final _debouncer = Debouncer(milliseconds: 100);
 
   List<StackComponent> stacks = [];
@@ -62,6 +63,9 @@ class StackGame extends FlameGame
         overlays.remove(PlayState.onboarding.name);
         overlays.remove(PlayState.gameOver.name);
         overlays.remove(PlayState.won.name);
+        overlays.remove(PlayState.selling.name);
+      case PlayState.selling:
+        overlays.add(PlayState.selling.name);
     }
   }
 
@@ -104,7 +108,7 @@ class StackGame extends FlameGame
     add(playArea);
 
     FlameAudio.bgm.initialize();
-    playSound();
+    //playSound();
 
     camera.viewfinder.anchor = Anchor.topLeft;
 

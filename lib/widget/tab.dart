@@ -25,6 +25,8 @@ class _TabIndicatorState extends State<TabIndicator> {
     'Achivements',
   ];
 
+  List<QuestModel> quests = List<QuestModel>.from(kRoadMap);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -93,17 +95,17 @@ class _TabIndicatorState extends State<TabIndicator> {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: SingleChildScrollView(
-                  child: IndexedStack(
-                    index: index,
-                    children: [
-                      const QuestSection(),
-                      RecipeSection(
-                        onTapCard: widget.onTapCard,
-                      ),
-                      const AchivementSecion(),
-                    ],
-                  ),
+                child: IndexedStack(
+                  index: index,
+                  children: [
+                    QuestSection(
+                      quests: quests,
+                    ),
+                    RecipeSection(
+                      onTapCard: widget.onTapCard,
+                    ),
+                    const AchivementSecion(),
+                  ],
                 ),
               ),
             ),
@@ -120,42 +122,57 @@ class AchivementSecion extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      children: <Widget>[
-        for (int i = 0; i < kAchivementsList.length; i++) ...<Widget>[
-          AchivementTile(
-            achivement: kAchivementsList[i],
-            rightAlignement: i.isEven,
-          ),
-          const SizedBox(height: 7),
-        ]
-      ],
-    );
-  }
+  Widget build(BuildContext context) => ListView.separated(
+        itemBuilder: (context, index) => AchivementTile(
+          achivement: kAchivementsList[index],
+          rightAlignement: index.isEven,
+        ),
+        separatorBuilder: (context, index) => const SizedBox(height: 7),
+        itemCount: kAchivementsList.length,
+      );
 }
 
 class QuestSection extends StatelessWidget {
   const QuestSection({
+    required this.quests,
     super.key,
   });
 
+  final List<QuestModel> quests;
+
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      children: <Widget>[
-        for (int i = 0; i < kAchivementsList.length; i++) ...<Widget>[
-          AchivementTile(
-            achivement: kAchivementsList[i],
-            rightAlignement: i.isEven,
+  Widget build(BuildContext context) => ListView.separated(
+        itemBuilder: (context, index) => QuestTile(
+          quest: quests[index],
+        ),
+        separatorBuilder: (context, index) => const SizedBox(height: 7),
+        itemCount: quests.length,
+      );
+}
+
+class QuestTile extends StatelessWidget {
+  const QuestTile({
+    required this.quest,
+    super.key,
+  });
+
+  final QuestModel quest;
+
+  @override
+  Widget build(BuildContext context) => ExpansionTile(
+        title: Text(
+          quest.name,
+        ),
+        leading: Checkbox(
+          value: quest.isComplete,
+          onChanged: (value) {},
+        ),
+        children: <Widget>[
+          Text(
+            quest.description,
           ),
-          const SizedBox(height: 7),
-        ]
-      ],
-    );
-  }
+        ],
+      );
 }
 
 class RecipeSection extends StatelessWidget {
@@ -168,17 +185,13 @@ class RecipeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      children: <Widget>[
-        for (int i = 0; i < recipes.length; i++) ...<Widget>[
-          RecipesTile(
-            recipe: recipes[i],
-            onTapCard: onTapCard,
-          ),
-          const SizedBox(height: 7),
-        ]
-      ],
+    return ListView.separated(
+      itemBuilder: (contex, index) => RecipesTile(
+        recipe: recipes[index],
+        onTapCard: onTapCard,
+      ),
+      separatorBuilder: (context, index) => const SizedBox(height: 7),
+      itemCount: recipes.length,
     );
   }
 }

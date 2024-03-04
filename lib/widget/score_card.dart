@@ -123,7 +123,8 @@ class TitleListenable<T> extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.all(12),
           child: Tooltip(
-            message: '$title max ${otherValue ?? kMaxValue}',
+            message:
+                '$title max ${(otherValue is double ? (otherValue as double).toStringAsFixed(2) : otherValue) ?? kMaxValue}',
             child: Row(
               children: [
                 icon,

@@ -29,9 +29,10 @@ class StackComponent {
       linearComponent = StackTime(
         size: Vector2(kCardWidth - 10, kBarTimerHeight),
         position: Vector2(
-          cards.first.position.x,
-          cards.first.position.y - kBarTimerHeight - 10,
-        ),
+              cards.first.position.x,
+              cards.first.position.y - kBarTimerHeight - 10,
+            ) -
+            cards.first.size / 2,
         totalTime: recipe.time,
         stack: this,
         createCard: recipe.create ?? [],

@@ -22,7 +22,7 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
   }
 
   @override
-  void update(double dt) {
+  Future<void> update(double dt) async {
     super.update(dt);
     if (!(game.isPause)) {
       if (!(game.isFast)) {
@@ -33,11 +33,44 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
       if (currentTime >= totalTime) {
         currentTime = 0;
         if (this is GameTime) {
-          game.world.children.query<CardComponent>().forEach((
-            CardComponent card,
-          ) {
-            card.finishDay();
-          });
+          game.canInteract.value = false;
+          game.isPause = true;
+
+          List<CardComponent> cards =
+              game.world.children.query<CardComponent>();
+
+          for (final CardComponent card in cards) {
+            await card.finishDay();
+          }
+
+          cards = game.world.children.query<CardComponent>();
+
+          if (game.card.value > game.cardMax.value) {
+            game.playState = PlayState.selling;
+            for (CardComponent c in cards) {
+              c.changeAnimation(AnimationType.shake);
+              c.activeAnimation = true;
+            }
+            await Future.doWhile(() async {
+              await Future.delayed(
+                const Duration(
+                  seconds: 1,
+                ),
+              );
+              return game.card.value > game.cardMax.value;
+            });
+
+            cards = game.world.children.query<CardComponent>();
+            for (CardComponent c in cards) {
+              c.changeAnimation(AnimationType.none);
+              c.activeAnimation = false;
+              c.angle = 0;
+            }
+            game.playState = PlayState.playing;
+          }
+
+          game.isPause = false;
+          game.canInteract.value = true;
         } else if (this is StackTime) {
           finishTime(stackTime: this as StackTime);
         }

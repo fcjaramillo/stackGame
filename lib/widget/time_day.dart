@@ -5,6 +5,7 @@ import '../const.dart';
 
 class TimeDay extends StatefulWidget {
   const TimeDay({
+    required this.canInteract,
     required this.currentTime,
     required this.onTapFast,
     required this.onTapPause,
@@ -13,6 +14,7 @@ class TimeDay extends StatefulWidget {
   });
 
   final ValueNotifier<double> currentTime;
+  final ValueNotifier<bool> canInteract;
   final VoidCallback onTapPause;
   final VoidCallback onTapFast;
   final VoidCallback onTapSound;
@@ -34,10 +36,12 @@ class _TimeDayState extends State<TimeDay> {
         CircularIcon(
           icon: isPause ? FontAwesomeIcons.pause : FontAwesomeIcons.play,
           onTap: () {
-            widget.onTapPause();
-            setState(() {
-              isPause = !isPause;
-            });
+            if (widget.canInteract.value) {
+              widget.onTapPause();
+              setState(() {
+                isPause = !isPause;
+              });
+            }
           },
         ),
         const SizedBox(width: 8),
@@ -46,10 +50,12 @@ class _TimeDayState extends State<TimeDay> {
               ? FontAwesomeIcons.backwardFast
               : FontAwesomeIcons.forwardFast,
           onTap: () {
-            widget.onTapFast();
-            setState(() {
-              isFast = !isFast;
-            });
+            if (widget.canInteract.value) {
+              widget.onTapFast();
+              setState(() {
+                isFast = !isFast;
+              });
+            }
           },
         ),
         const SizedBox(width: 8),
