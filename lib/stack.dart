@@ -36,6 +36,8 @@ class StackGame extends FlameGame
       ValueNotifier(recipes);
 
   final _debouncer = Debouncer(milliseconds: 100);
+  final _random = Random();
+  Random get random => _random;
 
   List<StackComponent> stacks = [];
   PlayAreaComponent playArea = PlayAreaComponent();
@@ -111,7 +113,7 @@ class StackGame extends FlameGame
     add(playArea);
 
     FlameAudio.bgm.initialize();
-    //playSound();
+    playSound();
 
     camera.viewfinder.anchor = Anchor.topLeft;
 
@@ -157,8 +159,8 @@ class StackGame extends FlameGame
                 kCardHeight * (card.id % 2) + kCardHeight),
             activeAnimation: true,
             animationDelta: Vector2(
-              (Random().nextDouble() - 0.5) * 200,
-              (Random().nextDouble()) * 200,
+              (_random.nextDouble() - 0.5) * 200,
+              (_random.nextDouble()) * 200,
             )),
       );
     }
@@ -223,7 +225,7 @@ class StackGame extends FlameGame
 
   void playSound() {
     FlameAudio.bgm.stop();
-    int value = Random().nextInt(kSoundList.length);
+    int value = _random.nextInt(kSoundList.length);
     FlameAudio.bgm.play(
       kSoundList[value],
     );

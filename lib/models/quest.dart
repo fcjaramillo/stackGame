@@ -8,7 +8,10 @@ class QuestModel extends Objetive {
     required super.isComplete,
   });
 
-  QuestModel copyWith({bool? isComplete}) => QuestModel(
+  QuestModel copyWith({
+    bool? isComplete,
+  }) =>
+      QuestModel(
         id: id,
         name: name,
         description: description,

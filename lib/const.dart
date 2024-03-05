@@ -8,7 +8,7 @@ const double kCardWidth = 100.0;
 const double kCardHeight = 115.0;
 const double kBarTimerWidth = 300.0;
 const double kBarTimerHeight = 24;
-const double kTimeDayComplete = 10;
+const double kTimeDayComplete = 90;
 const Color kColorBluePrincipal = Color(0xff184e77);
 const Color kColorBackground = Color(0xffa9d6e5);
 
@@ -34,10 +34,7 @@ const String kSoundRondo = 'rondo.mp3';
 const String kSoundConcerto = 'concerto.mp3';
 const String kSoundFlowers = 'flowers.mp3';
 const List<String> kSoundList = [
-  kSoundBolero,
-  kSoundRondo,
   kSoundConcerto,
-  kSoundFlowers,
 ];
 
 const List<CardModel> kInitialCards = [

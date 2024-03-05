@@ -19,10 +19,10 @@ class PackModel {
     this.ideas = const [],
   });
 
-  List<CardModel> generateCards() {
+  List<CardModel> generateCards(Random ramdom) {
     List<CardModel> newCards = <CardModel>[];
     for (int i = 0; i < numberCards; i++) {
-      int random = Random().nextInt(100) + 1;
+      int random = ramdom.nextInt(100) + 1;
       int percentage = 0;
 
       for (int j = 0; j < cards.length; j++) {

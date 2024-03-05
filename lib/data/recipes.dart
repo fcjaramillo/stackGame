@@ -1125,7 +1125,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   const RecipeModel(
     id: 48,
     create: <CardModel>[
-      kApple,
+      kSallary,
     ],
     cards: <CardModel>[
       kEmployment,

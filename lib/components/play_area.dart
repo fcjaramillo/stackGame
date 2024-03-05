@@ -10,7 +10,7 @@ class PlayAreaComponent extends RectangleComponent
   @override
   FutureOr<void> onLoad() async {
     super.onLoad();
-    final random = Random();
+    final random = game.random;
     size = Vector2(game.width, game.height);
     _loadBackground(random);
   }

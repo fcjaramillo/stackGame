@@ -106,6 +106,10 @@ class CardComponent extends SpriteComponent
                   bounceAnimation(animationTime / kNewCardAnimationDuration) *
                   deltaY,
             );
+          } else {
+            _animationType = AnimationType.none;
+            activeAnimation = false;
+            animationTime = 0;
           }
           break;
         case AnimationType.shake:
@@ -273,7 +277,7 @@ class CardComponent extends SpriteComponent
             PackModel pack = other.pack;
             if (game.coin.value >= pack.cost) {
               game.coin.value -= pack.cost;
-              List<CardModel> newCards = pack.generateCards();
+              List<CardModel> newCards = pack.generateCards(game.random);
               for (int i = 0; i < newCards.length; i++) {
                 if (newCards[i].type == TypeCard.idea) {
                   int indexRecipe = game.recipesNotifier.value.indexWhere((r) =>

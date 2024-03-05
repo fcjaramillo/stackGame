@@ -129,9 +129,9 @@ class AchivementSecion extends StatelessWidget {
   Widget build(BuildContext context) => ListView.separated(
         itemBuilder: (context, index) => AchivementTile(
           achivement: kAchivementsList[index],
-          rightAlignement: index.isEven,
+          rightAlignement: index.isOdd,
         ),
-        separatorBuilder: (context, index) => const SizedBox(height: 7),
+        separatorBuilder: (context, index) => const SizedBox(height: 14),
         itemCount: kAchivementsList.length,
       );
 }
@@ -283,18 +283,24 @@ class AchivementTile extends StatelessWidget {
     return Align(
       alignment: !rightAlignement ? Alignment.topRight : Alignment.topLeft,
       child: FractionallySizedBox(
-        widthFactor: 0.8,
+        widthFactor: 0.95,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            FaIcon(
-              FontAwesomeIcons.trophy,
-              color: achivement.isComplete ? Colors.orangeAccent : Colors.black,
-            ),
-            const SizedBox(width: 10),
+            if (!rightAlignement) ...[
+              FaIcon(
+                FontAwesomeIcons.trophy,
+                color: achivement.isComplete
+                    ? Colors.brown.shade600
+                    : Colors.black,
+              ),
+              const SizedBox(width: 10),
+            ],
             Expanded(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: rightAlignement
+                    ? CrossAxisAlignment.end
+                    : CrossAxisAlignment.start,
                 children: [
                   if (achivement.isComplete)
                     Text(
@@ -323,6 +329,8 @@ class AchivementTile extends StatelessWidget {
                   if (achivement.isComplete)
                     Text(
                       achivement.description,
+                      textAlign:
+                          rightAlignement ? TextAlign.end : TextAlign.start,
                       style: const TextStyle(
                         fontSize: 10,
                       ),
@@ -354,6 +362,13 @@ class AchivementTile extends StatelessWidget {
                 ],
               ),
             ),
+            if (rightAlignement) ...[
+              const SizedBox(width: 10),
+              FaIcon(
+                FontAwesomeIcons.trophy,
+                color: achivement.isComplete ? Colors.amber : Colors.black,
+              ),
+            ],
           ],
         ),
       ),

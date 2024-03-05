@@ -1166,6 +1166,15 @@ const CardModel kWell = CardModel(
   prize: 1,
   quantity: -1,
 );
+const CardModel kSallary = CardModel(
+  id: 114,
+  name: 'Sallary',
+  description:
+      '''A reliable source of drinking water for your community. This well guarantees a constant supply of vital liquid to keep everyone hydrated.''',
+  type: TypeCard.structure,
+  prize: 8,
+  quantity: -1,
+);
 const CardModel kDev = CardModel(
   type: TypeCard.dev,
   id: 1000,
