@@ -7,4 +7,14 @@ class AchivementModel extends Objetive {
     required super.description,
     required super.isComplete,
   });
+
+  AchivementModel copyWith({
+    bool? isComplete,
+  }) =>
+      AchivementModel(
+        id: id,
+        name: name,
+        description: description,
+        isComplete: isComplete ?? this.isComplete,
+      );
 }

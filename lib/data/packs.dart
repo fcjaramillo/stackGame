@@ -19,6 +19,7 @@ List<PackModel> packs = [
    ''',
     cost: 3,
     numberCards: 3,
+    day: 0,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
         card: kPlastic,
@@ -80,6 +81,7 @@ List<PackModel> packs = [
    ''',
     cost: 5,
     numberCards: 3,
+    day: 4,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
         card: kWheat,
@@ -153,6 +155,7 @@ List<PackModel> packs = [
    ''',
     cost: 8,
     numberCards: 3,
+    day: 1,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
         card: kWood,
@@ -203,7 +206,7 @@ List<PackModel> packs = [
     ],
   ),
   PackModel(
-    id: 3,
+    id: 4,
     name: 'Structure Pack',
     description:
         '''Provide essential material to create structures and structures recipes.
@@ -216,6 +219,7 @@ List<PackModel> packs = [
    ''',
     cost: 10,
     numberCards: 3,
+    day: 10,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
         card: kStructure,
@@ -256,7 +260,7 @@ List<PackModel> packs = [
     ],
   ),
   PackModel(
-    id: 4,
+    id: 6,
     name: 'Nature Pack',
     description: '''Provide animals and plants and nature recipes.
    Probabilities:
@@ -271,6 +275,7 @@ List<PackModel> packs = [
    ''',
     cost: 8,
     numberCards: 3,
+    day: 7,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
         card: kDog,
@@ -321,6 +326,7 @@ List<PackModel> packs = [
     description: 'Provide one unfound idea or special card.',
     cost: 30,
     numberCards: 1,
+    day: 10,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
         //This is for the recipes
@@ -328,13 +334,5 @@ List<PackModel> packs = [
         percentage: 10,
       ),
     ],
-  ),
-  PackModel(
-    id: 6,
-    name: 'Initial Pack',
-    description: '',
-    cost: 3,
-    numberCards: 3,
-    cards: <CardProbabilityModel>[],
   ),
 ];

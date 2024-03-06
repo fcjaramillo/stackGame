@@ -61,6 +61,7 @@ class CardComponent extends SpriteComponent
       bool? haveFood = await eatFood();
 
       if (!(haveFood ?? false)) {
+        game.changeValueAchivements(9);
         game.playState = PlayState.gameOver;
       }
     }
@@ -275,17 +276,16 @@ class CardComponent extends SpriteComponent
         _debouncer.run(() {
           if (!move) {
             PackModel pack = other.pack;
+            if (pack.id == 0) {
+              game.changeValueQuest(2);
+            }
             if (game.coin.value >= pack.cost) {
               game.coin.value -= pack.cost;
               List<CardModel> newCards = pack.generateCards(game.random);
               for (int i = 0; i < newCards.length; i++) {
                 if (newCards[i].type == TypeCard.idea) {
-                  int indexRecipe = game.recipesNotifier.value.indexWhere((r) =>
-                      newCards[i].name.contains(r.create?[0].name ?? 'human'));
-                  List<RecipeModel> recipesNew = game.recipesNotifier.value;
-                  recipesNew[indexRecipe] =
-                      game.recipesNotifier.value[indexRecipe].copyWith(true);
-                  game.recipesNotifier.value = recipesNew;
+                  game.changeValueQuest(6);
+                  game.changeValueRecipe(newCards[i]);
                 }
                 game.world.add(
                   CardComponent(
@@ -301,9 +301,12 @@ class CardComponent extends SpriteComponent
         });
       }
     } else if (other is SellComponent) {
-      if (move) {
+      if (move && !isPerson) {
         _debouncer.run(() {
           if (!move) {
+            if (card.id == kSallary.id) {
+              game.changeValueQuest(1);
+            }
             game.coin.value += card.prize;
             game.world.remove(this);
           }

@@ -59,12 +59,26 @@ class _GameAppState extends State<GameApp> {
                       children: [
                         Expanded(
                           flex: 3,
-                          child: TabIndicator(
-                            onTapCard: (CardModel card) {
-                              game.cardSelected.value =
-                                  GameCardModel.byType(card);
-                            },
-                            recipesNotifier: game.recipesNotifier,
+                          child: ValueListenableBuilder<List<QuestModel>>(
+                            valueListenable: game.questNotifier,
+                            builder: (context, valueQuest, child) =>
+                                ValueListenableBuilder<List<RecipeModel>>(
+                              valueListenable: game.recipesNotifier,
+                              builder: (context, valueRecipes, child) =>
+                                  ValueListenableBuilder<List<AchivementModel>>(
+                                valueListenable: game.achivementNotifier,
+                                builder: (context, valueAchivements, child) =>
+                                    TabIndicator(
+                                  onTapCard: (CardModel card) {
+                                    game.cardSelected.value =
+                                        GameCardModel.byType(card);
+                                  },
+                                  recipesNotifier: valueRecipes,
+                                  achivementNotifier: valueAchivements,
+                                  questNotifier: valueQuest,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                         const SizedBox(

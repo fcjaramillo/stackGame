@@ -8,6 +8,7 @@ class PackModel {
   final int numberCards;
   final int cost;
   final List<CardModel> ideas;
+  final int day;
 
   PackModel({
     required this.id,
@@ -16,6 +17,7 @@ class PackModel {
     required this.cards,
     required this.cost,
     required this.numberCards,
+    required this.day,
     this.ideas = const [],
   });
 

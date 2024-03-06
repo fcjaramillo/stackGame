@@ -34,6 +34,9 @@ class StackGame extends FlameGame
   final ValueNotifier<bool> canInteract = ValueNotifier(true);
   final ValueNotifier<List<RecipeModel>> recipesNotifier =
       ValueNotifier(recipes);
+  final ValueNotifier<List<QuestModel>> questNotifier = ValueNotifier(kRoadMap);
+  final ValueNotifier<List<AchivementModel>> achivementNotifier =
+      ValueNotifier(kAchivementsList);
 
   final _debouncer = Debouncer(milliseconds: 100);
   final _random = Random();
@@ -49,6 +52,7 @@ class StackGame extends FlameGame
   bool isPause = false;
   bool isFast = false;
   bool isSound = true;
+  int dayGame = 0;
 
   PlayState _playState = PlayState.welcome;
   PlayState get playState => _playState;
@@ -127,7 +131,10 @@ class StackGame extends FlameGame
   void startGame() {
     if (playState == PlayState.playing) return;
 
+    dayGame = 0;
+
     world.removeAll(world.children.query<CardComponent>());
+    world.removeAll(world.children.query<PackComponent>());
     world.removeAll(world.children.query<LinearTime>());
     removeAll(children.query<LinearTime>());
     playState = PlayState.playing;
@@ -142,14 +149,7 @@ class StackGame extends FlameGame
 
     world.add(SellComponent(position: Vector2(10, 40)));
 
-    for (int i = 0; i < packs.length; i++) {
-      world.add(
-        PackComponent(
-          pack: packs[i],
-          position: Vector2(kCardWidth * (i + 1) + ((i + 1) * 40), 40),
-        ),
-      );
-    }
+    addPack();
 
     for (CardModel card in kInitialCards) {
       world.add(
@@ -229,5 +229,61 @@ class StackGame extends FlameGame
     FlameAudio.bgm.play(
       kSoundList[value],
     );
+  }
+
+  void addPack() {
+    for (int i = 0; i < packs.length; i++) {
+      if (dayGame == packs[i].day) {
+        int p = world.children.query<PackComponent>().length;
+        world.add(
+          PackComponent(
+            pack: packs[i],
+            position: Vector2(kCardWidth * (p + 2) + ((p + 2) * 40), 40),
+          ),
+        );
+      }
+    }
+  }
+
+  void changeValueRecipe(CardModel card) {
+    int indexRecipe = recipesNotifier.value
+        .indexWhere((r) => card.name.contains(r.create?[0].name ?? 'human'));
+    if (!(recipesNotifier.value[indexRecipe].isVisible)) {
+      List<RecipeModel> recipesNew = recipesNotifier.value;
+      recipesNew[indexRecipe] = recipesNew[indexRecipe].copyWith(true);
+      recipesNotifier.value = [...recipesNew];
+    }
+  }
+
+  void changeValueQuest(int idQuest) {
+    int indexQuest = questNotifier.value.indexWhere((q) => q.id == idQuest);
+    if (!(questNotifier.value[indexQuest].isComplete)) {
+      List<QuestModel> questNew = questNotifier.value;
+      questNew[indexQuest] = questNew[indexQuest].copyWith(isComplete: true);
+      questNotifier.value = [...questNew];
+    }
+  }
+
+  void changeValueAchivements(int idAchivements) {
+    int indexAchivements =
+        achivementNotifier.value.indexWhere((q) => q.id == idAchivements);
+    if (!(achivementNotifier.value[indexAchivements].isComplete)) {
+      List<AchivementModel> achivementsNew = achivementNotifier.value;
+      achivementsNew[indexAchivements] =
+          achivementsNew[indexAchivements].copyWith(isComplete: true);
+
+      bool allTrue = true;
+      for (int i = 0; i < achivementsNew.length - 1; i++) {
+        if (!(achivementsNew[i].isComplete)) {
+          allTrue = false;
+          break;
+        }
+      }
+      if (allTrue) {
+        achivementsNew.last = achivementsNew.last.copyWith(isComplete: true);
+      }
+
+      achivementNotifier.value = [...achivementsNew];
+    }
   }
 }

@@ -35,6 +35,8 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
         if (this is GameTime) {
           game.canInteract.value = false;
           game.isPause = true;
+          game.dayGame++;
+          game.addPack();
 
           List<CardComponent> cards =
               game.world.children.query<CardComponent>();
@@ -43,34 +45,44 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
             await card.finishDay();
           }
 
-          cards = game.world.children.query<CardComponent>();
-
-          if (game.card.value > game.cardMax.value) {
-            game.playState = PlayState.selling;
-            for (CardComponent c in cards) {
-              c.changeAnimation(AnimationType.shake);
-              c.activeAnimation = true;
-            }
-            await Future.doWhile(() async {
-              await Future.delayed(
-                const Duration(
-                  seconds: 1,
-                ),
-              );
-              return game.card.value > game.cardMax.value;
-            });
-
+          if (game.health.value <= 0 ||
+              game.carbonFootprint.value >= 100 ||
+              game.oxygen.value <= 0) {
+            game.changeValueAchivements(9);
+            game.playState = PlayState.gameOver;
+          } else {
             cards = game.world.children.query<CardComponent>();
-            for (CardComponent c in cards) {
-              c.changeAnimation(AnimationType.none);
-              c.activeAnimation = false;
-              c.angle = 0;
-            }
-            game.playState = PlayState.playing;
-          }
 
-          game.isPause = false;
-          game.canInteract.value = true;
+            if (game.card.value > game.cardMax.value) {
+              game.playState = PlayState.selling;
+              for (CardComponent c in cards) {
+                c.changeAnimation(AnimationType.shake);
+                c.activeAnimation = true;
+              }
+              await Future.doWhile(() async {
+                await Future.delayed(
+                  const Duration(
+                    seconds: 1,
+                  ),
+                );
+                return game.card.value > game.cardMax.value;
+              });
+
+              cards = game.world.children.query<CardComponent>();
+              for (CardComponent c in cards) {
+                c.changeAnimation(AnimationType.none);
+                c.activeAnimation = false;
+                c.angle = 0;
+              }
+              game.playState = PlayState.playing;
+            }
+
+            game.changeValueQuest(4);
+            game.changeValueAchivements(1);
+
+            game.isPause = false;
+            game.canInteract.value = true;
+          }
         } else if (this is StackTime) {
           finishTime(stackTime: this as StackTime);
         }
@@ -102,6 +114,29 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
     }
 
     for (int i = 0; i < stackTime.createCard.length; i++) {
+      if (stackTime.createCard[i].id == kSallary.id) {
+        game.changeValueQuest(0);
+      } else if (stackTime.createCard[i].id == kFastFood.id) {
+        game.changeValueQuest(3);
+      } else if (stackTime.createCard[i].id == kCraftingTable.id) {
+        game.changeValueQuest(5);
+      } else if (stackTime.createCard[i].id == kFarmFeast.id) {
+        game.changeValueQuest(8);
+        game.changeValueAchivements(7);
+      } else if (stackTime.createCard[i].id == kSolarPanel.id) {
+        game.changeValueQuest(9);
+        game.changeValueAchivements(6);
+      } else if (stackTime.createCard[i].id == kPoop.id) {
+        game.changeValueAchivements(3);
+      } else if (stackTime.createCard[i].id == kDog.id) {
+        game.changeValueAchivements(4);
+      } else if (stackTime.createCard[i].id == kFabian.id ||
+          stackTime.createCard[i].id == kYonnier.id ||
+          stackTime.createCard[i].id == kBrian.id ||
+          stackTime.createCard[i].id == kSantiago.id) {
+        game.changeValueAchivements(5);
+      }
+      game.changeValueAchivements(0);
       game.world.add(
         CardComponent(
           card: stackTime.createCard[i],

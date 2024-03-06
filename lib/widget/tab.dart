@@ -9,11 +9,15 @@ class TabIndicator extends StatefulWidget {
   const TabIndicator({
     required this.onTapCard,
     required this.recipesNotifier,
+    required this.questNotifier,
+    required this.achivementNotifier,
     super.key,
   });
 
   final Function(CardModel) onTapCard;
-  final ValueListenable<List<RecipeModel>> recipesNotifier;
+  final List<RecipeModel> recipesNotifier;
+  final List<QuestModel> questNotifier;
+  final List<AchivementModel> achivementNotifier;
 
   @override
   State<TabIndicator> createState() => _TabIndicatorState();
@@ -102,13 +106,15 @@ class _TabIndicatorState extends State<TabIndicator> {
                   index: index,
                   children: [
                     QuestSection(
-                      quests: quests,
+                      quests: widget.questNotifier,
                     ),
                     RecipeSection(
                       onTapCard: widget.onTapCard,
-                      recipesNotifier: widget.recipesNotifier,
+                      recipes: widget.recipesNotifier,
                     ),
-                    const AchivementSecion(),
+                    AchivementSecion(
+                      achivements: widget.achivementNotifier,
+                    ),
                   ],
                 ),
               ),
@@ -122,17 +128,20 @@ class _TabIndicatorState extends State<TabIndicator> {
 
 class AchivementSecion extends StatelessWidget {
   const AchivementSecion({
+    required this.achivements,
     super.key,
   });
+
+  final List<AchivementModel> achivements;
 
   @override
   Widget build(BuildContext context) => ListView.separated(
         itemBuilder: (context, index) => AchivementTile(
-          achivement: kAchivementsList[index],
+          achivement: achivements[index],
           rightAlignement: index.isOdd,
         ),
         separatorBuilder: (context, index) => const SizedBox(height: 14),
-        itemCount: kAchivementsList.length,
+        itemCount: achivements.length,
       );
 }
 
@@ -182,25 +191,22 @@ class QuestTile extends StatelessWidget {
 class RecipeSection extends StatelessWidget {
   const RecipeSection({
     required this.onTapCard,
-    required this.recipesNotifier,
+    required this.recipes,
     super.key,
   });
 
   final Function(CardModel) onTapCard;
-  final ValueListenable<List<RecipeModel>> recipesNotifier;
+  final List<RecipeModel> recipes;
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<List<RecipeModel>>(
-      valueListenable: recipesNotifier,
-      builder: (context, value, child) => ListView.separated(
-        itemBuilder: (contex, index) => RecipesTile(
-          recipe: value[index],
-          onTapCard: onTapCard,
-        ),
-        separatorBuilder: (context, index) => const SizedBox(height: 7),
-        itemCount: value.length,
+    return ListView.separated(
+      itemBuilder: (contex, index) => RecipesTile(
+        recipe: recipes[index],
+        onTapCard: onTapCard,
       ),
+      separatorBuilder: (context, index) => const SizedBox(height: 7),
+      itemCount: recipes.length,
     );
   }
 }
