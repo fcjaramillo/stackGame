@@ -629,6 +629,7 @@ List<RecipeModel> recipes = <RecipeModel>[
       kWood,
     ],
     time: 10,
+    isVisible: true,
   ),
   const RecipeModel(
     id: 29,
@@ -1038,7 +1039,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 45,
   ),
-  const RecipeModel(
+  /*const RecipeModel(
     id: 42,
     create: <CardModel>[
       kPoop,
@@ -1047,7 +1048,7 @@ List<RecipeModel> recipes = <RecipeModel>[
       kCow,
     ],
     time: 90,
-  ),
+  ),*/
   const RecipeModel(
     id: 43,
     create: <CardModel>[
@@ -1059,7 +1060,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  /*const RecipeModel(
     id: 44,
     create: <CardModel>[
       kEgg,
@@ -1068,7 +1069,7 @@ List<RecipeModel> recipes = <RecipeModel>[
       kHen,
     ],
     time: 90,
-  ),
+  ),*/
   const RecipeModel(
     id: 45,
     create: <CardModel>[

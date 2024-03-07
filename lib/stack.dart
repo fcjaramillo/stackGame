@@ -44,11 +44,7 @@ class StackGame extends FlameGame
 
   List<StackComponent> stacks = [];
   PlayAreaComponent playArea = PlayAreaComponent();
-  GameTime gameTime = GameTime(
-    size: Vector2.zero(),
-    position: Vector2.zero(),
-    totalTime: 0,
-  );
+
   bool isPause = false;
   bool isFast = false;
   bool isSound = true;
@@ -95,7 +91,7 @@ class StackGame extends FlameGame
     Future.delayed(
       const Duration(microseconds: 0),
       () {
-        gameTime.position = Vector2(width - kBarTimerWidth - 20, 10);
+        //gameTime.position = Vector2(width - kBarTimerWidth - 20, 10);
         playArea.size = size;
       },
     );
@@ -139,13 +135,14 @@ class StackGame extends FlameGame
     removeAll(children.query<LinearTime>());
     playState = PlayState.playing;
 
-    gameTime = GameTime(
+    add(GameTime(
       size: Vector2(kBarTimerWidth, 25),
       position: Vector2(width - kBarTimerWidth - 20, 10),
       totalTime: kTimeDayComplete,
-    );
+      random: random,
+    ));
 
-    add(gameTime);
+    //add(gameTime);
 
     world.add(SellComponent(position: Vector2(10, 40)));
 
@@ -154,14 +151,15 @@ class StackGame extends FlameGame
     for (CardModel card in kInitialCards) {
       world.add(
         CardComponent(
-            card: card,
-            position: Vector2(kCardWidth * (card.id % 4) + 200,
-                kCardHeight * (card.id % 2) + kCardHeight),
-            activeAnimation: true,
-            animationDelta: Vector2(
-              (_random.nextDouble() - 0.5) * 200,
-              (_random.nextDouble()) * 200,
-            )),
+          card: card,
+          position: Vector2(kCardWidth * (card.id % 4) + 200,
+              kCardHeight * (card.id % 2) + kCardHeight),
+          activeAnimation: true,
+          animationDelta: Vector2(
+            (_random.nextDouble() - 0.5) * 200,
+            (_random.nextDouble()) * 200,
+          ),
+        ),
       );
     }
   }

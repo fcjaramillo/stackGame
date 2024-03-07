@@ -366,7 +366,7 @@ const CardModel kBaul = CardModel(
   description:
       '''Storage space for your most precious and necessary possessions. A reliable container that adds a little extra to your card storage capacity.''',
   prize: 10,
-  quantity: -2,
+  quantity: 3,
   // Provide 5 more card slot
 );
 const CardModel kWarehouse = CardModel(
@@ -376,7 +376,7 @@ const CardModel kWarehouse = CardModel(
   description:
       '''The place where your stuff ends up when you decide it's too valuable to throw away. A large, organized space to store and manage your resources efficiently. Greatly increases your card storage capacity.''',
   prize: 20,
-  quantity: -5,
+  quantity: 7,
   energy: -2,
   // Provide 15 more card slot
 );

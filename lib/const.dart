@@ -42,6 +42,6 @@ const List<CardModel> kInitialCards = [
   kCCBurgers,
   kEmployment,
   kTree,
-  kHuman,
   kCraftingTableIdea,
+  kHuman,
 ];

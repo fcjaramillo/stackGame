@@ -2,7 +2,7 @@ part of 'components.dart';
 
 class StackComponent {
   final List<CardComponent> cards;
-  final FlameGame game;
+  final StackGame game;
 
   StackTime? linearComponent;
 
@@ -37,6 +37,7 @@ class StackComponent {
         stack: this,
         createCard: recipe.create ?? [],
         removeCard: recipe.remove ?? [],
+        random: game.random,
       );
       game.world.add(linearComponent!);
     } else {

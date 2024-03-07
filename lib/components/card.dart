@@ -58,12 +58,7 @@ class CardComponent extends SpriteComponent
 
   Future<void> finishDay() async {
     if (isPerson) {
-      bool? haveFood = await eatFood();
-
-      if (!(haveFood ?? false)) {
-        game.changeValueAchivements(9);
-        game.playState = PlayState.gameOver;
-      }
+      await eatFood();
     }
 
     game.health.value = card.newHealth(game.health.value);
@@ -80,6 +75,9 @@ class CardComponent extends SpriteComponent
     game.cardMax.value += card.quantity > 0 ? card.quantity : 0;
     game.food.value += (card.food ?? 0) > 0 ? card.food ?? 0 : 0;
     game.energyMax.value += (card.energy ?? 0) > 0 ? card.energy ?? 0 : 0;
+    if (card.id == kWarehouse.id) {
+      game.energy.value -= card.energy ?? 0;
+    }
     return super.onLoad();
   }
 

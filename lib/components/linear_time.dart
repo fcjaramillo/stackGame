@@ -5,10 +5,12 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
     required super.size,
     required super.position,
     required this.totalTime,
+    required this.random,
   }) : super(
           paint: Paint()..color = const Color.fromARGB(255, 23, 23, 23),
         );
 
+  final Random random;
   final double totalTime;
   double currentTime = 0.0;
 
@@ -41,13 +43,22 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
           List<CardComponent> cards =
               game.world.children.query<CardComponent>();
 
+          List<CardComponent> cows = [];
+          List<CardComponent> hens = [];
+
           for (final CardComponent card in cards) {
             await card.finishDay();
+            if (card.card.id == kHen.id) {
+              hens.add(card);
+            } else if (card.card.id == kCow.id) {
+              cows.add(card);
+            }
           }
 
           if (game.health.value <= 0 ||
               game.carbonFootprint.value >= 100 ||
-              game.oxygen.value <= 0) {
+              game.oxygen.value <= 0 ||
+              game.food.value < kNeededFood) {
             game.changeValueAchivements(9);
             game.playState = PlayState.gameOver;
           } else {
@@ -75,6 +86,44 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
                 c.angle = 0;
               }
               game.playState = PlayState.playing;
+            }
+
+            if (hens.isNotEmpty) {
+              hens.map(
+                (e) => game.world.add(
+                  CardComponent(
+                    card: kEgg,
+                    position: Vector2(
+                      e.position.x,
+                      e.position.y,
+                    ),
+                    activeAnimation: true,
+                    animationDelta: Vector2(
+                      (random.nextDouble() - 0.5) * 200,
+                      (random.nextDouble() - 0.5) * 200,
+                    ),
+                  ),
+                ),
+              );
+            }
+
+            if (cows.isNotEmpty) {
+              cows.map(
+                (e) => game.world.add(
+                  CardComponent(
+                    card: kPoop,
+                    position: Vector2(
+                      e.position.x,
+                      e.position.y,
+                    ),
+                    activeAnimation: true,
+                    animationDelta: Vector2(
+                      (random.nextDouble() - 0.5) * 200,
+                      (random.nextDouble() - 0.5) * 200,
+                    ),
+                  ),
+                ),
+              );
             }
 
             game.changeValueQuest(4);
@@ -141,10 +190,14 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
         CardComponent(
           card: stackTime.createCard[i],
           position: Vector2(
-            kCardWidth * (i + 1) + position.x,
-            kCardHeight * (i + 1) + position.y,
+            position.x + (i * 50),
+            position.y + (i * 50),
           ),
           activeAnimation: true,
+          animationDelta: Vector2(
+            (random.nextDouble() - 0.5) * 200,
+            (random.nextDouble() - 0.5) * 200,
+          ),
         ),
       );
     }
@@ -157,6 +210,7 @@ class GameTime extends LinearTime {
     required super.size,
     required super.position,
     required super.totalTime,
+    required super.random,
   });
 }
 
@@ -169,6 +223,7 @@ class StackTime extends LinearTime {
     required super.size,
     required super.position,
     required super.totalTime,
+    required super.random,
     required this.stack,
     required this.removeCard,
     required this.createCard,
