@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:stack/models/models.dart';
 import 'package:stack/stack.dart';
 import 'package:stack/widget/card_description.dart';
+import 'package:stack/widget/menu.dart';
 import 'package:stack/widget/overlay_screen.dart';
 import 'package:stack/widget/score_card.dart';
 
@@ -23,16 +24,8 @@ class GameApp extends StatefulWidget {
 }
 
 class _GameAppState extends State<GameApp> {
-  late final StackGame game;
   PlayState pState = PlayState.welcome;
   Locale locale = Locale('es');
-
-  @override
-  void initState() {
-    super.initState();
-    L10n.load(locale);
-    game = StackGame();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,18 +46,58 @@ class _GameAppState extends State<GameApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: L10n.delegate.supportedLocales,
-      home: GameScreen(game: game),
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case '/menu':
+            return MenuScreen.goTo(
+              (loc) {
+                setState(() async {
+                  locale = loc ?? locale;
+                  await L10n.load(locale);
+                });
+              },
+            );
+          case '/game':
+            return GameScreen.goTo(locale);
+        }
+        return null;
+      },
+      initialRoute: '/menu',
     );
   }
 }
 
-class GameScreen extends StatelessWidget {
+class GameScreen extends StatefulWidget {
   const GameScreen({
+    required this.locale,
     super.key,
-    required this.game,
   });
 
-  final StackGame game;
+  final Locale locale;
+
+  static MaterialPageRoute<void> goTo(Locale locale) => MaterialPageRoute(
+        builder: (_) => GameScreen(locale: locale),
+        settings: const RouteSettings(name: '/game'),
+      );
+
+  @override
+  State<GameScreen> createState() => _GameScreenState();
+}
+
+class _GameScreenState extends State<GameScreen> {
+  late final StackGame game;
+  PlayState pState = PlayState.welcome;
+
+  @override
+  void initState() {
+    super.initState();
+    game = StackGame();
+    L10n.load(widget.locale).whenComplete(() {
+      game.achivementNotifier.value = kAchivementsList;
+      game.questNotifier.value = kRoadMap;
+      game.recipesNotifier.value = recipes;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
