@@ -12,7 +12,7 @@ List<PackModel> packs = [
    - Wood 12%
    - Tree Seed 10%
    - Dirt 10%
-   - Coal 10%
+   - Recipe 10%
    - Water 10%
    - Apple 8%
    - Banana 8%
@@ -26,7 +26,7 @@ List<PackModel> packs = [
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
         card: kRock,
-        percentage: 15,
+        percentage: 12,
       ),
       CardProbabilityModel(
         card: kWood,
@@ -41,8 +41,8 @@ List<PackModel> packs = [
         percentage: 10,
       ),
       CardProbabilityModel(
-        card: kCoal,
-        percentage: 10,
+        card: kDev,
+        percentage: 18,
       ),
       CardProbabilityModel(
         card: kWater,
@@ -64,10 +64,13 @@ List<PackModel> packs = [
         card: kBanana,
         percentage: 8,
       ),
-      CardProbabilityModel(
-        card: kCopper,
-        percentage: 5,
-      ),
+    ],
+    ideas: [
+      kBaulIdea,
+      kFurnaceIdea,
+      kStructureIdea,
+      kTreeIdea,
+      kCraftingTableIdea,
     ],
   ),
   PackModel(
@@ -255,15 +258,12 @@ List<PackModel> packs = [
       ),
     ],
     ideas: [
-      kBaulIdea,
       kWarehouseIdea,
-      kFurnaceIdea,
       kCraftingTableIdea,
       kSawmillIdea,
       kElectronicTableIdea,
       kSolarPanelIdea,
       kFarmIdea,
-      kOrchardIdea,
       kMillIdea,
       kGreenhouseIdea,
       kWindTurbineIdea,
@@ -334,7 +334,7 @@ List<PackModel> packs = [
     id: 5,
     name: 'Idea Pack',
     description: 'Provide one unfound idea or special card.',
-    cost: 30,
+    cost: 20,
     numberCards: 1,
     day: 10,
     cards: <CardProbabilityModel>[

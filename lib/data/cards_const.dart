@@ -57,7 +57,7 @@ CardModel kPlastic = CardModel(
   description: L10n.current.plasticDescription,
   prize: 0,
   quantity: -1,
-  carbonFootprint: 1,
+  carbonFootprint: 100,
   //this card cant be sold
 );
 CardModel kCopper = CardModel(
@@ -105,7 +105,7 @@ CardModel kCopperLine = CardModel(
   id: 12,
   name: L10n.current.copperLine,
   description: L10n.current.copperLineDescription,
-  prize: 2,
+  prize: 4,
   quantity: -1,
 );
 CardModel kInsulator = CardModel(
@@ -113,7 +113,7 @@ CardModel kInsulator = CardModel(
   id: 13,
   name: L10n.current.insulators,
   description: L10n.current.insulatorsDescription,
-  prize: 1,
+  prize: 2,
   quantity: -1,
 );
 CardModel kSolarCells = CardModel(
@@ -121,7 +121,7 @@ CardModel kSolarCells = CardModel(
   id: 14,
   name: L10n.current.solarCells,
   description: L10n.current.solarCellsDescription,
-  prize: 20,
+  prize: 25,
   quantity: -5,
 );
 CardModel kStructure = CardModel(
@@ -129,7 +129,7 @@ CardModel kStructure = CardModel(
   id: 15,
   name: L10n.current.structure,
   description: L10n.current.structureDescription,
-  prize: 4,
+  prize: 5,
   quantity: -2,
 );
 CardModel kCables = CardModel(
@@ -137,7 +137,7 @@ CardModel kCables = CardModel(
   id: 16,
   name: L10n.current.cables,
   description: L10n.current.cablesDescription,
-  prize: 3,
+  prize: 7,
   quantity: -1,
 );
 CardModel kFastFood = CardModel(
@@ -147,9 +147,10 @@ CardModel kFastFood = CardModel(
   description: L10n.current.fastFoodDescription,
   prize: 0,
   quantity: -3,
-  carbonFootprint: 1,
+  carbonFootprint: 100,
   food: 3,
   handicap: 500,
+  health: -10,
 );
 CardModel kWheat = CardModel(
   type: TypeCard.food,
@@ -225,28 +226,28 @@ CardModel kStew = CardModel(
   id: 26,
   name: L10n.current.stew,
   description: L10n.current.stewDescription,
-  prize: 5,
+  prize: 8,
   quantity: -1,
   food: 3,
   handicap: -200,
-  health: 10,
+  health: 5,
 );
 CardModel kFriedMeat = CardModel(
   type: TypeCard.food,
   id: 27,
   name: L10n.current.friedMeat,
   description: L10n.current.friedMeatDescription,
-  prize: 2,
+  prize: 4,
   quantity: -1,
-  food: 3,
-  health: 1,
+  food: 1,
+  health: 2,
 );
 CardModel kFlour = CardModel(
   type: TypeCard.food,
   id: 28,
   name: L10n.current.flour,
   description: L10n.current.flourDescription,
-  prize: 1,
+  prize: 2,
   quantity: -1,
 );
 CardModel kBread = CardModel(
@@ -254,7 +255,7 @@ CardModel kBread = CardModel(
   id: 29,
   name: L10n.current.bread,
   description: L10n.current.breadDescription,
-  prize: 2,
+  prize: 6,
   quantity: -1,
   food: 2,
 );
@@ -263,9 +264,9 @@ CardModel kCake = CardModel(
   id: 30,
   name: L10n.current.cake,
   description: L10n.current.cakeDescription,
-  prize: 12,
-  quantity: -3,
-  health: 5,
+  prize: 18,
+  quantity: -5,
+  health: 10,
   handicap: -300,
   food: 5,
 );
@@ -274,12 +275,12 @@ CardModel kHealthySalad = CardModel(
   id: 31,
   name: L10n.current.healthySalad,
   description: L10n.current.healthySaladDescription,
-  prize: 5,
+  prize: 6,
   quantity: -2,
-  food: 5,
-  health: 5,
+  food: 3,
+  health: 3,
   handicap: -100,
-  carbonFootprint: 100,
+  carbonFootprint: -100,
 );
 CardModel kFruitShake = CardModel(
   type: TypeCard.food,
@@ -288,17 +289,17 @@ CardModel kFruitShake = CardModel(
   description: L10n.current.fruitShakeDescription,
   prize: 5,
   quantity: -1,
-  food: 3,
-  health: 5,
+  food: 2,
+  health: 3,
 );
 CardModel kOmelet = CardModel(
   type: TypeCard.food,
   id: 33,
   name: L10n.current.omelet,
   description: L10n.current.omeletDescription,
-  prize: 10,
-  quantity: -2,
-  health: 5,
+  prize: 11,
+  quantity: -3,
+  health: 8,
   handicap: -300,
   food: 5,
 );
@@ -307,8 +308,8 @@ CardModel kApplePie = CardModel(
   id: 34,
   name: L10n.current.applePie,
   description: L10n.current.applePieDescription,
-  prize: 10,
-  quantity: -3,
+  prize: 12,
+  quantity: -4,
   food: 5,
   handicap: -200,
   health: 5,
@@ -319,9 +320,9 @@ CardModel kFarmFeast = CardModel(
   name: L10n.current.farmFeast,
   description: L10n.current.farmFeastDescription,
   prize: 50,
-  quantity: -2,
+  quantity: -5,
   handicap: -1000,
-  carbonFootprint: -100,
+  carbonFootprint: -1000,
   health: 20,
   food: 20,
 );
@@ -330,8 +331,8 @@ CardModel kBaul = CardModel(
   id: 36,
   name: L10n.current.baul,
   description: L10n.current.baulDescription,
-  prize: 10,
-  quantity: 3,
+  prize: 1,
+  quantity: 2,
   // Provide 5 more card slot
 );
 CardModel kWarehouse = CardModel(
@@ -339,17 +340,17 @@ CardModel kWarehouse = CardModel(
   id: 37,
   name: L10n.current.warehouse,
   description: L10n.current.warehouseDescription,
-  prize: 20,
+  prize: 5,
   quantity: 7,
   energy: -2,
-  // Provide 15 more card slot
+  // Provide 7 more card slot
 );
 CardModel kFurnace = CardModel(
   type: TypeCard.structure,
   id: 38,
   name: L10n.current.furnace,
   description: L10n.current.furnaceDescription,
-  prize: 10,
+  prize: 2,
   quantity: -5,
 );
 CardModel kCraftingTable = CardModel(
@@ -357,24 +358,24 @@ CardModel kCraftingTable = CardModel(
   id: 39,
   name: L10n.current.craftingTable,
   description: L10n.current.craftingTableDescription,
-  prize: 4,
-  quantity: -2,
+  prize: 1,
+  quantity: -1,
 );
 CardModel kSawmill = CardModel(
   type: TypeCard.structure,
   id: 40,
   name: L10n.current.sawmill,
   description: L10n.current.sawmillDescription,
-  prize: 15,
-  quantity: -15,
-  energy: -2,
+  prize: 3,
+  quantity: -5,
+  energy: -3,
 );
 CardModel kElectricTable = CardModel(
   type: TypeCard.structure,
   id: 41,
   name: L10n.current.electricTable,
   description: L10n.current.electricTableDescription,
-  prize: 15,
+  prize: 5,
   quantity: -5,
   energy: -1,
 );
@@ -383,26 +384,27 @@ CardModel kSolarPanel = CardModel(
   id: 42,
   name: L10n.current.solarPanel,
   description: L10n.current.solarPanelDescription,
-  prize: 60,
+  prize: 100,
   quantity: -20,
-  // Provide 30 additional energy
+  energy: 15,
+  // Provide 15 additional energy
 );
 CardModel kFarm = CardModel(
   type: TypeCard.structure,
   id: 43,
   name: L10n.current.farm,
   description: L10n.current.farmDescription,
-  prize: 30,
-  quantity: -20,
-  energy: -10,
+  prize: 5,
+  quantity: -5,
+  energy: -3,
 );
 CardModel kOrchard = CardModel(
   type: TypeCard.structure,
   id: 44,
   name: L10n.current.orchard,
   description: L10n.current.orchardDescription,
-  prize: 10,
-  quantity: -5,
+  prize: 4,
+  quantity: -4,
 );
 CardModel kMill = CardModel(
   type: TypeCard.structure,
@@ -418,7 +420,7 @@ CardModel kGreenhouse = CardModel(
   id: 46,
   name: L10n.current.greenhouse,
   description: L10n.current.greenhouseDescription,
-  prize: 10,
+  prize: 4,
   quantity: -5,
   energy: -2,
 );
@@ -429,32 +431,32 @@ CardModel kWindTurbine = CardModel(
   description: L10n.current.windTurbineDescription,
   prize: 15,
   quantity: -5,
-  // Provide 5 additional energy
+  energy: 5,
 );
 CardModel kRecycler = CardModel(
   type: TypeCard.structure,
   id: 48,
   name: L10n.current.recycler,
   description: L10n.current.recyclerDescription,
-  prize: 15,
-  quantity: -15,
-  energy: -10,
+  prize: 1,
+  quantity: -1,
+  energy: -5,
 );
 CardModel kComposter = CardModel(
   type: TypeCard.structure,
   id: 49,
   name: L10n.current.composter,
   description: L10n.current.composterDescription,
-  prize: 10,
-  quantity: -10,
+  prize: 1,
+  quantity: -2,
 );
 CardModel kCampfire = CardModel(
   type: TypeCard.structure,
   id: 50,
   name: L10n.current.campfire,
   description: L10n.current.campfireDescription,
-  prize: 8,
-  quantity: -2,
+  prize: 2,
+  quantity: -1,
 );
 CardModel kDog = CardModel(
   type: TypeCard.animal,
@@ -490,7 +492,7 @@ CardModel kTree = CardModel(
   id: 54,
   name: L10n.current.tree,
   description: L10n.current.treeDescription,
-  prize: 1,
+  prize: 3,
   quantity: -1,
   oxygen: 2,
 );
@@ -516,7 +518,7 @@ CardModel kEmployment = CardModel(
   name: L10n.current.employment,
   description: L10n.current.employmentDescription,
   prize: 1,
-  quantity: -5,
+  quantity: -3,
 );
 CardModel kCoalPlant = CardModel(
   type: TypeCard.structure,
@@ -524,7 +526,8 @@ CardModel kCoalPlant = CardModel(
   name: L10n.current.coalPlant,
   description: L10n.current.coalPlantDescription,
   prize: 1,
-  quantity: -1,
+  quantity: -3,
+  health: -2,
   energy: 10,
   carbonFootprint: 200,
   oxygen: -5,
@@ -554,6 +557,7 @@ CardModel kPoop = CardModel(
   description: L10n.current.poopDescription,
   prize: 1,
   quantity: -1,
+  health: -5,
   carbonFootprint: 100,
 );
 CardModel kPlanks = CardModel(
@@ -561,7 +565,7 @@ CardModel kPlanks = CardModel(
   id: 62,
   name: L10n.current.planks,
   description: L10n.current.planksDescription,
-  prize: 1,
+  prize: 2,
   quantity: -1,
 );
 CardModel kFoodPack = CardModel(
@@ -943,7 +947,15 @@ CardModel kSallary = CardModel(
   name: L10n.current.salary,
   description: L10n.current.salaryDescription,
   type: TypeCard.structure,
-  prize: 8,
+  prize: 5,
+  quantity: -1,
+);
+CardModel kTreeIdea = CardModel(
+  id: 94,
+  name: L10n.current.tree,
+  description: L10n.current.treeDescription,
+  type: TypeCard.idea,
+  prize: 1,
   quantity: -1,
 );
 CardModel kDev = CardModel(

@@ -20,7 +20,7 @@ class StackGame extends FlameGame
   final ValueNotifier<int> score = ValueNotifier(0);
   final ValueNotifier<int> card = ValueNotifier(0);
   final ValueNotifier<int> cardMax = ValueNotifier(kNumberCardsInitial);
-  final ValueNotifier<int> coin = ValueNotifier(10);
+  final ValueNotifier<int> coin = ValueNotifier(kInitialCoins);
   final ValueNotifier<int> health = ValueNotifier(kHealtInitial);
   final ValueNotifier<int> food = ValueNotifier(0);
   final ValueNotifier<double> oxygen = ValueNotifier(kOxygenInitial);
@@ -81,8 +81,8 @@ class StackGame extends FlameGame
 
   @override
   void onDispose() {
-    FlameAudio.bgm.stop();
-    FlameAudio.bgm.dispose();
+    //FlameAudio.bgm.stop();
+    //FlameAudio.bgm.dispose();
     super.onDispose();
   }
 
@@ -127,26 +127,6 @@ class StackGame extends FlameGame
   void startGame() {
     if (playState == PlayState.playing) return;
 
-    dayGame = 0;
-    score.value = 0;
-    card.value = 0;
-    cardMax.value = kNumberCardsInitial;
-    coin.value = 10;
-    health.value = kHealtInitial;
-    food.value = 0;
-    oxygen.value = kOxygenInitial;
-    carbonFootprint.value = kCarbonFootprintInitial;
-    energy.value = 0;
-    energyMax.value = 0;
-    handicap.value = 0;
-    timeDayNotifier.value = 0;
-    canInteract.value = true;
-
-    world.removeAll(world.children.query<PackComponent>());
-    world.removeAll(world.children.query<LinearTime>());
-    removeAll(children.query<LinearTime>());
-    world.removeAll(world.children.query<CardComponent>());
-
     playState = PlayState.playing;
 
     isPause = false;
@@ -176,6 +156,79 @@ class StackGame extends FlameGame
           ),
         ),
       );
+    }
+  }
+
+  void deleteComponents() {
+    world.removeAll(world.children.query<PackComponent>());
+    world.removeAll(world.children.query<LinearTime>());
+    world.removeAll(world.children.query<CardComponent>());
+    world.removeAll(world.children.query<SellComponent>());
+    removeAll(children.query<LinearTime>());
+
+    int i = 0;
+    while ((world.children.query<PackComponent>().isNotEmpty ||
+            world.children.query<LinearTime>().isNotEmpty ||
+            world.children.query<CardComponent>().isNotEmpty ||
+            world.children.query<SellComponent>().isNotEmpty ||
+            children.query<LinearTime>().isNotEmpty) &&
+        i < 1000) {
+      i++;
+    }
+  }
+
+  void reloadGame() {
+    if (playState == PlayState.playing) return;
+
+    if (world.children.query<PackComponent>().isEmpty &&
+        world.children.query<LinearTime>().isEmpty &&
+        world.children.query<CardComponent>().isEmpty &&
+        world.children.query<SellComponent>().isEmpty &&
+        children.query<LinearTime>().isEmpty) {
+      dayGame = 0;
+      score.value = 0;
+      card.value = 0;
+      cardMax.value = kNumberCardsInitial;
+      coin.value = kInitialCoins;
+      health.value = kHealtInitial;
+      food.value = 0;
+      oxygen.value = kOxygenInitial;
+      carbonFootprint.value = kCarbonFootprintInitial;
+      energy.value = 0;
+      energyMax.value = 0;
+      handicap.value = 0;
+      timeDayNotifier.value = 0;
+      canInteract.value = true;
+
+      isPause = false;
+      isFast = false;
+
+      add(GameTime(
+        size: Vector2(kBarTimerWidth, 25),
+        position: Vector2(width - kBarTimerWidth - 20, 10),
+        totalTime: kTimeDayComplete,
+        random: random,
+      ));
+
+      world.add(SellComponent(position: Vector2(10, 40)));
+
+      addPack(0);
+
+      for (CardModel card in kInitialCards) {
+        world.add(
+          CardComponent(
+            card: card,
+            position: Vector2(kCardWidth * (card.id % 4) + 200,
+                kCardHeight * (card.id % 2) + kCardHeight),
+            activeAnimation: true,
+            animationDelta: Vector2(
+              (_random.nextDouble() - 0.5) * 200,
+              (_random.nextDouble()) * 200,
+            ),
+          ),
+        );
+      }
+      playState = PlayState.playing;
     }
   }
 
@@ -299,7 +352,8 @@ class StackGame extends FlameGame
       } else if (playState == PlayState.welcome) {
         playState = PlayState.onboarding;
       } else if (playState == PlayState.gameOver) {
-        startGame();
+        deleteComponents();
+        reloadGame();
       }
     });
   }

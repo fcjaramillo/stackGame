@@ -171,6 +171,7 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
         game.changeValueQuest(0);
       } else if (stackTime.createCard[i].id == kFastFood.id) {
         game.changeValueQuest(3);
+        game.coin.value -= kCostFastFood;
       } else if (stackTime.createCard[i].id == kCraftingTable.id) {
         game.changeValueQuest(5);
       } else if (stackTime.createCard[i].id == kFarmFeast.id) {

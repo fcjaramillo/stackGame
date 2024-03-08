@@ -530,10 +530,10 @@ class L10n {
     );
   }
 
-  /// `Comienza tu viaje yendo al trabajo.`
+  /// `Comienza tu viaje yendo al trabajo, para ello arrastra la carta Tu a la carta Trabajo`
   String get questWorkDescription {
     return Intl.message(
-      'Comienza tu viaje yendo al trabajo.',
+      'Comienza tu viaje yendo al trabajo, para ello arrastra la carta Tu a la carta Trabajo',
       name: 'questWorkDescription',
       desc: '',
       args: [],

@@ -21,10 +21,12 @@ const double kNewCardAnimationDuration = 1.5;
 const double kGrassSide = 790;
 
 const double kMaxValue = 100;
-const double kOxygenInitial = 20;
-const double kCarbonFootprintInitial = 50;
+const double kOxygenInitial = 50;
+const double kCarbonFootprintInitial = 70;
 const int kNumberCardsInitial = 20;
-const int kHealtInitial = 100;
+const int kHealtInitial = 70;
+const int kInitialCoins = 3;
+const int kCostFastFood = 3;
 
 const int kNeededFood = 3;
 
@@ -42,6 +44,5 @@ List<CardModel> kInitialCards = [
   kCCBurgers,
   kEmployment,
   kTree,
-  kCraftingTableIdea,
   kHuman,
 ];

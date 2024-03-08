@@ -274,7 +274,7 @@ class CardComponent extends SpriteComponent
     } else if (other is PackComponent) {
       if (move && isPerson && game.canInteract.value) {
         _debouncer.run(() {
-          if (!move) {
+          if (!move && !game.isPause) {
             PackModel pack = other.pack;
             if (pack.id == 0) {
               game.changeValueQuest(2);
