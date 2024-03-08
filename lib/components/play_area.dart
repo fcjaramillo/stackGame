@@ -1,7 +1,7 @@
 part of 'components.dart';
 
 class PlayAreaComponent extends RectangleComponent
-    with HasGameReference<StackGame>, DragCallbacks {
+    with HasGameReference<StackGame>, DragCallbacks, TapCallbacks {
   PlayAreaComponent()
       : super(
           children: [RectangleHitbox()],
@@ -23,6 +23,14 @@ class PlayAreaComponent extends RectangleComponent
       game.camera.viewfinder.position.y.clamp(kMinCameraY, kMaxCameraY),
     );
     super.onDragUpdate(event);
+  }
+
+  @override
+  void onTapDown(TapDownEvent event) {
+    if (game.playState != PlayState.playing) {
+      game.pressEnterKey();
+    }
+    super.onTapDown(event);
   }
 
   void _loadBackground(Random random) {

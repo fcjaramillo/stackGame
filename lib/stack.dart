@@ -197,15 +197,7 @@ class StackGame extends FlameGame
           changeFast();
         });
       case LogicalKeyboardKey.enter:
-        _debouncer.run(() {
-          if (playState == PlayState.onboarding) {
-            startGame();
-          } else if (playState == PlayState.welcome) {
-            playState = PlayState.onboarding;
-          } else if (playState == PlayState.gameOver) {
-            startGame();
-          }
-        });
+        pressEnterKey();
     }
     return KeyEventResult.handled;
   }
@@ -298,5 +290,17 @@ class StackGame extends FlameGame
 
       achivementNotifier.value = [...achivementsNew];
     }
+  }
+
+  void pressEnterKey() {
+    _debouncer.run(() {
+      if (playState == PlayState.onboarding) {
+        startGame();
+      } else if (playState == PlayState.welcome) {
+        playState = PlayState.onboarding;
+      } else if (playState == PlayState.gameOver) {
+        startGame();
+      }
+    });
   }
 }
