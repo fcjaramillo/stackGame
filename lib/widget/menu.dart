@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stack/l10n/generated/l10n.dart';
 
-class MenuScreen extends StatelessWidget {
+class MenuScreen extends StatefulWidget {
   const MenuScreen({
     required this.onChanged,
     super.key,
@@ -18,52 +18,93 @@ class MenuScreen extends StatelessWidget {
       );
 
   @override
+  State<MenuScreen> createState() => _MenuScreenState();
+}
+
+class _MenuScreenState extends State<MenuScreen> {
+  Locale locale = L10n.delegate.supportedLocales.first;
+
+  @override
   Widget build(BuildContext context) => Scaffold(
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 32,
+        body: DecoratedBox(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/vegetation/background.png'),
+              fit: BoxFit.cover,
             ),
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                maxWidth: 700,
-                minWidth: 500,
-                maxHeight: 400,
+          ),
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 32,
               ),
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 74, 207, 134),
-                  borderRadius: BorderRadius.circular(24),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(
+                  maxWidth: 700,
+                  minWidth: 500,
+                  maxHeight: 400,
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'GreenStack',
-                      style: TextStyle(fontSize: 35),
-                    ),
-                    const SizedBox(height: 50),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pushNamed('/game');
-                      },
-                      child: Text('New game'),
-                    ),
-                    const SizedBox(height: 30),
-                    DropdownButton<Locale>(
-                      onChanged: onChanged,
-                      items: L10n.delegate.supportedLocales
-                          .map(
-                            (e) => DropdownMenuItem<Locale>(
-                              value: e,
-                              child: Text(
-                                e.languageCode,
-                              ),
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(151, 101, 151, 81),
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'GreenStack',
+                        style: TextStyle(
+                          fontSize: 35,
+                          color: Colors.blue.shade900,
+                        ),
+                      ),
+                      const SizedBox(height: 50),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).pushNamed('/game');
+                        },
+                        child: Text(
+                          'New game',
+                          style: TextStyle(
+                            color: Colors.blue.shade900,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      DecoratedBox(
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            borderRadius: BorderRadius.circular(35)),
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton<Locale>(
+                            isDense: true,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 27,
+                              vertical: 4.5,
                             ),
-                          )
-                          .toList(),
-                    ),
-                  ],
+                            onChanged: (Locale? loc) {
+                              setState(() {
+                                locale = loc ?? locale;
+                              });
+                              widget.onChanged(loc);
+                            },
+                            value: locale,
+                            items: L10n.delegate.supportedLocales
+                                .map(
+                                  (e) => DropdownMenuItem<Locale>(
+                                    value: e,
+                                    child: Text(
+                                      e.languageCode,
+                                    ),
+                                  ),
+                                )
+                                .toList(),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

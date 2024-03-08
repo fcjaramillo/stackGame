@@ -51,9 +51,8 @@ class _GameAppState extends State<GameApp> {
           case '/menu':
             return MenuScreen.goTo(
               (loc) {
-                setState(() async {
+                setState(() {
                   locale = loc ?? locale;
-                  await L10n.load(locale);
                 });
               },
             );
