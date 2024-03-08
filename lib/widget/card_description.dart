@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:stack/enums/enums.dart';
 
+import '../l10n/generated/l10n.dart';
 import '../models/models.dart';
 
 class CardDescription extends StatelessWidget {
@@ -76,10 +78,13 @@ class CardDescription extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
                       gameCard.card.description,
-                      textAlign: TextAlign.center,
+                      textAlign: gameCard.card.type != TypeCard.pack
+                          ? TextAlign.center
+                          : TextAlign.start,
                       style: TextStyle(
                         color: gameCard.foregroundColor,
                         fontSize: 12,
@@ -91,34 +96,37 @@ class CardDescription extends StatelessWidget {
                     const SizedBox(
                       height: 8,
                     ),
-                    CardProperties(
-                      icon: const FaIcon(FontAwesomeIcons.diamond),
-                      title: 'Quantity',
-                      number: gameCard.card.quantity,
+                    Visibility(
+                      visible: gameCard.card.quantity != 0,
+                      child: CardProperties(
+                        icon: const FaIcon(FontAwesomeIcons.diamond),
+                        title: L10n.of(context).quantity,
+                        number: gameCard.card.quantity,
+                      ),
                     ),
                     CardProperties(
                       icon: const FaIcon(FontAwesomeIcons.appleWhole),
-                      title: 'Food',
+                      title: L10n.of(context).food,
                       number: gameCard.card.food,
                     ),
                     CardProperties(
                       icon: const FaIcon(FontAwesomeIcons.solidHeart),
-                      title: 'Health',
+                      title: L10n.of(context).health,
                       number: gameCard.card.health,
                     ),
                     CardProperties(
                       icon: const FaIcon(FontAwesomeIcons.wind),
-                      title: 'Oxygen',
+                      title: L10n.of(context).oxygen,
                       number: gameCard.card.oxygen,
                     ),
                     CardProperties(
                       icon: const FaIcon(FontAwesomeIcons.radiation),
-                      title: 'Carbon FP',
+                      title: L10n.of(context).carbonFP,
                       number: gameCard.card.carbonFootprint,
                     ),
                     CardProperties(
                       icon: const FaIcon(FontAwesomeIcons.bolt),
-                      title: 'Energy',
+                      title: L10n.of(context).energy,
                       number: gameCard.card.energy,
                     ),
                   ],

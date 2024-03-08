@@ -37,7 +37,7 @@ const List<String> kSoundList = [
   kSoundConcerto,
 ];
 
-const List<CardModel> kInitialCards = [
+List<CardModel> kInitialCards = [
   kCoalPlant,
   kCCBurgers,
   kEmployment,

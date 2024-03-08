@@ -45,6 +45,10 @@ class StackComponent {
     }
   }
 
+  void deleteLinear() {
+    linearComponent = null;
+  }
+
   RecipeModel? findRecipe() {
     for (int i = 0; i < recipes.length; i++) {
       List<int> stackA = recipes[i].cards.map((CardModel c) => c.id).toList()

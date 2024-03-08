@@ -1,64 +1,66 @@
 part of 'data.dart';
 
 List<QuestModel> kRoadMap = [
-  const QuestModel(
+  QuestModel(
     id: 0,
-    name: "Go to Work",
-    description: "Start your journey by heading to work.",
+    name: L10n.current.questWork,
+    description: L10n.current.questWorkDescription,
     isComplete: false,
   ),
-  const QuestModel(
+  QuestModel(
     id: 1,
-    name: "Sell the Salary Card",
-    description: "Earn some initial coins by selling your salary card.",
+    name: L10n.current.questSalary,
+    description: L10n.current.questSalaryDescription,
     isComplete: false,
   ),
-  const QuestModel(
+  QuestModel(
     id: 2,
-    name: "Buy the Initial Pack",
-    description: "Invest in your survival by purchasing the Initial Pack.",
+    name: L10n.current.questInitial,
+    description: L10n.current.questInitialDescription,
     isComplete: false,
   ),
-  const QuestModel(
+  QuestModel(
     id: 3,
-    name: "Buy Food at GGBurger",
-    description: "Keep your hunger at bay with a meal from GGBurger.",
+    name: L10n.current.questBuyFood,
+    description: L10n.current.questBuyFoodDescription,
     isComplete: false,
   ),
-  const QuestModel(
+  QuestModel(
     id: 4,
-    name: "Survive the First Day",
-    description: "Make it through your first day without dying.",
+    name: L10n.current.questSurvive,
+    description: L10n.current.questSurviveDescription,
     isComplete: false,
   ),
-  const QuestModel(
+  QuestModel(
     id: 5,
-    name: "Craft a Crafting Table",
-    description: "Build a crafting table to unlock new crafting possibilities.",
+    name: L10n.current.questCrafting,
+    description: L10n.current.questCraftingDescription,
     isComplete: false,
   ),
-  const QuestModel(
+  QuestModel(
     id: 6,
-    name: "Unlock an Idea",
-    description: "Spend your coins in any pack to unlock a new ideas.",
+    name: L10n.current.questUnlock,
+    description: L10n.current.questUnlockDescription,
     isComplete: false,
   ),
-  /*const QuestModel(
+  /*QuestModel(
     id: 7,
+    name: L10n.current.questUnlock,
+    description: L10n.current.questUnlockDescription,
     name: "Recycle 30 Plastics",
     description: "Contribute to the environment by recycling 30 plastics.",
     isComplete: false,
   ),*/
-  const QuestModel(
+  QuestModel(
     id: 8,
-    name: "Craft a Farm Feast",
-    description: "Prepare a delicious farm feast to restore your energy.",
+    name: L10n.current.questCraftFeast,
+    description: L10n.current.questCraftFeastDescription,
     isComplete: false,
   ),
-  const QuestModel(
+  QuestModel(
     id: 9,
-    name: "Craft a Solar Panel",
-    description: "Harness the power of the sun with a solar panel.",
+    name: L10n.current.questCraftPanel,
+    description: L10n.current.questCraftPanel,
     isComplete: false,
   ),
 ];

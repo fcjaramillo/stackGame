@@ -1,8 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stack/const.dart';
 import 'package:stack/data/data.dart';
+import 'package:stack/l10n/generated/l10n.dart';
 import 'package:stack/models/models.dart';
 
 class TabIndicator extends StatefulWidget {
@@ -27,9 +27,9 @@ class _TabIndicatorState extends State<TabIndicator> {
   int index = 0;
 
   final List<String> titles = [
-    'Quest',
-    'Recipes',
-    'Achivements',
+    L10n.current.quest,
+    L10n.current.recipes,
+    L10n.current.achivements,
   ];
 
   List<QuestModel> quests = List<QuestModel>.from(kRoadMap);
@@ -266,7 +266,7 @@ class RecipesTile extends StatelessWidget {
             leading: const FaIcon(
               FontAwesomeIcons.clock,
             ),
-            title: Text('Time: ${recipe.time} sec'),
+            title: Text(L10n.of(context).timeRecipe(recipe.time)),
           ),
         ],
       ),

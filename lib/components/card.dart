@@ -56,9 +56,10 @@ class CardComponent extends SpriteComponent
     _animationType = animationType;
   }
 
-  Future<void> finishDay() async {
+  Future<bool> finishDay() async {
+    bool status = false;
     if (isPerson) {
-      await eatFood();
+      status = await eatFood();
     }
 
     game.health.value = card.newHealth(game.health.value);
@@ -66,6 +67,7 @@ class CardComponent extends SpriteComponent
     game.carbonFootprint.value =
         card.newCarbonFootprint(game.carbonFootprint.value);
     game.handicap.value = card.newHandicap(game.handicap.value);
+    return status;
   }
 
   @override
@@ -299,7 +301,7 @@ class CardComponent extends SpriteComponent
         });
       }
     } else if (other is SellComponent) {
-      if (move && !isPerson) {
+      if (move && !isPerson && card.id != kPlastic.id) {
         _debouncer.run(() {
           if (!move) {
             if (card.id == kSallary.id) {

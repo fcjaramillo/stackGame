@@ -61,6 +61,12 @@ class GameCardModel {
         primaryColor = Colors.yellow.shade400,
         foregroundColor = Colors.yellow.shade900;
 
+  GameCardModel.pack({
+    required this.card,
+  })  : backgroundColor = Colors.black87,
+        primaryColor = Colors.black54,
+        foregroundColor = Colors.white;
+
   factory GameCardModel.byType(CardModel card) {
     switch (card.type) {
       case TypeCard.dev:
@@ -80,7 +86,7 @@ class GameCardModel {
       case TypeCard.idea:
         return GameCardModel.idea(card: card);
       case TypeCard.pack:
-        return GameCardModel.idea(card: card);
+        return GameCardModel.pack(card: card);
     }
   }
 }

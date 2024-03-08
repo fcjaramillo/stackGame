@@ -1,80 +1,70 @@
 part of 'data.dart';
 
 List<AchivementModel> kAchivementsList = [
-  const AchivementModel(
+  AchivementModel(
     id: 0,
-    name: 'The First Craft',
-    description:
-        'Congratulations! You crafted your first item. Who knew sticks and stones could do so much?',
+    name: L10n.current.achivementFirtsCraft,
+    description: L10n.current.achivementFirtsCraftDescription,
     isComplete: false,
   ),
-  const AchivementModel(
+  AchivementModel(
     id: 1,
-    name: 'The First Day',
-    description:
-        'You survived your first day! The future is looking bright... or is that just the sunrise?',
+    name: L10n.current.achivementFirtsDay,
+    description: L10n.current.achivementFirtsDayDescription,
     isComplete: false,
   ),
-  const AchivementModel(
+  AchivementModel(
     id: 2,
-    name: 'Eggvolution',
-    description:
-        '10 eggs on the map? You\'re practically a poultry farmer now!',
+    name: L10n.current.achivementEggvolution,
+    description: L10n.current.achivementEggvolutionDescription,
     isComplete: false,
   ),
-  const AchivementModel(
+  AchivementModel(
     id: 3,
-    name: 'The Cow\'s Fault',
-    description:
-        'You found your first poop. This is a crappy situation, but someone\'s gotta handle it.',
+    name: L10n.current.achivementCow,
+    description: L10n.current.achivementCowDescription,
     isComplete: false,
   ),
-  const AchivementModel(
+  AchivementModel(
     id: 4,
-    name: 'Fur-iends',
-    description:
-        'You got your first dog! Remember, with great power comes great responsibility... to pick up poop.',
+    name: L10n.current.achivementFuriends,
+    description: L10n.current.achivementFuriendsDescription,
     isComplete: false,
   ),
-  const AchivementModel(
+  AchivementModel(
     id: 5,
-    name: 'DevsCoverer',
-    description:
-        'You unlocked the Dev card. We\'re not sure if you should be proud or concerned.',
+    name: L10n.current.achivementDevsCoverer,
+    description: L10n.current.achivementDevsCovererDescription,
     isComplete: false,
   ),
-  const AchivementModel(
+  AchivementModel(
     id: 6,
-    name: 'Let There Be Light',
-    description:
-        'You made your first solar panel. Who needs the sun when you have technology?',
+    name: L10n.current.achivementLight,
+    description: L10n.current.achivementLightDescription,
     isComplete: false,
   ),
-  const AchivementModel(
+  AchivementModel(
     id: 7,
-    name: 'Full Belly, Happy Heart',
-    description: 'You made your first farm banquet. Bon appétit!',
+    name: L10n.current.achivementFullBelly,
+    description: L10n.current.achivementFullBellyDescription,
     isComplete: false,
   ),
-  const AchivementModel(
+  AchivementModel(
     id: 8,
-    name: 'Green Life',
-    description:
-        'You won the game for the first time. Mother Nature would be proud.',
+    name: L10n.current.achivementGreenLife,
+    description: L10n.current.achivementGreenLifeDescription,
     isComplete: false,
   ),
-  const AchivementModel(
+  AchivementModel(
     id: 9,
-    name: 'Apocalypse',
-    description:
-        'You lost the game for the first time. It\'s not the end of the world... oh wait.',
+    name: L10n.current.achivementApocalypse,
+    description: L10n.current.achivementApocalypseDescription,
     isComplete: false,
   ),
-  const AchivementModel(
+  AchivementModel(
     id: 10,
-    name: 'Addiction to the Environment',
-    description:
-        'You got all the achievements. You\'re officially a green thumb!',
+    name: L10n.current.achivementAddiction,
+    description: L10n.current.achivementAddictionDescription,
     isComplete: false,
   ),
 ];

@@ -7,6 +7,7 @@ environment:
   sdk: ">=3.2.5 <4.0.0"
 
 dependencies:
+  auto_size_text: ^3.0.0
   cupertino_icons: ^1.0.2
   firebase_core: ^2.26.0
   flame: ^1.15.0
@@ -14,6 +15,9 @@ dependencies:
   flutter_animate: ^4.5.0
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.18.1
   font_awesome_flutter: ^10.7.0
   google_fonts: ^6.1.0
 
@@ -33,3 +37,10 @@ flutter:
     - assets/images/packs/
     - assets/images/vegetation/
     - assets/tiles/
+
+flutter_intl:
+  enabled: true
+  main_locale: es
+  class_name: L10n
+  arb_dir: lib/l10n/l10n
+  output_dir: lib/l10n/generated

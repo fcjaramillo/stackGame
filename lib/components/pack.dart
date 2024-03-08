@@ -1,7 +1,7 @@
 part of 'components.dart';
 
 class PackComponent extends SpriteComponent
-    with CollisionCallbacks, HasGameReference<StackGame> {
+    with CollisionCallbacks, TapCallbacks, HasGameReference<StackGame> {
   final PackModel pack;
 
   PackComponent({
@@ -22,5 +22,20 @@ class PackComponent extends SpriteComponent
   FutureOr<void> onLoad() async {
     sprite = await Sprite.load('packs/${pack.id}.png');
     return super.onLoad();
+  }
+
+  @override
+  void onTapDown(TapDownEvent event) {
+    game.cardSelected.value = GameCardModel.byType(
+      CardModel(
+        id: pack.id,
+        name: pack.name,
+        description: pack.description,
+        type: TypeCard.pack,
+        prize: 0,
+        quantity: 0,
+      ),
+    );
+    super.onTapDown(event);
   }
 }

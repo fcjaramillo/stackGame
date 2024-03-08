@@ -30,7 +30,7 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
       if (!(game.isFast)) {
         currentTime += dt;
       } else {
-        currentTime += (dt * 2);
+        currentTime += (dt * 4);
       }
       if (currentTime >= totalTime) {
         currentTime = 0;
@@ -38,16 +38,20 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
           game.canInteract.value = false;
           game.isPause = true;
           game.dayGame++;
-          game.addPack();
+          game.addPack(game.world.children.query<PackComponent>().length);
 
           List<CardComponent> cards =
               game.world.children.query<CardComponent>();
 
           List<CardComponent> cows = [];
           List<CardComponent> hens = [];
+          bool isDeath = false;
 
           for (final CardComponent card in cards) {
-            await card.finishDay();
+            isDeath = await card.finishDay();
+            if (isDeath) {
+              break;
+            }
             if (card.card.id == kHen.id) {
               hens.add(card);
             } else if (card.card.id == kCow.id) {
@@ -58,7 +62,7 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
           if (game.health.value <= 0 ||
               game.carbonFootprint.value >= 100 ||
               game.oxygen.value <= 0 ||
-              game.food.value < kNeededFood) {
+              isDeath) {
             game.changeValueAchivements(9);
             game.playState = PlayState.gameOver;
           } else {
@@ -201,6 +205,12 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
         ),
       );
     }
+
+    int indexStack = game.stacks.indexWhere((s) => s.linearComponent == this);
+    if (indexStack != -1) {
+      game.stacks[indexStack].deleteLinear();
+    }
+
     game.world.remove(this);
   }
 }

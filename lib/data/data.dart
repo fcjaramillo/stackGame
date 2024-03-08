@@ -1,6 +1,7 @@
 library com.stack.data;
 
 import '../enums/enums.dart';
+import '../l10n/generated/l10n.dart';
 import '../models/models.dart';
 
 part 'achivements.dart';

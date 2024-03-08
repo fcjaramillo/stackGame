@@ -3,7 +3,7 @@ part of 'extensions.dart';
 extension PersonExtension on CardComponent {
   bool get isPerson => card.id == 0;
 
-  Future<bool?> eatFood() async {
+  Future<bool> eatFood() async {
     if (isPerson) {
       List<CardComponent> foodCards = game.world.children
           .query<CardComponent>()
@@ -20,10 +20,10 @@ extension PersonExtension on CardComponent {
           neededFood -= food.card.food ?? 0;
           await food.animateTo(position);
         }
-        return true;
+        return false;
       }
-      return false;
+      return true;
     }
-    return null;
+    return true;
   }
 }

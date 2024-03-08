@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../const.dart';
+import '../l10n/generated/l10n.dart';
 
 class ScoreCard extends StatelessWidget {
   const ScoreCard({
@@ -54,39 +55,39 @@ class ScoreCard extends StatelessWidget {
           ),
           TitleListenable<int>(
             icon: const FaIcon(FontAwesomeIcons.coins),
-            title: 'Coin',
+            title: L10n.of(context).coin,
             value: coin,
           ),
           TitleListenable<int>(
             icon: const FaIcon(FontAwesomeIcons.solidHeart),
-            title: 'Health',
+            title: L10n.of(context).health,
             value: health,
           ),
           TitleListenable<int>(
             icon: const FaIcon(FontAwesomeIcons.appleWhole),
-            title: 'Food',
+            title: L10n.of(context).food,
             value: food,
             otherValue: 3,
           ),
           TitleValueListenable<int>(
             icon: const FaIcon(FontAwesomeIcons.diamond),
-            title: 'Cards',
+            title: L10n.of(context).cards,
             value: cards,
             otherValue: cardsMax,
           ),
           TitleListenable<double>(
             icon: const FaIcon(FontAwesomeIcons.wind),
-            title: 'Oxygen',
+            title: L10n.of(context).oxygen,
             value: oxygen,
           ),
           TitleListenable<double>(
             icon: const FaIcon(FontAwesomeIcons.radiation),
-            title: 'Carbon Footprint',
+            title: L10n.of(context).carbonFootprint,
             value: carbonFootprint,
           ),
           TitleValueListenable<int>(
             icon: const FaIcon(FontAwesomeIcons.bolt),
-            title: 'Energy',
+            title: L10n.of(context).energy,
             value: energy,
             otherValue: energyMax,
           ),

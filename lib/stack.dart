@@ -106,14 +106,14 @@ class StackGame extends FlameGame
     ));
 
     await images.loadAllImages();
-    await FlameAudio.audioCache.loadAll(kSoundList);
+    //await FlameAudio.audioCache.loadAll(kSoundList);
 
     playArea = PlayAreaComponent();
 
     add(playArea);
 
-    FlameAudio.bgm.initialize();
-    playSound();
+    //FlameAudio.bgm.initialize();
+    //playSound();
 
     camera.viewfinder.anchor = Anchor.topLeft;
 
@@ -128,12 +128,29 @@ class StackGame extends FlameGame
     if (playState == PlayState.playing) return;
 
     dayGame = 0;
+    score.value = 0;
+    card.value = 0;
+    cardMax.value = kNumberCardsInitial;
+    coin.value = 10;
+    health.value = kHealtInitial;
+    food.value = 0;
+    oxygen.value = kOxygenInitial;
+    carbonFootprint.value = kCarbonFootprintInitial;
+    energy.value = 0;
+    energyMax.value = 0;
+    handicap.value = 0;
+    timeDayNotifier.value = 0;
+    canInteract.value = true;
 
-    world.removeAll(world.children.query<CardComponent>());
     world.removeAll(world.children.query<PackComponent>());
     world.removeAll(world.children.query<LinearTime>());
     removeAll(children.query<LinearTime>());
+    world.removeAll(world.children.query<CardComponent>());
+
     playState = PlayState.playing;
+
+    isPause = false;
+    isFast = false;
 
     add(GameTime(
       size: Vector2(kBarTimerWidth, 25),
@@ -142,11 +159,9 @@ class StackGame extends FlameGame
       random: random,
     ));
 
-    //add(gameTime);
-
     world.add(SellComponent(position: Vector2(10, 40)));
 
-    addPack();
+    addPack(0);
 
     for (CardModel card in kInitialCards) {
       world.add(
@@ -215,30 +230,30 @@ class StackGame extends FlameGame
   void changeSound() {
     isSound = !isSound;
     if (isSound) {
-      FlameAudio.bgm.resume();
+      //FlameAudio.bgm.resume();
     } else {
-      FlameAudio.bgm.pause();
+      //FlameAudio.bgm.pause();
     }
   }
 
   void playSound() {
-    FlameAudio.bgm.stop();
+    //FlameAudio.bgm.stop();
     int value = _random.nextInt(kSoundList.length);
-    FlameAudio.bgm.play(
+    /*FlameAudio.bgm.play(
       kSoundList[value],
-    );
+    );*/
   }
 
-  void addPack() {
+  void addPack(int p) {
     for (int i = 0; i < packs.length; i++) {
       if (dayGame == packs[i].day) {
-        int p = world.children.query<PackComponent>().length;
         world.add(
           PackComponent(
             pack: packs[i],
             position: Vector2(kCardWidth * (p + 2) + ((p + 2) * 40), 40),
           ),
         );
+        p++;
       }
     }
   }

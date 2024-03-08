@@ -1,7 +1,7 @@
 part of 'data.dart';
 
 List<RecipeModel> recipes = <RecipeModel>[
-  const RecipeModel(
+  RecipeModel(
     id: 0,
     create: <CardModel>[
       kWood,
@@ -17,7 +17,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 5,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 1,
     create: <CardModel>[
       kIronIngots,
@@ -36,7 +36,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 2,
     create: <CardModel>[
       kSilicon,
@@ -61,7 +61,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 3,
     create: <CardModel>[
       kCopperLine,
@@ -81,7 +81,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 10,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 4,
     create: <CardModel>[
       kInsulator,
@@ -101,7 +101,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 10,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 5,
     create: <CardModel>[
       kSolarCells,
@@ -117,7 +117,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     remove: <CardModel>[],
     time: 20,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 6,
     create: <CardModel>[
       kStructure,
@@ -138,7 +138,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 7,
     create: <CardModel>[
       kCables,
@@ -155,7 +155,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 8,
     create: <CardModel>[
       kStew,
@@ -177,7 +177,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 9,
     create: <CardModel>[
       kStew,
@@ -197,7 +197,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 25,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 10,
     create: <CardModel>[
       kFriedMeat,
@@ -213,7 +213,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 11,
     create: <CardModel>[
       kFriedMeat,
@@ -227,7 +227,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 25,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 12,
     create: <CardModel>[
       kFlour,
@@ -242,7 +242,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 13,
     create: <CardModel>[
       kBread,
@@ -260,7 +260,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 14,
     create: <CardModel>[
       kBread,
@@ -276,7 +276,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 25,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 15,
     create: <CardModel>[
       kCake,
@@ -308,7 +308,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 16,
     create: <CardModel>[
       kCake,
@@ -338,7 +338,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 25,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 17,
     create: <CardModel>[
       kHealthySalad,
@@ -359,7 +359,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 18,
     create: <CardModel>[
       kFruitShake,
@@ -378,7 +378,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 19,
     create: <CardModel>[
       kOmelet,
@@ -406,7 +406,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 20,
     create: <CardModel>[
       kOmelet,
@@ -432,7 +432,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 25,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 21,
     create: <CardModel>[
       kApplePie,
@@ -460,7 +460,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 22,
     create: <CardModel>[
       kApplePie,
@@ -486,7 +486,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 25,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 23,
     create: <CardModel>[
       kFarmFeast,
@@ -513,7 +513,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 20,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 24,
     create: <CardModel>[
       kFarmFeast,
@@ -537,7 +537,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 30,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 25,
     create: <CardModel>[
       kBaul,
@@ -558,7 +558,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 26,
     create: <CardModel>[
       kWarehouse,
@@ -587,7 +587,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 25,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 27,
     create: <CardModel>[
       kFurnace,
@@ -607,10 +607,12 @@ List<RecipeModel> recipes = <RecipeModel>[
       kStructure,
       kRock,
       kRock,
+      kRock,
+      kRock,
     ],
     time: 10,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 28,
     create: <CardModel>[
       kCraftingTable,
@@ -631,7 +633,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     time: 10,
     isVisible: true,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 29,
     create: <CardModel>[
       kSawmill,
@@ -662,7 +664,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 20,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 30,
     create: <CardModel>[
       kElectricTable,
@@ -691,7 +693,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 20,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 31,
     create: <CardModel>[
       kSolarPanel,
@@ -728,7 +730,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 20,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 32,
     create: <CardModel>[
       kFarm,
@@ -781,7 +783,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 30,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 33,
     create: <CardModel>[
       kOrchard,
@@ -814,7 +816,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 34,
     create: <CardModel>[
       kMill,
@@ -839,7 +841,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 0,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 35,
     create: <CardModel>[
       kGreenhouse,
@@ -876,7 +878,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 25,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 36,
     create: <CardModel>[
       kWindTurbine,
@@ -905,7 +907,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 37,
     create: <CardModel>[
       kRecycler,
@@ -942,7 +944,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 30,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 38,
     create: <CardModel>[
       kComposter,
@@ -973,7 +975,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 39,
     create: <CardModel>[
       kCampfire,
@@ -1001,7 +1003,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 40,
     create: <CardModel>[
       kAppleTree,
@@ -1020,7 +1022,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 45,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 41,
     create: <CardModel>[
       kBananaTree,
@@ -1039,7 +1041,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 45,
   ),
-  /*const RecipeModel(
+  /*RecipeModel(
     id: 42,
     create: <CardModel>[
       kPoop,
@@ -1049,7 +1051,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 90,
   ),*/
-  const RecipeModel(
+  RecipeModel(
     id: 43,
     create: <CardModel>[
       kMilk,
@@ -1060,7 +1062,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  /*const RecipeModel(
+  /*RecipeModel(
     id: 44,
     create: <CardModel>[
       kEgg,
@@ -1070,7 +1072,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 90,
   ),*/
-  const RecipeModel(
+  RecipeModel(
     id: 45,
     create: <CardModel>[
       kPlanks,
@@ -1083,7 +1085,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 46,
     create: <CardModel>[
       kFertilizer,
@@ -1100,7 +1102,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 15,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 46,
     create: <CardModel>[
       kWater,
@@ -1112,7 +1114,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 10,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 47,
     create: <CardModel>[
       kFastFood,
@@ -1123,7 +1125,7 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 2,
   ),
-  const RecipeModel(
+  RecipeModel(
     id: 48,
     create: <CardModel>[
       kSallary,
@@ -1133,5 +1135,94 @@ List<RecipeModel> recipes = <RecipeModel>[
       kHuman,
     ],
     time: 20,
+  ),
+  RecipeModel(
+    id: 49,
+    create: <CardModel>[
+      kWood,
+      kWood,
+      kApple,
+      kApple,
+    ],
+    cards: <CardModel>[
+      kAppleTree,
+      kHuman,
+    ],
+    remove: <CardModel>[
+      kAppleTree,
+    ],
+    time: 10,
+  ),
+  RecipeModel(
+    id: 50,
+    create: <CardModel>[
+      kWood,
+      kWood,
+      kBanana,
+      kBanana,
+    ],
+    cards: <CardModel>[
+      kBananaTree,
+      kHuman,
+    ],
+    remove: <CardModel>[
+      kBananaTree,
+    ],
+    time: 10,
+  ),
+  RecipeModel(
+    id: 51,
+    create: <CardModel>[
+      kTree,
+    ],
+    cards: <CardModel>[
+      kDirt,
+      kWater,
+      kTreeSeed,
+    ],
+    remove: <CardModel>[
+      kDirt,
+      kWater,
+      kTreeSeed,
+    ],
+    time: 60,
+  ),
+  RecipeModel(
+    id: 52,
+    create: <CardModel>[
+      kAppleTree,
+    ],
+    cards: <CardModel>[
+      kDirt,
+      kWater,
+      kTreeSeed,
+      kApple,
+    ],
+    remove: <CardModel>[
+      kDirt,
+      kWater,
+      kTreeSeed,
+      kApple,
+    ],
+    time: 60,
+  ),
+  RecipeModel(
+    id: 53,
+    create: <CardModel>[
+      kBananaTree,
+    ],
+    cards: <CardModel>[
+      kDirt,
+      kWater,
+      kTreeSeed,
+      kBanana,
+    ],
+    remove: <CardModel>[
+      kDirt,
+      kWater,
+      kTreeSeed,
+      kBanana,
+    ],
+    time: 60,
   ),
 ];

@@ -4,62 +4,69 @@ List<PackModel> packs = [
   PackModel(
     id: 0,
     name: 'Initial Pack',
-    description: '''Provide basic materials.
+    description: '''   Provide basic materials.
+
    Probabilities:
-   - Plastic 15%
+
    - Rock 15%
    - Wood 12%
-   - Apple 10%
-   - Banana 10%
+   - Tree Seed 10%
    - Dirt 10%
    - Coal 10%
    - Water 10%
-   - Copper 4%
-   - Iron 4%
+   - Apple 8%
+   - Banana 8%
+   - Plastic 6%
+   - Iron 6%
+   - Copper 5%
    ''',
     cost: 3,
     numberCards: 3,
     day: 0,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
-        card: kPlastic,
-        percentage: 14,
-      ),
-      CardProbabilityModel(
         card: kRock,
-        percentage: 14,
-      ),
-      CardProbabilityModel(
-        card: kIron,
-        percentage: 4,
-      ),
-      CardProbabilityModel(
-        card: kCoal,
-        percentage: 10,
+        percentage: 15,
       ),
       CardProbabilityModel(
         card: kWood,
-        percentage: 8,
+        percentage: 12,
       ),
       CardProbabilityModel(
-        card: kCopper,
-        percentage: 4,
+        card: kTreeSeed,
+        percentage: 10,
       ),
       CardProbabilityModel(
         card: kDirt,
         percentage: 10,
       ),
       CardProbabilityModel(
+        card: kCoal,
+        percentage: 10,
+      ),
+      CardProbabilityModel(
         card: kWater,
-        percentage: 8,
+        percentage: 10,
+      ),
+      CardProbabilityModel(
+        card: kPlastic,
+        percentage: 6,
+      ),
+      CardProbabilityModel(
+        card: kIron,
+        percentage: 6,
       ),
       CardProbabilityModel(
         card: kApple,
-        percentage: 14,
+        percentage: 8,
       ),
       CardProbabilityModel(
         card: kBanana,
-        percentage: 14,
+        percentage: 8,
+      ),
+      CardProbabilityModel(
+        card: kCopper,
+        percentage: 5,
       ),
     ],
   ),
@@ -68,16 +75,16 @@ List<PackModel> packs = [
     name: 'Food Pack',
     description: '''Provide basic food and different food recipes.
    Probabilities:
-   - Wheat 10%
+   - Recipe 12%
    - Carrot 10%
    - Potato 10%
    - Banana 10%
    - Apple 10%
-   - Milk 10%
-   - Meat 10%
-   - Egg 10%
    - Flour 10%
-   - Recipe 10%
+   - Wheat 10%
+   - Milk 10%
+   - Egg 10%
+   - Meat 8%
    ''',
     cost: 5,
     numberCards: 3,
@@ -104,16 +111,12 @@ List<PackModel> packs = [
         percentage: 10,
       ),
       CardProbabilityModel(
-        card: kDev,
-        percentage: 10,
-      ),
-      CardProbabilityModel(
         card: kMilk,
         percentage: 10,
       ),
       CardProbabilityModel(
         card: kMeat,
-        percentage: 10,
+        percentage: 8,
       ),
       CardProbabilityModel(
         card: kEgg,
@@ -122,6 +125,10 @@ List<PackModel> packs = [
       CardProbabilityModel(
         card: kFlour,
         percentage: 10,
+      ),
+      CardProbabilityModel(
+        card: kDev,
+        percentage: 12,
       ),
     ],
     ideas: [
@@ -148,17 +155,17 @@ List<PackModel> packs = [
    - Copper 14%
    - Dirt 14%
    - Water 14%
-   - Glass 12%
-   - Rock 4%
-   - Wood 4%
-   - Recipe 10%
+   - Recipe 12%
+   - Glass 6%
+   - Rock 6%
+   - Wood 6%
    ''',
-    cost: 8,
+    cost: 5,
     numberCards: 3,
     day: 1,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
-        card: kWood,
+        card: kIron,
         percentage: 14,
       ),
       CardProbabilityModel(
@@ -179,20 +186,19 @@ List<PackModel> packs = [
       ),
       CardProbabilityModel(
         card: kGlass,
-        percentage: 12,
+        percentage: 6,
       ),
       CardProbabilityModel(
         card: kRock,
-        percentage: 4,
+        percentage: 6,
       ),
       CardProbabilityModel(
-        card: kGlass,
-        percentage: 4,
+        card: kWood,
+        percentage: 6,
       ),
       CardProbabilityModel(
-        //This is for the recipes
         card: kDev,
-        percentage: 10,
+        percentage: 12,
       ),
     ],
     ideas: [
@@ -213,9 +219,11 @@ List<PackModel> packs = [
    Probabilities:
    - Structure 30%
    - Planks 25%
-   - Crafting Table 15%
-   - Electric Table 15%
    - Structure Recipe 15%
+   - Silicon 10%
+   - Crafting Table 10%
+   - Electric Table 5%
+   - Iron 5%
    ''',
     cost: 10,
     numberCards: 3,
@@ -230,15 +238,18 @@ List<PackModel> packs = [
         percentage: 25,
       ),
       CardProbabilityModel(
+        card: kSilicon,
+        percentage: 10,
+      ),
+      CardProbabilityModel(
         card: kCraftingTable,
-        percentage: 15,
+        percentage: 10,
       ),
       CardProbabilityModel(
         card: kElectricTable,
-        percentage: 15,
+        percentage: 5,
       ),
       CardProbabilityModel(
-        //This is for the recipes
         card: kDev,
         percentage: 15,
       ),
@@ -264,22 +275,22 @@ List<PackModel> packs = [
     name: 'Nature Pack',
     description: '''Provide animals and plants and nature recipes.
    Probabilities:
-   - TreeSeed 25%
-   - Tree 15%
-   - AppleTree 12%
-   - BananaTree 12%
+   - Tree Seed 40%
+   - Recipe 12%
+   - Hen 12%
    - Cow 10%
-   - Hen 10%
-   - Recipe 10%
-   - Dog 6%
+   - Dog 8%
+   - Tree 8%
+   - AppleTree 5%
+   - BananaTree 5%
    ''',
     cost: 8,
     numberCards: 3,
     day: 7,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
-        card: kDog,
-        percentage: 6,
+        card: kTreeSeed,
+        percentage: 40,
       ),
       CardProbabilityModel(
         card: kCow,
@@ -287,28 +298,27 @@ List<PackModel> packs = [
       ),
       CardProbabilityModel(
         card: kHen,
-        percentage: 10,
+        percentage: 12,
       ),
       CardProbabilityModel(
         card: kTree,
-        percentage: 15,
+        percentage: 8,
       ),
       CardProbabilityModel(
         card: kAppleTree,
-        percentage: 12,
+        percentage: 5,
       ),
       CardProbabilityModel(
         card: kBananaTree,
-        percentage: 12,
+        percentage: 5,
       ),
       CardProbabilityModel(
-        card: kTreeSeed,
-        percentage: 25,
+        card: kDog,
+        percentage: 8,
       ),
       CardProbabilityModel(
-        //This is for the recipes
         card: kDev,
-        percentage: 10,
+        percentage: 12,
       ),
     ],
     ideas: [
