@@ -26,6 +26,9 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
   @override
   Future<void> update(double dt) async {
     super.update(dt);
+    if (!game.canInteract.value && game.playState == PlayState.playing) {
+      game.canInteract.value = true;
+    }
     if (!(game.isPause) && game.playState != PlayState.gameOver) {
       if (!(game.isFast)) {
         currentTime += dt;
@@ -66,9 +69,8 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
             game.changeValueAchivements(9);
             game.playState = PlayState.gameOver;
           } else {
-            cards = game.world.children.query<CardComponent>();
-
             if (game.card.value > game.cardMax.value) {
+              cards = game.world.children.query<CardComponent>();
               game.playState = PlayState.selling;
               for (CardComponent c in cards) {
                 c.changeAnimation(AnimationType.shake);

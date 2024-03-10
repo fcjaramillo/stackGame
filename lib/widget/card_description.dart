@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stack/enums/enums.dart';
@@ -36,14 +37,17 @@ class CardDescription extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8),
-                  child: Text(
+                  child: AutoSizeText(
                     gameCard.card.name,
                     style: TextStyle(
                       color: gameCard.foregroundColor,
-                      fontSize: 20,
+                      fontSize: 16,
                       fontWeight: FontWeight.w900,
                       overflow: TextOverflow.ellipsis,
                     ),
+                    minFontSize: 2,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ],
@@ -80,18 +84,19 @@ class CardDescription extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(
+                    AutoSizeText(
                       gameCard.card.description,
                       textAlign: gameCard.card.type != TypeCard.pack
                           ? TextAlign.center
                           : TextAlign.start,
                       style: TextStyle(
                         color: gameCard.foregroundColor,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                        overflow: TextOverflow.ellipsis,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w200,
                       ),
-                      maxLines: 100,
+                      minFontSize: 4,
+                      maxLines: gameCard.card.type == TypeCard.pack ? 150 : 10,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(
                       height: 8,
@@ -129,6 +134,15 @@ class CardDescription extends StatelessWidget {
                       title: L10n.of(context).energy,
                       number: gameCard.card.energy,
                     ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    CoinsWidget(
+                      points: gameCard.card.prize,
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
                   ],
                 ),
               ),
@@ -165,15 +179,45 @@ class CardProperties extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              icon,
-              Text(
-                title,
-                style: TextStyle(color: color),
+              const SizedBox(
+                width: 8,
               ),
-              Text(
-                newTitle,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: color),
+              Expanded(flex: 1, child: icon),
+              const SizedBox(
+                width: 8,
+              ),
+              Expanded(
+                flex: 3,
+                child: AutoSizeText(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: color,
+                    fontSize: 14,
+                  ),
+                  minFontSize: 6,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              Expanded(
+                flex: 1,
+                child: AutoSizeText(
+                  newTitle,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: color,
+                    fontSize: 14,
+                  ),
+                  minFontSize: 6,
+                  maxLines: 1,
+                ),
+              ),
+              const SizedBox(
+                width: 8,
               ),
             ],
           ),
@@ -184,4 +228,58 @@ class CardProperties extends StatelessWidget {
       ),
     );
   }
+}
+
+class CoinsWidget extends StatelessWidget {
+  final int points;
+  final double iconsSize;
+  const CoinsWidget({
+    required this.points,
+    this.iconsSize = 40,
+    super.key,
+  });
+  @override
+  Widget build(BuildContext context) => Visibility(
+        visible: points >= 0,
+        child: Stack(
+          alignment: Alignment.center,
+          children: <Widget>[
+            SizedBox(
+              height: iconsSize + 5,
+              width: iconsSize + 5,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.brown,
+                  borderRadius: BorderRadius.circular(100),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: iconsSize,
+              width: iconsSize,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  color: Colors.amberAccent.shade100,
+                  border: Border.all(
+                    width: 7,
+                    color: Colors.orange,
+                  ),
+                ),
+              ),
+            ),
+            AutoSizeText(
+              points.toString(),
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.black87,
+                fontWeight: FontWeight.w800,
+                fontSize: 14,
+              ),
+              minFontSize: 4,
+              maxLines: 4,
+            ),
+          ],
+        ),
+      );
 }

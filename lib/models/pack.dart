@@ -9,6 +9,7 @@ class PackModel {
   final int cost;
   final List<CardModel> ideas;
   final int day;
+  final CardModel? devCard;
 
   PackModel({
     required this.id,
@@ -19,27 +20,6 @@ class PackModel {
     required this.numberCards,
     required this.day,
     this.ideas = const [],
+    this.devCard,
   });
-
-  List<CardModel> generateCards(Random ramdom) {
-    List<CardModel> newCards = <CardModel>[];
-    for (int i = 0; i < numberCards; i++) {
-      int random = ramdom.nextInt(100) + 1;
-      int percentage = 0;
-
-      for (int j = 0; j < cards.length; j++) {
-        percentage += cards[j].percentage.toInt();
-        if (random <= percentage) {
-          if (cards[j].card.id == 1000) {
-            int indexIdea = random % ideas.length;
-            newCards.add(ideas[indexIdea]);
-            break;
-          }
-          newCards.add(cards[j].card);
-          break;
-        }
-      }
-    }
-    return newCards;
-  }
 }

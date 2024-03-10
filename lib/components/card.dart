@@ -276,12 +276,12 @@ class CardComponent extends SpriteComponent
         _debouncer.run(() {
           if (!move && !game.isPause) {
             PackModel pack = other.pack;
-            if (pack.id == 0) {
-              game.changeValueQuest(2);
-            }
             if (game.coin.value >= pack.cost) {
+              if (pack.id == 0) {
+                game.changeValueQuest(2);
+              }
               game.coin.value -= pack.cost;
-              List<CardModel> newCards = pack.generateCards(game.random);
+              List<CardModel> newCards = other.generateCards(game.random);
               for (int i = 0; i < newCards.length; i++) {
                 if (newCards[i].type == TypeCard.idea) {
                   game.changeValueQuest(6);

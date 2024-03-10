@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -20,30 +21,42 @@ class OverlayScreen extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            title.toUpperCase(),
-            style: Theme.of(context).textTheme.headlineLarge,
-          ).animate().slideY(duration: 750.ms, begin: -3, end: 0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: AutoSizeText(
+              title.toUpperCase(),
+              style: Theme.of(context).textTheme.headlineLarge,
+              minFontSize: 6,
+              maxLines: 1,
+            ).animate().slideY(duration: 750.ms, begin: -3, end: 0),
+          ),
           const SizedBox(height: 16),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 32),
             child: Center(
-              child: Text(
+              child: AutoSizeText(
                 subtitle,
+                minFontSize: 6,
+                maxLines: 4,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineMedium,
               ).animate().slideX(duration: 750.ms, begin: 10, end: 0),
             ),
           ),
           const SizedBox(height: 16),
-          Text(
-            action,
-            style: Theme.of(context).textTheme.headlineSmall,
-          )
-              .animate(onPlay: (controller) => controller.repeat())
-              .fadeIn(duration: 1.seconds)
-              .then()
-              .fadeOut(duration: 1.seconds),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: AutoSizeText(
+              action,
+              style: Theme.of(context).textTheme.headlineSmall,
+              minFontSize: 6,
+              maxLines: 1,
+            )
+                .animate(onPlay: (controller) => controller.repeat())
+                .fadeIn(duration: 1.seconds)
+                .then()
+                .fadeOut(duration: 1.seconds),
+          ),
         ],
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:stack/const.dart';
@@ -173,16 +174,39 @@ class QuestTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ExpansionTile(
-        title: Text(
-          quest.name,
-        ),
-        leading: Checkbox(
-          value: quest.isComplete,
-          onChanged: (value) {},
+        tilePadding: const EdgeInsets.symmetric(horizontal: 4.0),
+        title: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Icon(
+              quest.isComplete
+                  ? Icons.check_box
+                  : Icons.check_box_outline_blank,
+            ),
+            const SizedBox(
+              width: 8,
+            ),
+            Expanded(
+              flex: 1,
+              child: AutoSizeText(
+                quest.name,
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
+                minFontSize: 6,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
         ),
         children: <Widget>[
-          Text(
+          AutoSizeText(
             quest.description,
+            style: const TextStyle(fontSize: 10),
+            minFontSize: 4,
+            maxLines: 4,
+            overflow: TextOverflow.ellipsis,
           ),
         ],
       );
@@ -226,6 +250,7 @@ class RecipesTile extends StatelessWidget {
     return Visibility(
       visible: recipe.isVisible,
       replacement: ListTile(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 8),
         leading: const FaIcon(
           FontAwesomeIcons.book,
         ),
@@ -246,27 +271,78 @@ class RecipesTile extends StatelessWidget {
         ),
       ),
       child: ExpansionTile(
-        title: Text(
+        tilePadding: const EdgeInsets.symmetric(horizontal: 8),
+        title: AutoSizeText(
           recipe.create?[0].name ?? '',
+          style: const TextStyle(fontSize: 12),
+          minFontSize: 6,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
         ),
         leading: const FaIcon(
           FontAwesomeIcons.book,
+          size: 18,
         ),
         expandedCrossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           for (int i = 0; i < recipe.materials.length; i++)
-            ListTile(
-              leading: const FaIcon(
-                FontAwesomeIcons.diamond,
+            GestureDetector(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      const SizedBox(
+                        width: 8,
+                      ),
+                      const FaIcon(
+                        FontAwesomeIcons.diamond,
+                        size: 18,
+                      ),
+                      const SizedBox(
+                        width: 8,
+                      ),
+                      Expanded(
+                        child: AutoSizeText(
+                          recipe.materials[i].title,
+                          minFontSize: 6,
+                          maxLines: 1,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 8,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                ],
               ),
-              title: Text(recipe.materials[i].title),
               onTap: () => onTapCard(recipe.materials[i].card),
             ),
-          ListTile(
-            leading: const FaIcon(
-              FontAwesomeIcons.clock,
-            ),
-            title: Text(L10n.of(context).timeRecipe(recipe.time)),
+          Row(
+            children: [
+              const SizedBox(
+                width: 8,
+              ),
+              const FaIcon(
+                FontAwesomeIcons.clock,
+                size: 18,
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              Expanded(
+                child: AutoSizeText(
+                  L10n.of(context).timeRecipe(recipe.time),
+                  minFontSize: 6,
+                  maxLines: 1,
+                ),
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+            ],
           ),
         ],
       ),
@@ -309,11 +385,13 @@ class AchivementTile extends StatelessWidget {
                     : CrossAxisAlignment.start,
                 children: [
                   if (achivement.isComplete)
-                    Text(
+                    AutoSizeText(
                       achivement.name,
                       style: const TextStyle(
                         fontSize: 13,
                       ),
+                      minFontSize: 6,
+                      maxLines: 2,
                     )
                   else
                     ConstrainedBox(
@@ -333,13 +411,15 @@ class AchivementTile extends StatelessWidget {
                     ),
                   const SizedBox(height: 1.5),
                   if (achivement.isComplete)
-                    Text(
+                    AutoSizeText(
                       achivement.description,
                       textAlign:
                           rightAlignement ? TextAlign.end : TextAlign.start,
                       style: const TextStyle(
                         fontSize: 10,
                       ),
+                      minFontSize: 6,
+                      maxLines: 4,
                     )
                   else ...<Widget>[
                     const SizedBox(
@@ -397,16 +477,19 @@ class FcTitleTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      flex: 1,
       child: GestureDetector(
         onTap: onTap,
-        child: Text(
+        child: AutoSizeText(
           title,
           style: TextStyle(
-            fontSize: 12,
+            fontSize: 10,
             color: isSelected ? Colors.white : null,
           ),
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
+          minFontSize: 4,
+          maxLines: 1,
         ),
       ),
     );

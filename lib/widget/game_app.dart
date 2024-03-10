@@ -1,6 +1,7 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stack/models/models.dart';
 import 'package:stack/stack.dart';
@@ -13,19 +14,19 @@ import '../const.dart';
 import '../data/data.dart';
 import '../enums/enums.dart';
 import '../l10n/generated/l10n.dart';
+import '../providers/providers.dart';
 import 'tab.dart';
 import 'time_day.dart';
 
-class GameApp extends StatefulWidget {
+class GameApp extends ConsumerStatefulWidget {
   const GameApp({super.key});
 
   @override
-  State<GameApp> createState() => _GameAppState();
+  ConsumerState<GameApp> createState() => _GameAppState();
 }
 
-class _GameAppState extends State<GameApp> {
+class _GameAppState extends ConsumerState<GameApp> {
   PlayState pState = PlayState.welcome;
-  Locale locale = Locale('es');
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,7 @@ class _GameAppState extends State<GameApp> {
           displayColor: kColorBluePrincipal,
         ),
       ),
-      locale: locale,
+      locale: ref.watch(localeProvider),
       localizationsDelegates: const [
         L10n.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -51,13 +52,13 @@ class _GameAppState extends State<GameApp> {
           case '/menu':
             return MenuScreen.goTo(
               (loc) {
-                setState(() {
-                  locale = loc ?? locale;
-                });
+                ref
+                    .read(localeProvider.notifier)
+                    .update((state) => loc ?? state);
               },
             );
           case '/game':
-            return GameScreen.goTo(locale);
+            return GameScreen.goTo();
         }
         return null;
       },
@@ -66,36 +67,35 @@ class _GameAppState extends State<GameApp> {
   }
 }
 
-class GameScreen extends StatefulWidget {
+class GameScreen extends ConsumerStatefulWidget {
   const GameScreen({
-    required this.locale,
     super.key,
   });
 
-  final Locale locale;
-
-  static MaterialPageRoute<void> goTo(Locale locale) => MaterialPageRoute(
-        builder: (_) => GameScreen(locale: locale),
+  static MaterialPageRoute<void> goTo() => MaterialPageRoute(
+        builder: (_) => const GameScreen(),
         settings: const RouteSettings(name: '/game'),
       );
 
   @override
-  State<GameScreen> createState() => _GameScreenState();
+  ConsumerState<GameScreen> createState() => _GameScreenState();
 }
 
-class _GameScreenState extends State<GameScreen> {
+class _GameScreenState extends ConsumerState<GameScreen> {
   late final StackGame game;
   PlayState pState = PlayState.welcome;
 
   @override
   void initState() {
     super.initState();
+    L10n.load(ref.read(localeProvider)).whenComplete(() {});
     game = StackGame();
-    L10n.load(widget.locale).whenComplete(() {
-      game.achivementNotifier.value = kAchivementsList;
-      game.questNotifier.value = kRoadMap;
-      game.recipesNotifier.value = recipes;
-    });
+  }
+
+  @override
+  void dispose() {
+    game.onDispose();
+    super.dispose();
   }
 
   @override
@@ -160,7 +160,7 @@ class _GameScreenState extends State<GameScreen> {
                   width: 16,
                 ),
                 Expanded(
-                  flex: 4,
+                  flex: 3,
                   child: Stack(
                     children: [
                       DecoratedBox(

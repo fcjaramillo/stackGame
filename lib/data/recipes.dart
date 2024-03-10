@@ -1165,4 +1165,24 @@ List<RecipeModel> recipes = <RecipeModel>[
     ],
     time: 60,
   ),
+  RecipeModel(
+    id: 69,
+    create: <CardModel>[
+      kDev,
+    ],
+    cards: <CardModel>[
+      kFabian,
+      kYonnier,
+      kBrian,
+      kSantiago,
+      kHuman,
+    ],
+    remove: <CardModel>[
+      kFabian,
+      kYonnier,
+      kBrian,
+      kSantiago,
+    ],
+    time: 10,
+  ),
 ];
