@@ -1,4 +1,14 @@
 {
+    "@@locale": "en",
+    "newGame": "New Game",
+    "language": "{language, select, en{English} es{Español} fr{Français} other{English}}",
+    "@language": {
+      "placeholders": {
+        "language": {
+          "type": "String"
+        }
+      }
+    },
     "quantity": "Quantity",
     "food": "Food",
     "health": "Health",
@@ -130,7 +140,7 @@
     "stew": "Stew",
     "stewDescription": "Traditional dish that combines meat, vegetables and broth in a comforting preparation. Like a hug in the form of food, perfect for those cold days or when the soul needs comfort.",
     "friedMeat": "Fried Meat",
-    "frietMeatDescription": "The art of transforming the ordinary into the extraordinary with a little oil and a hot frying pan.",
+    "friedMeatDescription": "The art of transforming the ordinary into the extraordinary with a little oil and a hot frying pan.",
     "flour": "Flour",
     "flourDescription": "Flour, the base of many baked delicacies and dishes from around the world. The magic powder that turns any recipe into something delicious. Just add water and faith.",
     "bread": "Bread",
@@ -170,7 +180,7 @@
     "greenhouse": "Greenhouse",
     "greenhouseDescription": "A greenhouse where plants thrive like they're at a spa day, soaking in sun rays and sipping on nutrient cocktails. Improves crop production, allowing you to grow plants more effectively.",
     "windTurbine": "Wind turbine",
-    "windTurbineDescrition": "Catches wind like a superhero catches villains. A clean and renewable source of energy, capturing the power of the wind to light and heat our homes.",
+    "windTurbineDescription": "Catches wind like a superhero catches villains. A clean and renewable source of energy, capturing the power of the wind to light and heat our homes.",
     "recycler": "Recycler",
     "recyclerDescription": "An advanced Recycling Center that allows you to disassemble and reuse the cards you no longer need, giving you back the materials for future projects. An 'undo' button for unwanted constructions.",
     "composter": "Composter",
@@ -201,6 +211,9 @@
     "poopDescription": "The cycle of life is completed by this humble gift of nature. Beyond its modest appearance, manure is the guardian of ecological balance and soil fertility. What secrets might be buried beneath its surface?",
     "planks": "Planks",
     "planksDescription": "An essential element in construction, boards are versatile and essential for erecting strong and durable structures.",
+    "ideas": "Ideas",
+    "unlock": "Unlocked {ideas}/{allIdeas} ideas.",
+    "probabilities": "Probabilities",
     "foodPack": "Food Pack",
     "foodCard": "Food Card",
     "foodPackDescription": "Provide 3 food cards",

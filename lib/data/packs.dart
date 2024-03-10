@@ -4,25 +4,13 @@ List<PackModel> packs = [
   PackModel(
     id: 0,
     name: 'Initial Pack',
-    description: '''   Provide basic materials.
-
-   Probabilities:
-
-   - Rock 15%
-   - Wood 12%
-   - Tree Seed 10%
-   - Dirt 10%
-   - Recipe 10%
-   - Water 10%
-   - Apple 8%
-   - Banana 8%
-   - Plastic 6%
-   - Iron 6%
-   - Copper 5%
-   ''',
+    description: '   Provide basic materials.',
+    nameInt: (context) => L10n.of(context).initialPack,
+    descriptionInt: (context) => L10n.of(context).initialPackDescription,
     cost: 3,
     numberCards: 3,
     day: 0,
+    devCard: kFabian,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
         card: kRock,
@@ -76,22 +64,13 @@ List<PackModel> packs = [
   PackModel(
     id: 1,
     name: 'Food Pack',
-    description: '''Provide basic food and different food recipes.
-   Probabilities:
-   - Recipe 12%
-   - Carrot 10%
-   - Potato 10%
-   - Banana 10%
-   - Apple 10%
-   - Flour 10%
-   - Wheat 10%
-   - Milk 10%
-   - Egg 10%
-   - Meat 8%
-   ''',
+    description: 'Provide basic food and different food recipes.',
+    nameInt: (context) => L10n.of(context).foodPack,
+    descriptionInt: (context) => L10n.of(context).foodPackDescription,
     cost: 5,
     numberCards: 3,
     day: 4,
+    devCard: kSantiago,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
         card: kWheat,
@@ -151,21 +130,13 @@ List<PackModel> packs = [
   PackModel(
     id: 2,
     name: 'Material Pack',
-    description: '''Provide materials and composite materials recipes.
-   Probabilities:
-   - Iron 14%
-   - Coal 14%
-   - Copper 14%
-   - Dirt 14%
-   - Water 14%
-   - Recipe 12%
-   - Glass 6%
-   - Rock 6%
-   - Wood 6%
-   ''',
+    description: 'Provide materials and composite materials recipes.',
+    nameInt: (context) => L10n.of(context).materialPack,
+    descriptionInt: (context) => L10n.of(context).materialPackDescription,
     cost: 5,
     numberCards: 3,
     day: 1,
+    devCard: kBrian,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
         card: kIron,
@@ -218,19 +189,13 @@ List<PackModel> packs = [
     id: 4,
     name: 'Structure Pack',
     description:
-        '''Provide essential material to create structures and structures recipes.
-   Probabilities:
-   - Structure 30%
-   - Planks 25%
-   - Structure Recipe 15%
-   - Silicon 10%
-   - Crafting Table 10%
-   - Electric Table 5%
-   - Iron 5%
-   ''',
+        'Provide essential material to create structures and structures recipes.',
+    nameInt: (context) => L10n.of(context).structurePack,
+    descriptionInt: (context) => L10n.of(context).structurePackDescription,
     cost: 10,
     numberCards: 3,
     day: 10,
+    devCard: kFabian,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
         card: kStructure,
@@ -273,20 +238,13 @@ List<PackModel> packs = [
   PackModel(
     id: 6,
     name: 'Nature Pack',
-    description: '''Provide animals and plants and nature recipes.
-   Probabilities:
-   - Tree Seed 40%
-   - Recipe 12%
-   - Hen 12%
-   - Cow 10%
-   - Dog 8%
-   - Tree 8%
-   - AppleTree 5%
-   - BananaTree 5%
-   ''',
+    description: 'Provide animals and plants and nature recipes.',
+    nameInt: (context) => L10n.of(context).naturePack,
+    descriptionInt: (context) => L10n.of(context).naturePackDescription,
     cost: 8,
     numberCards: 3,
     day: 7,
+    devCard: kYonnier,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
         card: kTreeSeed,
@@ -334,6 +292,8 @@ List<PackModel> packs = [
     id: 5,
     name: 'Idea Pack',
     description: 'Provide one unfound idea or special card.',
+    nameInt: (context) => L10n.of(context).ideaPack,
+    descriptionInt: (context) => L10n.of(context).ideaPackDescription,
     cost: 20,
     numberCards: 1,
     day: 10,

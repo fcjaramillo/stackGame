@@ -282,7 +282,7 @@ class StackGame extends FlameGame
 
   void playSound() {
     //FlameAudio.bgm.stop();
-    int value = _random.nextInt(kSoundList.length);
+    //int value = _random.nextInt(kSoundList.length);
     /*FlameAudio.bgm.play(
       kSoundList[value],
     );*/
@@ -303,8 +303,8 @@ class StackGame extends FlameGame
   }
 
   void changeValueRecipe(CardModel card) {
-    int indexRecipe = recipesNotifier.value
-        .indexWhere((r) => card.name.contains(r.create?[0].name ?? 'human'));
+    int indexRecipe =
+        recipesNotifier.value.indexWhere((r) => card.id == r.cardCreate?.id);
     if (!(recipesNotifier.value[indexRecipe].isVisible)) {
       List<RecipeModel> recipesNew = recipesNotifier.value;
       recipesNew[indexRecipe] = recipesNew[indexRecipe].copyWith(true);

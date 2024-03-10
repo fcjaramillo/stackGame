@@ -20,10 +20,10 @@ class PackComponent extends SpriteComponent
   @override
   FutureOr<void> onLoad() async {
     sprite = await Sprite.load('packs/${pack.id}.png');
-    myNotIdeas = pack.ideas;
+    myNotIdeas = [...pack.ideas];
     for (CardModel idea in pack.ideas) {
       int pos = game.recipesNotifier.value
-          .indexWhere((r) => idea.name.contains(r.create?[0].name ?? 'human'));
+          .indexWhere((r) => idea.id == r.cardCreate?.id);
       if (pos >= 0 && game.recipesNotifier.value[pos].isVisible) {
         myNotIdeas.remove(idea);
       }
@@ -39,6 +39,8 @@ class PackComponent extends SpriteComponent
         id: pack.id,
         name: pack.name,
         description: pack.description,
+        nameInt: (context) => pack.nameInt(context),
+        descriptionInt: (context) => getDescriptionPack(context),
         type: TypeCard.pack,
         prize: 0,
         quantity: 0,
@@ -73,7 +75,7 @@ class PackComponent extends SpriteComponent
               }
               int index = random % pack.cards.length;
               if (pack.cards[index].card.id == 1000) {
-                newCards.add(pack.cards[0].card);
+                newCards.add(pack.cards[index - 1].card);
               }
               newCards.add(pack.cards[index].card);
             }
@@ -86,5 +88,29 @@ class PackComponent extends SpriteComponent
       }
     }
     return newCards;
+  }
+
+  String getDescriptionPack(BuildContext context) {
+    String allProbalities = '';
+
+    int unlocked = pack.ideas.length - myNotIdeas.length;
+
+    L10n.of(context).unlock(unlocked, pack.ideas.length);
+
+    if (unlocked == pack.ideas.length && pack.devCard != null) {
+      allProbalities += 'Dev???\n\n   ';
+    }
+
+    for (CardProbabilityModel cp in pack.cards) {
+      allProbalities += cp.getString(context);
+    }
+
+    return '''   ${pack.descriptionInt(context)}
+
+   ${L10n.of(context).unlock(unlocked, pack.ideas.length)}
+  
+   ${L10n.of(context).probabilities}:
+  
+   $allProbalities''';
   }
 }

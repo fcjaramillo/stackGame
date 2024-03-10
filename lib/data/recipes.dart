@@ -3,6 +3,7 @@ part of 'data.dart';
 List<RecipeModel> recipes = <RecipeModel>[
   RecipeModel(
     id: 0,
+    cardCreate: kWoodIdea,
     create: <CardModel>[
       kWood,
       kWood,
@@ -19,6 +20,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 1,
+    cardCreate: kIronIngotsIdea,
     create: <CardModel>[
       kIronIngots,
     ],
@@ -38,6 +40,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 2,
+    cardCreate: kSiliconIdea,
     create: <CardModel>[
       kSilicon,
     ],
@@ -59,6 +62,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 3,
+    cardCreate: kCopperLineIdea,
     create: <CardModel>[
       kCopperLine,
     ],
@@ -79,6 +83,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 4,
+    cardCreate: kInsulatorIdea,
     create: <CardModel>[
       kInsulator,
     ],
@@ -99,6 +104,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 5,
+    cardCreate: kSolarCellsIdea,
     create: <CardModel>[
       kSolarCells,
     ],
@@ -115,6 +121,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 6,
+    cardCreate: kStructureIdea,
     create: <CardModel>[
       kStructure,
     ],
@@ -136,6 +143,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 7,
+    cardCreate: kCablesIdea,
     create: <CardModel>[
       kCables,
     ],
@@ -153,6 +161,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 8,
+    cardCreate: kStewIdea,
     create: <CardModel>[
       kStew,
     ],
@@ -195,6 +204,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 10,
+    cardCreate: kFriedMeatIdea,
     create: <CardModel>[
       kFriedMeat,
     ],
@@ -225,6 +235,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 12,
+    cardCreate: kFlourIdea,
     create: <CardModel>[
       kFlour,
     ],
@@ -240,6 +251,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 13,
+    cardCreate: kBreadIdea,
     create: <CardModel>[
       kBread,
     ],
@@ -274,6 +286,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 15,
+    cardCreate: kCakeIdea,
     create: <CardModel>[
       kCake,
     ],
@@ -336,6 +349,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 17,
+    cardCreate: kHealthySaladIdea,
     create: <CardModel>[
       kHealthySalad,
     ],
@@ -357,6 +371,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 18,
+    cardCreate: kFruitShakeIdea,
     create: <CardModel>[
       kFruitShake,
     ],
@@ -376,6 +391,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 19,
+    cardCreate: kOmeletIdea,
     create: <CardModel>[
       kOmelet,
     ],
@@ -430,6 +446,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 21,
+    cardCreate: kApplePieIdea,
     create: <CardModel>[
       kApplePie,
     ],
@@ -484,6 +501,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 23,
+    cardCreate: kFarmFeastIdea,
     create: <CardModel>[
       kFarmFeast,
     ],
@@ -536,6 +554,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 25,
+    cardCreate: kBaulIdea,
     create: <CardModel>[
       kBaul,
     ],
@@ -555,6 +574,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 26,
+    cardCreate: kWarehouseIdea,
     create: <CardModel>[
       kWarehouse,
     ],
@@ -584,6 +604,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 27,
+    cardCreate: kFurnaceIdea,
     create: <CardModel>[
       kFurnace,
     ],
@@ -609,6 +630,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 28,
+    cardCreate: kCraftingTableIdea,
     create: <CardModel>[
       kCraftingTable,
     ],
@@ -630,6 +652,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 29,
+    cardCreate: kSawmillIdea,
     create: <CardModel>[
       kSawmill,
     ],
@@ -659,6 +682,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 30,
+    cardCreate: kElectronicTableIdea,
     create: <CardModel>[
       kElectricTable,
     ],
@@ -690,6 +714,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 31,
+    cardCreate: kSolarPanelIdea,
     create: <CardModel>[
       kSolarPanel,
     ],
@@ -727,6 +752,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 32,
+    cardCreate: kFarmIdea,
     create: <CardModel>[
       kFarm,
     ],
@@ -760,6 +786,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 33,
+    cardCreate: kOrchardIdea,
     create: <CardModel>[
       kOrchard,
     ],
@@ -787,6 +814,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 34,
+    cardCreate: kMillIdea,
     create: <CardModel>[
       kMill,
     ],
@@ -812,6 +840,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 35,
+    cardCreate: kGreenhouseIdea,
     create: <CardModel>[
       kGreenhouse,
     ],
@@ -839,6 +868,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 36,
+    cardCreate: kWindTurbineIdea,
     create: <CardModel>[
       kWindTurbine,
     ],
@@ -868,6 +898,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 37,
+    cardCreate: kRecyclerIdea,
     create: <CardModel>[
       kRecycler,
     ],
@@ -894,6 +925,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 38,
+    cardCreate: kComposterIdea,
     create: <CardModel>[
       kComposter,
     ],
@@ -921,6 +953,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 39,
+    cardCreate: kCampfireIdea,
     create: <CardModel>[
       kCampfire,
     ],
@@ -949,6 +982,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 40,
+    cardCreate: kAppleTreeIdea,
     create: <CardModel>[
       kAppleTree,
     ],
@@ -966,6 +1000,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 41,
+    cardCreate: kBananaTreeIdea,
     create: <CardModel>[
       kBananaTree,
     ],
@@ -983,6 +1018,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   /*RecipeModel(
     id: 42,
+    cardCreate: kPoopIdea,
     create: <CardModel>[
       kPoop,
     ],
@@ -993,6 +1029,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),*/
   RecipeModel(
     id: 43,
+    cardCreate: kMilkIdea,
     create: <CardModel>[
       kMilk,
     ],
@@ -1004,6 +1041,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   /*RecipeModel(
     id: 44,
+    cardCreate: kEggIdea,
     create: <CardModel>[
       kEgg,
     ],
@@ -1014,6 +1052,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),*/
   RecipeModel(
     id: 45,
+    cardCreate: kPlankIdea,
     create: <CardModel>[
       kPlanks,
       kPlanks,
@@ -1027,6 +1066,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 46,
+    cardCreate: kFertilizerIdea,
     create: <CardModel>[
       kFertilizer,
     ],
@@ -1078,6 +1118,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 49,
+    cardCreate: kWoodIdea,
     create: <CardModel>[
       kWood,
       kWood,
@@ -1095,6 +1136,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 50,
+    cardCreate: kWoodIdea,
     create: <CardModel>[
       kWood,
       kWood,
@@ -1112,6 +1154,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 51,
+    cardCreate: kTreeIdea,
     create: <CardModel>[
       kTree,
     ],
@@ -1129,6 +1172,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 52,
+    cardCreate: kAppleTreeIdea,
     create: <CardModel>[
       kAppleTree,
     ],
@@ -1148,6 +1192,7 @@ List<RecipeModel> recipes = <RecipeModel>[
   ),
   RecipeModel(
     id: 53,
+    cardCreate: kBananaTreeIdea,
     create: <CardModel>[
       kBananaTree,
     ],

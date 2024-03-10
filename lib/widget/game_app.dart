@@ -132,7 +132,9 @@ class _GameScreenState extends ConsumerState<GameScreen> {
                                   game.cardSelected.value =
                                       GameCardModel.byType(card);
                                 },
-                                recipesNotifier: valueRecipes,
+                                recipesNotifier: valueRecipes
+                                    .where((e) => e.cardCreate != null)
+                                    .toList(),
                                 achivementNotifier: valueAchivements,
                                 questNotifier: valueQuest,
                               ),

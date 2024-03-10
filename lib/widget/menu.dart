@@ -46,7 +46,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 ),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(151, 101, 151, 81),
+                    color: const Color.fromARGB(151, 101, 151, 81),
                     borderRadius: BorderRadius.circular(24),
                   ),
                   child: Column(
@@ -65,7 +65,7 @@ class _MenuScreenState extends State<MenuScreen> {
                           Navigator.of(context).pushNamed('/game');
                         },
                         child: Text(
-                          'New game',
+                          L10n.of(context).newGame,
                           style: TextStyle(
                             color: Colors.blue.shade900,
                           ),
@@ -74,7 +74,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       const SizedBox(height: 30),
                       DecoratedBox(
                         decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 255, 255, 255),
+                            color: const Color.fromARGB(255, 255, 255, 255),
                             borderRadius: BorderRadius.circular(35)),
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton<Locale>(
@@ -95,7 +95,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                   (e) => DropdownMenuItem<Locale>(
                                     value: e,
                                     child: Text(
-                                      e.languageCode,
+                                      L10n.of(context).language(e.languageCode),
                                     ),
                                   ),
                                 )

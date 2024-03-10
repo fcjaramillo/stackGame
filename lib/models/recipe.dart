@@ -6,6 +6,7 @@ class RecipeModel {
   final double time;
   final List<CardModel>? remove;
   final List<CardModel>? create;
+  final CardModel? cardCreate;
   final CardModel? idea;
   final bool isVisible;
 
@@ -24,7 +25,7 @@ class RecipeModel {
         result.add(
           CardCountModel(
             card: cards[i - 1],
-            title: '${cards[i - 1].name} x $count',
+            count: count,
           ),
         );
         count = 1;
@@ -34,7 +35,7 @@ class RecipeModel {
     result.add(
       CardCountModel(
         card: cards.last,
-        title: '${cards.last.name} x $count',
+        count: count,
       ),
     );
 
@@ -45,6 +46,7 @@ class RecipeModel {
     required this.id,
     required this.cards,
     required this.time,
+    this.cardCreate,
     this.remove,
     this.create,
     this.idea,
@@ -58,6 +60,7 @@ class RecipeModel {
         id: id,
         cards: cards,
         time: time,
+        cardCreate: cardCreate,
         remove: remove,
         create: create,
         isVisible: isVisible ?? this.isVisible,
@@ -66,10 +69,10 @@ class RecipeModel {
 
 class CardCountModel {
   final CardModel card;
-  final String title;
+  final int count;
 
   const CardCountModel({
     required this.card,
-    required this.title,
+    required this.count,
   });
 }

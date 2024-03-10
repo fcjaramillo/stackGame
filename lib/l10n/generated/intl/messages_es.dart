@@ -20,9 +20,59 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'es';
 
+  static String m1(time) => "Tiempo: ${time} seg";
+
+  static String m2(ideas, allIdeas) =>
+      "Desbloqueadas ${ideas}/${allIdeas} ideas.";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Banana": MessageLookupByLibrary.simpleMessage("Banana"),
+        "achivementAddiction":
+            MessageLookupByLibrary.simpleMessage("Adicción al Medio Ambiente"),
+        "achivementAddictionDescription": MessageLookupByLibrary.simpleMessage(
+            "Obtuviste todos los logros. ¡Oficialmente eres un amante de la naturaleza!"),
+        "achivementApocalypse":
+            MessageLookupByLibrary.simpleMessage("Apocalipsis"),
+        "achivementApocalypseDescription": MessageLookupByLibrary.simpleMessage(
+            "Perdiste el juego por primera vez. No es el fin del mundo... oh espera."),
+        "achivementCow":
+            MessageLookupByLibrary.simpleMessage("La Culpa de la Vaca"),
+        "achivementCowDescription": MessageLookupByLibrary.simpleMessage(
+            "Encontraste tu primer excremento. Esta es una situación desagradable, pero alguien tiene que manejarla."),
+        "achivementDevsCoverer":
+            MessageLookupByLibrary.simpleMessage("Descubridor de los Devs"),
+        "achivementDevsCovererDescription": MessageLookupByLibrary.simpleMessage(
+            "Desbloqueaste la carta de Dev. No estamos seguros si deberías estar orgulloso o preocupado."),
+        "achivementEggvolution":
+            MessageLookupByLibrary.simpleMessage("Evolución del Huevo"),
+        "achivementEggvolutionDescription": MessageLookupByLibrary.simpleMessage(
+            "¿10 huevos en el mapa? ¡Prácticamente eres un granjero de aves ahora!"),
+        "achivementFirtsCraft":
+            MessageLookupByLibrary.simpleMessage("La Primera Creación"),
+        "achivementFirtsCraftDescription": MessageLookupByLibrary.simpleMessage(
+            "¡Felicidades! Has creado tu primer objeto. ¿Quién sabía que palos y piedras podían hacer tanto?"),
+        "achivementFirtsDay":
+            MessageLookupByLibrary.simpleMessage("El Primer Día"),
+        "achivementFirtsDayDescription": MessageLookupByLibrary.simpleMessage(
+            "¡Has sobrevivido tu primer día! El futuro parece brillante... ¿o es solo el amanecer?"),
+        "achivementFullBelly": MessageLookupByLibrary.simpleMessage(
+            "Panza Llena, Corazón Contento"),
+        "achivementFullBellyDescription": MessageLookupByLibrary.simpleMessage(
+            "Preparaste tu primer banquete de granja. ¡Buen provecho!"),
+        "achivementFuriends":
+            MessageLookupByLibrary.simpleMessage("Amigos Peludos"),
+        "achivementFuriendsDescription": MessageLookupByLibrary.simpleMessage(
+            "¡Conseguiste tu primer perro! Recuerda, con gran poder viene una gran responsabilidad... de recoger excrementos."),
+        "achivementGreenLife":
+            MessageLookupByLibrary.simpleMessage("Vida Verde"),
+        "achivementGreenLifeDescription": MessageLookupByLibrary.simpleMessage(
+            "Ganaste el juego por primera vez. La Madre Naturaleza estaría orgullosa."),
+        "achivementLight":
+            MessageLookupByLibrary.simpleMessage("Hágase la Luz"),
+        "achivementLightDescription": MessageLookupByLibrary.simpleMessage(
+            "Hiciste tu primer panel solar. ¿Quién necesita el sol cuando tienes tecnología?"),
+        "achivements": MessageLookupByLibrary.simpleMessage("Logros"),
         "apple": MessageLookupByLibrary.simpleMessage("Manzana"),
         "appleDescription": MessageLookupByLibrary.simpleMessage(
             "Una fruta fresca y crujiente, llena de sabor y nutrientes. ¡Cuidado con las manzanas que caen del cielo! Si Newton pudo tener un momento \'eureka\' con una, ¿quién sabe qué ideas brillantes podrías tener tú?"),
@@ -52,6 +102,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "campfire": MessageLookupByLibrary.simpleMessage("Fogata"),
         "campfireDescription": MessageLookupByLibrary.simpleMessage(
             "Una fuente de calor y un medio para cocinar alimentos al estilo tradicional del pueblo, aunque puede ser menos eficiente que un horno moderno. ¿Qué tal una ronda de malvaviscos quemados?"),
+        "carbonFP": MessageLookupByLibrary.simpleMessage("Huella de Carbono"),
+        "carbonFootprint":
+            MessageLookupByLibrary.simpleMessage("Huella de Carbono"),
+        "cards": MessageLookupByLibrary.simpleMessage("Cartas"),
         "carrot": MessageLookupByLibrary.simpleMessage("Zanahoria"),
         "carrotDescription": MessageLookupByLibrary.simpleMessage(
             "Una verdura rica en nutrientes y crucial para mantener una dieta equilibrada. Tan buena que podría hacer que Bugs Bunny renuncie a las zanahorias de la competencia."),
@@ -64,6 +118,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "coalPlant": MessageLookupByLibrary.simpleMessage("Planta de Carbón"),
         "coalPlantDescription": MessageLookupByLibrary.simpleMessage(
             "Central Eléctrica de Carbón: una fuente de energía efectiva pero poco ecológica. Cuidado con el carbón, puede ensuciar tus pulmones y tu conciencia."),
+        "coin": MessageLookupByLibrary.simpleMessage("Moneda"),
         "composter": MessageLookupByLibrary.simpleMessage("Compostador"),
         "composterDescription": MessageLookupByLibrary.simpleMessage(
             "Donde los residuos van a repensar sus elecciones de vida. Una herramienta para convertir los desechos orgánicos en compost, una práctica esencial para la agricultura sostenible."),
@@ -120,23 +175,33 @@ class MessageLookup extends MessageLookupByLibrary {
         "flutterDemo": MessageLookupByLibrary.simpleMessage("Demo de Flutter"),
         "flutterDemoHomePage": MessageLookupByLibrary.simpleMessage(
             "Página de inicio de la demostración de Flutter"),
+        "food": MessageLookupByLibrary.simpleMessage("Comida"),
         "foodCard": MessageLookupByLibrary.simpleMessage("Tarjeta de Comida"),
         "foodPack": MessageLookupByLibrary.simpleMessage("Paquete de Comida"),
         "foodPackDescription": MessageLookupByLibrary.simpleMessage(
             "Proporciona 3 tarjetas de comida"),
         "friedMeat": MessageLookupByLibrary.simpleMessage("Carne Frita"),
+        "friedMeatDescription": MessageLookupByLibrary.simpleMessage(
+            "El arte de transformar lo ordinario en lo extraordinario con un poco de aceite y una sartén caliente."),
         "fruitShake": MessageLookupByLibrary.simpleMessage("Batido de Frutas"),
         "fruitShakeDescription": MessageLookupByLibrary.simpleMessage(
             "Una refrescante mezcla de frutas frescas, perfecta para recargar energía y vitaminas."),
         "furnace": MessageLookupByLibrary.simpleMessage("Horno"),
         "furnaceDescription": MessageLookupByLibrary.simpleMessage(
             "El escenario de las hazañas más épicas, donde los materiales se convierten en obras maestras (o desastres). Ya sea cocinando delicias suculentas o derritiendo metales y creando nuevos materiales."),
+        "gameOverAction":
+            MessageLookupByLibrary.simpleMessage("Presiona enter"),
+        "gameOverSubtitle":
+            MessageLookupByLibrary.simpleMessage("Toca para Jugar de Nuevo"),
+        "gameOverTitle":
+            MessageLookupByLibrary.simpleMessage("F I N   D E L   J U E G O"),
         "glass": MessageLookupByLibrary.simpleMessage("Vidrio"),
         "glassDescription": MessageLookupByLibrary.simpleMessage(
             "El amigo invisible de las ventanas y las botellas: ¡el vidrio, el material que te permite espiar a tus vecinos sin que ellos lo sepan!"),
         "greenhouse": MessageLookupByLibrary.simpleMessage("Invernadero"),
         "greenhouseDescription": MessageLookupByLibrary.simpleMessage(
             "Un invernadero donde las plantas prosperan como si estuvieran en un día de spa, empapándose de los rayos del sol y sorbiendo cócteles de nutrientes. Mejora la producción de cultivos, permitiéndote cultivar plantas de manera más efectiva."),
+        "health": MessageLookupByLibrary.simpleMessage("Salud"),
         "healthySalad":
             MessageLookupByLibrary.simpleMessage("Ensalada Saludable"),
         "healthySaladDescription": MessageLookupByLibrary.simpleMessage(
@@ -220,6 +285,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Idea: Ensalada Saludable"),
         "ideaHealthySaladDescription": MessageLookupByLibrary.simpleMessage(
             "La elaboración es:\n1 x Zanahoria\n1 x Papa\n1 x Manzana\n1 x Banano\n1 x Mesa de trabajo\n1 x Humano"),
+        "ideaInsulator":
+            MessageLookupByLibrary.simpleMessage("Idea: Aislantes"),
+        "ideaInsulatorDescription": MessageLookupByLibrary.simpleMessage(
+            "La elaboración es:\n1 x Plástico\n1 x Vidrio\n1 x Mesa de Trabajo"),
         "ideaIronIngots":
             MessageLookupByLibrary.simpleMessage("Idea: Lingotes de Hierro"),
         "ideaIronIngotsDescription": MessageLookupByLibrary.simpleMessage(
@@ -250,6 +319,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "ideaSilicon": MessageLookupByLibrary.simpleMessage("Idea: Silicio"),
         "ideaSiliconDescription": MessageLookupByLibrary.simpleMessage(
             "La elaboración es:\n6 x Carbón\n1 x Horno"),
+        "ideaSolarcells":
+            MessageLookupByLibrary.simpleMessage("Idea: Celdas Solares"),
+        "ideaSolarcellsDescription": MessageLookupByLibrary.simpleMessage(
+            "La elaboración es:\n5 x Silicio\n2 x Cobre\n1 x Mesa Eléctrica"),
         "ideaSolarpanel":
             MessageLookupByLibrary.simpleMessage("Idea: Panel Solar"),
         "ideaSolarpanelDescription": MessageLookupByLibrary.simpleMessage(
@@ -271,6 +344,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ideaWood": MessageLookupByLibrary.simpleMessage("Idea: Madera"),
         "ideaWoodDescription": MessageLookupByLibrary.simpleMessage(
             "La elaboración es:\n1 x Árbol\n1 x Humano"),
+        "ideas": MessageLookupByLibrary.simpleMessage("Ideas"),
         "initialPack": MessageLookupByLibrary.simpleMessage("Pack inicial"),
         "initialPackDescription": MessageLookupByLibrary.simpleMessage(
             "Pack inicial para empezar tu aventura"),
@@ -311,9 +385,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "omelet": MessageLookupByLibrary.simpleMessage("Tortilla"),
         "omeletDescription": MessageLookupByLibrary.simpleMessage(
             "Una deliciosa combinación de papas y huevos, perfecta para cualquier comida con un sabor que hará sonreír incluso al chef más serio."),
+        "onboardingAction":
+            MessageLookupByLibrary.simpleMessage("Presiona enter"),
+        "onboardingSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Sigue las misiones y busca las recetas en los paquetes.\n \n CONTROLES: Espacio = Pausa, tecla m = Sonido ACTIVADO/DESACTIVADO, tecla f = Velocidad ACTIVADA/DESACTIVADA"),
+        "onboardingTitle": MessageLookupByLibrary.simpleMessage("GREENSTACK"),
         "orchard": MessageLookupByLibrary.simpleMessage("Huerto"),
         "orchardDescription": MessageLookupByLibrary.simpleMessage(
             "Aunque las frutas son deliciosas, esta parcela de frutas es menos eficiente que la Granja. Pero ¿quién puede resistirse a una manzana recién recogida?"),
+        "oxygen": MessageLookupByLibrary.simpleMessage("Oxígeno"),
         "planks": MessageLookupByLibrary.simpleMessage("Tablas"),
         "planksDescription": MessageLookupByLibrary.simpleMessage(
             "Un elemento esencial en la construcción, las tablas son versátiles e imprescindibles para erigir estructuras fuertes y duraderas."),
@@ -326,6 +406,49 @@ class MessageLookup extends MessageLookupByLibrary {
         "potato": MessageLookupByLibrary.simpleMessage("Patata"),
         "potatoDescription": MessageLookupByLibrary.simpleMessage(
             "La humilde patata, la heroína olvidada de la cocina, haciendo felices los estómagos desde tiempos inmemoriales."),
+        "probabilities": MessageLookupByLibrary.simpleMessage("Probabilidades"),
+        "quantity": MessageLookupByLibrary.simpleMessage("Cantidad"),
+        "quest": MessageLookupByLibrary.simpleMessage("Misión"),
+        "questBuyFood":
+            MessageLookupByLibrary.simpleMessage("Compra Comida en CCBurger"),
+        "questBuyFoodDescription": MessageLookupByLibrary.simpleMessage(
+            "Mantén el hambre a raya con una comida de CCBurger."),
+        "questCraftFeast":
+            MessageLookupByLibrary.simpleMessage("Crea un Banquete de Granja"),
+        "questCraftFeastDescription": MessageLookupByLibrary.simpleMessage(
+            "Prepara un delicioso banquete de granja para restaurar tu energía."),
+        "questCraftPanel":
+            MessageLookupByLibrary.simpleMessage("Crea un Panel Solar"),
+        "questCraftPanelDescription": MessageLookupByLibrary.simpleMessage(
+            "Aprovecha el poder del sol con un panel solar."),
+        "questCrafting":
+            MessageLookupByLibrary.simpleMessage("Crea una Mesa de Trabajo"),
+        "questCraftingDescription": MessageLookupByLibrary.simpleMessage(
+            "Construye una mesa de trabajo para desbloquear nuevas posibilidades de creación."),
+        "questInitial":
+            MessageLookupByLibrary.simpleMessage("Compra el Paquete Inicial"),
+        "questInitialDescription": MessageLookupByLibrary.simpleMessage(
+            "Invierte en tu supervivencia comprando el Paquete Inicial."),
+        "questRecycle":
+            MessageLookupByLibrary.simpleMessage("Recicla 30 Plásticos"),
+        "questRecycleDescription": MessageLookupByLibrary.simpleMessage(
+            "Contribuye al medio ambiente reciclando 30 plásticos."),
+        "questSalary":
+            MessageLookupByLibrary.simpleMessage("Vende la Tarjeta de Salario"),
+        "questSalaryDescription": MessageLookupByLibrary.simpleMessage(
+            "Gana algunas monedas iniciales vendiendo tu tarjeta de salario."),
+        "questSurvive":
+            MessageLookupByLibrary.simpleMessage("Sobrevive el Primer Día"),
+        "questSurviveDescription": MessageLookupByLibrary.simpleMessage(
+            "Sobrevive tu primer día sin morir."),
+        "questUnlock":
+            MessageLookupByLibrary.simpleMessage("Desbloquea una Idea"),
+        "questUnlockDescription": MessageLookupByLibrary.simpleMessage(
+            "Gasta tus monedas en cualquier paquete para desbloquear nuevas ideas."),
+        "questWork": MessageLookupByLibrary.simpleMessage("Ve al Trabajo"),
+        "questWorkDescription": MessageLookupByLibrary.simpleMessage(
+            "Comienza tu viaje yendo al trabajo, para ello arrastra la carta Tu a la carta Trabajo"),
+        "recipes": MessageLookupByLibrary.simpleMessage("Recetas"),
         "recycler": MessageLookupByLibrary.simpleMessage("Reciclador"),
         "recyclerDescription": MessageLookupByLibrary.simpleMessage(
             "Un Centro de Reciclaje avanzado que te permite desmontar y reutilizar las cartas que ya no necesitas, devolviéndote los materiales para proyectos futuros. Un botón \'deshacer\' para construcciones no deseadas."),
@@ -338,6 +461,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sawmillDescription": MessageLookupByLibrary.simpleMessage(
             "El taller de madera, donde los árboles sacrifican su ser para convertirse en muebles finamente elaborados... y los pájaros lloran silenciosamente por su pérdida."),
         "search": MessageLookupByLibrary.simpleMessage("buscar"),
+        "sellingTitle":
+            MessageLookupByLibrary.simpleMessage("Debes vender algunas cartas"),
         "silicon": MessageLookupByLibrary.simpleMessage("Silicio"),
         "siliconDescription": MessageLookupByLibrary.simpleMessage(
             "El bloque de construcción esencial para la tecnología moderna, el silicio es la piedra angular de la electrónica. ¿Quién sabía que la arena de la playa podría ser tan útil? ¡Gracias, silicio!"),
@@ -359,6 +484,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Paquete de Estructura"),
         "structurePackDescription": MessageLookupByLibrary.simpleMessage(
             "Proporciona 3 tarjetas de estructura"),
+        "timeRecipe": m1,
         "title": MessageLookupByLibrary.simpleMessage("Título"),
         "travel": MessageLookupByLibrary.simpleMessage("viaje"),
         "tree": MessageLookupByLibrary.simpleMessage("Árbol"),
@@ -367,6 +493,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "treeSeed": MessageLookupByLibrary.simpleMessage("Semilla de Árbol"),
         "treeSeedDescription": MessageLookupByLibrary.simpleMessage(
             "Un pequeño tesoro de la naturaleza que lleva consigo la promesa de un futuro verde y exuberante. Planta esta semilla con amor y cuidado, y verás cómo crecerá un majestuoso árbol que proporcionará sombra y oxígeno."),
+        "unlock": m2,
         "wallet": MessageLookupByLibrary.simpleMessage("billetera"),
         "warehouse": MessageLookupByLibrary.simpleMessage("Almacén"),
         "warehouseDescription": MessageLookupByLibrary.simpleMessage(
@@ -374,6 +501,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "water": MessageLookupByLibrary.simpleMessage("Agua"),
         "waterDescription": MessageLookupByLibrary.simpleMessage(
             "El elixir de la vida, esencial para la supervivencia de todas las formas de vida conocidas."),
+        "welcomeAction": MessageLookupByLibrary.simpleMessage("Presiona enter"),
+        "welcomeSubtitle": MessageLookupByLibrary.simpleMessage(
+            "¿Quieres cambiar tus hábitos? Para hacerlo, mueve, agrupa, crea y vende cartas."),
+        "welcomeTitle": MessageLookupByLibrary.simpleMessage("GREENSTACK"),
         "well": MessageLookupByLibrary.simpleMessage("Pozo"),
         "wellDescription": MessageLookupByLibrary.simpleMessage(
             "Una fuente confiable de agua potable para tu comunidad. Este pozo garantiza un suministro constante de líquido vital para mantener a todos hidratados."),
@@ -381,7 +512,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "wheatDescription": MessageLookupByLibrary.simpleMessage(
             "Cereal utilizado para hacer harina y diversos productos horneados. Y aunque no lo parezca, a las vacas les encanta."),
         "windTurbine": MessageLookupByLibrary.simpleMessage("Turbina Eólica"),
+        "windTurbineDescription": MessageLookupByLibrary.simpleMessage(
+            "Atrapa el viento como un superhéroe atrapa villanos. Una fuente de energía limpia y renovable, capturando el poder del viento para iluminar y calentar nuestros hogares."),
         "wishList": MessageLookupByLibrary.simpleMessage("lista de deseos"),
+        "wonAction": MessageLookupByLibrary.simpleMessage("Presiona enter"),
+        "wonSubtitle":
+            MessageLookupByLibrary.simpleMessage("Toca para Jugar de Nuevo"),
+        "wonTitle":
+            MessageLookupByLibrary.simpleMessage("¡G A N A S T E ! ! !"),
         "wood": MessageLookupByLibrary.simpleMessage("Madera"),
         "woodDescription": MessageLookupByLibrary.simpleMessage(
             "Renovable y abundante, la madera es esencial para la construcción y fabricación de una variedad de objetos."),

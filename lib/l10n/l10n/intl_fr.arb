@@ -1,4 +1,5 @@
 {
+    "@@locale": "fr",
     "quantity": "Quantité",
     "food": "Nourriture",
     "health": "Santé",
@@ -201,6 +202,9 @@
     "poopDescription": "Le cycle de la vie est complété par ce modeste don de la nature. Au-delà de son apparence modeste, le fumier est le gardien de l'équilibre écologique et de la fertilité du sol. Quels secrets pourraient être enfouis sous sa surface ?",
     "planks": "Planches",
     "planksDescription": "Un élément essentiel dans la construction, les planches sont polyvalentes et indispensables pour ériger des structures solides et durables.",
+    "ideas": "Idées",
+    "unlock": "5/5 idées débloquées",
+    "probabilities": "Probabilités",
     "foodPack": "Pack de nourriture",
     "foodCard": "Carte alimentaire",
     "foodPackDescription": "Fournit 3 cartes alimentaires",

@@ -27,16 +27,16 @@ class TabIndicator extends StatefulWidget {
 class _TabIndicatorState extends State<TabIndicator> {
   int index = 0;
 
-  final List<String> titles = [
-    L10n.current.quest,
-    L10n.current.recipes,
-    L10n.current.achivements,
-  ];
-
   List<QuestModel> quests = List<QuestModel>.from(kRoadMap);
+  late List<String> titles = [];
 
   @override
   Widget build(BuildContext context) {
+    titles = [
+      L10n.of(context).quest,
+      L10n.of(context).recipes,
+      L10n.of(context).achivements,
+    ];
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
@@ -189,7 +189,7 @@ class QuestTile extends StatelessWidget {
             Expanded(
               flex: 1,
               child: AutoSizeText(
-                quest.name,
+                quest.name(context),
                 style: const TextStyle(
                   fontSize: 14,
                 ),
@@ -202,7 +202,7 @@ class QuestTile extends StatelessWidget {
         ),
         children: <Widget>[
           AutoSizeText(
-            quest.description,
+            quest.description(context),
             style: const TextStyle(fontSize: 10),
             minFontSize: 4,
             maxLines: 4,
@@ -273,7 +273,7 @@ class RecipesTile extends StatelessWidget {
       child: ExpansionTile(
         tilePadding: const EdgeInsets.symmetric(horizontal: 8),
         title: AutoSizeText(
-          recipe.create?[0].name ?? '',
+          recipe.cardCreate?.nameInt(context) ?? '',
           style: const TextStyle(fontSize: 12),
           minFontSize: 6,
           maxLines: 2,
@@ -303,7 +303,7 @@ class RecipesTile extends StatelessWidget {
                       ),
                       Expanded(
                         child: AutoSizeText(
-                          recipe.materials[i].title,
+                          '${recipe.materials[i].card.nameInt(context)} x ${recipe.materials[i].count}',
                           minFontSize: 6,
                           maxLines: 1,
                         ),
@@ -386,7 +386,7 @@ class AchivementTile extends StatelessWidget {
                 children: [
                   if (achivement.isComplete)
                     AutoSizeText(
-                      achivement.name,
+                      achivement.name(context),
                       style: const TextStyle(
                         fontSize: 13,
                       ),
@@ -412,7 +412,7 @@ class AchivementTile extends StatelessWidget {
                   const SizedBox(height: 1.5),
                   if (achivement.isComplete)
                     AutoSizeText(
-                      achivement.description,
+                      achivement.description(context),
                       textAlign:
                           rightAlignement ? TextAlign.end : TextAlign.start,
                       style: const TextStyle(

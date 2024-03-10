@@ -20,11 +20,64 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(time) => "Time: ${time} sec";
+  static String m0(language) => "${Intl.select(language, {
+            'en': 'English',
+            'es': 'Español',
+            'fr': 'Français',
+            'other': 'English',
+          })}";
+
+  static String m1(time) => "Time: ${time} sec";
+
+  static String m2(ideas, allIdeas) => "Unlocked ${ideas}/${allIdeas} ideas.";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Banana": MessageLookupByLibrary.simpleMessage("Banana"),
+        "achivementAddiction": MessageLookupByLibrary.simpleMessage(
+            "Addiction to the Environment"),
+        "achivementAddictionDescription": MessageLookupByLibrary.simpleMessage(
+            "You got all the achievements. You\'re officially a green thumb!"),
+        "achivementApocalypse":
+            MessageLookupByLibrary.simpleMessage("Apocalypse"),
+        "achivementApocalypseDescription": MessageLookupByLibrary.simpleMessage(
+            "You lost the game for the first time. It\'s not the end of the world... oh wait."),
+        "achivementCow":
+            MessageLookupByLibrary.simpleMessage("The Cow\'s Fault"),
+        "achivementCowDescription": MessageLookupByLibrary.simpleMessage(
+            "You found your first poop. This is a crappy situation, but someone\'s gotta handle it."),
+        "achivementDevsCoverer":
+            MessageLookupByLibrary.simpleMessage("DevsCoverer"),
+        "achivementDevsCovererDescription": MessageLookupByLibrary.simpleMessage(
+            "You unlocked the Dev card. We\'re not sure if you should be proud or concerned."),
+        "achivementEggvolution":
+            MessageLookupByLibrary.simpleMessage("Eggvolution"),
+        "achivementEggvolutionDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "10 eggs on the map? You`re practically a poultry farmer now!"),
+        "achivementFirtsCraft":
+            MessageLookupByLibrary.simpleMessage("The First Craft"),
+        "achivementFirtsCraftDescription": MessageLookupByLibrary.simpleMessage(
+            "Congratulations! You crafted your first item. Who knew sticks and stones could do so much?"),
+        "achivementFirtsDay":
+            MessageLookupByLibrary.simpleMessage("The First Day"),
+        "achivementFirtsDayDescription": MessageLookupByLibrary.simpleMessage(
+            "You survived your first day! The future is looking bright... or is that just the sunrise?"),
+        "achivementFullBelly":
+            MessageLookupByLibrary.simpleMessage("Full Belly, Happy Heart"),
+        "achivementFullBellyDescription": MessageLookupByLibrary.simpleMessage(
+            "You made your first farm banquet. Bon appétit!"),
+        "achivementFuriends": MessageLookupByLibrary.simpleMessage("Fur-iends"),
+        "achivementFuriendsDescription": MessageLookupByLibrary.simpleMessage(
+            "You got your first dog! Remember, with great power comes great responsibility... to pick up poop."),
+        "achivementGreenLife":
+            MessageLookupByLibrary.simpleMessage("Green Life"),
+        "achivementGreenLifeDescription": MessageLookupByLibrary.simpleMessage(
+            "You won the game for the first time. Mother Nature would be proud."),
+        "achivementLight":
+            MessageLookupByLibrary.simpleMessage("Let There Be Light"),
+        "achivementLightDescription": MessageLookupByLibrary.simpleMessage(
+            "You made your first solar panel. Who needs the sun when you have technology?"),
         "achivements": MessageLookupByLibrary.simpleMessage("Achivements"),
         "apple": MessageLookupByLibrary.simpleMessage("Apple"),
         "appleDescription": MessageLookupByLibrary.simpleMessage(
@@ -133,7 +186,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "foodPackDescription":
             MessageLookupByLibrary.simpleMessage("Provide 3 food cards"),
         "friedMeat": MessageLookupByLibrary.simpleMessage("Fried Meat"),
-        "frietMeatDescription": MessageLookupByLibrary.simpleMessage(
+        "friedMeatDescription": MessageLookupByLibrary.simpleMessage(
             "The art of transforming the ordinary into the extraordinary with a little oil and a hot frying pan."),
         "fruitShake": MessageLookupByLibrary.simpleMessage("Fruit Shake"),
         "fruitShakeDescription": MessageLookupByLibrary.simpleMessage(
@@ -294,6 +347,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ideaWood": MessageLookupByLibrary.simpleMessage("Idea: Wood"),
         "ideaWoodDescription": MessageLookupByLibrary.simpleMessage(
             "The crafting is:\n1 x Tree\n1 x Human"),
+        "ideas": MessageLookupByLibrary.simpleMessage("Ideas"),
         "initialPack": MessageLookupByLibrary.simpleMessage("Initial Pack"),
         "initialPackDescription": MessageLookupByLibrary.simpleMessage(
             "Initial pack to start your adventure"),
@@ -308,6 +362,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ironIngots": MessageLookupByLibrary.simpleMessage("Iron Ingots"),
         "ironIngotsDescription": MessageLookupByLibrary.simpleMessage(
             "Refined and robust iron ingots ready to be forged into the strongest tools. With these ingots, even Iron Man would be jealous!"),
+        "language": m0,
         "materialCard": MessageLookupByLibrary.simpleMessage("Material Card"),
         "materialPack": MessageLookupByLibrary.simpleMessage("Material Pack"),
         "materialPackDescription":
@@ -326,6 +381,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "naturePack": MessageLookupByLibrary.simpleMessage("Nature Pack"),
         "naturePackDescription":
             MessageLookupByLibrary.simpleMessage("Provide 3 nature cards"),
+        "newGame": MessageLookupByLibrary.simpleMessage("New Game"),
         "omelet": MessageLookupByLibrary.simpleMessage("Omelet"),
         "omeletDescription": MessageLookupByLibrary.simpleMessage(
             "A delicious combination of potatoes and eggs, perfect for any meal with a flavor that will make even the most serious chef smile."),
@@ -349,8 +405,47 @@ class MessageLookup extends MessageLookupByLibrary {
         "potato": MessageLookupByLibrary.simpleMessage("Potato"),
         "potatoDescription": MessageLookupByLibrary.simpleMessage(
             "The humble potato, the unsung hero of the kitchen, making stomachs happy since time immemorial."),
+        "probabilities": MessageLookupByLibrary.simpleMessage("Probabilities"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "quest": MessageLookupByLibrary.simpleMessage("Quest"),
+        "questBuyFood":
+            MessageLookupByLibrary.simpleMessage("Buy Food at CCBurger"),
+        "questBuyFoodDescription": MessageLookupByLibrary.simpleMessage(
+            "Keep your hunger at bay with a meal from CCBurger."),
+        "questCraftFeast":
+            MessageLookupByLibrary.simpleMessage("Craft a Farm Feast"),
+        "questCraftFeastDescription": MessageLookupByLibrary.simpleMessage(
+            "Prepare a delicious farm feast to restore your energy."),
+        "questCraftPanel":
+            MessageLookupByLibrary.simpleMessage("Craft a Solar Panel"),
+        "questCraftPanelDescription": MessageLookupByLibrary.simpleMessage(
+            "Harness the power of the sun with a solar panel."),
+        "questCrafting":
+            MessageLookupByLibrary.simpleMessage("Craft a Crafting Table"),
+        "questCraftingDescription": MessageLookupByLibrary.simpleMessage(
+            "Build a crafting table to unlock new crafting possibilities."),
+        "questInitial":
+            MessageLookupByLibrary.simpleMessage("Buy the Initial Pack"),
+        "questInitialDescription": MessageLookupByLibrary.simpleMessage(
+            "Invest in your survival by purchasing the Initial Pack."),
+        "questRecycle":
+            MessageLookupByLibrary.simpleMessage("Recycle 30 Plastics"),
+        "questRecycleDescription": MessageLookupByLibrary.simpleMessage(
+            "Contribute to the environment by recycling 30 plastics."),
+        "questSalary":
+            MessageLookupByLibrary.simpleMessage("Sell the Salary Card"),
+        "questSalaryDescription": MessageLookupByLibrary.simpleMessage(
+            "Earn some initial coins by selling your salary card."),
+        "questSurvive":
+            MessageLookupByLibrary.simpleMessage("Survive the First Day"),
+        "questSurviveDescription": MessageLookupByLibrary.simpleMessage(
+            "Make it through your first day without dying."),
+        "questUnlock": MessageLookupByLibrary.simpleMessage("Unlock an Idea"),
+        "questUnlockDescription": MessageLookupByLibrary.simpleMessage(
+            "Spend your coins in any pack to unlock a new ideas."),
+        "questWork": MessageLookupByLibrary.simpleMessage("Go to Work"),
+        "questWorkDescription": MessageLookupByLibrary.simpleMessage(
+            "Start your journey by heading to work."),
         "recipes": MessageLookupByLibrary.simpleMessage("Recipes"),
         "recycler": MessageLookupByLibrary.simpleMessage("Recycler"),
         "recyclerDescription": MessageLookupByLibrary.simpleMessage(
@@ -385,7 +480,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "structurePack": MessageLookupByLibrary.simpleMessage("Structure Pack"),
         "structurePackDescription":
             MessageLookupByLibrary.simpleMessage("Provide 3 structure cards"),
-        "timeRecipe": m0,
+        "timeRecipe": m1,
         "title": MessageLookupByLibrary.simpleMessage("Title"),
         "travel": MessageLookupByLibrary.simpleMessage("travel"),
         "tree": MessageLookupByLibrary.simpleMessage("Tree"),
@@ -394,6 +489,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "treeSeed": MessageLookupByLibrary.simpleMessage("Tree Seed"),
         "treeSeedDescription": MessageLookupByLibrary.simpleMessage(
             "A small treasure of nature that carries with it the promise of a green and lush future. Plant this seed with love and care, and you will see how a majestic tree will grow and provide shade and oxygen."),
+        "unlock": m2,
         "wallet": MessageLookupByLibrary.simpleMessage("wallet"),
         "warehouse": MessageLookupByLibrary.simpleMessage("Warehouse"),
         "warehouseDescription": MessageLookupByLibrary.simpleMessage(
@@ -412,7 +508,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "wheatDescription": MessageLookupByLibrary.simpleMessage(
             "Cereal used to make flour and various baked goods. And although it may not seem like it, cows love it."),
         "windTurbine": MessageLookupByLibrary.simpleMessage("Wind turbine"),
-        "windTurbineDescrition": MessageLookupByLibrary.simpleMessage(
+        "windTurbineDescription": MessageLookupByLibrary.simpleMessage(
             "Catches wind like a superhero catches villains. A clean and renewable source of energy, capturing the power of the wind to light and heat our homes."),
         "wishList": MessageLookupByLibrary.simpleMessage("wishList"),
         "wonAction": MessageLookupByLibrary.simpleMessage("Press enter"),

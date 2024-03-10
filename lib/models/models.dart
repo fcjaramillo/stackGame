@@ -1,9 +1,8 @@
 library com.stack.models;
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:stack/interfaces/interfaces.dart';
+import 'package:stack/l10n/generated/l10n.dart';
 
 import '../enums/enums.dart';
 

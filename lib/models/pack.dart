@@ -4,6 +4,8 @@ class PackModel {
   final int id;
   final String name;
   final String description;
+  final String Function(BuildContext) nameInt;
+  final String Function(BuildContext) descriptionInt;
   final List<CardProbabilityModel> cards;
   final int numberCards;
   final int cost;
@@ -15,6 +17,8 @@ class PackModel {
     required this.id,
     required this.name,
     required this.description,
+    required this.nameInt,
+    required this.descriptionInt,
     required this.cards,
     required this.cost,
     required this.numberCards,

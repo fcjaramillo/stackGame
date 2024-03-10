@@ -38,7 +38,7 @@ class CardDescription extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8),
                   child: AutoSizeText(
-                    gameCard.card.name,
+                    gameCard.card.nameInt(context),
                     style: TextStyle(
                       color: gameCard.foregroundColor,
                       fontSize: 16,
@@ -85,7 +85,7 @@ class CardDescription extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     AutoSizeText(
-                      gameCard.card.description,
+                      gameCard.card.descriptionInt(context),
                       textAlign: gameCard.card.type != TypeCard.pack
                           ? TextAlign.center
                           : TextAlign.start,

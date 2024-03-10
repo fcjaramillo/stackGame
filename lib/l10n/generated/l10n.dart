@@ -50,123 +50,149 @@ class L10n {
     return Localizations.of<L10n>(context, L10n);
   }
 
-  /// `Cantidad`
+  /// `New Game`
+  String get newGame {
+    return Intl.message(
+      'New Game',
+      name: 'newGame',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{language, select, en{English} es{Español} fr{Français} other{English}}`
+  String language(String language) {
+    return Intl.select(
+      language,
+      {
+        'en': 'English',
+        'es': 'Español',
+        'fr': 'Français',
+        'other': 'English',
+      },
+      name: 'language',
+      desc: '',
+      args: [language],
+    );
+  }
+
+  /// `Quantity`
   String get quantity {
     return Intl.message(
-      'Cantidad',
+      'Quantity',
       name: 'quantity',
       desc: '',
       args: [],
     );
   }
 
-  /// `Comida`
+  /// `Food`
   String get food {
     return Intl.message(
-      'Comida',
+      'Food',
       name: 'food',
       desc: '',
       args: [],
     );
   }
 
-  /// `Salud`
+  /// `Health`
   String get health {
     return Intl.message(
-      'Salud',
+      'Health',
       name: 'health',
       desc: '',
       args: [],
     );
   }
 
-  /// `Oxígeno`
+  /// `Oxygen`
   String get oxygen {
     return Intl.message(
-      'Oxígeno',
+      'Oxygen',
       name: 'oxygen',
       desc: '',
       args: [],
     );
   }
 
-  /// `Huella de Carbono`
+  /// `Carbon FP`
   String get carbonFP {
     return Intl.message(
-      'Huella de Carbono',
+      'Carbon FP',
       name: 'carbonFP',
       desc: '',
       args: [],
     );
   }
 
-  /// `Moneda`
+  /// `Coin`
   String get coin {
     return Intl.message(
-      'Moneda',
+      'Coin',
       name: 'coin',
       desc: '',
       args: [],
     );
   }
 
-  /// `Cartas`
+  /// `Cards`
   String get cards {
     return Intl.message(
-      'Cartas',
+      'Cards',
       name: 'cards',
       desc: '',
       args: [],
     );
   }
 
-  /// `Huella de Carbono`
+  /// `CarbonFootprint`
   String get carbonFootprint {
     return Intl.message(
-      'Huella de Carbono',
+      'CarbonFootprint',
       name: 'carbonFootprint',
       desc: '',
       args: [],
     );
   }
 
-  /// `Misión`
+  /// `Quest`
   String get quest {
     return Intl.message(
-      'Misión',
+      'Quest',
       name: 'quest',
       desc: '',
       args: [],
     );
   }
 
-  /// `Recetas`
+  /// `Recipes`
   String get recipes {
     return Intl.message(
-      'Recetas',
+      'Recipes',
       name: 'recipes',
       desc: '',
       args: [],
     );
   }
 
-  /// `Logros`
+  /// `Achivements`
   String get achivements {
     return Intl.message(
-      'Logros',
+      'Achivements',
       name: 'achivements',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tiempo: {tiempo} seg`
-  String timeRecipe(Object tiempo) {
+  /// `Time: {time} sec`
+  String timeRecipe(Object time) {
     return Intl.message(
-      'Tiempo: $tiempo seg',
+      'Time: $time sec',
       name: 'timeRecipe',
       desc: '',
-      args: [tiempo],
+      args: [time],
     );
   }
 
@@ -180,20 +206,20 @@ class L10n {
     );
   }
 
-  /// `¿Quieres cambiar tus hábitos? Para hacerlo, mueve, agrupa, crea y vende cartas.`
+  /// `Do you want to change your habits? To do so, move, group, create and sell cards.`
   String get welcomeSubtitle {
     return Intl.message(
-      '¿Quieres cambiar tus hábitos? Para hacerlo, mueve, agrupa, crea y vende cartas.',
+      'Do you want to change your habits? To do so, move, group, create and sell cards.',
       name: 'welcomeSubtitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Presiona enter`
+  /// `Press enter`
   String get welcomeAction {
     return Intl.message(
-      'Presiona enter',
+      'Press enter',
       name: 'welcomeAction',
       desc: '',
       args: [],
@@ -210,920 +236,920 @@ class L10n {
     );
   }
 
-  /// `Sigue las misiones y busca las recetas en los paquetes.\n \n CONTROLES: Espacio = Pausa, tecla m = Sonido ACTIVADO/DESACTIVADO, tecla f = Velocidad ACTIVADA/DESACTIVADA`
+  /// `Follow the missions and look for the recipes in the packs.\n \n CONTROLS: Space = Pause, key m = Sound ON/OFF, key f = Fast ON/OFF`
   String get onboardingSubtitle {
     return Intl.message(
-      'Sigue las misiones y busca las recetas en los paquetes.\n \n CONTROLES: Espacio = Pausa, tecla m = Sonido ACTIVADO/DESACTIVADO, tecla f = Velocidad ACTIVADA/DESACTIVADA',
+      'Follow the missions and look for the recipes in the packs.\n \n CONTROLS: Space = Pause, key m = Sound ON/OFF, key f = Fast ON/OFF',
       name: 'onboardingSubtitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Presiona enter`
+  /// `Press enter`
   String get onboardingAction {
     return Intl.message(
-      'Presiona enter',
+      'Press enter',
       name: 'onboardingAction',
       desc: '',
       args: [],
     );
   }
 
-  /// `F I N   D E L   J U E G O`
+  /// `G A M E   O V E R`
   String get gameOverTitle {
     return Intl.message(
-      'F I N   D E L   J U E G O',
+      'G A M E   O V E R',
       name: 'gameOverTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Toca para Jugar de Nuevo`
+  /// `Tap to Play Again`
   String get gameOverSubtitle {
     return Intl.message(
-      'Toca para Jugar de Nuevo',
+      'Tap to Play Again',
       name: 'gameOverSubtitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Presiona enter`
+  /// `Press enter`
   String get gameOverAction {
     return Intl.message(
-      'Presiona enter',
+      'Press enter',
       name: 'gameOverAction',
       desc: '',
       args: [],
     );
   }
 
-  /// `¡G A N A S T E ! ! !`
+  /// `Y O U   W O N ! ! !`
   String get wonTitle {
     return Intl.message(
-      '¡G A N A S T E ! ! !',
+      'Y O U   W O N ! ! !',
       name: 'wonTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Toca para Jugar de Nuevo`
+  /// `Tap to Play Again`
   String get wonSubtitle {
     return Intl.message(
-      'Toca para Jugar de Nuevo',
+      'Tap to Play Again',
       name: 'wonSubtitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Presiona enter`
+  /// `Press enter`
   String get wonAction {
     return Intl.message(
-      'Presiona enter',
+      'Press enter',
       name: 'wonAction',
       desc: '',
       args: [],
     );
   }
 
-  /// `Debes vender algunas cartas`
+  /// `'You must sell some cards`
   String get sellingTitle {
     return Intl.message(
-      'Debes vender algunas cartas',
+      '\'You must sell some cards',
       name: 'sellingTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `La Primera Creación`
+  /// `The First Craft`
   String get achivementFirtsCraft {
     return Intl.message(
-      'La Primera Creación',
+      'The First Craft',
       name: 'achivementFirtsCraft',
       desc: '',
       args: [],
     );
   }
 
-  /// `¡Felicidades! Has creado tu primer objeto. ¿Quién sabía que palos y piedras podían hacer tanto?`
+  /// `Congratulations! You crafted your first item. Who knew sticks and stones could do so much?`
   String get achivementFirtsCraftDescription {
     return Intl.message(
-      '¡Felicidades! Has creado tu primer objeto. ¿Quién sabía que palos y piedras podían hacer tanto?',
+      'Congratulations! You crafted your first item. Who knew sticks and stones could do so much?',
       name: 'achivementFirtsCraftDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `El Primer Día`
+  /// `The First Day`
   String get achivementFirtsDay {
     return Intl.message(
-      'El Primer Día',
+      'The First Day',
       name: 'achivementFirtsDay',
       desc: '',
       args: [],
     );
   }
 
-  /// `¡Has sobrevivido tu primer día! El futuro parece brillante... ¿o es solo el amanecer?`
+  /// `You survived your first day! The future is looking bright... or is that just the sunrise?`
   String get achivementFirtsDayDescription {
     return Intl.message(
-      '¡Has sobrevivido tu primer día! El futuro parece brillante... ¿o es solo el amanecer?',
+      'You survived your first day! The future is looking bright... or is that just the sunrise?',
       name: 'achivementFirtsDayDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Evolución del Huevo`
+  /// `Eggvolution`
   String get achivementEggvolution {
     return Intl.message(
-      'Evolución del Huevo',
+      'Eggvolution',
       name: 'achivementEggvolution',
       desc: '',
       args: [],
     );
   }
 
-  /// `¿10 huevos en el mapa? ¡Prácticamente eres un granjero de aves ahora!`
+  /// `10 eggs on the map? You're practically a poultry farmer now!`
   String get achivementEggvolutionDescription {
     return Intl.message(
-      '¿10 huevos en el mapa? ¡Prácticamente eres un granjero de aves ahora!',
+      '10 eggs on the map? You`re practically a poultry farmer now!',
       name: 'achivementEggvolutionDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `La Culpa de la Vaca`
+  /// `The Cow's Fault`
   String get achivementCow {
     return Intl.message(
-      'La Culpa de la Vaca',
+      'The Cow\'s Fault',
       name: 'achivementCow',
       desc: '',
       args: [],
     );
   }
 
-  /// `Encontraste tu primer excremento. Esta es una situación desagradable, pero alguien tiene que manejarla.`
+  /// `You found your first poop. This is a crappy situation, but someone's gotta handle it.`
   String get achivementCowDescription {
     return Intl.message(
-      'Encontraste tu primer excremento. Esta es una situación desagradable, pero alguien tiene que manejarla.',
+      'You found your first poop. This is a crappy situation, but someone\'s gotta handle it.',
       name: 'achivementCowDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Amigos Peludos`
+  /// `Fur-iends`
   String get achivementFuriends {
     return Intl.message(
-      'Amigos Peludos',
+      'Fur-iends',
       name: 'achivementFuriends',
       desc: '',
       args: [],
     );
   }
 
-  /// `¡Conseguiste tu primer perro! Recuerda, con gran poder viene una gran responsabilidad... de recoger excrementos.`
+  /// `You got your first dog! Remember, with great power comes great responsibility... to pick up poop.`
   String get achivementFuriendsDescription {
     return Intl.message(
-      '¡Conseguiste tu primer perro! Recuerda, con gran poder viene una gran responsabilidad... de recoger excrementos.',
+      'You got your first dog! Remember, with great power comes great responsibility... to pick up poop.',
       name: 'achivementFuriendsDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Descubridor de los Devs`
+  /// `DevsCoverer`
   String get achivementDevsCoverer {
     return Intl.message(
-      'Descubridor de los Devs',
+      'DevsCoverer',
       name: 'achivementDevsCoverer',
       desc: '',
       args: [],
     );
   }
 
-  /// `Desbloqueaste la carta de Dev. No estamos seguros si deberías estar orgulloso o preocupado.`
+  /// `You unlocked the Dev card. We're not sure if you should be proud or concerned.`
   String get achivementDevsCovererDescription {
     return Intl.message(
-      'Desbloqueaste la carta de Dev. No estamos seguros si deberías estar orgulloso o preocupado.',
+      'You unlocked the Dev card. We\'re not sure if you should be proud or concerned.',
       name: 'achivementDevsCovererDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Hágase la Luz`
+  /// `Let There Be Light`
   String get achivementLight {
     return Intl.message(
-      'Hágase la Luz',
+      'Let There Be Light',
       name: 'achivementLight',
       desc: '',
       args: [],
     );
   }
 
-  /// `Hiciste tu primer panel solar. ¿Quién necesita el sol cuando tienes tecnología?`
+  /// `You made your first solar panel. Who needs the sun when you have technology?`
   String get achivementLightDescription {
     return Intl.message(
-      'Hiciste tu primer panel solar. ¿Quién necesita el sol cuando tienes tecnología?',
+      'You made your first solar panel. Who needs the sun when you have technology?',
       name: 'achivementLightDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Panza Llena, Corazón Contento`
+  /// `Full Belly, Happy Heart`
   String get achivementFullBelly {
     return Intl.message(
-      'Panza Llena, Corazón Contento',
+      'Full Belly, Happy Heart',
       name: 'achivementFullBelly',
       desc: '',
       args: [],
     );
   }
 
-  /// `Preparaste tu primer banquete de granja. ¡Buen provecho!`
+  /// `You made your first farm banquet. Bon appétit!`
   String get achivementFullBellyDescription {
     return Intl.message(
-      'Preparaste tu primer banquete de granja. ¡Buen provecho!',
+      'You made your first farm banquet. Bon appétit!',
       name: 'achivementFullBellyDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Vida Verde`
+  /// `Green Life`
   String get achivementGreenLife {
     return Intl.message(
-      'Vida Verde',
+      'Green Life',
       name: 'achivementGreenLife',
       desc: '',
       args: [],
     );
   }
 
-  /// `Ganaste el juego por primera vez. La Madre Naturaleza estaría orgullosa.`
+  /// `You won the game for the first time. Mother Nature would be proud.`
   String get achivementGreenLifeDescription {
     return Intl.message(
-      'Ganaste el juego por primera vez. La Madre Naturaleza estaría orgullosa.',
+      'You won the game for the first time. Mother Nature would be proud.',
       name: 'achivementGreenLifeDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Apocalipsis`
+  /// `Apocalypse`
   String get achivementApocalypse {
     return Intl.message(
-      'Apocalipsis',
+      'Apocalypse',
       name: 'achivementApocalypse',
       desc: '',
       args: [],
     );
   }
 
-  /// `Perdiste el juego por primera vez. No es el fin del mundo... oh espera.`
+  /// `You lost the game for the first time. It's not the end of the world... oh wait.`
   String get achivementApocalypseDescription {
     return Intl.message(
-      'Perdiste el juego por primera vez. No es el fin del mundo... oh espera.',
+      'You lost the game for the first time. It\'s not the end of the world... oh wait.',
       name: 'achivementApocalypseDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Adicción al Medio Ambiente`
+  /// `Addiction to the Environment`
   String get achivementAddiction {
     return Intl.message(
-      'Adicción al Medio Ambiente',
+      'Addiction to the Environment',
       name: 'achivementAddiction',
       desc: '',
       args: [],
     );
   }
 
-  /// `Obtuviste todos los logros. ¡Oficialmente eres un amante de la naturaleza!`
+  /// `You got all the achievements. You're officially a green thumb!`
   String get achivementAddictionDescription {
     return Intl.message(
-      'Obtuviste todos los logros. ¡Oficialmente eres un amante de la naturaleza!',
+      'You got all the achievements. You\'re officially a green thumb!',
       name: 'achivementAddictionDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Ve al Trabajo`
+  /// `Go to Work`
   String get questWork {
     return Intl.message(
-      'Ve al Trabajo',
+      'Go to Work',
       name: 'questWork',
       desc: '',
       args: [],
     );
   }
 
-  /// `Comienza tu viaje yendo al trabajo, para ello arrastra la carta Tu a la carta Trabajo`
+  /// `Start your journey by heading to work.`
   String get questWorkDescription {
     return Intl.message(
-      'Comienza tu viaje yendo al trabajo, para ello arrastra la carta Tu a la carta Trabajo',
+      'Start your journey by heading to work.',
       name: 'questWorkDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Vende la Tarjeta de Salario`
+  /// `Sell the Salary Card`
   String get questSalary {
     return Intl.message(
-      'Vende la Tarjeta de Salario',
+      'Sell the Salary Card',
       name: 'questSalary',
       desc: '',
       args: [],
     );
   }
 
-  /// `Gana algunas monedas iniciales vendiendo tu tarjeta de salario.`
+  /// `Earn some initial coins by selling your salary card.`
   String get questSalaryDescription {
     return Intl.message(
-      'Gana algunas monedas iniciales vendiendo tu tarjeta de salario.',
+      'Earn some initial coins by selling your salary card.',
       name: 'questSalaryDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Compra el Paquete Inicial`
+  /// `Buy the Initial Pack`
   String get questInitial {
     return Intl.message(
-      'Compra el Paquete Inicial',
+      'Buy the Initial Pack',
       name: 'questInitial',
       desc: '',
       args: [],
     );
   }
 
-  /// `Invierte en tu supervivencia comprando el Paquete Inicial.`
+  /// `Invest in your survival by purchasing the Initial Pack.`
   String get questInitialDescription {
     return Intl.message(
-      'Invierte en tu supervivencia comprando el Paquete Inicial.',
+      'Invest in your survival by purchasing the Initial Pack.',
       name: 'questInitialDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Compra Comida en CCBurger`
+  /// `Buy Food at CCBurger`
   String get questBuyFood {
     return Intl.message(
-      'Compra Comida en CCBurger',
+      'Buy Food at CCBurger',
       name: 'questBuyFood',
       desc: '',
       args: [],
     );
   }
 
-  /// `Mantén el hambre a raya con una comida de CCBurger.`
+  /// `Keep your hunger at bay with a meal from CCBurger.`
   String get questBuyFoodDescription {
     return Intl.message(
-      'Mantén el hambre a raya con una comida de CCBurger.',
+      'Keep your hunger at bay with a meal from CCBurger.',
       name: 'questBuyFoodDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Sobrevive el Primer Día`
+  /// `Survive the First Day`
   String get questSurvive {
     return Intl.message(
-      'Sobrevive el Primer Día',
+      'Survive the First Day',
       name: 'questSurvive',
       desc: '',
       args: [],
     );
   }
 
-  /// `Sobrevive tu primer día sin morir.`
+  /// `Make it through your first day without dying.`
   String get questSurviveDescription {
     return Intl.message(
-      'Sobrevive tu primer día sin morir.',
+      'Make it through your first day without dying.',
       name: 'questSurviveDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Crea una Mesa de Trabajo`
+  /// `Craft a Crafting Table`
   String get questCrafting {
     return Intl.message(
-      'Crea una Mesa de Trabajo',
+      'Craft a Crafting Table',
       name: 'questCrafting',
       desc: '',
       args: [],
     );
   }
 
-  /// `Construye una mesa de trabajo para desbloquear nuevas posibilidades de creación.`
+  /// `Build a crafting table to unlock new crafting possibilities.`
   String get questCraftingDescription {
     return Intl.message(
-      'Construye una mesa de trabajo para desbloquear nuevas posibilidades de creación.',
+      'Build a crafting table to unlock new crafting possibilities.',
       name: 'questCraftingDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Desbloquea una Idea`
+  /// `Unlock an Idea`
   String get questUnlock {
     return Intl.message(
-      'Desbloquea una Idea',
+      'Unlock an Idea',
       name: 'questUnlock',
       desc: '',
       args: [],
     );
   }
 
-  /// `Gasta tus monedas en cualquier paquete para desbloquear nuevas ideas.`
+  /// `Spend your coins in any pack to unlock a new ideas.`
   String get questUnlockDescription {
     return Intl.message(
-      'Gasta tus monedas en cualquier paquete para desbloquear nuevas ideas.',
+      'Spend your coins in any pack to unlock a new ideas.',
       name: 'questUnlockDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Recicla 30 Plásticos`
+  /// `Recycle 30 Plastics`
   String get questRecycle {
     return Intl.message(
-      'Recicla 30 Plásticos',
+      'Recycle 30 Plastics',
       name: 'questRecycle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Contribuye al medio ambiente reciclando 30 plásticos.`
+  /// `Contribute to the environment by recycling 30 plastics.`
   String get questRecycleDescription {
     return Intl.message(
-      'Contribuye al medio ambiente reciclando 30 plásticos.',
+      'Contribute to the environment by recycling 30 plastics.',
       name: 'questRecycleDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Crea un Banquete de Granja`
+  /// `Craft a Farm Feast`
   String get questCraftFeast {
     return Intl.message(
-      'Crea un Banquete de Granja',
+      'Craft a Farm Feast',
       name: 'questCraftFeast',
       desc: '',
       args: [],
     );
   }
 
-  /// `Prepara un delicioso banquete de granja para restaurar tu energía.`
+  /// `Prepare a delicious farm feast to restore your energy.`
   String get questCraftFeastDescription {
     return Intl.message(
-      'Prepara un delicioso banquete de granja para restaurar tu energía.',
+      'Prepare a delicious farm feast to restore your energy.',
       name: 'questCraftFeastDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Crea un Panel Solar`
+  /// `Craft a Solar Panel`
   String get questCraftPanel {
     return Intl.message(
-      'Crea un Panel Solar',
+      'Craft a Solar Panel',
       name: 'questCraftPanel',
       desc: '',
       args: [],
     );
   }
 
-  /// `Aprovecha el poder del sol con un panel solar.`
+  /// `Harness the power of the sun with a solar panel.`
   String get questCraftPanelDescription {
     return Intl.message(
-      'Aprovecha el poder del sol con un panel solar.',
+      'Harness the power of the sun with a solar panel.',
       name: 'questCraftPanelDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Título`
+  /// `Title`
   String get title {
     return Intl.message(
-      'Título',
+      'Title',
       name: 'title',
       desc: '',
       args: [],
     );
   }
 
-  /// `buscar`
+  /// `search`
   String get search {
     return Intl.message(
-      'buscar',
+      'search',
       name: 'search',
       desc: '',
       args: [],
     );
   }
 
-  /// `viaje`
+  /// `travel`
   String get travel {
     return Intl.message(
-      'viaje',
+      'travel',
       name: 'travel',
       desc: '',
       args: [],
     );
   }
 
-  /// `lista de deseos`
+  /// `wishList`
   String get wishList {
     return Intl.message(
-      'lista de deseos',
+      'wishList',
       name: 'wishList',
       desc: '',
       args: [],
     );
   }
 
-  /// `mensajes`
+  /// `menssages`
   String get menssages {
     return Intl.message(
-      'mensajes',
+      'menssages',
       name: 'menssages',
       desc: '',
       args: [],
     );
   }
 
-  /// `billetera`
+  /// `wallet`
   String get wallet {
     return Intl.message(
-      'billetera',
+      'wallet',
       name: 'wallet',
       desc: '',
       args: [],
     );
   }
 
-  /// `Demo de Flutter`
+  /// `Flutter Demo`
   String get flutterDemo {
     return Intl.message(
-      'Demo de Flutter',
+      'Flutter Demo',
       name: 'flutterDemo',
       desc: '',
       args: [],
     );
   }
 
-  /// `Página de inicio de la demostración de Flutter`
+  /// `Flutter Demo Home Page`
   String get flutterDemoHomePage {
     return Intl.message(
-      'Página de inicio de la demostración de Flutter',
+      'Flutter Demo Home Page',
       name: 'flutterDemoHomePage',
       desc: '',
       args: [],
     );
   }
 
-  /// `Descargar`
+  /// `Download`
   String get download {
     return Intl.message(
-      'Descargar',
+      'Download',
       name: 'download',
       desc: '',
       args: [],
     );
   }
 
-  /// `tú`
+  /// `you`
   String get you {
     return Intl.message(
-      'tú',
+      'you',
       name: 'you',
       desc: '',
       args: [],
     );
   }
 
-  /// `¿Qué estás mirando? -_-`
+  /// `What are you watching? -_-`
   String get youDescription {
     return Intl.message(
-      '¿Qué estás mirando? -_-',
+      'What are you watching? -_-',
       name: 'youDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Roca`
+  /// `Rock`
   String get rock {
     return Intl.message(
-      'Roca',
+      'Rock',
       name: 'rock',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tan resistente que incluso Goliat temblaría al verla. Ideal para construir o lanzar gigantes molestos.`
+  /// `So sturdy that even Goliath would tremble at the sight of it. Ideal for building or hurling pesky giants.`
   String get rockDescription {
     return Intl.message(
-      'Tan resistente que incluso Goliat temblaría al verla. Ideal para construir o lanzar gigantes molestos.',
+      'So sturdy that even Goliath would tremble at the sight of it. Ideal for building or hurling pesky giants.',
       name: 'rockDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Hierro`
+  /// `Iron`
   String get iron {
     return Intl.message(
-      'Hierro',
+      'Iron',
       name: 'iron',
       desc: '',
       args: [],
     );
   }
 
-  /// `Más fuerte que el amor de mamá. Ideal para crear estructuras.`
+  /// `Stronger than mom's love. Ideal for creating structures`
   String get ironDescription {
     return Intl.message(
-      'Más fuerte que el amor de mamá. Ideal para crear estructuras.',
+      'Stronger than mom`s love. Ideal for creating structures',
       name: 'ironDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Carbón`
+  /// `Coal`
   String get coal {
     return Intl.message(
-      'Carbón',
+      'Coal',
       name: 'coal',
       desc: '',
       args: [],
     );
   }
 
-  /// `Una fuente de energía esencial y materia prima para la fabricación de silicio.`
+  /// `An essential energy source and raw material for the manufacture of silicon.`
   String get coalDescription {
     return Intl.message(
-      'Una fuente de energía esencial y materia prima para la fabricación de silicio.',
+      'An essential energy source and raw material for the manufacture of silicon.',
       name: 'coalDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Madera`
+  /// `Wood`
   String get wood {
     return Intl.message(
-      'Madera',
+      'Wood',
       name: 'wood',
       desc: '',
       args: [],
     );
   }
 
-  /// `Renovable y abundante, la madera es esencial para la construcción y fabricación de una variedad de objetos.`
+  /// `Renewable and abundant, wood is essential for the construction and manufacture of a variety of objects.`
   String get woodDescription {
     return Intl.message(
-      'Renovable y abundante, la madera es esencial para la construcción y fabricación de una variedad de objetos.',
+      'Renewable and abundant, wood is essential for the construction and manufacture of a variety of objects.',
       name: 'woodDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Vidrio`
+  /// `Glass`
   String get glass {
     return Intl.message(
-      'Vidrio',
+      'Glass',
       name: 'glass',
       desc: '',
       args: [],
     );
   }
 
-  /// `El amigo invisible de las ventanas y las botellas: ¡el vidrio, el material que te permite espiar a tus vecinos sin que ellos lo sepan!`
+  /// `The invisible friend of windows and bottles: glass, the material that allows you to spy on your neighbors without them knowing!`
   String get glassDescription {
     return Intl.message(
-      'El amigo invisible de las ventanas y las botellas: ¡el vidrio, el material que te permite espiar a tus vecinos sin que ellos lo sepan!',
+      'The invisible friend of windows and bottles: glass, the material that allows you to spy on your neighbors without them knowing!',
       name: 'glassDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Plástico`
+  /// `Plastic`
   String get plastic {
     return Intl.message(
-      'Plástico',
+      'Plastic',
       name: 'plastic',
       desc: '',
       args: [],
     );
   }
 
-  /// `La cosa que nunca se echa a perder, al igual que tus deudas estudiantiles.`
+  /// `The stuff that never goes bad, just like your student debts.`
   String get plasticDescription {
     return Intl.message(
-      'La cosa que nunca se echa a perder, al igual que tus deudas estudiantiles.',
+      'The stuff that never goes bad, just like your student debts.',
       name: 'plasticDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Cobre`
+  /// `Copper`
   String get copper {
     return Intl.message(
-      'Cobre',
+      'Copper',
       name: 'copper',
       desc: '',
       args: [],
     );
   }
 
-  /// `Un excelente conductor de electricidad, el cobre es esencial para la fabricación de cables y componentes electrónicos.`
+  /// `An excellent conductor of electricity, copper is essential for the manufacture of cables and electronic components.`
   String get copperDescription {
     return Intl.message(
-      'Un excelente conductor de electricidad, el cobre es esencial para la fabricación de cables y componentes electrónicos.',
+      'An excellent conductor of electricity, copper is essential for the manufacture of cables and electronic components.',
       name: 'copperDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tierra`
+  /// `Dirt`
   String get dirt {
     return Intl.message(
-      'Tierra',
+      'Dirt',
       name: 'dirt',
       desc: '',
       args: [],
     );
   }
 
-  /// `El abrazo de la naturaleza, ¡la madre de todas las plantas y gusanos! Rica en nutrientes y esencial para la vida de las plantas.`
+  /// `Nature's embrace, the mother of all plants and worms! Rich in nutrients and essential for plant life`
   String get dirtDescription {
     return Intl.message(
-      'El abrazo de la naturaleza, ¡la madre de todas las plantas y gusanos! Rica en nutrientes y esencial para la vida de las plantas.',
+      'Nature\'s embrace, the mother of all plants and worms! Rich in nutrients and essential for plant life',
       name: 'dirtDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Agua`
+  /// `Water`
   String get water {
     return Intl.message(
-      'Agua',
+      'Water',
       name: 'water',
       desc: '',
       args: [],
     );
   }
 
-  /// `El elixir de la vida, esencial para la supervivencia de todas las formas de vida conocidas.`
+  /// `The elixir of life, essential for the survival of all known life forms.`
   String get waterDescription {
     return Intl.message(
-      'El elixir de la vida, esencial para la supervivencia de todas las formas de vida conocidas.',
+      'The elixir of life, essential for the survival of all known life forms.',
       name: 'waterDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// ` Lingotes de Hierro`
+  /// `Iron Ingots`
   String get ironIngots {
     return Intl.message(
-      ' Lingotes de Hierro',
+      'Iron Ingots',
       name: 'ironIngots',
       desc: '',
       args: [],
     );
   }
 
-  /// `Lingotes de hierro refinados y resistentes listos para ser forjados en las herramientas más fuertes. ¡Con estos lingotes, incluso Iron Man estaría celoso!`
+  /// `Refined and robust iron ingots ready to be forged into the strongest tools. With these ingots, even Iron Man would be jealous!`
   String get ironIngotsDescription {
     return Intl.message(
-      'Lingotes de hierro refinados y resistentes listos para ser forjados en las herramientas más fuertes. ¡Con estos lingotes, incluso Iron Man estaría celoso!',
+      'Refined and robust iron ingots ready to be forged into the strongest tools. With these ingots, even Iron Man would be jealous!',
       name: 'ironIngotsDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Silicio`
+  /// `Silicon`
   String get silicon {
     return Intl.message(
-      'Silicio',
+      'Silicon',
       name: 'silicon',
       desc: '',
       args: [],
     );
   }
 
-  /// `El bloque de construcción esencial para la tecnología moderna, el silicio es la piedra angular de la electrónica. ¿Quién sabía que la arena de la playa podría ser tan útil? ¡Gracias, silicio!`
+  /// `The essential building block for modern technology, silicon is the cornerstone of electronics. Who knew that beach sand could be so useful? Thank you, silicon!`
   String get siliconDescription {
     return Intl.message(
-      'El bloque de construcción esencial para la tecnología moderna, el silicio es la piedra angular de la electrónica. ¿Quién sabía que la arena de la playa podría ser tan útil? ¡Gracias, silicio!',
+      'The essential building block for modern technology, silicon is the cornerstone of electronics. Who knew that beach sand could be so useful? Thank you, silicon!',
       name: 'siliconDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Línea de Cobre`
+  /// `Copper line`
   String get copperLine {
     return Intl.message(
-      'Línea de Cobre',
+      'Copper line',
       name: 'copperLine',
       desc: '',
       args: [],
     );
   }
 
-  /// `Necesitan ser refinados para conducir energía. Estos cables tienen una nueva moda. Ahora se ven más desnudos que nunca.`
+  /// `They need to be refined to conduct energy. These cables have a new fashion. Now they look more naked than ever`
   String get copperLineDescription {
     return Intl.message(
-      'Necesitan ser refinados para conducir energía. Estos cables tienen una nueva moda. Ahora se ven más desnudos que nunca.',
+      'They need to be refined to conduct energy. These cables have a new fashion. Now they look more naked than ever',
       name: 'copperLineDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Aislantes`
+  /// `Insulators`
   String get insulators {
     return Intl.message(
-      'Aislantes',
+      'Insulators',
       name: 'insulators',
       desc: '',
       args: [],
     );
   }
 
-  /// `Protegen contra cortocircuitos y descargas eléctricas, manteniendo la corriente en su lugar. ¿Quién hubiera pensado que un poco de plástico podría prevenir tanto drama eléctrico?`
+  /// `They protect against short circuits and electric shocks, keeping the current in place. Who would have thought that a little plastic could prevent so much electrical drama?`
   String get insulatorsDescription {
     return Intl.message(
-      'Protegen contra cortocircuitos y descargas eléctricas, manteniendo la corriente en su lugar. ¿Quién hubiera pensado que un poco de plástico podría prevenir tanto drama eléctrico?',
+      'They protect against short circuits and electric shocks, keeping the current in place. Who would have thought that a little plastic could prevent so much electrical drama?',
       name: 'insulatorsDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Celdas Solares`
+  /// `Solar cells`
   String get solarCells {
     return Intl.message(
-      'Celdas Solares',
+      'Solar cells',
       name: 'solarCells',
       desc: '',
       args: [],
     );
   }
 
-  /// `Estas celdas solares transforman la luz solar en electricidad, proporcionando energía limpia y sostenible y haciendo que el sol trabaje horas extras. Buen trabajo, sol.`
+  /// `These solar cells transform sunlight into electricity, providing clean, sustainable energy and making the sun work overtime. Good job, sunshine.`
   String get solarCellsDescription {
     return Intl.message(
-      'Estas celdas solares transforman la luz solar en electricidad, proporcionando energía limpia y sostenible y haciendo que el sol trabaje horas extras. Buen trabajo, sol.',
+      'These solar cells transform sunlight into electricity, providing clean, sustainable energy and making the sun work overtime. Good job, sunshine.',
       name: 'solarCellsDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Estructura`
+  /// `Structure`
   String get structure {
     return Intl.message(
-      'Estructura',
+      'Structure',
       name: 'structure',
       desc: '',
       args: [],
     );
   }
 
-  /// `Proporciona estabilidad y soporte para diversas construcciones, desde casas hasta maquinaria. Tan fuerte que incluso Chuck Norris estaría orgulloso.`
+  /// `It provides stability and support for various constructions, from houses to machinery. So strong that even Chuck Norris would be proud.`
   String get structureDescription {
     return Intl.message(
-      'Proporciona estabilidad y soporte para diversas construcciones, desde casas hasta maquinaria. Tan fuerte que incluso Chuck Norris estaría orgulloso.',
+      'It provides stability and support for various constructions, from houses to machinery. So strong that even Chuck Norris would be proud.',
       name: 'structureDescription',
       desc: '',
       args: [],
@@ -1140,150 +1166,150 @@ class L10n {
     );
   }
 
-  /// `Cables listos para conectar y transmitir energía de manera eficiente. Estos cables funcionales son tan confiables como la excusa de 'el perro se comió mi tarea'.`
+  /// `Cables ready to connect and transmit power efficiently. These functional cables are as reliable as the 'dog ate my homework' excuse.`
   String get cablesDescription {
     return Intl.message(
-      'Cables listos para conectar y transmitir energía de manera eficiente. Estos cables funcionales son tan confiables como la excusa de \'el perro se comió mi tarea\'.',
+      'Cables ready to connect and transmit power efficiently. These functional cables are as reliable as the \'dog ate my homework\' excuse.',
       name: 'cablesDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Comida Rápida`
+  /// `Fast Food`
   String get fastFood {
     return Intl.message(
-      'Comida Rápida',
+      'Fast Food',
       name: 'fastFood',
       desc: '',
       args: [],
     );
   }
 
-  /// `Alimentos preparados de manera rápida y conveniente, pero con bajo valor nutricional.`
+  /// `Foods prepared quickly and conveniently, but with low nutritional value.`
   String get fastFoodDescription {
     return Intl.message(
-      'Alimentos preparados de manera rápida y conveniente, pero con bajo valor nutricional.',
+      'Foods prepared quickly and conveniently, but with low nutritional value.',
       name: 'fastFoodDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Trigo`
+  /// `Wheat`
   String get wheat {
     return Intl.message(
-      'Trigo',
+      'Wheat',
       name: 'wheat',
       desc: '',
       args: [],
     );
   }
 
-  /// `Cereal utilizado para hacer harina y diversos productos horneados. Y aunque no lo parezca, a las vacas les encanta.`
+  /// `Cereal used to make flour and various baked goods. And although it may not seem like it, cows love it.`
   String get wheatDescription {
     return Intl.message(
-      'Cereal utilizado para hacer harina y diversos productos horneados. Y aunque no lo parezca, a las vacas les encanta.',
+      'Cereal used to make flour and various baked goods. And although it may not seem like it, cows love it.',
       name: 'wheatDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Zanahoria`
+  /// `Carrot`
   String get carrot {
     return Intl.message(
-      'Zanahoria',
+      'Carrot',
       name: 'carrot',
       desc: '',
       args: [],
     );
   }
 
-  /// `Una verdura rica en nutrientes y crucial para mantener una dieta equilibrada. Tan buena que podría hacer que Bugs Bunny renuncie a las zanahorias de la competencia.`
+  /// `A vegetable rich in nutrients and crucial to maintain a balanced diet. So good that it might make Bugs Bunny give up on the competition's carrots.`
   String get carrotDescription {
     return Intl.message(
-      'Una verdura rica en nutrientes y crucial para mantener una dieta equilibrada. Tan buena que podría hacer que Bugs Bunny renuncie a las zanahorias de la competencia.',
+      'A vegetable rich in nutrients and crucial to maintain a balanced diet. So good that it might make Bugs Bunny give up on the competition\'s carrots.',
       name: 'carrotDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Patata`
+  /// `Potato`
   String get potato {
     return Intl.message(
-      'Patata',
+      'Potato',
       name: 'potato',
       desc: '',
       args: [],
     );
   }
 
-  /// `La humilde patata, la heroína olvidada de la cocina, haciendo felices los estómagos desde tiempos inmemoriales.`
+  /// `The humble potato, the unsung hero of the kitchen, making stomachs happy since time immemorial.`
   String get potatoDescription {
     return Intl.message(
-      'La humilde patata, la heroína olvidada de la cocina, haciendo felices los estómagos desde tiempos inmemoriales.',
+      'The humble potato, the unsung hero of the kitchen, making stomachs happy since time immemorial.',
       name: 'potatoDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Manzana`
+  /// `Apple`
   String get apple {
     return Intl.message(
-      'Manzana',
+      'Apple',
       name: 'apple',
       desc: '',
       args: [],
     );
   }
 
-  /// `Una fruta fresca y crujiente, llena de sabor y nutrientes. ¡Cuidado con las manzanas que caen del cielo! Si Newton pudo tener un momento 'eureka' con una, ¿quién sabe qué ideas brillantes podrías tener tú?`
+  /// `A fresh and crunchy fruit, full of flavor and nutrients. Watch out for apples falling from the sky! If Newton could have a 'eureka' moment with one, who knows what brilliant ideas you might have?`
   String get appleDescription {
     return Intl.message(
-      'Una fruta fresca y crujiente, llena de sabor y nutrientes. ¡Cuidado con las manzanas que caen del cielo! Si Newton pudo tener un momento \'eureka\' con una, ¿quién sabe qué ideas brillantes podrías tener tú?',
+      'A fresh and crunchy fruit, full of flavor and nutrients. Watch out for apples falling from the sky! If Newton could have a \'eureka\' moment with one, who knows what brilliant ideas you might have?',
       name: 'appleDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Leche`
+  /// `Milk`
   String get milk {
     return Intl.message(
-      'Leche',
+      'Milk',
       name: 'milk',
       desc: '',
       args: [],
     );
   }
 
-  /// `Una fuente fundamental de calcio y nutrientes para una dieta equilibrada. El elixir blanco de la vida que te ayuda a crecer fuerte y grande.`
+  /// `A fundamental source of calcium and nutrients for a balanced diet. White elixir of life that helps you grow strong and big.`
   String get milkDescription {
     return Intl.message(
-      'Una fuente fundamental de calcio y nutrientes para una dieta equilibrada. El elixir blanco de la vida que te ayuda a crecer fuerte y grande.',
+      'A fundamental source of calcium and nutrients for a balanced diet. White elixir of life that helps you grow strong and big.',
       name: 'milkDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Carne`
+  /// `Meat`
   String get meat {
     return Intl.message(
-      'Carne',
+      'Meat',
       name: 'meat',
       desc: '',
       args: [],
     );
   }
 
-  /// `Una importante fuente de proteínas y nutrientes para mantenerte saludable y lleno de energía. Nada como un buen trozo de carne para satisfacer tu estómago rugiente.`
+  /// `An important source of protein and nutrients to keep you healthy and full of energy. Nothing like a good piece of meat to satisfy your growling stomach.`
   String get meatDescription {
     return Intl.message(
-      'Una importante fuente de proteínas y nutrientes para mantenerte saludable y lleno de energía. Nada como un buen trozo de carne para satisfacer tu estómago rugiente.',
+      'An important source of protein and nutrients to keep you healthy and full of energy. Nothing like a good piece of meat to satisfy your growling stomach.',
       name: 'meatDescription',
       desc: '',
       args: [],
@@ -1300,1090 +1326,1120 @@ class L10n {
     );
   }
 
-  /// `La nutritiva banana, energía natural en su empaque amarillo. Viene con su propio estuche y la promesa de hacerte sonreír, incluso si pareces un mono comiéndola.`
+  /// `The nutritious banana, natural energy in its yellow packaging. It comes with its own case and the promise to make you smile, even if you look like a monkey eating it.`
   String get bananaDescription {
     return Intl.message(
-      'La nutritiva banana, energía natural en su empaque amarillo. Viene con su propio estuche y la promesa de hacerte sonreír, incluso si pareces un mono comiéndola.',
+      'The nutritious banana, natural energy in its yellow packaging. It comes with its own case and the promise to make you smile, even if you look like a monkey eating it.',
       name: 'bananaDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Huevo`
+  /// `Egg`
   String get egg {
     return Intl.message(
-      'Huevo',
+      'Egg',
       name: 'egg',
       desc: '',
       args: [],
     );
   }
 
-  /// `El huevo, fuente de proteínas de la más alta calidad y versatilidad en la cocina. Se enfrenta a sartenes calientes y batidores sin miedo.`
+  /// `The egg, source of proteins of the highest quality and versatility in the kitchen. It faces hot pans and whisks without fear.`
   String get eggDescription {
     return Intl.message(
-      'El huevo, fuente de proteínas de la más alta calidad y versatilidad en la cocina. Se enfrenta a sartenes calientes y batidores sin miedo.',
+      'The egg, source of proteins of the highest quality and versatility in the kitchen. It faces hot pans and whisks without fear.',
       name: 'eggDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Estofado`
+  /// `Stew`
   String get stew {
     return Intl.message(
-      'Estofado',
+      'Stew',
       name: 'stew',
       desc: '',
       args: [],
     );
   }
 
-  /// `Plato tradicional que combina carne, verduras y caldo en una preparación reconfortante. Como un abrazo en forma de comida, perfecto para esos días fríos o cuando el alma necesita consuelo.`
+  /// `Traditional dish that combines meat, vegetables and broth in a comforting preparation. Like a hug in the form of food, perfect for those cold days or when the soul needs comfort.`
   String get stewDescription {
     return Intl.message(
-      'Plato tradicional que combina carne, verduras y caldo en una preparación reconfortante. Como un abrazo en forma de comida, perfecto para esos días fríos o cuando el alma necesita consuelo.',
+      'Traditional dish that combines meat, vegetables and broth in a comforting preparation. Like a hug in the form of food, perfect for those cold days or when the soul needs comfort.',
       name: 'stewDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Carne Frita`
+  /// `Fried Meat`
   String get friedMeat {
     return Intl.message(
-      'Carne Frita',
+      'Fried Meat',
       name: 'friedMeat',
       desc: '',
       args: [],
     );
   }
 
-  /// `El arte de transformar lo ordinario en lo extraordinario con un poco de aceite y una sartén caliente.`
+  /// `The art of transforming the ordinary into the extraordinary with a little oil and a hot frying pan.`
   String get friedMeatDescription {
     return Intl.message(
-      'El arte de transformar lo ordinario en lo extraordinario con un poco de aceite y una sartén caliente.',
+      'The art of transforming the ordinary into the extraordinary with a little oil and a hot frying pan.',
       name: 'friedMeatDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Harina`
+  /// `Flour`
   String get flour {
     return Intl.message(
-      'Harina',
+      'Flour',
       name: 'flour',
       desc: '',
       args: [],
     );
   }
 
-  /// `Harina, la base de muchas delicias horneadas y platos de todo el mundo. El polvo mágico que convierte cualquier receta en algo delicioso. Solo agrega agua y fe.`
+  /// `Flour, the base of many baked delicacies and dishes from around the world. The magic powder that turns any recipe into something delicious. Just add water and faith.`
   String get flourDescription {
     return Intl.message(
-      'Harina, la base de muchas delicias horneadas y platos de todo el mundo. El polvo mágico que convierte cualquier receta en algo delicioso. Solo agrega agua y fe.',
+      'Flour, the base of many baked delicacies and dishes from around the world. The magic powder that turns any recipe into something delicious. Just add water and faith.',
       name: 'flourDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Pan`
+  /// `Bread`
   String get bread {
     return Intl.message(
-      'Pan',
+      'Bread',
       name: 'bread',
       desc: '',
       args: [],
     );
   }
 
-  /// `Pan, un alimento básico en la mesa de millones de personas en todo el mundo. La razón por la que la humanidad inventó la mantequilla. ¡Y la mermelada!`
+  /// `Bread, a staple food on the table of millions of people around the world. The reason mankind invented butter. And jam!`
   String get breadDescription {
     return Intl.message(
-      'Pan, un alimento básico en la mesa de millones de personas en todo el mundo. La razón por la que la humanidad inventó la mantequilla. ¡Y la mermelada!',
+      'Bread, a staple food on the table of millions of people around the world. The reason mankind invented butter. And jam!',
       name: 'breadDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Pastel`
+  /// `Cake`
   String get cake {
     return Intl.message(
-      'Pastel',
+      'Cake',
       name: 'cake',
       desc: '',
       args: [],
     );
   }
 
-  /// `Un delicioso pastel hecho con ingredientes frescos y amorosos, perfecto para celebrar ocasiones especiales.`
+  /// `A delicious cake made with fresh and loving ingredients, perfect for celebrating special occasions.`
   String get cakeDescription {
     return Intl.message(
-      'Un delicioso pastel hecho con ingredientes frescos y amorosos, perfecto para celebrar ocasiones especiales.',
+      'A delicious cake made with fresh and loving ingredients, perfect for celebrating special occasions.',
       name: 'cakeDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Ensalada Saludable`
+  /// `Healthy Salad`
   String get healthySalad {
     return Intl.message(
-      'Ensalada Saludable',
+      'Healthy Salad',
       name: 'healthySalad',
       desc: '',
       args: [],
     );
   }
 
-  /// `Una mezcla fresca de verduras y ingredientes saludables. Nada como la comida saludable.`
+  /// `A fresh mix of vegetables and healthy toppings. Nothing like healthy food.`
   String get healthySaladDescription {
     return Intl.message(
-      'Una mezcla fresca de verduras y ingredientes saludables. Nada como la comida saludable.',
+      'A fresh mix of vegetables and healthy toppings. Nothing like healthy food.',
       name: 'healthySaladDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Batido de Frutas`
+  /// `Fruit Shake`
   String get fruitShake {
     return Intl.message(
-      'Batido de Frutas',
+      'Fruit Shake',
       name: 'fruitShake',
       desc: '',
       args: [],
     );
   }
 
-  /// `Una refrescante mezcla de frutas frescas, perfecta para recargar energía y vitaminas.`
+  /// `A refreshing blend of fresh fruits, perfect for recharging energy and vitamins.`
   String get fruitShakeDescription {
     return Intl.message(
-      'Una refrescante mezcla de frutas frescas, perfecta para recargar energía y vitaminas.',
+      'A refreshing blend of fresh fruits, perfect for recharging energy and vitamins.',
       name: 'fruitShakeDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tortilla`
+  /// `Omelet`
   String get omelet {
     return Intl.message(
-      'Tortilla',
+      'Omelet',
       name: 'omelet',
       desc: '',
       args: [],
     );
   }
 
-  /// `Una deliciosa combinación de papas y huevos, perfecta para cualquier comida con un sabor que hará sonreír incluso al chef más serio.`
+  /// `A delicious combination of potatoes and eggs, perfect for any meal with a flavor that will make even the most serious chef smile.`
   String get omeletDescription {
     return Intl.message(
-      'Una deliciosa combinación de papas y huevos, perfecta para cualquier comida con un sabor que hará sonreír incluso al chef más serio.',
+      'A delicious combination of potatoes and eggs, perfect for any meal with a flavor that will make even the most serious chef smile.',
       name: 'omeletDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tarta de Manzana`
+  /// `Apple Pie`
   String get applePie {
     return Intl.message(
-      'Tarta de Manzana',
+      'Apple Pie',
       name: 'applePie',
       desc: '',
       args: [],
     );
   }
 
-  /// `Una clásica tarta de manzana horneada con amor, que no solo llena el estómago sino también el corazón. ¡Esta tarta hará que olvides todas tus preocupaciones, al menos hasta que se acabe!`
+  /// `A classic apple pie baked with love, that not only fills the stomach but also the heart. This pie will make you forget all your worries, at least until it's gone!`
   String get applePieDescription {
     return Intl.message(
-      'Una clásica tarta de manzana horneada con amor, que no solo llena el estómago sino también el corazón. ¡Esta tarta hará que olvides todas tus preocupaciones, al menos hasta que se acabe!',
+      'A classic apple pie baked with love, that not only fills the stomach but also the heart. This pie will make you forget all your worries, at least until it\'s gone!',
       name: 'applePieDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Banquete de Granja`
+  /// `Farm Feast`
   String get farmFeast {
     return Intl.message(
-      'Banquete de Granja',
+      'Farm Feast',
       name: 'farmFeast',
       desc: '',
       args: [],
     );
   }
 
-  /// `El festín que hace que las granjas se sientan como palacios. Una comida completa que mezcla los mejores productos de la granja para una experiencia culinaria satisfactoria, preparada con amor y cuidado para compartir con tus seres queridos.`
+  /// `The feast that makes farms feel like palaces. A complete meal that blends the best farm products for a satisfying culinary experience, prepared with love and care to share with your loved ones.`
   String get farmFeastDescription {
     return Intl.message(
-      'El festín que hace que las granjas se sientan como palacios. Una comida completa que mezcla los mejores productos de la granja para una experiencia culinaria satisfactoria, preparada con amor y cuidado para compartir con tus seres queridos.',
+      'The feast that makes farms feel like palaces. A complete meal that blends the best farm products for a satisfying culinary experience, prepared with love and care to share with your loved ones.',
       name: 'farmFeastDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Baúl`
+  /// `Baul`
   String get baul {
     return Intl.message(
-      'Baúl',
+      'Baul',
       name: 'baul',
       desc: '',
       args: [],
     );
   }
 
-  /// `Espacio de almacenamiento para tus posesiones más preciosas y necesarias. Un contenedor confiable que añade un poco más a la capacidad de almacenamiento de tus cartas.`
+  /// `Storage space for your most precious and necessary possessions. A reliable container that adds a little extra to your card storage capacity.`
   String get baulDescription {
     return Intl.message(
-      'Espacio de almacenamiento para tus posesiones más preciosas y necesarias. Un contenedor confiable que añade un poco más a la capacidad de almacenamiento de tus cartas.',
+      'Storage space for your most precious and necessary possessions. A reliable container that adds a little extra to your card storage capacity.',
       name: 'baulDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Almacén`
+  /// `Warehouse`
   String get warehouse {
     return Intl.message(
-      'Almacén',
+      'Warehouse',
       name: 'warehouse',
       desc: '',
       args: [],
     );
   }
 
-  /// `El lugar donde terminan tus cosas cuando decides que son demasiado valiosas para tirarlas. Un espacio grande y organizado para almacenar y gestionar tus recursos de manera eficiente. Aumenta enormemente la capacidad de almacenamiento de tus cartas.`
+  /// `The place where your stuff ends up when you decide it's too valuable to throw away. A large, organized space to store and manage your resources efficiently. Greatly increases your card storage capacity.`
   String get warehouseDescription {
     return Intl.message(
-      'El lugar donde terminan tus cosas cuando decides que son demasiado valiosas para tirarlas. Un espacio grande y organizado para almacenar y gestionar tus recursos de manera eficiente. Aumenta enormemente la capacidad de almacenamiento de tus cartas.',
+      'The place where your stuff ends up when you decide it\'s too valuable to throw away. A large, organized space to store and manage your resources efficiently. Greatly increases your card storage capacity.',
       name: 'warehouseDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Horno`
+  /// `Furnace`
   String get furnace {
     return Intl.message(
-      'Horno',
+      'Furnace',
       name: 'furnace',
       desc: '',
       args: [],
     );
   }
 
-  /// `El escenario de las hazañas más épicas, donde los materiales se convierten en obras maestras (o desastres). Ya sea cocinando delicias suculentas o derritiendo metales y creando nuevos materiales.`
+  /// `The scene of the most epic feats, where materials become masterpieces (or disasters). Whether cooking succulent delicacies or melting metals and creating new materials.`
   String get furnaceDescription {
     return Intl.message(
-      'El escenario de las hazañas más épicas, donde los materiales se convierten en obras maestras (o desastres). Ya sea cocinando delicias suculentas o derritiendo metales y creando nuevos materiales.',
+      'The scene of the most epic feats, where materials become masterpieces (or disasters). Whether cooking succulent delicacies or melting metals and creating new materials.',
       name: 'furnaceDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Mesa de Trabajo`
+  /// `Crafting Table`
   String get craftingTable {
     return Intl.message(
-      'Mesa de Trabajo',
+      'Crafting Table',
       name: 'craftingTable',
       desc: '',
       args: [],
     );
   }
 
-  /// `El epicentro de la creación en tu aldea. Aquí, las ideas se convierten en realidad. Desde simples estantes hasta estructuras complejas, todo comienza aquí.`
+  /// `The epicenter of creation in your village. Here, ideas become reality. From simple shelves to complex structures, it all starts here.`
   String get craftingTableDescription {
     return Intl.message(
-      'El epicentro de la creación en tu aldea. Aquí, las ideas se convierten en realidad. Desde simples estantes hasta estructuras complejas, todo comienza aquí.',
+      'The epicenter of creation in your village. Here, ideas become reality. From simple shelves to complex structures, it all starts here.',
       name: 'craftingTableDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Aserradero`
+  /// `Sawmill`
   String get sawmill {
     return Intl.message(
-      'Aserradero',
+      'Sawmill',
       name: 'sawmill',
       desc: '',
       args: [],
     );
   }
 
-  /// `El taller de madera, donde los árboles sacrifican su ser para convertirse en muebles finamente elaborados... y los pájaros lloran silenciosamente por su pérdida.`
+  /// `The wood workshop, where trees sacrifice their being to become finely crafted furniture... and birds cry silently for their loss.`
   String get sawmillDescription {
     return Intl.message(
-      'El taller de madera, donde los árboles sacrifican su ser para convertirse en muebles finamente elaborados... y los pájaros lloran silenciosamente por su pérdida.',
+      'The wood workshop, where trees sacrifice their being to become finely crafted furniture... and birds cry silently for their loss.',
       name: 'sawmillDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Mesa Eléctrica`
+  /// `Electric table`
   String get electricTable {
     return Intl.message(
-      'Mesa Eléctrica',
+      'Electric table',
       name: 'electricTable',
       desc: '',
       args: [],
     );
   }
 
-  /// `Una mesa especializada equipada con herramientas y equipos para la creación de dispositivos electrónicos. Trata de no perder la paciencia cuando los cables decidan enredarse como una fiesta de serpientes.`
+  /// `A specialized table equipped with tools and equipment for the creation of electronic devices. Try not to lose patience when the wires decide to get tangled up like a snake party.`
   String get electricTableDescription {
     return Intl.message(
-      'Una mesa especializada equipada con herramientas y equipos para la creación de dispositivos electrónicos. Trata de no perder la paciencia cuando los cables decidan enredarse como una fiesta de serpientes.',
+      'A specialized table equipped with tools and equipment for the creation of electronic devices. Try not to lose patience when the wires decide to get tangled up like a snake party.',
       name: 'electricTableDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Panel Solar`
+  /// `Solar panel`
   String get solarPanel {
     return Intl.message(
-      'Panel Solar',
+      'Solar panel',
       name: 'solarPanel',
       desc: '',
       args: [],
     );
   }
 
-  /// `Un panel solar diseñado para capturar la energía solar y convertirla en una fuente de energía limpia y renovable que aprovecha la luz del sol para generar electricidad y reducir la dependencia de los combustibles fósiles.`
+  /// `A solar panel designed to capture solar energy and convert it into a clean, renewable energy source that harnesses sunlight to generate electricity and reduce dependence on fossil fuels.`
   String get solarPanelDescription {
     return Intl.message(
-      'Un panel solar diseñado para capturar la energía solar y convertirla en una fuente de energía limpia y renovable que aprovecha la luz del sol para generar electricidad y reducir la dependencia de los combustibles fósiles.',
+      'A solar panel designed to capture solar energy and convert it into a clean, renewable energy source that harnesses sunlight to generate electricity and reduce dependence on fossil fuels.',
       name: 'solarPanelDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Granja`
+  /// `Farm`
   String get farm {
     return Intl.message(
-      'Granja',
+      'Farm',
       name: 'farm',
       desc: '',
       args: [],
     );
   }
 
-  /// `Un terreno fértil dedicado a la producción agrícola. Cultiva alimentos esenciales de manera más eficiente para producir una variedad de alimentos frescos y saludables.`
+  /// `A plot of fertile land dedicated to agricultural production. It grows essential foods more efficiently to produce a variety of fresh and healthy foods.`
   String get farmDescription {
     return Intl.message(
-      'Un terreno fértil dedicado a la producción agrícola. Cultiva alimentos esenciales de manera más eficiente para producir una variedad de alimentos frescos y saludables.',
+      'A plot of fertile land dedicated to agricultural production. It grows essential foods more efficiently to produce a variety of fresh and healthy foods.',
       name: 'farmDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Huerto`
+  /// `Orchard`
   String get orchard {
     return Intl.message(
-      'Huerto',
+      'Orchard',
       name: 'orchard',
       desc: '',
       args: [],
     );
   }
 
-  /// `Aunque las frutas son deliciosas, esta parcela de frutas es menos eficiente que la Granja. Pero ¿quién puede resistirse a una manzana recién recogida?`
+  /// `Although the fruits are delicious, this fruit plot is less efficient than the Farm. But who can resist a freshly picked apple.`
   String get orchardDescription {
     return Intl.message(
-      'Aunque las frutas son deliciosas, esta parcela de frutas es menos eficiente que la Granja. Pero ¿quién puede resistirse a una manzana recién recogida?',
+      'Although the fruits are delicious, this fruit plot is less efficient than the Farm. But who can resist a freshly picked apple.',
       name: 'orchardDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Molino`
+  /// `Mill`
   String get mill {
     return Intl.message(
-      'Molino',
+      'Mill',
       name: 'mill',
       desc: '',
       args: [],
     );
   }
 
-  /// `Don Quijote lo odiaría, pero tus granos lo amarán. Un molino que convierte el trigo en harina, una pieza esencial de la comida.`
+  /// `Don Quixote would hate it, but your grains will love it. A mill that turns wheat into flour, an essential piece of food.`
   String get millDescription {
     return Intl.message(
-      'Don Quijote lo odiaría, pero tus granos lo amarán. Un molino que convierte el trigo en harina, una pieza esencial de la comida.',
+      'Don Quixote would hate it, but your grains will love it. A mill that turns wheat into flour, an essential piece of food.',
       name: 'millDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Invernadero`
+  /// `Greenhouse`
   String get greenhouse {
     return Intl.message(
-      'Invernadero',
+      'Greenhouse',
       name: 'greenhouse',
       desc: '',
       args: [],
     );
   }
 
-  /// `Un invernadero donde las plantas prosperan como si estuvieran en un día de spa, empapándose de los rayos del sol y sorbiendo cócteles de nutrientes. Mejora la producción de cultivos, permitiéndote cultivar plantas de manera más efectiva.`
+  /// `A greenhouse where plants thrive like they're at a spa day, soaking in sun rays and sipping on nutrient cocktails. Improves crop production, allowing you to grow plants more effectively.`
   String get greenhouseDescription {
     return Intl.message(
-      'Un invernadero donde las plantas prosperan como si estuvieran en un día de spa, empapándose de los rayos del sol y sorbiendo cócteles de nutrientes. Mejora la producción de cultivos, permitiéndote cultivar plantas de manera más efectiva.',
+      'A greenhouse where plants thrive like they\'re at a spa day, soaking in sun rays and sipping on nutrient cocktails. Improves crop production, allowing you to grow plants more effectively.',
       name: 'greenhouseDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Turbina Eólica`
+  /// `Wind turbine`
   String get windTurbine {
     return Intl.message(
-      'Turbina Eólica',
+      'Wind turbine',
       name: 'windTurbine',
       desc: '',
       args: [],
     );
   }
 
-  /// `Atrapa el viento como un superhéroe atrapa villanos. Una fuente de energía limpia y renovable, capturando el poder del viento para iluminar y calentar nuestros hogares.`
+  /// `Catches wind like a superhero catches villains. A clean and renewable source of energy, capturing the power of the wind to light and heat our homes.`
   String get windTurbineDescription {
     return Intl.message(
-      'Atrapa el viento como un superhéroe atrapa villanos. Una fuente de energía limpia y renovable, capturando el poder del viento para iluminar y calentar nuestros hogares.',
+      'Catches wind like a superhero catches villains. A clean and renewable source of energy, capturing the power of the wind to light and heat our homes.',
       name: 'windTurbineDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Reciclador`
+  /// `Recycler`
   String get recycler {
     return Intl.message(
-      'Reciclador',
+      'Recycler',
       name: 'recycler',
       desc: '',
       args: [],
     );
   }
 
-  /// `Un Centro de Reciclaje avanzado que te permite desmontar y reutilizar las cartas que ya no necesitas, devolviéndote los materiales para proyectos futuros. Un botón 'deshacer' para construcciones no deseadas.`
+  /// `An advanced Recycling Center that allows you to disassemble and reuse the cards you no longer need, giving you back the materials for future projects. An 'undo' button for unwanted constructions.`
   String get recyclerDescription {
     return Intl.message(
-      'Un Centro de Reciclaje avanzado que te permite desmontar y reutilizar las cartas que ya no necesitas, devolviéndote los materiales para proyectos futuros. Un botón \'deshacer\' para construcciones no deseadas.',
+      'An advanced Recycling Center that allows you to disassemble and reuse the cards you no longer need, giving you back the materials for future projects. An \'undo\' button for unwanted constructions.',
       name: 'recyclerDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Compostador`
+  /// `Composter`
   String get composter {
     return Intl.message(
-      'Compostador',
+      'Composter',
       name: 'composter',
       desc: '',
       args: [],
     );
   }
 
-  /// `Donde los residuos van a repensar sus elecciones de vida. Una herramienta para convertir los desechos orgánicos en compost, una práctica esencial para la agricultura sostenible.`
+  /// `Where waste goes to rethink your life choices. A tool to convert organic waste into compost, an essential practice for sustainable agriculture.`
   String get composterDescription {
     return Intl.message(
-      'Donde los residuos van a repensar sus elecciones de vida. Una herramienta para convertir los desechos orgánicos en compost, una práctica esencial para la agricultura sostenible.',
+      'Where waste goes to rethink your life choices. A tool to convert organic waste into compost, an essential practice for sustainable agriculture.',
       name: 'composterDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Fogata`
+  /// `Campfire`
   String get campfire {
     return Intl.message(
-      'Fogata',
+      'Campfire',
       name: 'campfire',
       desc: '',
       args: [],
     );
   }
 
-  /// `Una fuente de calor y un medio para cocinar alimentos al estilo tradicional del pueblo, aunque puede ser menos eficiente que un horno moderno. ¿Qué tal una ronda de malvaviscos quemados?`
+  /// `A heat source and a means of cooking food in the traditional village way, although it may be less efficient than a modern furnace. How about a round of burnt marshmallows?`
   String get campfireDescription {
     return Intl.message(
-      'Una fuente de calor y un medio para cocinar alimentos al estilo tradicional del pueblo, aunque puede ser menos eficiente que un horno moderno. ¿Qué tal una ronda de malvaviscos quemados?',
+      'A heat source and a means of cooking food in the traditional village way, although it may be less efficient than a modern furnace. How about a round of burnt marshmallows?',
       name: 'campfireDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Perro`
+  /// `Dog`
   String get dog {
     return Intl.message(
-      'Perro',
+      'Dog',
       name: 'dog',
       desc: '',
       args: [],
     );
   }
 
-  /// `¡El mejor amigo del hombre! Ladra, come, te da carne para tu estofado ¡y mejora tu humor! Un todo en uno peludo.`
+  /// `Man's best friend! He barks, eats, gives you meat for your stew and improves your mood! A furry all-in-one.`
   String get dogDescription {
     return Intl.message(
-      '¡El mejor amigo del hombre! Ladra, come, te da carne para tu estofado ¡y mejora tu humor! Un todo en uno peludo.',
+      'Man\'s best friend! He barks, eats, gives you meat for your stew and improves your mood! A furry all-in-one.',
       name: 'dogDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Vaca`
+  /// `Cow`
   String get cow {
     return Intl.message(
-      'Vaca',
+      'Cow',
       name: 'cow',
       desc: '',
       args: [],
     );
   }
 
-  /// `Este noble animal produce leche y estiércol a un ritmo impresionante. Muchas gracias muuuuucha vaca.`
+  /// `This noble animal produces milk and manure at an impressive rate. Thank you very muuuuuch cow.`
   String get cowDescription {
     return Intl.message(
-      'Este noble animal produce leche y estiércol a un ritmo impresionante. Muchas gracias muuuuucha vaca.',
+      'This noble animal produces milk and manure at an impressive rate. Thank you very muuuuuch cow.',
       name: 'cowDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Gallina`
+  /// `Hen`
   String get hen {
     return Intl.message(
-      'Gallina',
+      'Hen',
       name: 'hen',
       desc: '',
       args: [],
     );
   }
 
-  /// `Una gallina doméstica que proporciona un suministro constante de huevos frescos. La gallina que pone huevos de oro. Bueno, no exactamente dorados, ¡pero casi!`
+  /// `A domestic hen that provides a steady supply of fresh eggs. The hen that lays golden eggs. Well, not exactly golden, but almost!`
   String get henDescription {
     return Intl.message(
-      'Una gallina doméstica que proporciona un suministro constante de huevos frescos. La gallina que pone huevos de oro. Bueno, no exactamente dorados, ¡pero casi!',
+      'A domestic hen that provides a steady supply of fresh eggs. The hen that lays golden eggs. Well, not exactly golden, but almost!',
       name: 'henDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Árbol`
+  /// `Tree`
   String get tree {
     return Intl.message(
-      'Árbol',
+      'Tree',
       name: 'tree',
       desc: '',
       args: [],
     );
   }
 
-  /// `Un símbolo de vida y naturaleza que proporciona madera para construir y oxígeno para respirar. Cuídalos como si fueran tus tesoros más preciados.`
+  /// `A symbol of life and nature that provides wood to build with and oxygen to breathe. Take care of them as if they were your most precious treasures.`
   String get treeDescription {
     return Intl.message(
-      'Un símbolo de vida y naturaleza que proporciona madera para construir y oxígeno para respirar. Cuídalos como si fueran tus tesoros más preciados.',
+      'A symbol of life and nature that provides wood to build with and oxygen to breathe. Take care of them as if they were your most precious treasures.',
       name: 'treeDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Energía`
+  /// `Energy`
   String get energy {
     return Intl.message(
-      'Energía',
+      'Energy',
       name: 'energy',
       desc: '',
       args: [],
     );
   }
 
-  /// `La chispa que pone en marcha el motor de la aldea, solo ten cuidado de no encender accidentalmente la aldea. Un impulso de energía para mantener tus máquinas en funcionamiento y tu mente activa. Aumenta la duración del día en 20 segundos.`
+  /// `The spark that starts the village engine just be careful not to accidentally ignite the village. An energy boost to keep your machines running and your mind moving. Increases the length of the day by 20 seconds.`
   String get energyDescription {
     return Intl.message(
-      'La chispa que pone en marcha el motor de la aldea, solo ten cuidado de no encender accidentalmente la aldea. Un impulso de energía para mantener tus máquinas en funcionamiento y tu mente activa. Aumenta la duración del día en 20 segundos.',
+      'The spark that starts the village engine just be careful not to accidentally ignite the village. An energy boost to keep your machines running and your mind moving. Increases the length of the day by 20 seconds.',
       name: 'energyDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Crazy Cave Burgers`
+  /// `CC Burgers`
   String get ccBurgers {
     return Intl.message(
-      'Crazy Cave Burgers',
+      'CC Burgers',
       name: 'ccBurgers',
       desc: '',
       args: [],
     );
   }
 
-  /// `Las hamburguesas de la cueva loca: los mejores amigos del estómago y los peores enemigos de la dieta. Una solución rápida para esos días ocupados, incluso si su contenido nutricional es tan misterioso como la cueva de la que provienen.`
+  /// `Crazy Cave Burgers: The stomach's best friends and the diet's worst enemies. A quick fix for those busy days, even if their nutritional content is as mysterious as the cave they come from.`
   String get ccBurgersDescription {
     return Intl.message(
-      'Las hamburguesas de la cueva loca: los mejores amigos del estómago y los peores enemigos de la dieta. Una solución rápida para esos días ocupados, incluso si su contenido nutricional es tan misterioso como la cueva de la que provienen.',
+      'Crazy Cave Burgers: The stomach\'s best friends and the diet\'s worst enemies. A quick fix for those busy days, even if their nutritional content is as mysterious as the cave they come from.',
       name: 'ccBurgersDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Empleo`
+  /// `Employment`
   String get employment {
     return Intl.message(
-      'Empleo',
+      'Employment',
       name: 'employment',
       desc: '',
       args: [],
     );
   }
 
-  /// `¡El sistema de 9 a 5 de la aldea! Si estás buscando monedas, aquí es donde haces cola para intercambiar tiempo por esas codiciadas monedas del juego. Incluso hay rumores de que el perro usa corbata los viernes.`
+  /// `The village's 9 to 5 system! If you're looking for coins, this is where you line up to trade time for those coveted game coins! There are even rumors that the dog wears a tie on Fridays.`
   String get employmentDescription {
     return Intl.message(
-      '¡El sistema de 9 a 5 de la aldea! Si estás buscando monedas, aquí es donde haces cola para intercambiar tiempo por esas codiciadas monedas del juego. Incluso hay rumores de que el perro usa corbata los viernes.',
+      'The village\'s 9 to 5 system! If you\'re looking for coins, this is where you line up to trade time for those coveted game coins! There are even rumors that the dog wears a tie on Fridays.',
       name: 'employmentDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Planta de Carbón`
+  /// `Coal Plant`
   String get coalPlant {
     return Intl.message(
-      'Planta de Carbón',
+      'Coal Plant',
       name: 'coalPlant',
       desc: '',
       args: [],
     );
   }
 
-  /// `Central Eléctrica de Carbón: una fuente de energía efectiva pero poco ecológica. Cuidado con el carbón, puede ensuciar tus pulmones y tu conciencia.`
+  /// `Coal-Fired Power Plant: An environmentally unfriendly but effective energy source. Beware of coal, it can taint your lungs and your conscience.`
   String get coalPlantDescription {
     return Intl.message(
-      'Central Eléctrica de Carbón: una fuente de energía efectiva pero poco ecológica. Cuidado con el carbón, puede ensuciar tus pulmones y tu conciencia.',
+      'Coal-Fired Power Plant: An environmentally unfriendly but effective energy source. Beware of coal, it can taint your lungs and your conscience.',
       name: 'coalPlantDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Árbol de Manzana`
+  /// `Apple Tree`
   String get appleTree {
     return Intl.message(
-      'Árbol de Manzana',
+      'Apple Tree',
       name: 'appleTree',
       desc: '',
       args: [],
     );
   }
 
-  /// `Este manzano es tan generoso que incluso los gusanos tienen tarjetas de membresía. ¡Las manzanas están fuera de este mundo!`
+  /// `This apple tree is so generous that even the worms have membership cards. The apples are out of this world!`
   String get appleTreeDescription {
     return Intl.message(
-      'Este manzano es tan generoso que incluso los gusanos tienen tarjetas de membresía. ¡Las manzanas están fuera de este mundo!',
+      'This apple tree is so generous that even the worms have membership cards. The apples are out of this world!',
       name: 'appleTreeDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Árbol de Banano`
+  /// `Banana Tree`
   String get bananaTree {
     return Intl.message(
-      'Árbol de Banano',
+      'Banana Tree',
       name: 'bananaTree',
       desc: '',
       args: [],
     );
   }
 
-  /// `Un árbol tropical que produce una fruta que produce muchos resbalones en el mundo, rica en potasio y otros nutrientes esenciales. Una adición sabrosa y saludable a tu dieta diaria.`
+  /// `A tropical tree that produces a fruit that produces many slips in the world, rich in potassium and other essential nutrients. A tasty and healthy addition to your daily diet.`
   String get bananaTreeDescription {
     return Intl.message(
-      'Un árbol tropical que produce una fruta que produce muchos resbalones en el mundo, rica en potasio y otros nutrientes esenciales. Una adición sabrosa y saludable a tu dieta diaria.',
+      'A tropical tree that produces a fruit that produces many slips in the world, rich in potassium and other essential nutrients. A tasty and healthy addition to your daily diet.',
       name: 'bananaTreeDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Estiércol`
+  /// `Poop`
   String get poop {
     return Intl.message(
-      'Estiércol',
+      'Poop',
       name: 'poop',
       desc: '',
       args: [],
     );
   }
 
-  /// `El ciclo de la vida se completa con este humilde regalo de la naturaleza. Más allá de su apariencia modesta, el estiércol es el guardián del equilibrio ecológico y la fertilidad del suelo. ¿Qué secretos podrían estar enterrados bajo su superficie?`
+  /// `The cycle of life is completed by this humble gift of nature. Beyond its modest appearance, manure is the guardian of ecological balance and soil fertility. What secrets might be buried beneath its surface?`
   String get poopDescription {
     return Intl.message(
-      'El ciclo de la vida se completa con este humilde regalo de la naturaleza. Más allá de su apariencia modesta, el estiércol es el guardián del equilibrio ecológico y la fertilidad del suelo. ¿Qué secretos podrían estar enterrados bajo su superficie?',
+      'The cycle of life is completed by this humble gift of nature. Beyond its modest appearance, manure is the guardian of ecological balance and soil fertility. What secrets might be buried beneath its surface?',
       name: 'poopDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tablas`
+  /// `Planks`
   String get planks {
     return Intl.message(
-      'Tablas',
+      'Planks',
       name: 'planks',
       desc: '',
       args: [],
     );
   }
 
-  /// `Un elemento esencial en la construcción, las tablas son versátiles e imprescindibles para erigir estructuras fuertes y duraderas.`
+  /// `An essential element in construction, boards are versatile and essential for erecting strong and durable structures.`
   String get planksDescription {
     return Intl.message(
-      'Un elemento esencial en la construcción, las tablas son versátiles e imprescindibles para erigir estructuras fuertes y duraderas.',
+      'An essential element in construction, boards are versatile and essential for erecting strong and durable structures.',
       name: 'planksDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Paquete de Comida`
+  /// `Ideas`
+  String get ideas {
+    return Intl.message(
+      'Ideas',
+      name: 'ideas',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unlocked {ideas}/{allIdeas} ideas.`
+  String unlock(Object ideas, Object allIdeas) {
+    return Intl.message(
+      'Unlocked $ideas/$allIdeas ideas.',
+      name: 'unlock',
+      desc: '',
+      args: [ideas, allIdeas],
+    );
+  }
+
+  /// `Probabilities`
+  String get probabilities {
+    return Intl.message(
+      'Probabilities',
+      name: 'probabilities',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Food Pack`
   String get foodPack {
     return Intl.message(
-      'Paquete de Comida',
+      'Food Pack',
       name: 'foodPack',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tarjeta de Comida`
+  /// `Food Card`
   String get foodCard {
     return Intl.message(
-      'Tarjeta de Comida',
+      'Food Card',
       name: 'foodCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `Proporciona 3 tarjetas de comida`
+  /// `Provide 3 food cards`
   String get foodPackDescription {
     return Intl.message(
-      'Proporciona 3 tarjetas de comida',
+      'Provide 3 food cards',
       name: 'foodPackDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Paquete de Material`
+  /// `Material Pack`
   String get materialPack {
     return Intl.message(
-      'Paquete de Material',
+      'Material Pack',
       name: 'materialPack',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tarjeta de Material`
+  /// `Material Card`
   String get materialCard {
     return Intl.message(
-      'Tarjeta de Material',
+      'Material Card',
       name: 'materialCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `Proporciona 3 tarjetas de material`
+  /// `Provide 3 material cards`
   String get materialPackDescription {
     return Intl.message(
-      'Proporciona 3 tarjetas de material',
+      'Provide 3 material cards',
       name: 'materialPackDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Pack inicial`
+  /// `Initial Pack`
   String get initialPack {
     return Intl.message(
-      'Pack inicial',
+      'Initial Pack',
       name: 'initialPack',
       desc: '',
       args: [],
     );
   }
 
-  /// `Pack inicial para comenzar tu aventura`
+  /// `Initial pack to start your adventure`
   String get initialPackSubtitle {
     return Intl.message(
-      'Pack inicial para comenzar tu aventura',
+      'Initial pack to start your adventure',
       name: 'initialPackSubtitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Pack inicial para empezar tu aventura`
+  /// `Initial pack to start your adventure`
   String get initialPackDescription {
     return Intl.message(
-      'Pack inicial para empezar tu aventura',
+      'Initial pack to start your adventure',
       name: 'initialPackDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Salario`
+  /// `Salary`
   String get salary {
     return Intl.message(
-      'Salario',
+      'Salary',
       name: 'salary',
       desc: '',
       args: [],
     );
   }
 
-  /// `Salario`
+  /// `Salary`
   String get salaryDescription {
     return Intl.message(
-      'Salario',
+      'Salary',
       name: 'salaryDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Paquete de Estructura`
+  /// `Structure Pack`
   String get structurePack {
     return Intl.message(
-      'Paquete de Estructura',
+      'Structure Pack',
       name: 'structurePack',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tarjeta de Estructura`
+  /// `Structure Card`
   String get structureCard {
     return Intl.message(
-      'Tarjeta de Estructura',
+      'Structure Card',
       name: 'structureCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `Proporciona 3 tarjetas de estructura`
+  /// `Provide 3 structure cards`
   String get structurePackDescription {
     return Intl.message(
-      'Proporciona 3 tarjetas de estructura',
+      'Provide 3 structure cards',
       name: 'structurePackDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Paquete de Ideas`
+  /// `Idea Pack`
   String get ideaPack {
     return Intl.message(
-      'Paquete de Ideas',
+      'Idea Pack',
       name: 'ideaPack',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tarjeta de Idea`
+  /// `Idea Card`
   String get ideaCard {
     return Intl.message(
-      'Tarjeta de Idea',
+      'Idea Card',
       name: 'ideaCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `Proporciona 3 tarjetas de idea`
+  /// `Provide 3 idea cards`
   String get ideaPackDescription {
     return Intl.message(
-      'Proporciona 3 tarjetas de idea',
+      'Provide 3 idea cards',
       name: 'ideaPackDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Paquete de Naturaleza`
+  /// `Nature Pack`
   String get naturePack {
     return Intl.message(
-      'Paquete de Naturaleza',
+      'Nature Pack',
       name: 'naturePack',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tarjeta de Naturaleza`
+  /// `Nature Card`
   String get natureCard {
     return Intl.message(
-      'Tarjeta de Naturaleza',
+      'Nature Card',
       name: 'natureCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `Proporciona 3 tarjetas de naturaleza`
+  /// `Provide 3 nature cards`
   String get naturePackDescription {
     return Intl.message(
-      'Proporciona 3 tarjetas de naturaleza',
+      'Provide 3 nature cards',
       name: 'naturePackDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Lingotes de Hierro`
+  /// `Idea: Iron Ingots`
   String get ideaIronIngots {
     return Intl.message(
-      'Idea: Lingotes de Hierro',
+      'Idea: Iron Ingots',
       name: 'ideaIronIngots',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n2 x Hierro\n1 x Carbón\n1 x Horno`
+  /// `The crafting is:\n2 x Iron\n1 x Coal\n1 x Furnace`
   String get ideaIronIngotsDescription {
     return Intl.message(
-      'La elaboración es:\n2 x Hierro\n1 x Carbón\n1 x Horno',
+      'The crafting is:\n2 x Iron\n1 x Coal\n1 x Furnace',
       name: 'ideaIronIngotsDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Silicio`
+  /// `Idea: Silicon`
   String get ideaSilicon {
     return Intl.message(
-      'Idea: Silicio',
+      'Idea: Silicon',
       name: 'ideaSilicon',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n6 x Carbón\n1 x Horno`
+  /// `The crafting is:\n6 x Coal\n1 x Furnace`
   String get ideaSiliconDescription {
     return Intl.message(
-      'La elaboración es:\n6 x Carbón\n1 x Horno',
+      'The crafting is:\n6 x Coal\n1 x Furnace',
       name: 'ideaSiliconDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Cable de Cobre`
+  /// `Idea: Copper Line`
   String get ideaCopperLine {
     return Intl.message(
-      'Idea: Cable de Cobre',
+      'Idea: Copper Line',
       name: 'ideaCopperLine',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n2 x Cobre\n1 x Carbón\n1 x Horno\n1 x Mesa de Trabajo`
+  /// `The crafting is:\n2 x Cooper\n1 x Coal\n1 x Furnace\n1 x Crafting Table\n1 x Human`
   String get ideaCopperLineDescription {
     return Intl.message(
-      'La elaboración es:\n2 x Cobre\n1 x Carbón\n1 x Horno\n1 x Mesa de Trabajo',
+      'The crafting is:\n2 x Cooper\n1 x Coal\n1 x Furnace\n1 x Crafting Table\n1 x Human',
       name: 'ideaCopperLineDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Aislantes`
-  String get ideaInsulators {
+  /// `Idea: Insulator`
+  String get ideaInsulator {
     return Intl.message(
-      'Idea: Aislantes',
-      name: 'ideaInsulators',
+      'Idea: Insulator',
+      name: 'ideaInsulator',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n1 x Plástico\n1 x Vidrio\n1 x Mesa de Trabajo`
-  String get ideaInsulatorsDescription {
+  /// `The crafting is:\n2 x Plastic\n1 x Coal\n1 x Furnace\n1 x Crafting Table\n1 x Human`
+  String get ideaInsulatorDescription {
     return Intl.message(
-      'La elaboración es:\n1 x Plástico\n1 x Vidrio\n1 x Mesa de Trabajo',
-      name: 'ideaInsulatorsDescription',
+      'The crafting is:\n2 x Plastic\n1 x Coal\n1 x Furnace\n1 x Crafting Table\n1 x Human',
+      name: 'ideaInsulatorDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Celdas Solares`
-  String get ideaSolarCells {
+  /// `Idea: Solar cells`
+  String get ideaSolarcells {
     return Intl.message(
-      'Idea: Celdas Solares',
-      name: 'ideaSolarCells',
+      'Idea: Solar cells',
+      name: 'ideaSolarcells',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n5 x Silicio\n2 x Cobre\n1 x Mesa Eléctrica`
-  String get ideaSolarCellsDescription {
+  /// `The crafting is:\n4 x Silicon\n1 x Electronic Table\n1 x Human`
+  String get ideaSolarcellsDescription {
     return Intl.message(
-      'La elaboración es:\n5 x Silicio\n2 x Cobre\n1 x Mesa Eléctrica',
-      name: 'ideaSolarCellsDescription',
+      'The crafting is:\n4 x Silicon\n1 x Electronic Table\n1 x Human',
+      name: 'ideaSolarcellsDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Estructura`
+  /// `Idea: Structure`
   String get ideaStructure {
     return Intl.message(
-      'Idea: Estructura',
+      'Idea: Structure',
       name: 'ideaStructure',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n10 x Madera\n5 x Hierro Lingotes\n1 x Sierra Eléctrica`
+  /// `The crafting is:\n2 x wood\n2 x Iron\n1 x Crafting Table\n1 x Human`
   String get ideaStructureDescription {
     return Intl.message(
-      'La elaboración es:\n10 x Madera\n5 x Hierro Lingotes\n1 x Sierra Eléctrica',
+      'The crafting is:\n2 x wood\n2 x Iron\n1 x Crafting Table\n1 x Human',
       name: 'ideaStructureDescription',
       desc: '',
       args: [],
@@ -2400,690 +2456,690 @@ class L10n {
     );
   }
 
-  /// `La elaboración es:\n2 x Cobre Lineas\n1 x Aislantes\n1 x Mesa de Trabajo`
+  /// `The crafting is:\n1 x Cooper line\n1 x Insulators\n1 x Crafting Table\n1 x Human`
   String get ideaCablesDescription {
     return Intl.message(
-      'La elaboración es:\n2 x Cobre Lineas\n1 x Aislantes\n1 x Mesa de Trabajo',
+      'The crafting is:\n1 x Cooper line\n1 x Insulators\n1 x Crafting Table\n1 x Human',
       name: 'ideaCablesDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Estofado`
+  /// `Idea: Stew`
   String get ideaStew {
     return Intl.message(
-      'Idea: Estofado',
+      'Idea: Stew',
       name: 'ideaStew',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n1 x Carne\n1 x Papa\n1 x Zanahoria\n1 x Agua\n1 x (Horno + Carbón)/Fogata`
+  /// `The crafting is:\n1 x Meat\n1 x Potato\n1 x Carrot\n1 x Water\n1 x (Funarce + Coal)/Campfire`
   String get ideaStewDescription {
     return Intl.message(
-      'La elaboración es:\n1 x Carne\n1 x Papa\n1 x Zanahoria\n1 x Agua\n1 x (Horno + Carbón)/Fogata',
+      'The crafting is:\n1 x Meat\n1 x Potato\n1 x Carrot\n1 x Water\n1 x (Funarce + Coal)/Campfire',
       name: 'ideaStewDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Carne Frita`
+  /// `Idea: Fried Meat`
   String get ideaFriedMeat {
     return Intl.message(
-      'Idea: Carne Frita',
+      'Idea: Fried Meat',
       name: 'ideaFriedMeat',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n1 x Carne\n1 x (Horno + Carbón)/Fogata`
+  /// `The crafting is:\n1 x Meat\n1 x (Funarce + Coal)/Campfire`
   String get ideaFriedMeatDescription {
     return Intl.message(
-      'La elaboración es:\n1 x Carne\n1 x (Horno + Carbón)/Fogata',
+      'The crafting is:\n1 x Meat\n1 x (Funarce + Coal)/Campfire',
       name: 'ideaFriedMeatDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Harina`
+  /// `Idea: Flour`
   String get ideaFlour {
     return Intl.message(
-      'Idea: Harina',
+      'Idea: Flour',
       name: 'ideaFlour',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n1 x Trigo\n1 x Molino\n1 x Humano`
+  /// `The crafting is:\n1 x Wheat\n1 x Mill\n1 x Human`
   String get ideaFlourDescription {
     return Intl.message(
-      'La elaboración es:\n1 x Trigo\n1 x Molino\n1 x Humano',
+      'The crafting is:\n1 x Wheat\n1 x Mill\n1 x Human',
       name: 'ideaFlourDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Pan`
+  /// `Idea: Bread`
   String get ideaBread {
     return Intl.message(
-      'Idea: Pan',
+      'Idea: Bread',
       name: 'ideaBread',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n1 x Harina\n1 x Agua\n1 x (Horno + Carbón)/Fogata`
+  /// `The crafting is:\n1 x Flour\n1 x Water\n1 x (Funarce + Coal)/Campfire`
   String get ideaBreadDescription {
     return Intl.message(
-      'La elaboración es:\n1 x Harina\n1 x Agua\n1 x (Horno + Carbón)/Fogata',
+      'The crafting is:\n1 x Flour\n1 x Water\n1 x (Funarce + Coal)/Campfire',
       name: 'ideaBreadDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Pastel`
+  /// `Idea: Cake`
   String get ideaCake {
     return Intl.message(
-      'Idea: Pastel',
+      'Idea: Cake',
       name: 'ideaCake',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n3 x Harina\n3 x Huevo\n3 x Leche\n1 x (Horno + Carbón)/Fogata`
+  /// `The crafting is:\n3 x Flour\n3 x Egg\n3 x Milk\n1 x (Funarce + Coal)/Campfire`
   String get ideaCakeDescription {
     return Intl.message(
-      'La elaboración es:\n3 x Harina\n3 x Huevo\n3 x Leche\n1 x (Horno + Carbón)/Fogata',
+      'The crafting is:\n3 x Flour\n3 x Egg\n3 x Milk\n1 x (Funarce + Coal)/Campfire',
       name: 'ideaCakeDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Ensalada Saludable`
+  /// `Idea: Healthy Salad`
   String get ideaHealthySalad {
     return Intl.message(
-      'Idea: Ensalada Saludable',
+      'Idea: Healthy Salad',
       name: 'ideaHealthySalad',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n1 x Zanahoria\n1 x Papa\n1 x Manzana\n1 x Banano\n1 x Mesa de trabajo\n1 x Humano`
+  /// `The crafting is:\n1 x Carrot\n1 x Potato\n1 x Apple\n1 x Banana\n1 x Crafting Table\n1 x Human`
   String get ideaHealthySaladDescription {
     return Intl.message(
-      'La elaboración es:\n1 x Zanahoria\n1 x Papa\n1 x Manzana\n1 x Banano\n1 x Mesa de trabajo\n1 x Humano',
+      'The crafting is:\n1 x Carrot\n1 x Potato\n1 x Apple\n1 x Banana\n1 x Crafting Table\n1 x Human',
       name: 'ideaHealthySaladDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Batido de Frutas`
+  /// `Idea: Fruit Shake`
   String get ideaFruitShake {
     return Intl.message(
-      'Idea: Batido de Frutas',
+      'Idea: Fruit Shake',
       name: 'ideaFruitShake',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n1 x Manzana\n1 x Banano\n1 x Leche\n1 x Mesa de trabajo\n1 x Humano`
+  /// `The crafting is:\n1 x Apple\n1 x Banana\n1 x Milk\n1 x Crafting Table\n1 x Human`
   String get ideaFruitShakeDescription {
     return Intl.message(
-      'La elaboración es:\n1 x Manzana\n1 x Banano\n1 x Leche\n1 x Mesa de trabajo\n1 x Humano',
+      'The crafting is:\n1 x Apple\n1 x Banana\n1 x Milk\n1 x Crafting Table\n1 x Human',
       name: 'ideaFruitShakeDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Tortilla de Patata`
+  /// `Idea: Potato Omelet`
   String get ideaPotatoOmelet {
     return Intl.message(
-      'Idea: Tortilla de Patata',
+      'Idea: Potato Omelet',
       name: 'ideaPotatoOmelet',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n2 x Papa\n3 x Huevo\n1 x Harina\n1 x Leche\n1 x (Horno + Carbón)/Fogata`
+  /// `The crafting is:\n2 x Potato\n3 x Egg\n1 x Flour\n1 x Milk\n1 x (Funarce + Coal)/Campfire`
   String get ideaPotatoOmeletDescription {
     return Intl.message(
-      'La elaboración es:\n2 x Papa\n3 x Huevo\n1 x Harina\n1 x Leche\n1 x (Horno + Carbón)/Fogata',
+      'The crafting is:\n2 x Potato\n3 x Egg\n1 x Flour\n1 x Milk\n1 x (Funarce + Coal)/Campfire',
       name: 'ideaPotatoOmeletDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Tarta de Manzana`
+  /// `Idea: Apple Pie`
   String get ideaApplePie {
     return Intl.message(
-      'Idea: Tarta de Manzana',
+      'Idea: Apple Pie',
       name: 'ideaApplePie',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n2 x Manzana\n2 x Harina\n2 x Huevo\n1 x Leche\n1 x (Horno + Carbón)/Fogata`
+  /// `The crafting is:\n2 x Apple\n2 x Flour\n2 x Egg\n1 x Milk\n1 x (Funarce + Coal)/Campfire`
   String get ideaApplePieDescription {
     return Intl.message(
-      'La elaboración es:\n2 x Manzana\n2 x Harina\n2 x Huevo\n1 x Leche\n1 x (Horno + Carbón)/Fogata',
+      'The crafting is:\n2 x Apple\n2 x Flour\n2 x Egg\n1 x Milk\n1 x (Funarce + Coal)/Campfire',
       name: 'ideaApplePieDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Banquete Granjero`
+  /// `Idea: Farm Feast`
   String get ideaFarmFeast {
     return Intl.message(
-      'Idea: Banquete Granjero',
+      'Idea: Farm Feast',
       name: 'ideaFarmFeast',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n1 x Estofado\n1 x Ensalada Saludable\n1 x Tortilla de Patata\n1 x Tarta de Manzana\n1 x Batido de Frutas\n1 x Pastel\n1 x (Horno + Carbón)/Fogata`
+  /// `The crafting is:\n1 x Stew\n1 x Healthy Salad\n1 x Potato Omelet\n1 x Apple Pie\n1 x Fruit Shake\n1 x Cake\n1 x (Funarce + Coal)/Campfire`
   String get ideaFarmFeastDescription {
     return Intl.message(
-      'La elaboración es:\n1 x Estofado\n1 x Ensalada Saludable\n1 x Tortilla de Patata\n1 x Tarta de Manzana\n1 x Batido de Frutas\n1 x Pastel\n1 x (Horno + Carbón)/Fogata',
+      'The crafting is:\n1 x Stew\n1 x Healthy Salad\n1 x Potato Omelet\n1 x Apple Pie\n1 x Fruit Shake\n1 x Cake\n1 x (Funarce + Coal)/Campfire',
       name: 'ideaFarmFeastDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Baúl`
+  /// `Idea: Baul`
   String get ideaBaul {
     return Intl.message(
-      'Idea: Baúl',
+      'Idea: Baul',
       name: 'ideaBaul',
       desc: '',
       args: [],
     );
   }
 
-  /// `Proporciona 5 espacios de tarjetas adicionales.\nLa elaboración es:\n2 x Estructuras\n2 x Tablas, \n1 x Mesa de trabajo\n1 x Humano`
+  /// `Provide 5 more card slot.\nThe crafting is:\n2 x Structures\n2 x Planks, \n1 x Crafting Table\n1 x Human`
   String get ideaBaulDescription {
     return Intl.message(
-      'Proporciona 5 espacios de tarjetas adicionales.\nLa elaboración es:\n2 x Estructuras\n2 x Tablas, \n1 x Mesa de trabajo\n1 x Humano',
+      'Provide 5 more card slot.\nThe crafting is:\n2 x Structures\n2 x Planks, \n1 x Crafting Table\n1 x Human',
       name: 'ideaBaulDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Almacén`
+  /// `Idea: Warehouse`
   String get ideaWarehouse {
     return Intl.message(
-      'Idea: Almacén',
+      'Idea: Warehouse',
       name: 'ideaWarehouse',
       desc: '',
       args: [],
     );
   }
 
-  /// `Proporciona 15 espacios de tarjetas adicionales.\nLa elaboración es:\n4 x Estructuras\n4 x Tablas\n1 x Mesa de trabajo\n1 x Humano`
+  /// `Provide 15 more card slot.\nThe crafting is:\n4 x Structures\n4 x Planks\n1 x Crafting Table\n1 x Human`
   String get ideaWarehouseDescription {
     return Intl.message(
-      'Proporciona 15 espacios de tarjetas adicionales.\nLa elaboración es:\n4 x Estructuras\n4 x Tablas\n1 x Mesa de trabajo\n1 x Humano',
+      'Provide 15 more card slot.\nThe crafting is:\n4 x Structures\n4 x Planks\n1 x Crafting Table\n1 x Human',
       name: 'ideaWarehouseDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Horno`
+  /// `Idea: Furnace`
   String get ideaFurnace {
     return Intl.message(
-      'Idea: Horno',
+      'Idea: Furnace',
       name: 'ideaFurnace',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n4 x Roca\n2 x Estructura\n1 x Mesa de trabajo\n1 x Humano`
+  /// `The crafting is:\n4 x Rock\n2 x Structure\n1 x Crafting Table\n1 x Human`
   String get ideaFurnaceDescription {
     return Intl.message(
-      'La elaboración es:\n4 x Roca\n2 x Estructura\n1 x Mesa de trabajo\n1 x Humano',
+      'The crafting is:\n4 x Rock\n2 x Structure\n1 x Crafting Table\n1 x Human',
       name: 'ideaFurnaceDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Mesa de Trabajo`
+  /// `Idea: Crafting Table`
   String get ideaCraftingTable {
     return Intl.message(
-      'Idea: Mesa de Trabajo',
+      'Idea: Crafting Table',
       name: 'ideaCraftingTable',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n4 x Madera\n1 x Humano`
+  /// `The crafting is:\n4 x Wood\n1 x Human`
   String get ideaCraftingTableDescription {
     return Intl.message(
-      'La elaboración es:\n4 x Madera\n1 x Humano',
+      'The crafting is:\n4 x Wood\n1 x Human',
       name: 'ideaCraftingTableDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Aserradero`
+  /// `Idea: Sawmill`
   String get ideaSawmill {
     return Intl.message(
-      'Idea: Aserradero',
+      'Idea: Sawmill',
       name: 'ideaSawmill',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n4 x Árbol\n3 x Hierro\n2 x Estructura\n1 x Mesa de trabajo\n1 x Humano`
+  /// `The crafting is:\n4 x Tree\n3 x Iron\n2 x Structure\n1 x Crafting Table\n1 x Human`
   String get ideaSawmillDescription {
     return Intl.message(
-      'La elaboración es:\n4 x Árbol\n3 x Hierro\n2 x Estructura\n1 x Mesa de trabajo\n1 x Humano',
+      'The crafting is:\n4 x Tree\n3 x Iron\n2 x Structure\n1 x Crafting Table\n1 x Human',
       name: 'ideaSawmillDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Mesa Electrónica`
+  /// `Idea: Electronic table`
   String get ideaElectronicTable {
     return Intl.message(
-      'Idea: Mesa Electrónica',
+      'Idea: Electronic table',
       name: 'ideaElectronicTable',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n3 x Cable\n2 x Estructura\n2 x Aislante\n2 x Mesa de trabajo\n1 x Humano`
+  /// `The crafting is:\n3 x Cable\n2 x Structure\n2 x Insulator\n2 x Crafting table\n1 x Human`
   String get ideaElectronicTableDescription {
     return Intl.message(
-      'La elaboración es:\n3 x Cable\n2 x Estructura\n2 x Aislante\n2 x Mesa de trabajo\n1 x Humano',
+      'The crafting is:\n3 x Cable\n2 x Structure\n2 x Insulator\n2 x Crafting table\n1 x Human',
       name: 'ideaElectronicTableDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Panel Solar`
+  /// `Idea: Solar panel`
   String get ideaSolarpanel {
     return Intl.message(
-      'Idea: Panel Solar',
+      'Idea: Solar panel',
       name: 'ideaSolarpanel',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n4 x Estructura\n4 x Cables\n2 x Celdas Solares\n2 x Aislante\n1 x Mesa Electrónica\n1 x Humano`
+  /// `The crafting is:\n4 x Structure\n4 x Cables\n2 x Solar Cell\n2 x Insulator\n1 x Electronic Table\n1 x Human`
   String get ideaSolarpanelDescription {
     return Intl.message(
-      'La elaboración es:\n4 x Estructura\n4 x Cables\n2 x Celdas Solares\n2 x Aislante\n1 x Mesa Electrónica\n1 x Humano',
+      'The crafting is:\n4 x Structure\n4 x Cables\n2 x Solar Cell\n2 x Insulator\n1 x Electronic Table\n1 x Human',
       name: 'ideaSolarpanelDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Granja`
+  /// `Idea: Farm`
   String get ideaFarm {
     return Intl.message(
-      'Idea: Granja',
+      'Idea: Farm',
       name: 'ideaFarm',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n4 x Estructura\n4 x Tierra\n4 x Agua\n4 x Tablas\n4 x Fertilizante\n1 x Mesa de trabajo\n1 x Humano`
+  /// `The crafting is:\n4 x Structure\n4 x Dirt\n4 x Water\n4 x Planks\n4 x Fertilizer\n1 x Crafting Table\n1 x Human`
   String get ideaFarmDescription {
     return Intl.message(
-      'La elaboración es:\n4 x Estructura\n4 x Tierra\n4 x Agua\n4 x Tablas\n4 x Fertilizante\n1 x Mesa de trabajo\n1 x Humano',
+      'The crafting is:\n4 x Structure\n4 x Dirt\n4 x Water\n4 x Planks\n4 x Fertilizer\n1 x Crafting Table\n1 x Human',
       name: 'ideaFarmDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Huerto`
+  /// `Idea: Orchard`
   String get ideaOrchard {
     return Intl.message(
-      'Idea: Huerto',
+      'Idea: Orchard',
       name: 'ideaOrchard',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n4 x Tierra\n2 x Agua\n2 x Madera\n2 x Fertilizante\n1 x Mesa de trabajo\n1 x Humano`
+  /// `The crafting is:\n4 x Dirt\n2 x Water\n2 x Wood\n2 x Fertilizer\n1 x Crafting Table\n1 x Human`
   String get ideaOrchardDescription {
     return Intl.message(
-      'La elaboración es:\n4 x Tierra\n2 x Agua\n2 x Madera\n2 x Fertilizante\n1 x Mesa de trabajo\n1 x Humano',
+      'The crafting is:\n4 x Dirt\n2 x Water\n2 x Wood\n2 x Fertilizer\n1 x Crafting Table\n1 x Human',
       name: 'ideaOrchardDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Molino`
+  /// `Idea: Mill`
   String get ideaMill {
     return Intl.message(
-      'Idea: Molino',
+      'Idea: Mill',
       name: 'ideaMill',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n2 x Roca\n2 x Madera\n1 x Estructura\n1 x Lingote de Hierro\n1 x Mesa de trabajo\n1 x Humano`
+  /// `The crafting is:\n2 x Rock\n2 x Wood\n1 x Structure\n1 x Iron Ingot\n1 x Crafting Table\n1 x Human`
   String get ideaMillDescripcion {
     return Intl.message(
-      'La elaboración es:\n2 x Roca\n2 x Madera\n1 x Estructura\n1 x Lingote de Hierro\n1 x Mesa de trabajo\n1 x Humano',
+      'The crafting is:\n2 x Rock\n2 x Wood\n1 x Structure\n1 x Iron Ingot\n1 x Crafting Table\n1 x Human',
       name: 'ideaMillDescripcion',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Invernadero`
+  /// `Idea: Greenhouse`
   String get ideaGreenhouse {
     return Intl.message(
-      'Idea: Invernadero',
+      'Idea: Greenhouse',
       name: 'ideaGreenhouse',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n6 x Vidrio\n4 x Estructura\n2 x Árbol\n1 x Mesa de trabajo\n1 x Humano`
+  /// `The crafting is:\n6 x Glass\n4 x Structure\n2 x Tree\n1 x Crafting Table\n1 x Human`
   String get ideaGreenhouseDescripcion {
     return Intl.message(
-      'La elaboración es:\n6 x Vidrio\n4 x Estructura\n2 x Árbol\n1 x Mesa de trabajo\n1 x Humano',
+      'The crafting is:\n6 x Glass\n4 x Structure\n2 x Tree\n1 x Crafting Table\n1 x Human',
       name: 'ideaGreenhouseDescripcion',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Aerogenerador`
+  /// `Idea: Wind turbine`
   String get ideaWindturbine {
     return Intl.message(
-      'Idea: Aerogenerador',
+      'Idea: Wind turbine',
       name: 'ideaWindturbine',
       desc: '',
       args: [],
     );
   }
 
-  /// `Proporciona 5 energía adicional.\nLa elaboración es:\n4 x Tablas\n2 x Estructura\n2 x Cables\n1 x Mesa de trabajo\n1 x Humano`
+  /// `Provide 5 additional energy.\nThe crafting is:\n4 x Planks\n2 x Structure\n2 x Cables\n1 x Crafting Table\n1 x Human`
   String get ideaWindturbineDescription {
     return Intl.message(
-      'Proporciona 5 energía adicional.\nLa elaboración es:\n4 x Tablas\n2 x Estructura\n2 x Cables\n1 x Mesa de trabajo\n1 x Humano',
+      'Provide 5 additional energy.\nThe crafting is:\n4 x Planks\n2 x Structure\n2 x Cables\n1 x Crafting Table\n1 x Human',
       name: 'ideaWindturbineDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Reciclador`
+  /// `Idea: Recycler`
   String get ideaRecycler {
     return Intl.message(
-      'Idea: Reciclador',
+      'Idea: Recycler',
       name: 'ideaRecycler',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n8 x Tablas\n4 x Estructura\n1 x Mesa de trabajo\n1 x Humano`
+  /// `The crafting is:\n8 x Planks\n4 x Structure\n1 x Crafting Table\n1 x Human`
   String get ideaRecyclerDescription {
     return Intl.message(
-      'La elaboración es:\n8 x Tablas\n4 x Estructura\n1 x Mesa de trabajo\n1 x Humano',
+      'The crafting is:\n8 x Planks\n4 x Structure\n1 x Crafting Table\n1 x Human',
       name: 'ideaRecyclerDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Compostador`
+  /// `Idea: Composter`
   String get ideaComposter {
     return Intl.message(
-      'Idea: Compostador',
+      'Idea: Composter',
       name: 'ideaComposter',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n2 x Estructura\n2 x Tablas\n4 x Plástico\n1 x Caca\n1 x Mesa de trabajo\n1 x Humano`
+  /// `The crafting is:\n2 x Structure\n2 x Planks\n4 x Plastic\n1 x Poop\n1 x Crafting Table\n1 x Human`
   String get ideaComposterDescripcion {
     return Intl.message(
-      'La elaboración es:\n2 x Estructura\n2 x Tablas\n4 x Plástico\n1 x Caca\n1 x Mesa de trabajo\n1 x Humano',
+      'The crafting is:\n2 x Structure\n2 x Planks\n4 x Plastic\n1 x Poop\n1 x Crafting Table\n1 x Human',
       name: 'ideaComposterDescripcion',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Fogata`
+  /// `Idea: Campfire`
   String get ideaCampfire {
     return Intl.message(
-      'Idea: Fogata',
+      'Idea: Campfire',
       name: 'ideaCampfire',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n4 x Madera\n4 x Roca\n1 x Humano`
+  /// `The crafting is:\n4 x Wood\n4 x Rock\n1 x Human`
   String get ideaCampfireDescription {
     return Intl.message(
-      'La elaboración es:\n4 x Madera\n4 x Roca\n1 x Humano',
+      'The crafting is:\n4 x Wood\n4 x Rock\n1 x Human',
       name: 'ideaCampfireDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Manzano`
+  /// `Idea: Apple Tree`
   String get ideaAppleTree {
     return Intl.message(
-      'Idea: Manzano',
+      'Idea: Apple Tree',
       name: 'ideaAppleTree',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n1 x Semilla de Árbol\n1 x Manzana\n1 x Agua\n1 x Granja\n1 x Humano`
+  /// `The crafting is:\n1 x Tree Seed\n1 x Apple\n1 x Water\n1 x Farm\n1 x Human`
   String get ideaAppleTreeDescription {
     return Intl.message(
-      'La elaboración es:\n1 x Semilla de Árbol\n1 x Manzana\n1 x Agua\n1 x Granja\n1 x Humano',
+      'The crafting is:\n1 x Tree Seed\n1 x Apple\n1 x Water\n1 x Farm\n1 x Human',
       name: 'ideaAppleTreeDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Platanero`
+  /// `Idea: Banana Tree`
   String get ideaBananaTree {
     return Intl.message(
-      'Idea: Platanero',
+      'Idea: Banana Tree',
       name: 'ideaBananaTree',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n1 x Semilla de Árbol\n1 x Banano\n1 x Agua\n1 x Granja\n1 x Humano`
+  /// `The crafting is:\n1 x Tree Seed\n1 x Banana\n1 x Water\n1 x Farm\n1 x Human`
   String get ideaBananaTreeDescription {
     return Intl.message(
-      'La elaboración es:\n1 x Semilla de Árbol\n1 x Banano\n1 x Agua\n1 x Granja\n1 x Humano',
+      'The crafting is:\n1 x Tree Seed\n1 x Banana\n1 x Water\n1 x Farm\n1 x Human',
       name: 'ideaBananaTreeDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Leche`
+  /// `Idea: Milk`
   String get ideaMilk {
     return Intl.message(
-      'Idea: Leche',
+      'Idea: Milk',
       name: 'ideaMilk',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n1 x Vaca\n1 x Humano`
+  /// `The crafting is:\n1 x Cow\n1 x Human`
   String get ideaMilkDescription {
     return Intl.message(
-      'La elaboración es:\n1 x Vaca\n1 x Humano',
+      'The crafting is:\n1 x Cow\n1 x Human',
       name: 'ideaMilkDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Fertilizante`
+  /// `Idea: Fertilizer`
   String get ideaFertilizer {
     return Intl.message(
-      'Idea: Fertilizante',
+      'Idea: Fertilizer',
       name: 'ideaFertilizer',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n1 x Caca\n1 x Compostador\n1 x Agua\n1 x Humano`
+  /// `The crafting is:\n1 x Poop\n1 x Composter\n1 x Water\n1 x Human`
   String get ideaFertilizerDescription {
     return Intl.message(
-      'La elaboración es:\n1 x Caca\n1 x Compostador\n1 x Agua\n1 x Humano',
+      'The crafting is:\n1 x Poop\n1 x Composter\n1 x Water\n1 x Human',
       name: 'ideaFertilizerDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Idea: Madera`
+  /// `Idea: Wood`
   String get ideaWood {
     return Intl.message(
-      'Idea: Madera',
+      'Idea: Wood',
       name: 'ideaWood',
       desc: '',
       args: [],
     );
   }
 
-  /// `La elaboración es:\n1 x Árbol\n1 x Humano`
+  /// `The crafting is:\n1 x Tree\n1 x Human`
   String get ideaWoodDescription {
     return Intl.message(
-      'La elaboración es:\n1 x Árbol\n1 x Humano',
+      'The crafting is:\n1 x Tree\n1 x Human',
       name: 'ideaWoodDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Fertilizante`
+  /// `Fertilizer`
   String get fertilizer {
     return Intl.message(
-      'Fertilizante',
+      'Fertilizer',
       name: 'fertilizer',
       desc: '',
       args: [],
     );
   }
 
-  /// `Un compuesto enriquecido que estimula el crecimiento de tus cultivos. Este fertilizante garantiza que tus plantas estén siempre felices y saludables.`
+  /// `An enriched compound that boosts the growth of your crops. This fertilizer ensures that your plants are always happy and healthy.`
   String get fertilizerDescription {
     return Intl.message(
-      'Un compuesto enriquecido que estimula el crecimiento de tus cultivos. Este fertilizante garantiza que tus plantas estén siempre felices y saludables.',
+      'An enriched compound that boosts the growth of your crops. This fertilizer ensures that your plants are always happy and healthy.',
       name: 'fertilizerDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Semilla de Árbol`
+  /// `Tree Seed`
   String get treeSeed {
     return Intl.message(
-      'Semilla de Árbol',
+      'Tree Seed',
       name: 'treeSeed',
       desc: '',
       args: [],
     );
   }
 
-  /// `Un pequeño tesoro de la naturaleza que lleva consigo la promesa de un futuro verde y exuberante. Planta esta semilla con amor y cuidado, y verás cómo crecerá un majestuoso árbol que proporcionará sombra y oxígeno.`
+  /// `A small treasure of nature that carries with it the promise of a green and lush future. Plant this seed with love and care, and you will see how a majestic tree will grow and provide shade and oxygen.`
   String get treeSeedDescription {
     return Intl.message(
-      'Un pequeño tesoro de la naturaleza que lleva consigo la promesa de un futuro verde y exuberante. Planta esta semilla con amor y cuidado, y verás cómo crecerá un majestuoso árbol que proporcionará sombra y oxígeno.',
+      'A small treasure of nature that carries with it the promise of a green and lush future. Plant this seed with love and care, and you will see how a majestic tree will grow and provide shade and oxygen.',
       name: 'treeSeedDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Pozo`
+  /// `Well`
   String get well {
     return Intl.message(
-      'Pozo',
+      'Well',
       name: 'well',
       desc: '',
       args: [],
     );
   }
 
-  /// `Una fuente confiable de agua potable para tu comunidad. Este pozo garantiza un suministro constante de líquido vital para mantener a todos hidratados.`
+  /// `A reliable source of drinking water for your community. This well guarantees a constant supply of vital liquid to keep everyone hydrated.`
   String get wellDescription {
     return Intl.message(
-      'Una fuente confiable de agua potable para tu comunidad. Este pozo garantiza un suministro constante de líquido vital para mantener a todos hidratados.',
+      'A reliable source of drinking water for your community. This well guarantees a constant supply of vital liquid to keep everyone hydrated.',
       name: 'wellDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `Equipo de Desarrollo`
+  /// `Dev team`
   String get devTeam {
     return Intl.message(
-      'Equipo de Desarrollo',
+      'Dev team',
       name: 'devTeam',
       desc: '',
       args: [],
     );
   }
 
-  /// `¿Alguien realmente lee las descripciones? ¿De verdad estás leyendo esto? ¿No tienes nada mejor que hacer? Bueno, supongo que somos dos. Has desbloqueado la tarjeta del Equipo de Desarrollo. Alguien en algún lugar probablemente pensó que era una buena idea. ¿Estás emocionado? Probablemente no, pero gracias por estar aquí de todos modos. Desarrolladores: ...`
+  /// `Does anyone actually read the descriptions? Are you seriously reading this? Don't you have anything better to do? Well, I guess that makes two of us. You´ve unlocked the Development Team card. Someone somewhere probably thought it was a good idea. Are you excited? Probably not, but thanks for being here anyway. Developers: …`
   String get devTeamDescription {
     return Intl.message(
-      '¿Alguien realmente lee las descripciones? ¿De verdad estás leyendo esto? ¿No tienes nada mejor que hacer? Bueno, supongo que somos dos. Has desbloqueado la tarjeta del Equipo de Desarrollo. Alguien en algún lugar probablemente pensó que era una buena idea. ¿Estás emocionado? Probablemente no, pero gracias por estar aquí de todos modos. Desarrolladores: ...',
+      'Does anyone actually read the descriptions? Are you seriously reading this? Don`t you have anything better to do? Well, I guess that makes two of us. You´ve unlocked the Development Team card. Someone somewhere probably thought it was a good idea. Are you excited? Probably not, but thanks for being here anyway. Developers: …',
       name: 'devTeamDescription',
       desc: '',
       args: [],
@@ -3096,10 +3152,9 @@ class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
-      Locale.fromSubtags(languageCode: 'es'),
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'es'),
       Locale.fromSubtags(languageCode: 'fr'),
-      Locale.fromSubtags(languageCode: 'pt'),
     ];
   }
 

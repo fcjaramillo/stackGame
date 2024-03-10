@@ -2,8 +2,8 @@ part of 'interfaces.dart';
 
 abstract class Objetive {
   final int id;
-  final String name;
-  final String description;
+  final String Function(BuildContext) name;
+  final String Function(BuildContext) description;
   final bool isComplete;
 
   const Objetive({
