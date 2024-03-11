@@ -38,7 +38,6 @@ flutter:
     - assets/images/cards/
     - assets/images/packs/
     - assets/images/vegetation/
-    - assets/tiles/
 
 flutter_intl:
   enabled: true

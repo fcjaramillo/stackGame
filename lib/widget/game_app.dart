@@ -189,6 +189,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
                                       subtitle:
                                           L10n.of(context).welcomeSubtitle,
                                       action: L10n.of(context).welcomeAction,
+                                      onTap: this.game.pressEnterKey,
                                     ),
                                 PlayState.onboarding.name: (context, game) {
                                   return OverlayScreen(
@@ -196,6 +197,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
                                     subtitle:
                                         L10n.of(context).onboardingSubtitle,
                                     action: L10n.of(context).onboardingAction,
+                                    onTap: this.game.pressEnterKey,
                                   );
                                 },
                                 PlayState.gameOver.name: (context, game) =>
@@ -204,12 +206,14 @@ class _GameScreenState extends ConsumerState<GameScreen> {
                                       subtitle:
                                           L10n.of(context).gameOverSubtitle,
                                       action: L10n.of(context).gameOverAction,
+                                      onTap: this.game.pressEnterKey,
                                     ),
                                 PlayState.won.name: (context, game) =>
                                     OverlayScreen(
                                       title: L10n.of(context).wonTitle,
                                       subtitle: L10n.of(context).wonSubtitle,
                                       action: L10n.of(context).wonAction,
+                                      onTap: this.game.pressEnterKey,
                                     ),
                                 PlayState.selling.name: (context, game) =>
                                     Center(
