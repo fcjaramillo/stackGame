@@ -57,9 +57,11 @@ class StackGame extends FlameGame
       case PlayState.welcome:
       case PlayState.gameOver:
         overlays.remove(PlayState.selling.name);
+        overlays.remove(PlayState.energy.name);
         overlays.add(playState.name);
       case PlayState.won:
         overlays.remove(PlayState.selling.name);
+        overlays.remove(PlayState.energy.name);
         overlays.add(playState.name);
       case PlayState.pause:
       case PlayState.onboarding:
@@ -352,6 +354,10 @@ class StackGame extends FlameGame
 
       achivementNotifier.value = [...achivementsNew];
     }
+  }
+
+  void onTapRestart() {
+    playState = PlayState.gameOver;
   }
 
   void pressEnterKey() {

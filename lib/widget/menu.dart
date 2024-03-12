@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stack/l10n/generated/l10n.dart';
+import 'dart:html' as html;
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({
@@ -100,6 +101,19 @@ class _MenuScreenState extends State<MenuScreen> {
                                   ),
                                 )
                                 .toList(),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      ElevatedButton(
+                        onPressed: () {
+                          html.window
+                              .open('https://youtu.be/7zYJNrIFe10', 'new tab');
+                        },
+                        child: Text(
+                          L10n.of(context).tutorial,
+                          style: TextStyle(
+                            color: Colors.blue.shade900,
                           ),
                         ),
                       ),

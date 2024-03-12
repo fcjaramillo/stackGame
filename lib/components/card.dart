@@ -79,7 +79,9 @@ class CardComponent extends SpriteComponent
 
     if (card.id == kSolarPanel.id ||
         card.id == kWindTurbine.id ||
-        card.id == kCoalPlant.id) {
+        card.id == kCoalPlant.id ||
+        card.id == kBrian.id ||
+        card.id == kDev.id) {
       game.energyMax.value += card.energy ?? 0;
     } else {
       game.energy.value -= card.energy ?? 0;
@@ -95,7 +97,9 @@ class CardComponent extends SpriteComponent
     game.food.value -= (card.food ?? 0) > 0 ? card.food ?? 0 : 0;
     if (card.id == kSolarPanel.id ||
         card.id == kWindTurbine.id ||
-        card.id == kCoalPlant.id) {
+        card.id == kCoalPlant.id ||
+        card.id == kBrian.id ||
+        card.id == kDev.id) {
       game.energyMax.value -= card.energy ?? 0;
     } else {
       game.energy.value += card.energy ?? 0;
@@ -329,6 +333,11 @@ class CardComponent extends SpriteComponent
 
   int cardInStack(CardComponent card) =>
       game.stacks.indexWhere((e) => e.cards.contains(card));
+
+  bool cardInRecipe(CardComponent card) =>
+      game.stacks.indexWhere(
+          (e) => e.cards.contains(card) && e.linearComponent != null) >
+      -1;
 }
 
 Vector2 getAnimationDelta(int i) {

@@ -229,6 +229,7 @@ CardModel kApple = CardModel(
   descriptionInt: (context) => L10n.of(context).appleDescription,
   prize: 1,
   quantity: -1,
+  health: 1,
   food: 1,
 );
 CardModel kMilk = CardModel(
@@ -260,6 +261,7 @@ CardModel kBanana = CardModel(
   description: 'bananaDescription',
   descriptionInt: (context) => L10n.of(context).bananaDescription,
   prize: 1,
+  health: 1,
   quantity: -1,
   food: 1,
 );
@@ -606,6 +608,7 @@ CardModel kTree = CardModel(
   prize: 3,
   quantity: -1,
   oxygen: 2,
+  carbonFootprint: -100,
 );
 CardModel kEnergy = CardModel(
   type: TypeCard.idea,
@@ -635,6 +638,7 @@ CardModel kEmployment = CardModel(
   description: 'employmentDescription',
   descriptionInt: (context) => L10n.of(context).employmentDescription,
   prize: 1,
+  energy: -5,
   quantity: -3,
 );
 CardModel kCoalPlant = CardModel(
@@ -661,6 +665,7 @@ CardModel kAppleTree = CardModel(
   prize: 1,
   quantity: -1,
   oxygen: 2,
+  carbonFootprint: -300,
 );
 CardModel kBananaTree = CardModel(
   type: TypeCard.plant,
@@ -672,6 +677,7 @@ CardModel kBananaTree = CardModel(
   prize: 1,
   quantity: -1,
   oxygen: 2,
+  carbonFootprint: -300,
 );
 CardModel kPoop = CardModel(
   type: TypeCard.material,
@@ -746,7 +752,7 @@ CardModel kIdeaPack = CardModel(
   nameInt: (context) => L10n.of(context).ideaPack,
   //subtitle: 'Idea Card',
   description: 'ideaPackDescription',
-  descriptionInt: (context) => L10n.of(context).ideaPackDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 0,
   quantity: -0,
 );
@@ -767,7 +773,7 @@ CardModel kIronIngotsIdea = CardModel(
   name: 'ideaIronIngots',
   nameInt: (context) => L10n.of(context).ideaIronIngots,
   description: 'ideaIronIngotsDescription',
-  descriptionInt: (context) => L10n.of(context).ideaIronIngotsDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -777,7 +783,7 @@ CardModel kSiliconIdea = CardModel(
   name: 'ideaSilicon',
   nameInt: (context) => L10n.of(context).ideaSilicon,
   description: 'ideaSiliconDescription',
-  descriptionInt: (context) => L10n.of(context).ideaSiliconDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -787,7 +793,7 @@ CardModel kCopperLineIdea = CardModel(
   name: 'ideaCopperLine',
   nameInt: (context) => L10n.of(context).ideaCopperLine,
   description: 'ideaCopperLineDescription',
-  descriptionInt: (context) => L10n.of(context).ideaCopperLineDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -797,7 +803,7 @@ CardModel kInsulatorIdea = CardModel(
   name: 'ideaInsulator',
   nameInt: (context) => L10n.of(context).ideaInsulator,
   description: 'ideaInsulatorDescription',
-  descriptionInt: (context) => L10n.of(context).ideaInsulatorDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -807,7 +813,7 @@ CardModel kSolarCellsIdea = CardModel(
   name: 'ideaSolarcells',
   nameInt: (context) => L10n.of(context).ideaSolarcells,
   description: 'ideaSolarcellsDescription',
-  descriptionInt: (context) => L10n.of(context).ideaSolarcellsDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -817,7 +823,7 @@ CardModel kStructureIdea = CardModel(
   name: 'ideaStructure',
   nameInt: (context) => L10n.of(context).ideaStructure,
   description: 'ideaStructureDescription',
-  descriptionInt: (context) => L10n.of(context).ideaStructureDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -827,7 +833,7 @@ CardModel kCablesIdea = CardModel(
   name: 'ideaCables',
   nameInt: (context) => L10n.of(context).ideaCables,
   description: 'ideaCablesDescription',
-  descriptionInt: (context) => L10n.of(context).ideaCablesDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -837,7 +843,7 @@ CardModel kStewIdea = CardModel(
   name: 'ideaStew',
   nameInt: (context) => L10n.of(context).ideaStew,
   description: 'ideaStewDescription',
-  descriptionInt: (context) => L10n.of(context).ideaStewDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -847,7 +853,7 @@ CardModel kFriedMeatIdea = CardModel(
   name: 'ideaFriedMeat',
   nameInt: (context) => L10n.of(context).ideaFriedMeat,
   description: 'ideaFriedMeatDescription',
-  descriptionInt: (context) => L10n.of(context).ideaFriedMeatDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -857,7 +863,7 @@ CardModel kFlourIdea = CardModel(
   name: 'ideaFlour',
   nameInt: (context) => L10n.of(context).ideaFlour,
   description: 'ideaFlourDescription',
-  descriptionInt: (context) => L10n.of(context).ideaFlourDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -867,7 +873,7 @@ CardModel kBreadIdea = CardModel(
   name: 'ideaBread',
   nameInt: (context) => L10n.of(context).ideaBread,
   description: 'ideaBreadDescription',
-  descriptionInt: (context) => L10n.of(context).ideaBreadDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 2,
   quantity: -1,
 );
@@ -877,7 +883,7 @@ CardModel kCakeIdea = CardModel(
   name: 'ideaCake',
   nameInt: (context) => L10n.of(context).ideaCake,
   description: 'ideaCakeDescription',
-  descriptionInt: (context) => L10n.of(context).ideaCakeDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -887,7 +893,7 @@ CardModel kHealthySaladIdea = CardModel(
   name: 'ideaHealthySalad',
   nameInt: (context) => L10n.of(context).ideaHealthySalad,
   description: 'ideaHealthySaladDescription',
-  descriptionInt: (context) => L10n.of(context).ideaHealthySaladDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -897,17 +903,17 @@ CardModel kFruitShakeIdea = CardModel(
   name: 'ideaFruitShake',
   nameInt: (context) => L10n.of(context).ideaFruitShake,
   description: 'ideaFruitShakeDescription',
-  descriptionInt: (context) => L10n.of(context).ideaFruitShakeDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
-CardModel kPotatoOmeletIdea = CardModel(
+CardModel kOmeletIdea = CardModel(
   type: TypeCard.idea,
   id: 83,
-  name: 'ideaPotatoOmelet',
+  name: 'ideaOmelet',
   nameInt: (context) => L10n.of(context).ideaPotatoOmelet,
-  description: 'ideaPotatoOmeletDescription',
-  descriptionInt: (context) => L10n.of(context).ideaPotatoOmeletDescription,
+  description: 'ideaOmeletDescription',
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -917,7 +923,7 @@ CardModel kApplePieIdea = CardModel(
   name: 'ideaApplePie',
   nameInt: (context) => L10n.of(context).ideaApplePie,
   description: 'ideaApplePieDescription',
-  descriptionInt: (context) => L10n.of(context).ideaApplePieDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -927,7 +933,7 @@ CardModel kFarmFeastIdea = CardModel(
   name: 'ideaFarmFeast',
   nameInt: (context) => L10n.of(context).ideaFarmFeast,
   description: 'ideaFarmFeastDescription',
-  descriptionInt: (context) => L10n.of(context).ideaFarmFeastDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -937,7 +943,7 @@ CardModel kBaulIdea = CardModel(
   name: 'ideaBaul',
   nameInt: (context) => L10n.of(context).ideaBaul,
   description: 'ideaBaulDescription',
-  descriptionInt: (context) => L10n.of(context).ideaBaulDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -947,7 +953,7 @@ CardModel kWarehouseIdea = CardModel(
   name: 'ideaWarehouse',
   nameInt: (context) => L10n.of(context).ideaWarehouse,
   description: 'ideaWarehouseDescription',
-  descriptionInt: (context) => L10n.of(context).ideaWarehouseDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -957,7 +963,7 @@ CardModel kFurnaceIdea = CardModel(
   name: 'ideaFurnace',
   nameInt: (context) => L10n.of(context).ideaFurnace,
   description: 'ideaFurnaceDescription',
-  descriptionInt: (context) => L10n.of(context).ideaFurnaceDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -967,7 +973,7 @@ CardModel kCraftingTableIdea = CardModel(
   name: 'ideaCraftingTable',
   nameInt: (context) => L10n.of(context).ideaCraftingTable,
   description: 'ideaCraftingTableDescription',
-  descriptionInt: (context) => L10n.of(context).ideaCraftingTableDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -977,7 +983,7 @@ CardModel kSawmillIdea = CardModel(
   name: 'ideaSawmill',
   nameInt: (context) => L10n.of(context).ideaSawmill,
   description: 'ideaSawmillDescription',
-  descriptionInt: (context) => L10n.of(context).ideaSawmillDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -997,7 +1003,7 @@ CardModel kSolarPanelIdea = CardModel(
   name: 'ideaSolarpanel',
   nameInt: (context) => L10n.of(context).ideaSolarpanel,
   description: 'ideaSolarpanelDescription',
-  descriptionInt: (context) => L10n.of(context).ideaSolarpanelDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -1007,7 +1013,7 @@ CardModel kFarmIdea = CardModel(
   name: 'ideaFarm',
   nameInt: (context) => L10n.of(context).ideaFarm,
   description: 'ideaFarmDescription',
-  descriptionInt: (context) => L10n.of(context).ideaFarmDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -1017,7 +1023,7 @@ CardModel kOrchardIdea = CardModel(
   name: 'ideaOrchard',
   nameInt: (context) => L10n.of(context).ideaOrchard,
   description: 'ideaOrchardDescription',
-  descriptionInt: (context) => L10n.of(context).ideaOrchardDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -1027,7 +1033,7 @@ CardModel kMillIdea = CardModel(
   name: 'ideaMill',
   nameInt: (context) => L10n.of(context).ideaMill,
   description: 'ideaMillDescripcion',
-  descriptionInt: (context) => L10n.of(context).ideaMillDescripcion,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -1037,7 +1043,7 @@ CardModel kGreenhouseIdea = CardModel(
   name: 'ideaGreenhouse',
   nameInt: (context) => L10n.of(context).ideaGreenhouse,
   description: 'ideaGreenhouseDescripcion',
-  descriptionInt: (context) => L10n.of(context).ideaGreenhouseDescripcion,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -1047,7 +1053,7 @@ CardModel kWindTurbineIdea = CardModel(
   name: 'ideaWindturbine',
   nameInt: (context) => L10n.of(context).ideaWindturbine,
   description: 'ideaWindturbineDescription',
-  descriptionInt: (context) => L10n.of(context).ideaWindturbineDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -1057,7 +1063,7 @@ CardModel kRecyclerIdea = CardModel(
   name: 'ideaRecycler',
   nameInt: (context) => L10n.of(context).ideaRecycler,
   description: 'ideaRecyclerDescription',
-  descriptionInt: (context) => L10n.of(context).ideaRecyclerDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -1067,7 +1073,7 @@ CardModel kComposterIdea = CardModel(
   name: 'ideaComposter',
   nameInt: (context) => L10n.of(context).ideaComposter,
   description: 'ideaComposterDescripcion',
-  descriptionInt: (context) => L10n.of(context).ideaComposterDescripcion,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -1077,7 +1083,7 @@ CardModel kCampfireIdea = CardModel(
   name: 'ideaCampfire',
   nameInt: (context) => L10n.of(context).ideaCampfire,
   description: 'ideaCampfireDescription',
-  descriptionInt: (context) => L10n.of(context).ideaCampfireDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -1087,7 +1093,7 @@ CardModel kAppleTreeIdea = CardModel(
   name: 'ideaAppleTree',
   nameInt: (context) => L10n.of(context).ideaAppleTree,
   description: 'ideaAppleTreeDescription',
-  descriptionInt: (context) => L10n.of(context).ideaAppleTreeDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -1097,7 +1103,7 @@ CardModel kBananaTreeIdea = CardModel(
   name: 'ideaBananaTree',
   nameInt: (context) => L10n.of(context).ideaBananaTree,
   description: 'ideaBananaTreeDescription',
-  descriptionInt: (context) => L10n.of(context).ideaBananaTreeDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -1107,7 +1113,7 @@ CardModel kMilkIdea = CardModel(
   name: 'ideaMilk',
   nameInt: (context) => L10n.of(context).ideaMilk,
   description: 'ideaMilkDescription',
-  descriptionInt: (context) => L10n.of(context).ideaMilkDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -1117,7 +1123,7 @@ CardModel kFertilizerIdea = CardModel(
   name: 'ideaFertilizer',
   nameInt: (context) => L10n.of(context).ideaFertilizer,
   description: 'ideaFertilizerDescription',
-  descriptionInt: (context) => L10n.of(context).ideaFertilizerDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -1127,7 +1133,7 @@ CardModel kWoodIdea = CardModel(
   name: 'ideaWood',
   nameInt: (context) => L10n.of(context).ideaWood,
   description: 'ideaWoodDescription',
-  descriptionInt: (context) => L10n.of(context).ideaWoodDescription,
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
   prize: 1,
   quantity: -1,
 );
@@ -1149,6 +1155,7 @@ CardModel kTreeSeed = CardModel(
   descriptionInt: (context) => L10n.of(context).treeSeedDescription,
   type: TypeCard.material,
   prize: 1,
+  carbonFootprint: -50,
   quantity: -1,
 );
 CardModel kWell = CardModel(
@@ -1181,18 +1188,8 @@ CardModel kTreeIdea = CardModel(
   prize: 1,
   quantity: -1,
 );
-CardModel kOmeletIdea = CardModel(
-  id: 111,
-  name: 'omelet',
-  nameInt: (context) => L10n.of(context).omelet,
-  description: 'omeletDescription',
-  descriptionInt: (context) => L10n.of(context).omeletDescription,
-  type: TypeCard.idea,
-  prize: 1,
-  quantity: -1,
-);
 CardModel kPlankIdea = CardModel(
-  id: 112,
+  id: 111,
   name: 'planks',
   nameInt: (context) => L10n.of(context).planks,
   description: 'planksDescription',
@@ -1201,15 +1198,25 @@ CardModel kPlankIdea = CardModel(
   prize: 1,
   quantity: -1,
 );
+CardModel kWellIdea = CardModel(
+  id: 111,
+  name: 'well',
+  nameInt: (context) => L10n.of(context).planks,
+  description: 'planksDescription',
+  descriptionInt: (context) => L10n.of(context).ideaDescriptionGeneral,
+  type: TypeCard.idea,
+  prize: 1,
+  quantity: -1,
+);
 CardModel kDev = CardModel(
   type: TypeCard.dev,
   id: 1000,
   name: 'devTeam',
-  nameInt: (context) => L10n.of(context).devTeam,
+  nameInt: (context) => L10n.of(context).ideaWell,
   description: 'devTeamDescription',
   descriptionInt: (context) => L10n.of(context).devTeamDescription,
   prize: 1,
-  quantity: -1,
+  quantity: 10,
   oxygen: 5,
   carbonFootprint: -500,
   energy: 10,
@@ -1218,44 +1225,43 @@ CardModel kDev = CardModel(
 CardModel kFabian = CardModel(
   id: 1001,
   name: 'devTeam',
-  nameInt: (context) => L10n.of(context).devTeam,
+  nameInt: (context) => 'Dev: Jaramillo',
   description: 'devTeamDescription',
-  descriptionInt: (context) => L10n.of(context).devTeamDescription,
+  descriptionInt: (context) => L10n.of(context).descriptionCamilo,
   type: TypeCard.dev,
   prize: 1,
-  quantity: -1,
+  quantity: 0,
   oxygen: 3,
 );
 CardModel kYonnier = CardModel(
   id: 1002,
   name: 'devTeam',
-  nameInt: (context) => L10n.of(context).devTeam,
+  nameInt: (context) => 'Dev: Yonnier',
   description: 'devTeamDescription',
-  descriptionInt: (context) => L10n.of(context).devTeamDescription,
+  descriptionInt: (context) => L10n.of(context).descriptionYhonier,
   type: TypeCard.dev,
   prize: 1,
-  quantity: -1,
+  quantity: 0,
   carbonFootprint: -300,
 );
 CardModel kBrian = CardModel(
   id: 1003,
   name: 'devTeam',
-  nameInt: (context) => L10n.of(context).devTeam,
+  nameInt: (context) => 'Dev: Brian',
   description: 'devTeamDescription',
-  descriptionInt: (context) => L10n.of(context).devTeamDescription,
+  descriptionInt: (context) => L10n.of(context).descriptionBrian,
   type: TypeCard.dev,
   prize: 1,
-  quantity: -1,
+  quantity: 0,
   energy: 7,
 );
 CardModel kSantiago = CardModel(
   id: 1004,
   name: 'devTeam',
-  nameInt: (context) => L10n.of(context).devTeam,
+  nameInt: (context) => 'Dev: Santiago',
   description: 'devTeamDescription',
-  descriptionInt: (context) => L10n.of(context).devTeamDescription,
+  descriptionInt: (context) => L10n.of(context).descriptionSanty,
   type: TypeCard.dev,
   prize: 1,
-  quantity: -1,
-  handicap: -300,
+  quantity: 5,
 );

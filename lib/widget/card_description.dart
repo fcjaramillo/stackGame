@@ -9,10 +9,12 @@ import '../models/models.dart';
 class CardDescription extends StatelessWidget {
   const CardDescription({
     required this.gameCard,
+    required this.onTapRestart,
     super.key,
   });
 
   final GameCardModel gameCard;
+  final VoidCallback onTapRestart;
 
   @override
   Widget build(BuildContext context) {
@@ -142,6 +144,40 @@ class CardDescription extends StatelessWidget {
                     ),
                     const SizedBox(
                       height: 8,
+                    ),
+                    Visibility(
+                      visible: gameCard.card.id == 0,
+                      child: Column(
+                        children: [
+                          const SizedBox(
+                            height: 48,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 32,
+                            ),
+                            child: ElevatedButton(
+                              onPressed: onTapRestart,
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.red),
+                              ),
+                              child: AutoSizeText(
+                                L10n.of(context).restart,
+                                style: TextStyle(
+                                  color: Colors.blue.shade900,
+                                ),
+                                maxLines: 1,
+                                minFontSize: 6,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),

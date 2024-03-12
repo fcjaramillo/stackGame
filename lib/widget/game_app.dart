@@ -152,6 +152,7 @@ class _GameScreenState extends ConsumerState<GameScreen> {
                           builder: (context, value, child) => CardDescription(
                             gameCard: game.cardSelected.value ??
                                 GameCardModel.human(card: kHuman),
+                            onTapRestart: game.onTapRestart,
                           ),
                         ),
                       ),

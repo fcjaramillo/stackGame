@@ -35,7 +35,7 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
       if (!(game.isFast)) {
         currentTime += dt;
       } else {
-        currentTime += (dt * 4);
+        currentTime += (dt * 3);
       }
       if (currentTime >= totalTime) {
         currentTime = 0;
@@ -45,8 +45,9 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
           game.dayGame++;
           game.addPack(game.world.children.query<PackComponent>().length);
 
-          List<CardComponent> cards =
-              game.world.children.query<CardComponent>();
+          List<CardComponent> cards = [
+            ...game.world.children.query<CardComponent>()
+          ];
 
           List<CardComponent> cows = [];
           List<CardComponent> hens = [];
@@ -72,7 +73,7 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
             game.playState = PlayState.gameOver;
           } else {
             if (game.card.value > game.cardMax.value) {
-              cards = game.world.children.query<CardComponent>();
+              cards = [...game.world.children.query<CardComponent>()];
               game.playState = PlayState.selling;
               for (CardComponent c in cards) {
                 c.changeAnimation(AnimationType.shake);
@@ -87,7 +88,7 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
                 return game.card.value > game.cardMax.value;
               });
 
-              cards = game.world.children.query<CardComponent>();
+              cards = [...game.world.children.query<CardComponent>()];
               for (CardComponent c in cards) {
                 c.changeAnimation(AnimationType.none);
                 c.activeAnimation = false;

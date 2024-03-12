@@ -135,6 +135,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Mesa de Trabajo"),
         "craftingTableDescription": MessageLookupByLibrary.simpleMessage(
             "El epicentro de la creación en tu aldea. Aquí, las ideas se convierten en realidad. Desde simples estantes hasta estructuras complejas, todo comienza aquí."),
+        "descriptionBrian": MessageLookupByLibrary.simpleMessage(
+            "Hola! Soy el campeón del gimnasio y el programador más asombroso del universo, según mi madre. Cuando no estoy levantando pesas, estoy levantando código y rompiendo récords (al menos en mi propio mundo). ¿Quién más puede hacer flexiones mientras soluciona un bug? Te espero en el gimnasio... o en el código fuente.?"),
+        "descriptionCamilo": MessageLookupByLibrary.simpleMessage(
+            "¡Hola! Soy el ninja de la programación y el trotamundos del teclado. Cuando no estoy dominando el código, estoy explorando el mundo con mi mochila y mi laptop a cuestas, listo para programar en cualquier rincón del planeta. Si buscas al tipo que puede hackear un sistema y montar una tienda de campaña en menos de una hora, ¡aquí estoy!"),
+        "descriptionSanty": MessageLookupByLibrary.simpleMessage(
+            "Hey! ¿Qué tal? Soy el maestro de los hierros y el rey de los controles. Cuando no estoy en el gym desafiando a la gravedad, estoy en casa conquistando mundos virtuales. ¡No hay músculo que no pueda tonificar ni nivel que no pueda superar! ¿Quién más combina el sudor con el botón A?"),
+        "descriptionYhonier": MessageLookupByLibrary.simpleMessage(
+            "¡Hola, qué tal! Aquí el \'Mil Pasos\', el prodigio que hace que todos parezcan que están avanzando en cámara lenta. En la oficina, soy como el GPS humano: siempre apuntando en la dirección correcta. Pero fuera de aquí, me llaman \'El Filósofo de la vida\'. ¿Vida social? ¿Aventuras? ¡Ni lo sueñes! Prefiero las noches sumergido en mis propios pensamientos, desentrañando los misterios del universo desde la comodidad de mi sofá. Así que si necesitas un guía en el trabajo, ¡aquí estoy, a solo unos pasos de distancia!"),
         "devTeam": MessageLookupByLibrary.simpleMessage("Equipo de Desarrollo"),
         "devTeamDescription": MessageLookupByLibrary.simpleMessage(
             "¿Alguien realmente lee las descripciones? ¿De verdad estás leyendo esto? ¿No tienes nada mejor que hacer? Bueno, supongo que somos dos. Has desbloqueado la tarjeta del Equipo de Desarrollo. Alguien en algún lugar probablemente pensó que era una buena idea. ¿Estás emocionado? Probablemente no, pero gracias por estar aquí de todos modos. Desarrolladores: ..."),
@@ -192,7 +200,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "furnaceDescription": MessageLookupByLibrary.simpleMessage(
             "El escenario de las hazañas más épicas, donde los materiales se convierten en obras maestras (o desastres). Ya sea cocinando delicias suculentas o derritiendo metales y creando nuevos materiales."),
         "gameOverAction":
-            MessageLookupByLibrary.simpleMessage("Presiona enter"),
+            MessageLookupByLibrary.simpleMessage("Presiona enter x 2"),
         "gameOverSubtitle":
             MessageLookupByLibrary.simpleMessage("Toca para Jugar de Nuevo"),
         "gameOverTitle":
@@ -250,6 +258,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Idea: Mesa de Trabajo"),
         "ideaCraftingTableDescription": MessageLookupByLibrary.simpleMessage(
             "La elaboración es:\n4 x Madera\n1 x Humano"),
+        "ideaDescriptionGeneral": MessageLookupByLibrary.simpleMessage(
+            "Si estás interesado en descubrir cómo crear esta idea por ti mismo, te invito a revisar el menu recetas de la parte superior"),
         "ideaElectronicTable":
             MessageLookupByLibrary.simpleMessage("Idea: Mesa Electrónica"),
         "ideaElectronicTableDescription": MessageLookupByLibrary.simpleMessage(
@@ -307,6 +317,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ideaPack": MessageLookupByLibrary.simpleMessage("Paquete de Ideas"),
         "ideaPackDescription": MessageLookupByLibrary.simpleMessage(
             "Proporciona 3 tarjetas de idea"),
+        "ideaPlanks": MessageLookupByLibrary.simpleMessage("Idea: Tablones"),
         "ideaPotatoOmelet":
             MessageLookupByLibrary.simpleMessage("Idea: Tortilla de Patata"),
         "ideaPotatoOmeletDescription": MessageLookupByLibrary.simpleMessage(
@@ -339,6 +350,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ideaWarehouse": MessageLookupByLibrary.simpleMessage("Idea: Almacén"),
         "ideaWarehouseDescription": MessageLookupByLibrary.simpleMessage(
             "Proporciona 15 espacios de tarjetas adicionales.\nLa elaboración es:\n4 x Estructuras\n4 x Tablas\n1 x Mesa de trabajo\n1 x Humano"),
+        "ideaWell": MessageLookupByLibrary.simpleMessage("Idea: Well"),
         "ideaWindturbine":
             MessageLookupByLibrary.simpleMessage("Idea: Aerogenerador"),
         "ideaWindturbineDescription": MessageLookupByLibrary.simpleMessage(
@@ -495,6 +507,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "treeSeed": MessageLookupByLibrary.simpleMessage("Semilla de Árbol"),
         "treeSeedDescription": MessageLookupByLibrary.simpleMessage(
             "Un pequeño tesoro de la naturaleza que lleva consigo la promesa de un futuro verde y exuberante. Planta esta semilla con amor y cuidado, y verás cómo crecerá un majestuoso árbol que proporcionará sombra y oxígeno."),
+        "tutorial": MessageLookupByLibrary.simpleMessage("Tutorial"),
         "unlock": m2,
         "wallet": MessageLookupByLibrary.simpleMessage("billetera"),
         "warehouse": MessageLookupByLibrary.simpleMessage("Almacén"),

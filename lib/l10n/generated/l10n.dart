@@ -76,6 +76,26 @@ class L10n {
     );
   }
 
+  /// `Tutorial`
+  String get tutorial {
+    return Intl.message(
+      'Tutorial',
+      name: 'tutorial',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Restart`
+  String get restart {
+    return Intl.message(
+      'Restart',
+      name: 'restart',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Quantity`
   String get quantity {
     return Intl.message(
@@ -276,10 +296,10 @@ class L10n {
     );
   }
 
-  /// `Press enter`
+  /// `Press enter x 2`
   String get gameOverAction {
     return Intl.message(
-      'Press enter',
+      'Press enter x 2',
       name: 'gameOverAction',
       desc: '',
       args: [],
@@ -3116,6 +3136,16 @@ class L10n {
     );
   }
 
+  /// `Idea: Well`
+  String get ideaWell {
+    return Intl.message(
+      'Idea: Well',
+      name: 'ideaWell',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Well`
   String get well {
     return Intl.message(
@@ -3136,6 +3166,16 @@ class L10n {
     );
   }
 
+  /// `Idea: Planks`
+  String get ideaPlanks {
+    return Intl.message(
+      'Idea: Planks',
+      name: 'ideaPlanks',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Dev team`
   String get devTeam {
     return Intl.message(
@@ -3146,11 +3186,61 @@ class L10n {
     );
   }
 
-  /// `Does anyone actually read the descriptions? Are you seriously reading this? Don't you have anything better to do? Well, I guess that makes two of us. You´ve unlocked the Development Team card. Someone somewhere probably thought it was a good idea. Are you excited? Probably not, but thanks for being here anyway. Developers: …`
+  /// `Does anyone actually read the descriptions? Are you seriously reading this? Don't you have anything better to do? Well, I guess that makes two of us. Youve unlocked the Development Team card. Someone somewhere probably thought it was a good idea. Are you excited? Probably not, but thanks for being here anyway. Developers: …`
   String get devTeamDescription {
     return Intl.message(
-      'Does anyone actually read the descriptions? Are you seriously reading this? Don`t you have anything better to do? Well, I guess that makes two of us. You´ve unlocked the Development Team card. Someone somewhere probably thought it was a good idea. Are you excited? Probably not, but thanks for being here anyway. Developers: …',
+      'Does anyone actually read the descriptions? Are you seriously reading this? Don`t you have anything better to do? Well, I guess that makes two of us. Youve unlocked the Development Team card. Someone somewhere probably thought it was a good idea. Are you excited? Probably not, but thanks for being here anyway. Developers: …',
       name: 'devTeamDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If you are interested in discovering how to create this idea yourself, we invite you to review the recipes menu at the top.`
+  String get ideaDescriptionGeneral {
+    return Intl.message(
+      'If you are interested in discovering how to create this idea yourself, we invite you to review the recipes menu at the top.',
+      name: 'ideaDescriptionGeneral',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hey! How are you? I am the master of irons and the king of controls. When I'm not at the gym defying gravity, I'm at home conquering virtual worlds. There is no muscle you can't tone and no level you can't surpass! Who else combines sweat with the A button?`
+  String get descriptionSanty {
+    return Intl.message(
+      'Hey! How are you? I am the master of irons and the king of controls. When I\'m not at the gym defying gravity, I\'m at home conquering virtual worlds. There is no muscle you can\'t tone and no level you can\'t surpass! Who else combines sweat with the A button?',
+      name: 'descriptionSanty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hi! I'm the gym champion and the most amazing programmer in the universe, according to my mom. When I'm not lifting weights, I'm lifting code and breaking records (at least in my own world). Who else can do push-ups while solving a problem? bug? I'll wait for you at the gym... or at the source code.?`
+  String get descriptionBrian {
+    return Intl.message(
+      'Hi! I\'m the gym champion and the most amazing programmer in the universe, according to my mom. When I\'m not lifting weights, I\'m lifting code and breaking records (at least in my own world). Who else can do push-ups while solving a problem? bug? I\'ll wait for you at the gym... or at the source code.?',
+      name: 'descriptionBrian',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hello! I am the programming ninja and the keyboard globetrotter. When I'm not mastering code, I'm exploring the world with my backpack and laptop in tow, ready to code anywhere on the planet. If you're looking for the guy who can hack a system and set up a tent in less than an hour, I'm here!`
+  String get descriptionCamilo {
+    return Intl.message(
+      'Hello! I am the programming ninja and the keyboard globetrotter. When I\'m not mastering code, I\'m exploring the world with my backpack and laptop in tow, ready to code anywhere on the planet. If you\'re looking for the guy who can hack a system and set up a tent in less than an hour, I\'m here!',
+      name: 'descriptionCamilo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hi how are things! Here is the 'Thousand Steps', the prodigy that makes everyone look like they are moving in slow motion. In the office, I'm like the human GPS: always pointing in the right direction. But outside of here, they call me 'The Philosopher of Life'. Social life? Adventure? Do not even dream about it! I prefer nights immersed in my own thoughts, unraveling the mysteries of the universe from the comfort of my couch. So if you need a guide at work, I'm here, just a few steps away!`
+  String get descriptionYhonier {
+    return Intl.message(
+      'Hi how are things! Here is the \'Thousand Steps\', the prodigy that makes everyone look like they are moving in slow motion. In the office, I\'m like the human GPS: always pointing in the right direction. But outside of here, they call me \'The Philosopher of Life\'. Social life? Adventure? Do not even dream about it! I prefer nights immersed in my own thoughts, unraveling the mysteries of the universe from the comfort of my couch. So if you need a guide at work, I\'m here, just a few steps away!',
+      name: 'descriptionYhonier',
       desc: '',
       args: [],
     );

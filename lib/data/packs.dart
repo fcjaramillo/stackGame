@@ -58,6 +58,7 @@ List<PackModel> packs = [
       kStructureIdea,
       kTreeIdea,
       kCraftingTableIdea,
+      kWellIdea,
     ],
   ),
   PackModel(
@@ -120,7 +121,7 @@ List<PackModel> packs = [
       kCakeIdea,
       kHealthySaladIdea,
       kFruitShakeIdea,
-      kPotatoOmeletIdea,
+      kOmeletIdea,
       kApplePieIdea,
       kFarmFeastIdea,
       kMilkIdea,

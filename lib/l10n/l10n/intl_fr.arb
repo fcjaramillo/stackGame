@@ -1,6 +1,8 @@
 {
     "@@locale": "fr",
     "quantity": "Quantité",
+    "tutorial": "Didacticiel",
+    "restart": "Redémarrage",
     "food": "Nourriture",
     "health": "Santé",
     "oxygen": "Oxygène",
@@ -20,7 +22,7 @@
     "onboardingAction": "Appuyez sur Entrée",
     "gameOverTitle": "F I N   D U   J E U",
     "gameOverSubtitle": "Appuyez pour Jouer à Nouveau",
-    "gameOverAction": "Appuyez sur Entrée",
+    "gameOverAction": "Appuyez sur Entrée x 2",
     "wonTitle": "V O U S   A V E Z   G A G N É ! ! !",
     "wonSubtitle": "Appuyez pour Jouer à Nouveau",
     "wonAction": "Appuyez sur Entrée",
@@ -304,8 +306,15 @@
     "fertilizerDescription": "Un composé enrichi qui stimule la croissance de vos cultures. Ce fertilisant garantit que vos plantes sont toujours heureuses et en bonne santé.",
     "treeSeed": "Graine d'arbre",
     "treeSeedDescription": "Un petit trésor de la nature qui porte en lui la promesse d'un avenir vert et luxuriant. Plantez cette graine avec amour et attention, et vous verrez comment un arbre majestueux poussera pour fournir de l'ombre et de l'oxygène.",
+    "ideaWell": "Idée: Well",
     "well": "Puits",
     "wellDescription": "Une source fiable d'eau potable pour votre communauté. Ce puits garantit un approvisionnement constant en liquide vital pour garder tout le monde hydraté.",
+    "ideaPlanks":"Idea: Planches",
     "devTeam": "Équipe de développement",
-    "devTeamDescription": "Est-ce que quelqu'un lit vraiment les descriptions ? Êtes-vous sérieusement en train de lire ceci ? N'avez-vous vraiment rien de mieux à faire ? Eh bien, je suppose que nous sommes deux dans ce cas. Vous avez débloqué la carte de l'équipe de développement. Quelqu'un quelque part a probablement pensé que c'était une bonne idée. Êtes-vous excité ? Probablement pas, mais merci d'être ici quand même. Développeurs : ..."   
+    "devTeamDescription": "Est-ce que quelqu'un lit vraiment les descriptions ? Êtes-vous sérieusement en train de lire ceci ? N'avez-vous vraiment rien de mieux à faire ? Eh bien, je suppose que nous sommes deux dans ce cas. Vous avez débloqué la carte de l'équipe de développement. Quelqu'un quelque part a probablement pensé que c'était une bonne idée. Êtes-vous excité ? Probablement pas, mais merci d'être ici quand même. Développeurs : ...",
+    "ideaDescriptionGeneral": "Si vous souhaitez découvrir comment créer vous-même cette idée, nous vous invitons à consulter le menu de recettes en haut.",
+    "descriptionSanty": "Hé! Comment vas-tu? Je suis le maître des fers et le roi des contrôles. Quand je ne suis pas au gymnase pour défier la gravité, je suis chez moi à la conquête des mondes virtuels. Il n’y a aucun muscle que vous ne puissiez tonifier et aucun niveau que vous ne pouvez dépasser ! Qui d’autre combine la transpiration avec le bouton A?",
+    "descriptionBrian": "Salut! Je suis le champion de gym et le programmeur le plus incroyable de l'univers, selon ma mère. Quand je ne soulève pas de poids, je soulève du code et bats des records (du moins dans mon propre monde). Qui d’autre peut faire des pompes tout en résolvant un problème ? bogue? Je t'attendrai à la salle de sport... ou au code source.",
+    "descriptionCamilo": "Bonjour! Je suis le ninja de la programmation et le globe-trotter du clavier. Lorsque je ne maîtrise pas le code, j'explore le monde avec mon sac à dos et mon ordinateur portable, prêt à coder n'importe où sur la planète. Si vous cherchez le gars capable de pirater un système et de monter une tente en moins d'une heure, je suis là !",
+    "descriptionYhonier": "Salut, comment ça va ! Voici les « Mille Pas », le prodige qui donne l'impression que tout le monde avance au ralenti. Au bureau, je suis comme le GPS humain : il pointe toujours dans la bonne direction. Mais à l'extérieur d'ici, on m'appelle « le philosophe de la vie ». Vie sociale? Aventure? N'en rêvez même pas ! Je préfère les nuits immergées dans mes propres pensées, perçant les mystères de l'univers depuis le confort de mon canapé. Alors si vous avez besoin d'un guide au travail, je suis là, à quelques pas !"
 }

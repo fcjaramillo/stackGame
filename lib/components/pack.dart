@@ -76,9 +76,10 @@ class PackComponent extends SpriteComponent
                 }
                 int index = random % pack.cards.length;
                 if (pack.cards[index].card.id == 1000) {
-                  newCards.add(pack.cards[index - 1].card);
+                  newCards.add(pack.cards[0].card);
+                } else {
+                  newCards.add(pack.cards[index].card);
                 }
-                newCards.add(pack.cards[index].card);
               }
 
               break;
@@ -92,7 +93,6 @@ class PackComponent extends SpriteComponent
       List<RecipeModel> recipes = game.recipesNotifier.value
           .where((e) => e.cardCreate != null && !e.isVisible)
           .toList();
-      print(recipes.length);
 
       for (int i = 0; i < pack.numberCards; i++) {
         int random = ramdom.nextInt(100) + 1;

@@ -1219,6 +1219,29 @@ List<RecipeModel> recipes = <RecipeModel>[
     time: 3,
   ),
   RecipeModel(
+    id: 55,
+    create: <CardModel>[
+      kWell,
+    ],
+    cardCreate: kWellIdea,
+    cards: <CardModel>[
+      kRock,
+      kRock,
+      kRock,
+      kWater,
+      kWater,
+      kHuman,
+    ],
+    remove: <CardModel>[
+      kRock,
+      kRock,
+      kRock,
+      kWater,
+      kWater,
+    ],
+    time: 20,
+  ),
+  RecipeModel(
     id: 69,
     create: <CardModel>[
       kDev,

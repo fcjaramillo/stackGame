@@ -11,12 +11,13 @@ extension PersonExtension on CardComponent {
             (CardComponent c) => c.isFood,
           )
           .toList();
+      foodCards.removeWhere((e) => cardInRecipe(e));
       if (foodCards.fold<int>(
               0, (int p, CardComponent c) => p + (c.card.food ?? 0)) >=
           kNeededFood) {
         int neededFood = kNeededFood;
         while (neededFood > 0) {
-          final CardComponent food = foodCards.removeAt(0);
+          final CardComponent food = foodCards.removeLast();
           neededFood -= food.card.food ?? 0;
           await food.animateTo(position);
         }

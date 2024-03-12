@@ -8,7 +8,7 @@ const double kCardWidth = 100.0;
 const double kCardHeight = 115.0;
 const double kBarTimerWidth = 300.0;
 const double kBarTimerHeight = 24;
-const double kTimeDayComplete = 90;
+const double kTimeDayComplete = 120;
 const Color kColorBluePrincipal = Color(0xff184e77);
 const Color kColorBackground = Color(0xffa9d6e5);
 
@@ -21,11 +21,11 @@ const double kNewCardAnimationDuration = 1.5;
 const double kGrassSide = 790;
 
 const double kMaxValue = 100;
-const double kOxygenInitial = 50;
-const double kCarbonFootprintInitial = 70;
-const int kNumberCardsInitial = 20;
-const int kHealtInitial = 70;
-const int kInitialCoins = 3;
+const double kOxygenInitial = 60;
+const double kCarbonFootprintInitial = 50;
+const int kNumberCardsInitial = 24;
+const int kHealtInitial = 80;
+const int kInitialCoins = 7;
 const int kCostFastFood = 3;
 
 const int kNeededFood = 3;

@@ -2,7 +2,9 @@ part of 'extensions.dart';
 
 extension EnergyExtension on CardComponent {
   Future<void> sellEnergy() async {
-    if (game.energy.value > game.energyMax.value) {
+    if (game.playState != PlayState.gameOver &&
+        game.playState != PlayState.gameOver &&
+        game.energy.value > game.energyMax.value) {
       game.isPause = true;
       game.canInteract.value = false;
       List<CardComponent> cards = game.world.children.query<CardComponent>();

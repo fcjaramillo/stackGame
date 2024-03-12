@@ -9,6 +9,8 @@
         }
       }
     },
+    "tutorial": "Tutorial",
+    "restart": "Restart",
     "quantity": "Quantity",
     "food": "Food",
     "health": "Health",
@@ -29,7 +31,7 @@
     "onboardingAction": "Press enter",
     "gameOverTitle": "G A M E   O V E R",
     "gameOverSubtitle": "Tap to Play Again",
-    "gameOverAction": "Press enter",
+    "gameOverAction": "Press enter x 2",
     "wonTitle": "Y O U   W O N ! ! !",
     "wonSubtitle": "Tap to Play Again",
     "wonAction": "Press enter",
@@ -313,8 +315,15 @@
     "fertilizerDescription": "An enriched compound that boosts the growth of your crops. This fertilizer ensures that your plants are always happy and healthy.",
     "treeSeed": "Tree Seed",
     "treeSeedDescription": "A small treasure of nature that carries with it the promise of a green and lush future. Plant this seed with love and care, and you will see how a majestic tree will grow and provide shade and oxygen.",
+    "ideaWell": "Idea: Well",
     "well": "Well",
     "wellDescription": "A reliable source of drinking water for your community. This well guarantees a constant supply of vital liquid to keep everyone hydrated.",
+    "ideaPlanks": "Idea: Planks",
     "devTeam": "Dev team",
-    "devTeamDescription": "Does anyone actually read the descriptions? Are you seriously reading this? Don`t you have anything better to do? Well, I guess that makes two of us. You´ve unlocked the Development Team card. Someone somewhere probably thought it was a good idea. Are you excited? Probably not, but thanks for being here anyway. Developers: …"
+    "devTeamDescription": "Does anyone actually read the descriptions? Are you seriously reading this? Don`t you have anything better to do? Well, I guess that makes two of us. Youve unlocked the Development Team card. Someone somewhere probably thought it was a good idea. Are you excited? Probably not, but thanks for being here anyway. Developers: …",
+    "ideaDescriptionGeneral": "If you are interested in discovering how to create this idea yourself, we invite you to review the recipes menu at the top.",
+    "descriptionSanty": "Hey! How are you? I am the master of irons and the king of controls. When I'm not at the gym defying gravity, I'm at home conquering virtual worlds. There is no muscle you can't tone and no level you can't surpass! Who else combines sweat with the A button?",
+    "descriptionBrian": "Hi! I'm the gym champion and the most amazing programmer in the universe, according to my mom. When I'm not lifting weights, I'm lifting code and breaking records (at least in my own world). Who else can do push-ups while solving a problem? bug? I'll wait for you at the gym... or at the source code.?",
+    "descriptionCamilo": "Hello! I am the programming ninja and the keyboard globetrotter. When I'm not mastering code, I'm exploring the world with my backpack and laptop in tow, ready to code anywhere on the planet. If you're looking for the guy who can hack a system and set up a tent in less than an hour, I'm here!",
+    "descriptionYhonier": "Hi how are things! Here is the 'Thousand Steps', the prodigy that makes everyone look like they are moving in slow motion. In the office, I'm like the human GPS: always pointing in the right direction. But outside of here, they call me 'The Philosopher of Life'. Social life? Adventure? Do not even dream about it! I prefer nights immersed in my own thoughts, unraveling the mysteries of the universe from the comfort of my couch. So if you need a guide at work, I'm here, just a few steps away!"
 }

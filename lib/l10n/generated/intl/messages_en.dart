@@ -140,9 +140,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "craftingTable": MessageLookupByLibrary.simpleMessage("Crafting Table"),
         "craftingTableDescription": MessageLookupByLibrary.simpleMessage(
             "The epicenter of creation in your village. Here, ideas become reality. From simple shelves to complex structures, it all starts here."),
+        "descriptionBrian": MessageLookupByLibrary.simpleMessage(
+            "Hi! I\'m the gym champion and the most amazing programmer in the universe, according to my mom. When I\'m not lifting weights, I\'m lifting code and breaking records (at least in my own world). Who else can do push-ups while solving a problem? bug? I\'ll wait for you at the gym... or at the source code.?"),
+        "descriptionCamilo": MessageLookupByLibrary.simpleMessage(
+            "Hello! I am the programming ninja and the keyboard globetrotter. When I\'m not mastering code, I\'m exploring the world with my backpack and laptop in tow, ready to code anywhere on the planet. If you\'re looking for the guy who can hack a system and set up a tent in less than an hour, I\'m here!"),
+        "descriptionSanty": MessageLookupByLibrary.simpleMessage(
+            "Hey! How are you? I am the master of irons and the king of controls. When I\'m not at the gym defying gravity, I\'m at home conquering virtual worlds. There is no muscle you can\'t tone and no level you can\'t surpass! Who else combines sweat with the A button?"),
+        "descriptionYhonier": MessageLookupByLibrary.simpleMessage(
+            "Hi how are things! Here is the \'Thousand Steps\', the prodigy that makes everyone look like they are moving in slow motion. In the office, I\'m like the human GPS: always pointing in the right direction. But outside of here, they call me \'The Philosopher of Life\'. Social life? Adventure? Do not even dream about it! I prefer nights immersed in my own thoughts, unraveling the mysteries of the universe from the comfort of my couch. So if you need a guide at work, I\'m here, just a few steps away!"),
         "devTeam": MessageLookupByLibrary.simpleMessage("Dev team"),
         "devTeamDescription": MessageLookupByLibrary.simpleMessage(
-            "Does anyone actually read the descriptions? Are you seriously reading this? Don`t you have anything better to do? Well, I guess that makes two of us. You´ve unlocked the Development Team card. Someone somewhere probably thought it was a good idea. Are you excited? Probably not, but thanks for being here anyway. Developers: …"),
+            "Does anyone actually read the descriptions? Are you seriously reading this? Don`t you have anything better to do? Well, I guess that makes two of us. Youve unlocked the Development Team card. Someone somewhere probably thought it was a good idea. Are you excited? Probably not, but thanks for being here anyway. Developers: …"),
         "dirt": MessageLookupByLibrary.simpleMessage("Dirt"),
         "dirtDescription": MessageLookupByLibrary.simpleMessage(
             "Nature\'s embrace, the mother of all plants and worms! Rich in nutrients and essential for plant life"),
@@ -196,7 +204,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "furnace": MessageLookupByLibrary.simpleMessage("Furnace"),
         "furnaceDescription": MessageLookupByLibrary.simpleMessage(
             "The scene of the most epic feats, where materials become masterpieces (or disasters). Whether cooking succulent delicacies or melting metals and creating new materials."),
-        "gameOverAction": MessageLookupByLibrary.simpleMessage("Press enter"),
+        "gameOverAction":
+            MessageLookupByLibrary.simpleMessage("Press enter x 2"),
         "gameOverSubtitle":
             MessageLookupByLibrary.simpleMessage("Tap to Play Again"),
         "gameOverTitle":
@@ -253,6 +262,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Idea: Crafting Table"),
         "ideaCraftingTableDescription": MessageLookupByLibrary.simpleMessage(
             "The crafting is:\n4 x Wood\n1 x Human"),
+        "ideaDescriptionGeneral": MessageLookupByLibrary.simpleMessage(
+            "If you are interested in discovering how to create this idea yourself, we invite you to review the recipes menu at the top."),
         "ideaElectronicTable":
             MessageLookupByLibrary.simpleMessage("Idea: Electronic table"),
         "ideaElectronicTableDescription": MessageLookupByLibrary.simpleMessage(
@@ -310,6 +321,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ideaPack": MessageLookupByLibrary.simpleMessage("Idea Pack"),
         "ideaPackDescription":
             MessageLookupByLibrary.simpleMessage("Provide 3 idea cards"),
+        "ideaPlanks": MessageLookupByLibrary.simpleMessage("Idea: Planks"),
         "ideaPotatoOmelet":
             MessageLookupByLibrary.simpleMessage("Idea: Potato Omelet"),
         "ideaPotatoOmeletDescription": MessageLookupByLibrary.simpleMessage(
@@ -342,6 +354,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Idea: Warehouse"),
         "ideaWarehouseDescription": MessageLookupByLibrary.simpleMessage(
             "Provide 15 more card slot.\nThe crafting is:\n4 x Structures\n4 x Planks\n1 x Crafting Table\n1 x Human"),
+        "ideaWell": MessageLookupByLibrary.simpleMessage("Idea: Well"),
         "ideaWindturbine":
             MessageLookupByLibrary.simpleMessage("Idea: Wind turbine"),
         "ideaWindturbineDescription": MessageLookupByLibrary.simpleMessage(
@@ -452,6 +465,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "recycler": MessageLookupByLibrary.simpleMessage("Recycler"),
         "recyclerDescription": MessageLookupByLibrary.simpleMessage(
             "An advanced Recycling Center that allows you to disassemble and reuse the cards you no longer need, giving you back the materials for future projects. An \'undo\' button for unwanted constructions."),
+        "restart": MessageLookupByLibrary.simpleMessage("Restart"),
         "rock": MessageLookupByLibrary.simpleMessage("Rock"),
         "rockDescription": MessageLookupByLibrary.simpleMessage(
             "So sturdy that even Goliath would tremble at the sight of it. Ideal for building or hurling pesky giants."),
@@ -491,6 +505,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "treeSeed": MessageLookupByLibrary.simpleMessage("Tree Seed"),
         "treeSeedDescription": MessageLookupByLibrary.simpleMessage(
             "A small treasure of nature that carries with it the promise of a green and lush future. Plant this seed with love and care, and you will see how a majestic tree will grow and provide shade and oxygen."),
+        "tutorial": MessageLookupByLibrary.simpleMessage("Tutorial"),
         "unlock": m2,
         "wallet": MessageLookupByLibrary.simpleMessage("wallet"),
         "warehouse": MessageLookupByLibrary.simpleMessage("Warehouse"),

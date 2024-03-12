@@ -1,6 +1,7 @@
 {    
     "@@locale": "es",
     "quantity": "Cantidad",
+    "tutorial": "Tutorial",
     "food": "Comida",
     "health": "Salud",
     "oxygen": "Oxígeno",
@@ -20,7 +21,7 @@
     "onboardingAction": "Presiona enter",
     "gameOverTitle": "F I N   D E L   J U E G O",
     "gameOverSubtitle": "Toca para Jugar de Nuevo",
-    "gameOverAction": "Presiona enter",
+    "gameOverAction": "Presiona enter x 2",
     "wonTitle": "¡G A N A S T E ! ! !",
     "wonSubtitle": "Toca para Jugar de Nuevo",
     "wonAction": "Presiona enter",
@@ -304,9 +305,16 @@
     "fertilizerDescription": "Un compuesto enriquecido que estimula el crecimiento de tus cultivos. Este fertilizante garantiza que tus plantas estén siempre felices y saludables.",
     "treeSeed": "Semilla de Árbol",
     "treeSeedDescription": "Un pequeño tesoro de la naturaleza que lleva consigo la promesa de un futuro verde y exuberante. Planta esta semilla con amor y cuidado, y verás cómo crecerá un majestuoso árbol que proporcionará sombra y oxígeno.",
+    "ideaWell": "Idea: Well",
     "well": "Pozo",
     "wellDescription": "Una fuente confiable de agua potable para tu comunidad. Este pozo garantiza un suministro constante de líquido vital para mantener a todos hidratados.",
+    "ideaPlanks":"Idea: Tablones",
     "devTeam": "Equipo de Desarrollo",
-    "devTeamDescription": "¿Alguien realmente lee las descripciones? ¿De verdad estás leyendo esto? ¿No tienes nada mejor que hacer? Bueno, supongo que somos dos. Has desbloqueado la tarjeta del Equipo de Desarrollo. Alguien en algún lugar probablemente pensó que era una buena idea. ¿Estás emocionado? Probablemente no, pero gracias por estar aquí de todos modos. Desarrolladores: ..."
+    "devTeamDescription": "¿Alguien realmente lee las descripciones? ¿De verdad estás leyendo esto? ¿No tienes nada mejor que hacer? Bueno, supongo que somos dos. Has desbloqueado la tarjeta del Equipo de Desarrollo. Alguien en algún lugar probablemente pensó que era una buena idea. ¿Estás emocionado? Probablemente no, pero gracias por estar aquí de todos modos. Desarrolladores: ...",
+    "ideaDescriptionGeneral": "Si estás interesado en descubrir cómo crear esta idea por ti mismo, te invito a revisar el menu recetas de la parte superior",
+    "descriptionSanty": "Hey! ¿Qué tal? Soy el maestro de los hierros y el rey de los controles. Cuando no estoy en el gym desafiando a la gravedad, estoy en casa conquistando mundos virtuales. ¡No hay músculo que no pueda tonificar ni nivel que no pueda superar! ¿Quién más combina el sudor con el botón A?",
+    "descriptionBrian": "Hola! Soy el campeón del gimnasio y el programador más asombroso del universo, según mi madre. Cuando no estoy levantando pesas, estoy levantando código y rompiendo récords (al menos en mi propio mundo). ¿Quién más puede hacer flexiones mientras soluciona un bug? Te espero en el gimnasio... o en el código fuente.?",
+    "descriptionCamilo": "¡Hola! Soy el ninja de la programación y el trotamundos del teclado. Cuando no estoy dominando el código, estoy explorando el mundo con mi mochila y mi laptop a cuestas, listo para programar en cualquier rincón del planeta. Si buscas al tipo que puede hackear un sistema y montar una tienda de campaña en menos de una hora, ¡aquí estoy!",
+    "descriptionYhonier": "¡Hola, qué tal! Aquí el 'Mil Pasos', el prodigio que hace que todos parezcan que están avanzando en cámara lenta. En la oficina, soy como el GPS humano: siempre apuntando en la dirección correcta. Pero fuera de aquí, me llaman 'El Filósofo de la vida'. ¿Vida social? ¿Aventuras? ¡Ni lo sueñes! Prefiero las noches sumergido en mis propios pensamientos, desentrañando los misterios del universo desde la comodidad de mi sofá. Así que si necesitas un guía en el trabajo, ¡aquí estoy, a solo unos pasos de distancia!"
 }
     

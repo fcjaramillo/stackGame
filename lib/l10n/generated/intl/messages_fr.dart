@@ -134,6 +134,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Table de fabrication"),
         "craftingTableDescription": MessageLookupByLibrary.simpleMessage(
             "Le centre de création dans votre village. Ici, les idées deviennent réalité. Des simples étagères aux structures complexes, tout commence ici."),
+        "descriptionBrian": MessageLookupByLibrary.simpleMessage(
+            "Salut! Je suis le champion de gym et le programmeur le plus incroyable de l\'univers, selon ma mère. Quand je ne soulève pas de poids, je soulève du code et bats des records (du moins dans mon propre monde). Qui d’autre peut faire des pompes tout en résolvant un problème ? bogue? Je t\'attendrai à la salle de sport... ou au code source."),
+        "descriptionCamilo": MessageLookupByLibrary.simpleMessage(
+            "Bonjour! Je suis le ninja de la programmation et le globe-trotter du clavier. Lorsque je ne maîtrise pas le code, j\'explore le monde avec mon sac à dos et mon ordinateur portable, prêt à coder n\'importe où sur la planète. Si vous cherchez le gars capable de pirater un système et de monter une tente en moins d\'une heure, je suis là !"),
+        "descriptionSanty": MessageLookupByLibrary.simpleMessage(
+            "Hé! Comment vas-tu? Je suis le maître des fers et le roi des contrôles. Quand je ne suis pas au gymnase pour défier la gravité, je suis chez moi à la conquête des mondes virtuels. Il n’y a aucun muscle que vous ne puissiez tonifier et aucun niveau que vous ne pouvez dépasser ! Qui d’autre combine la transpiration avec le bouton A?"),
+        "descriptionYhonier": MessageLookupByLibrary.simpleMessage(
+            "Salut, comment ça va ! Voici les « Mille Pas », le prodige qui donne l\'impression que tout le monde avance au ralenti. Au bureau, je suis comme le GPS humain : il pointe toujours dans la bonne direction. Mais à l\'extérieur d\'ici, on m\'appelle « le philosophe de la vie ». Vie sociale? Aventure? N\'en rêvez même pas ! Je préfère les nuits immergées dans mes propres pensées, perçant les mystères de l\'univers depuis le confort de mon canapé. Alors si vous avez besoin d\'un guide au travail, je suis là, à quelques pas !"),
         "devTeam":
             MessageLookupByLibrary.simpleMessage("Équipe de développement"),
         "devTeamDescription": MessageLookupByLibrary.simpleMessage(
@@ -193,7 +201,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "furnaceDescription": MessageLookupByLibrary.simpleMessage(
             "Le théâtre des exploits les plus épiques, où les matériaux deviennent des chefs-d\'œuvre (ou des désastres). Que ce soit pour cuisiner de succulentes délices ou fondre des métaux et créer de nouveaux matériaux."),
         "gameOverAction":
-            MessageLookupByLibrary.simpleMessage("Appuyez sur Entrée"),
+            MessageLookupByLibrary.simpleMessage("Appuyez sur Entrée x 2"),
         "gameOverSubtitle": MessageLookupByLibrary.simpleMessage(
             "Appuyez pour Jouer à Nouveau"),
         "gameOverTitle":
@@ -251,6 +259,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Idée : Table de craft"),
         "ideaCraftingTableDescription": MessageLookupByLibrary.simpleMessage(
             "La fabrication est :\n4 x Bois\n1 x Humain"),
+        "ideaDescriptionGeneral": MessageLookupByLibrary.simpleMessage(
+            "Si vous souhaitez découvrir comment créer vous-même cette idée, nous vous invitons à consulter le menu de recettes en haut."),
         "ideaElectronicTable":
             MessageLookupByLibrary.simpleMessage("Idée : Table électronique"),
         "ideaElectronicTableDescription": MessageLookupByLibrary.simpleMessage(
@@ -306,6 +316,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ideaPack": MessageLookupByLibrary.simpleMessage("Pack d\'idées"),
         "ideaPackDescription":
             MessageLookupByLibrary.simpleMessage("Fournit 3 cartes d\'idées"),
+        "ideaPlanks": MessageLookupByLibrary.simpleMessage("Idea: Planches"),
         "ideaPotatoOmelet": MessageLookupByLibrary.simpleMessage(
             "Idée : Omelette aux pommes de terre"),
         "ideaPotatoOmeletDescription": MessageLookupByLibrary.simpleMessage(
@@ -339,6 +350,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Idée : Entrepôt"),
         "ideaWarehouseDescription": MessageLookupByLibrary.simpleMessage(
             "Fournit 15 emplacements de carte supplémentaires.\nLa fabrication est :\n4 x Structures\n4 x Planches\n1 x Table de craft\n1 x Humain"),
+        "ideaWell": MessageLookupByLibrary.simpleMessage("Idée: Well"),
         "ideaWindturbine":
             MessageLookupByLibrary.simpleMessage("Idée : Éolienne"),
         "ideaWindturbineDescription": MessageLookupByLibrary.simpleMessage(
@@ -450,6 +462,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "recycler": MessageLookupByLibrary.simpleMessage("Recycleur"),
         "recyclerDescription": MessageLookupByLibrary.simpleMessage(
             "Un centre de recyclage avancé qui vous permet de désassembler et de réutiliser les cartes dont vous n\'avez plus besoin, vous rendant les matériaux pour des projets futurs. Un bouton \'annuler\' pour les constructions indésirables."),
+        "restart": MessageLookupByLibrary.simpleMessage("Redémarrage"),
         "rock": MessageLookupByLibrary.simpleMessage("Rocher"),
         "rockDescription": MessageLookupByLibrary.simpleMessage(
             "Si solide que même Goliath tremblerait à sa vue. Idéal pour la construction ou pour lancer des géants ennuyeux."),
@@ -491,6 +504,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "treeSeed": MessageLookupByLibrary.simpleMessage("Graine d\'arbre"),
         "treeSeedDescription": MessageLookupByLibrary.simpleMessage(
             "Un petit trésor de la nature qui porte en lui la promesse d\'un avenir vert et luxuriant. Plantez cette graine avec amour et attention, et vous verrez comment un arbre majestueux poussera pour fournir de l\'ombre et de l\'oxygène."),
+        "tutorial": MessageLookupByLibrary.simpleMessage("Didacticiel"),
         "unlock": m2,
         "wallet": MessageLookupByLibrary.simpleMessage("portefeuille"),
         "warehouse": MessageLookupByLibrary.simpleMessage("Entrepôt"),
