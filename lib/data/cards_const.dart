@@ -439,6 +439,7 @@ CardModel kCraftingTable = CardModel(
   description: 'craftingTableDescription',
   descriptionInt: (context) => L10n.of(context).craftingTableDescription,
   prize: 1,
+  energy: -1,
   quantity: -1,
 );
 CardModel kSawmill = CardModel(
@@ -538,7 +539,7 @@ CardModel kRecycler = CardModel(
   descriptionInt: (context) => L10n.of(context).recyclerDescription,
   prize: 1,
   quantity: -1,
-  energy: -5,
+  energy: -2,
 );
 CardModel kComposter = CardModel(
   type: TypeCard.structure,

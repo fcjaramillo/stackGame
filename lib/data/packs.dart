@@ -10,7 +10,6 @@ List<PackModel> packs = [
     cost: 3,
     numberCards: 3,
     day: 0,
-    devCard: kFabian,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(
         card: kRock,
@@ -183,6 +182,7 @@ List<PackModel> packs = [
       kSolarCellsIdea,
       kStructureIdea,
       kCablesIdea,
+      kRecyclerIdea,
     ],
   ),
   PackModel(
@@ -232,7 +232,6 @@ List<PackModel> packs = [
       kMillIdea,
       kGreenhouseIdea,
       kWindTurbineIdea,
-      kRecyclerIdea,
     ],
   ),
   PackModel(
@@ -295,7 +294,7 @@ List<PackModel> packs = [
     nameInt: (context) => L10n.of(context).ideaPack,
     descriptionInt: (context) => L10n.of(context).ideaPackDescription,
     cost: 20,
-    numberCards: 1,
+    numberCards: 4,
     day: 10,
     cards: <CardProbabilityModel>[
       CardProbabilityModel(

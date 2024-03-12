@@ -34,8 +34,8 @@ class PlayAreaComponent extends RectangleComponent
   }
 
   void _loadBackground(Random random) {
-    for (int x = 0; x < 4; x++) {
-      for (int y = 0; y < 3; y++) {
+    for (int x = 0; x < 3; x++) {
+      for (int y = 0; y < 2; y++) {
         final Vector2 currentPosition = position +
             Vector2(
                   x.toDouble() - 0.18,
@@ -49,8 +49,8 @@ class PlayAreaComponent extends RectangleComponent
         );
       }
     }
-    for (int x = -1; x < 24; x++) {
-      for (int y = -1; y < 16; y++) {
+    for (int x = -1; x < 16; x++) {
+      for (int y = -1; y < 12; y++) {
         final Vector2 currentPosition = position +
             Vector2(
                   x.toDouble(),

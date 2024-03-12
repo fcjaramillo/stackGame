@@ -51,42 +51,67 @@ class PackComponent extends SpriteComponent
 
   List<CardModel> generateCards(Random ramdom) {
     List<CardModel> newCards = <CardModel>[];
-    for (int i = 0; i < pack.numberCards; i++) {
-      int random = ramdom.nextInt(100) + 1;
-      int percentage = 0;
+    if (pack.id != 5) {
+      for (int i = 0; i < pack.numberCards; i++) {
+        int random = ramdom.nextInt(100) + 1;
+        int percentage = 0;
 
-      for (int j = 0; j < pack.cards.length; j++) {
-        percentage += pack.cards[j].percentage.toInt();
-        if (random <= percentage) {
-          if (pack.cards[j].card.id == 1000) {
-            if (myNotIdeas.isNotEmpty) {
-              int indexIdea = random % myNotIdeas.length;
-              newCards.add(myNotIdeas[indexIdea]);
-              myNotIdeas.removeAt(indexIdea);
-            } else {
-              if (pack.devCard != null) {
-                int iCard = game.world.children
-                    .query<CardComponent>()
-                    .indexWhere((c) => c.card.id == pack.devCard!.id);
-                if (iCard == -1) {
-                  newCards.add(pack.devCard!);
-                  break;
+        for (int j = 0; j < pack.cards.length; j++) {
+          percentage += pack.cards[j].percentage.toInt();
+          if (random <= percentage) {
+            if (pack.cards[j].card.id == 1000) {
+              if (myNotIdeas.isNotEmpty) {
+                int indexIdea = random % myNotIdeas.length;
+                newCards.add(myNotIdeas[indexIdea]);
+                myNotIdeas.removeAt(indexIdea);
+              } else {
+                if (pack.devCard != null) {
+                  int iCard = game.world.children
+                      .query<CardComponent>()
+                      .indexWhere((c) => c.card.id == pack.devCard!.id);
+                  if (iCard == -1) {
+                    newCards.add(pack.devCard!);
+                    break;
+                  }
                 }
+                int index = random % pack.cards.length;
+                if (pack.cards[index].card.id == 1000) {
+                  newCards.add(pack.cards[index - 1].card);
+                }
+                newCards.add(pack.cards[index].card);
               }
-              int index = random % pack.cards.length;
-              if (pack.cards[index].card.id == 1000) {
-                newCards.add(pack.cards[index - 1].card);
-              }
-              newCards.add(pack.cards[index].card);
-            }
 
+              break;
+            }
+            newCards.add(pack.cards[j].card);
             break;
           }
-          newCards.add(pack.cards[j].card);
-          break;
         }
       }
+    } else {
+      List<RecipeModel> recipes = game.recipesNotifier.value
+          .where((e) => e.cardCreate != null && !e.isVisible)
+          .toList();
+      print(recipes.length);
+
+      for (int i = 0; i < pack.numberCards; i++) {
+        int random = ramdom.nextInt(100) + 1;
+        int indexIdea = random % recipes.length;
+        List<PackComponent> packsComponents =
+            game.world.children.query<PackComponent>();
+        for (PackComponent packComponent in packsComponents) {
+          if (packComponent.myNotIdeas.isNotEmpty) {
+            bool j = packComponent.myNotIdeas
+                .contains(recipes[indexIdea].cardCreate!);
+            if (j) {
+              packComponent.myNotIdeas.remove(recipes[indexIdea].cardCreate!);
+            }
+          }
+        }
+        newCards.add(recipes[indexIdea].cardCreate!);
+      }
     }
+
     return newCards;
   }
 

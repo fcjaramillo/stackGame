@@ -14,8 +14,8 @@ const Color kColorBackground = Color(0xffa9d6e5);
 
 const double kMinCameraX = -60;
 const double kMinCameraY = -50;
-const double kMaxCameraX = 190;
-const double kMaxCameraY = 440;
+const double kMaxCameraX = 80;
+const double kMaxCameraY = 240;
 const double kVegetationSide = 115;
 const double kNewCardAnimationDuration = 1.5;
 const double kGrassSide = 790;

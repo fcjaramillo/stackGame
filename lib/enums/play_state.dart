@@ -5,6 +5,7 @@ enum PlayState {
   onboarding,
   playing,
   selling,
+  energy,
   pause,
   gameOver,
   won,

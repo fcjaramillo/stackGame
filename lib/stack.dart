@@ -56,7 +56,10 @@ class StackGame extends FlameGame
     switch (playState) {
       case PlayState.welcome:
       case PlayState.gameOver:
+        overlays.remove(PlayState.selling.name);
+        overlays.add(playState.name);
       case PlayState.won:
+        overlays.remove(PlayState.selling.name);
         overlays.add(playState.name);
       case PlayState.pause:
       case PlayState.onboarding:
@@ -68,8 +71,11 @@ class StackGame extends FlameGame
         overlays.remove(PlayState.gameOver.name);
         overlays.remove(PlayState.won.name);
         overlays.remove(PlayState.selling.name);
+        overlays.remove(PlayState.energy.name);
       case PlayState.selling:
         overlays.add(PlayState.selling.name);
+      case PlayState.energy:
+        overlays.add(PlayState.energy.name);
     }
   }
 
@@ -259,7 +265,7 @@ class StackGame extends FlameGame
     const zoomPerScrollUnit = 0.2;
     camera.viewfinder.zoom +=
         info.scrollDelta.global.y.sign * zoomPerScrollUnit;
-    camera.viewfinder.zoom = camera.viewfinder.zoom.clamp(0.5, 1.5);
+    camera.viewfinder.zoom = camera.viewfinder.zoom.clamp(0.8, 1.5);
     super.onScroll(info);
   }
 
@@ -318,6 +324,10 @@ class StackGame extends FlameGame
       List<QuestModel> questNew = questNotifier.value;
       questNew[indexQuest] = questNew[indexQuest].copyWith(isComplete: true);
       questNotifier.value = [...questNew];
+      if (questNotifier.value.indexWhere((element) => !element.isComplete) ==
+          -1) {
+        playState = PlayState.won;
+      }
     }
   }
 
@@ -350,7 +360,8 @@ class StackGame extends FlameGame
         startGame();
       } else if (playState == PlayState.welcome) {
         playState = PlayState.onboarding;
-      } else if (playState == PlayState.gameOver) {
+      } else if (playState == PlayState.gameOver ||
+          playState == PlayState.won) {
         deleteComponents();
         reloadGame();
       }

@@ -162,6 +162,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "energy": MessageLookupByLibrary.simpleMessage("Energy"),
         "energyDescription": MessageLookupByLibrary.simpleMessage(
             "The spark that starts the village engine just be careful not to accidentally ignite the village. An energy boost to keep your machines running and your mind moving. Increases the length of the day by 20 seconds."),
+        "energyTitle": MessageLookupByLibrary.simpleMessage(
+            "You must sell some cards that consume energy"),
         "farm": MessageLookupByLibrary.simpleMessage("Farm"),
         "farmDescription": MessageLookupByLibrary.simpleMessage(
             "A plot of fertile land dedicated to agricultural production. It grows essential foods more efficiently to produce a variety of fresh and healthy foods."),
@@ -460,7 +462,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "The wood workshop, where trees sacrifice their being to become finely crafted furniture... and birds cry silently for their loss."),
         "search": MessageLookupByLibrary.simpleMessage("search"),
         "sellingTitle":
-            MessageLookupByLibrary.simpleMessage("\'You must sell some cards"),
+            MessageLookupByLibrary.simpleMessage("You must sell some cards"),
         "silicon": MessageLookupByLibrary.simpleMessage("Silicon"),
         "siliconDescription": MessageLookupByLibrary.simpleMessage(
             "The essential building block for modern technology, silicon is the cornerstone of electronics. Who knew that beach sand could be so useful? Thank you, silicon!"),

@@ -55,15 +55,12 @@ class StackComponent {
   RecipeModel? findRecipe() {
     List<int> stackB = cards.map((CardComponent c) => c.card.id).toList()
       ..sort();
-    final int currentEnergy = cards.first.game.energy.value;
     for (int i = 0; i < recipes.length; i++) {
       List<int> stackA = recipes[i].cards.map((CardModel c) => c.id).toList()
         ..sort();
-      final int? recipeEnergy = recipes[i].idea?.energy;
 
       if (listEquals(stackA, stackB)) {
-        if (currentEnergy >= (recipeEnergy ?? 0)) return recipes[i];
-        return null;
+        return recipes[i];
       }
     }
     return null;

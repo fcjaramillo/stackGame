@@ -158,6 +158,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "energy": MessageLookupByLibrary.simpleMessage("Énergie"),
         "energyDescription": MessageLookupByLibrary.simpleMessage(
             "L\'étincelle qui met en marche le moteur du village, faites juste attention de ne pas allumer accidentellement le village. Un coup de pouce énergétique pour garder vos machines en marche et votre esprit en mouvement. Augmente la durée du jour de 20 secondes."),
+        "energyTitle": MessageLookupByLibrary.simpleMessage(
+            "Vous devez vendre des cartes qui consomment de l\'énergie"),
         "farm": MessageLookupByLibrary.simpleMessage("Ferme"),
         "farmDescription": MessageLookupByLibrary.simpleMessage(
             "Une parcelle de terre fertile dédiée à la production agricole. Elle fait pousser des aliments essentiels de manière plus efficace pour produire une variété d\'aliments frais et sains."),

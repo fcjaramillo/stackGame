@@ -316,11 +316,21 @@ class L10n {
     );
   }
 
-  /// `'You must sell some cards`
+  /// `You must sell some cards`
   String get sellingTitle {
     return Intl.message(
-      '\'You must sell some cards',
+      'You must sell some cards',
       name: 'sellingTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You must sell some cards that consume energy`
+  String get energyTitle {
+    return Intl.message(
+      'You must sell some cards that consume energy',
+      name: 'energyTitle',
       desc: '',
       args: [],
     );

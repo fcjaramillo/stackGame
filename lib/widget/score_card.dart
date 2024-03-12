@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../const.dart';
@@ -37,8 +38,7 @@ class ScoreCard extends StatelessWidget {
   Widget build(BuildContext context) {
     double sizeIcon = MediaQuery.of(context).size.height < 600 ? 14 : 24;
     return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.1),
+      padding: EdgeInsets.symmetric(horizontal: 64),
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: kColorBackground,
@@ -127,7 +127,7 @@ class ScoreCard extends StatelessWidget {
   }
 }
 
-class TitleListenable<T> extends StatelessWidget {
+class TitleListenable<T> extends StatefulWidget {
   const TitleListenable({
     required this.icon,
     required this.title,
@@ -144,37 +144,88 @@ class TitleListenable<T> extends StatelessWidget {
   final Padding? condition;
 
   @override
+  State<TitleListenable<T>> createState() => _TitleListenableState<T>();
+}
+
+class _TitleListenableState<T> extends State<TitleListenable<T>>
+    with TickerProviderStateMixin {
+  late AnimationController controller;
+  late T valueAfter;
+
+  @override
+  void initState() {
+    controller = AnimationController(
+      vsync: this,
+    );
+    valueAfter = widget.value.value;
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<T>(
-      valueListenable: value,
+      valueListenable: widget.value,
       builder: (context, value, child) {
+        num val = ((value ?? 0) as num) - (valueAfter as num);
+
+        Future.delayed(Duration.zero, () {
+          controller.repeat();
+          controller.forward();
+          valueAfter = value;
+        });
+
         return Expanded(
           flex: 1,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
             child: Tooltip(
               message:
-                  '$title max ${(otherValue is double ? (otherValue as double).toStringAsFixed(2) : otherValue) ?? kMaxValue}',
+                  '${widget.title} max ${(widget.otherValue is double ? (widget.otherValue as double).toStringAsFixed(2) : widget.otherValue) ?? kMaxValue}',
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(child: icon),
+                  Expanded(child: widget.icon),
                   const SizedBox(width: 4),
                   Expanded(
                     flex: 2,
-                    child: AutoSizeText(
-                      otherValue != null
-                          ? '$value/$otherValue'
-                          : '${value is double ? value.toStringAsFixed(0) : value}',
-                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                            color: ((value as num?) ?? 0) <
-                                    ((otherValue as num?) ?? 0)
-                                ? Colors.red
-                                : null,
-                          ),
-                      minFontSize: 6,
-                      maxLines: 1,
+                    child: Stack(
+                      children: [
+                        AutoSizeText(
+                          widget.otherValue != null
+                              ? '$value/${widget.otherValue}'
+                              : '${value is double ? value.toStringAsFixed(0) : value}',
+                          style:
+                              Theme.of(context).textTheme.titleSmall!.copyWith(
+                                    color: ((value as num?) ?? 0) <
+                                            ((widget.otherValue as num?) ?? 0)
+                                        ? Colors.red
+                                        : null,
+                                  ),
+                          minFontSize: 6,
+                          maxLines: 1,
+                        ),
+                        Text(
+                          (val).toStringAsFixed(0),
+                          style:
+                              Theme.of(context).textTheme.titleSmall!.copyWith(
+                                    color: val > 0
+                                        ? Colors.green.shade900
+                                        : Colors.red,
+                                  ),
+                        )
+                            .animate(
+                              controller: controller,
+                            )
+                            .slideY(duration: 1500.ms, begin: -7, end: 0)
+                            .fade(duration: 1750.ms, begin: 1, end: 0),
+                      ],
                     ),
                   ),
                 ],
@@ -187,7 +238,7 @@ class TitleListenable<T> extends StatelessWidget {
   }
 }
 
-class TitleValueListenable<T> extends StatelessWidget {
+class TitleValueListenable<T> extends StatefulWidget {
   const TitleValueListenable({
     required this.icon,
     required this.title,
@@ -202,12 +253,43 @@ class TitleValueListenable<T> extends StatelessWidget {
   final ValueNotifier<T> otherValue;
 
   @override
+  State<TitleValueListenable<T>> createState() =>
+      _TitleValueListenableState<T>();
+}
+
+class _TitleValueListenableState<T> extends State<TitleValueListenable<T>>
+    with TickerProviderStateMixin {
+  late AnimationController controller;
+  late T valueAfter;
+
+  @override
+  void initState() {
+    controller = AnimationController(
+      vsync: this,
+    );
+    valueAfter = widget.value.value;
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<T>(
-      valueListenable: value,
+      valueListenable: widget.value,
       builder: (context, value, child) {
+        num val = ((value ?? 0) as num) - (valueAfter as num);
+        Future.delayed(Duration.zero, () {
+          controller.repeat();
+          controller.forward();
+          valueAfter = value;
+        });
         return ValueListenableBuilder<T>(
-          valueListenable: otherValue,
+          valueListenable: widget.otherValue,
           builder: (context, otherValue, child) {
             return Expanded(
               flex: 1,
@@ -215,28 +297,50 @@ class TitleValueListenable<T> extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
                 child: Tooltip(
-                  message: '$title max ${otherValue ?? kMaxValue}',
+                  message: '${widget.title} max ${otherValue ?? kMaxValue}',
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      icon,
+                      widget.icon,
                       const SizedBox(width: 4),
                       Expanded(
                         flex: 2,
-                        child: AutoSizeText(
-                          otherValue != null
-                              ? '$value/$otherValue'
-                              : '${value is double ? value.toStringAsFixed(2) : value}',
-                          style:
-                              Theme.of(context).textTheme.titleSmall!.copyWith(
+                        child: Stack(
+                          children: [
+                            AutoSizeText(
+                              otherValue != null
+                                  ? '$value/$otherValue'
+                                  : '${value is double ? value.toStringAsFixed(2) : value}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(
                                     color: ((value as num?) ?? 0) >
                                             ((otherValue as num?) ?? 0)
                                         ? Colors.red
                                         : null,
                                   ),
-                          minFontSize: 6,
-                          maxLines: 1,
+                              minFontSize: 6,
+                              maxLines: 1,
+                            ),
+                            Text(
+                              (val).toStringAsFixed(0),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(
+                                    color: val > 0
+                                        ? Colors.green.shade900
+                                        : Colors.red,
+                                  ),
+                            )
+                                .animate(
+                                  controller: controller,
+                                )
+                                .slideY(duration: 1500.ms, begin: -7, end: 0)
+                                .fade(duration: 1750.ms, begin: 1, end: 0),
+                          ],
                         ),
                       ),
                     ],

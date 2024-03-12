@@ -157,6 +157,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "energy": MessageLookupByLibrary.simpleMessage("Energía"),
         "energyDescription": MessageLookupByLibrary.simpleMessage(
             "La chispa que pone en marcha el motor de la aldea, solo ten cuidado de no encender accidentalmente la aldea. Un impulso de energía para mantener tus máquinas en funcionamiento y tu mente activa. Aumenta la duración del día en 20 segundos."),
+        "energyTitle": MessageLookupByLibrary.simpleMessage(
+            "Debes vender algunas cartas que consumen energia"),
         "farm": MessageLookupByLibrary.simpleMessage("Granja"),
         "farmDescription": MessageLookupByLibrary.simpleMessage(
             "Un terreno fértil dedicado a la producción agrícola. Cultiva alimentos esenciales de manera más eficiente para producir una variedad de alimentos frescos y saludables."),

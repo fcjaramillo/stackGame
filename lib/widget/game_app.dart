@@ -220,6 +220,10 @@ class _GameScreenState extends ConsumerState<GameScreen> {
                                       child:
                                           Text(L10n.of(context).sellingTitle),
                                     ),
+                                PlayState.energy.name: (context, game) =>
+                                    Center(
+                                      child: Text(L10n.of(context).energyTitle),
+                                    ),
                               },
                             ),
                           ),

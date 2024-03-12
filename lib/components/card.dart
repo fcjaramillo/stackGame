@@ -76,10 +76,15 @@ class CardComponent extends SpriteComponent
     game.card.value -= card.quantity < 0 ? card.quantity : 0;
     game.cardMax.value += card.quantity > 0 ? card.quantity : 0;
     game.food.value += (card.food ?? 0) > 0 ? card.food ?? 0 : 0;
-    game.energyMax.value += (card.energy ?? 0) > 0 ? card.energy ?? 0 : 0;
-    if (card.id == kWarehouse.id) {
+
+    if (card.id == kSolarPanel.id ||
+        card.id == kWindTurbine.id ||
+        card.id == kCoalPlant.id) {
+      game.energyMax.value += card.energy ?? 0;
+    } else {
       game.energy.value -= card.energy ?? 0;
     }
+    sellEnergy();
     return super.onLoad();
   }
 
@@ -88,7 +93,14 @@ class CardComponent extends SpriteComponent
     game.card.value += card.quantity < 0 ? card.quantity : 0;
     game.cardMax.value -= card.quantity > 0 ? card.quantity : 0;
     game.food.value -= (card.food ?? 0) > 0 ? card.food ?? 0 : 0;
-    game.energyMax.value -= (card.energy ?? 0) > 0 ? card.energy ?? 0 : 0;
+    if (card.id == kSolarPanel.id ||
+        card.id == kWindTurbine.id ||
+        card.id == kCoalPlant.id) {
+      game.energyMax.value -= card.energy ?? 0;
+    } else {
+      game.energy.value += card.energy ?? 0;
+    }
+    sellEnergy();
     super.onRemove();
   }
 
@@ -140,7 +152,7 @@ class CardComponent extends SpriteComponent
   void onDragStart(DragStartEvent event) {
     super.onDragStart(event);
 
-    for (StackComponent s in game.stacks) {
+    for (StackComponent s in [...game.stacks]) {
       if (s.cards.length == 1) {
         game.stacks.remove(s);
       }
@@ -151,7 +163,7 @@ class CardComponent extends SpriteComponent
       priority = 10;
     } else {
       List<CardComponent> cards = game.stacks[stackIndex].separateStack(this);
-      for (StackComponent s in game.stacks) {
+      for (StackComponent s in [...game.stacks]) {
         if (s.cards.length <= 1) {
           game.stacks.remove(s);
         }

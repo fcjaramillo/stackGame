@@ -29,7 +29,9 @@ class LinearTime extends RectangleComponent with HasGameReference<StackGame> {
     if (!game.canInteract.value && game.playState == PlayState.playing) {
       game.canInteract.value = true;
     }
-    if (!(game.isPause) && game.playState != PlayState.gameOver) {
+    if (!(game.isPause) &&
+        game.playState != PlayState.gameOver &&
+        game.playState != PlayState.won) {
       if (!(game.isFast)) {
         currentTime += dt;
       } else {

@@ -903,20 +903,14 @@ List<RecipeModel> recipes = <RecipeModel>[
       kRecycler,
     ],
     cards: <CardModel>[
-      kPlanks,
-      kPlanks,
-      kPlanks,
-      kPlanks,
+      kPlastic,
       kStructure,
       kStructure,
       kCraftingTable,
       kHuman,
     ],
     remove: <CardModel>[
-      kPlanks,
-      kPlanks,
-      kPlanks,
-      kPlanks,
+      kPlastic,
       kStructure,
       kStructure,
       kCraftingTable,
@@ -1209,6 +1203,20 @@ List<RecipeModel> recipes = <RecipeModel>[
       kBanana,
     ],
     time: 60,
+  ),
+  RecipeModel(
+    id: 54,
+    create: <CardModel>[
+      kCoal,
+    ],
+    cards: <CardModel>[
+      kPlastic,
+      kRecycler,
+    ],
+    remove: <CardModel>[
+      kPlastic,
+    ],
+    time: 3,
   ),
   RecipeModel(
     id: 69,
